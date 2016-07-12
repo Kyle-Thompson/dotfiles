@@ -37,7 +37,7 @@ set wildignore=*.o
 
 " Uncatagorized (TODO: for now)
 set number          " Show line numbers.
-set hidden          " TODO
+set hidden          " Hide file, don't close on file switch. (No save needed to switch files.)
 set visualbell      " No beeps.
 syntax on           " Syntax highlighting
 
@@ -46,7 +46,8 @@ syntax on           " Syntax highlighting
 
 " Check if plugged exists.
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
-    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs 
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall
 endif
 
@@ -56,7 +57,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'scrooloose/nerdtree'        " tree file explorer
     Plug 'scrooloose/nerdcommenter'   " commenting utility
     Plug 'tpope/vim-fugitive'         " git wrapperi
-    Plug 'valloric/youcompleteme'     " code completion TODO: something is going wrong here.
     Plug 'godlygeek/tabular'          " text alignment
 
 call plug#end()
