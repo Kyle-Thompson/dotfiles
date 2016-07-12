@@ -69,9 +69,12 @@ call plug#begin() "'~/.config/nvim/plugged')
     " commenting utility
     Plug 'scrooloose/nerdcommenter'   
     
-    " git wrapperi
+    " git wrapper
     Plug 'tpope/vim-fugitive'         
     
+    " Visual tabs
+    Plug 'Yggdroot/indentLine'
+
     " text alignment
     Plug 'godlygeek/tabular'          
 
@@ -90,13 +93,15 @@ call plug#end()
 
 "--- Plugin Configurations
 
-" deoplete
+" autocompletion
 let g:deoplete#enable_at_startup = 1
 
-" airline
+" status line
 let g:airline_theme='gruvbox'
 
-" oceanicnext
+" colorscheme
 colorscheme gruvbox
+
+" visual indentaion
 
 
