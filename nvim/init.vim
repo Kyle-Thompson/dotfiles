@@ -11,6 +11,7 @@ set shiftwidth=4    " Number of spaces for autoindent
 set smarttab        " Go to next tabstop when tab pressed. (Insert mode)
 set smartindent     " TODO
 set autoindent      " TODO
+set copyindent      " TODO
 
 " Searching
 set ignorecase      " Ignore case when searching.
@@ -35,11 +36,17 @@ set wildmode=list:longest
 set wildmenu
 set wildignore=*.o
 
-" Uncatagorized (TODO: for now)
+" Visual
 set number          " Show line numbers.
-set hidden          " Hide file, don't close on file switch. (No save needed to switch files.)
-set visualbell      " No beeps.
+set cursorline      " Highlight cursorline.
 syntax on           " Syntax highlighting
+syntax enable       " TODO
+set background=dark " TODO
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+" Uncatagorized (TODO: for now)
+set hidden          " Hide file, don't close on file switch. 
+set visualbell      " No beeps.
 
 
 "--- Plugins
@@ -51,12 +58,45 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall
 endif
 
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin() "'~/.config/nvim/plugged')
+    
+    " status line
+    Plug 'vim-airline/vim-airline'
 
-    Plug 'vim-airline/vim-airline'    " status line
-    Plug 'scrooloose/nerdtree'        " tree file explorer
-    Plug 'scrooloose/nerdcommenter'   " commenting utility
-    Plug 'tpope/vim-fugitive'         " git wrapperi
-    Plug 'godlygeek/tabular'          " text alignment
+    " tree file explorer
+    Plug 'scrooloose/nerdtree'        
+    
+    " commenting utility
+    Plug 'scrooloose/nerdcommenter'   
+    
+    " git wrapperi
+    Plug 'tpope/vim-fugitive'         
+    
+    " text alignment
+    Plug 'godlygeek/tabular'          
+
+    " autocompletion
+    function! DoRemote(arg) " TODO: find out if this is necessary
+        UpdateRemotePlugins
+    endfunction
+    Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+
+    " colour schemes
+    Plug 'mhartington/oceanic-next'
+    Plug 'morhetz/gruvbox'  " Current
 
 call plug#end()
+
+
+"--- Plugin Configurations
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+
+" airline
+let g:airline_theme='gruvbox'
+
+" oceanicnext
+colorscheme gruvbox
+
+
