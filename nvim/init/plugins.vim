@@ -8,7 +8,7 @@ endif
 " Plugins to get:
 " - easymotion
 
-call plug#begin() "'~/.config/nvim/plugged')
+call plug#begin()
 
     " status line
     Plug 'vim-airline/vim-airline'
@@ -18,6 +18,7 @@ call plug#begin() "'~/.config/nvim/plugged')
 
     " quotes, brackets, etc. utility
     Plug 'tpope/vim-surround'
+    Plug 'jiangmiao/auto-pairs'
 
     " commenting utility
     Plug 'scrooloose/nerdcommenter'   
