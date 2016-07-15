@@ -20,6 +20,9 @@ call plug#begin()
     Plug 'tpope/vim-surround'
     Plug 'jiangmiao/auto-pairs'
 
+    " Syntax checking
+    Plug 'scrooloose/syntastic'
+    
     " commenting utility
     Plug 'scrooloose/nerdcommenter'   
     
@@ -32,13 +35,8 @@ call plug#begin()
     " text alignment
     Plug 'godlygeek/tabular'
 
-    " Language helpers
-
     " autocompletion
-    function! DoRemote(arg) " TODO: find out if this is necessary
-        UpdateRemotePlugins
-    endfunction
-    Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+    " TODO youcompleteme
 
     " colour schemes
     Plug 'mhartington/oceanic-next'
@@ -57,6 +55,10 @@ let g:airline_theme='gruvbox'
 
 " colorscheme
 colorscheme gruvbox
+
+" syntastic
+" let g:syntastic_cpp_compiler = 'clang++'
+" let g:syntastic_cpp_compiler_options = ' -std=c++14 -stdlib=libc++'
 
 " visual indentaion
 
