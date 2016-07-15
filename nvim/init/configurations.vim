@@ -22,6 +22,14 @@ set noswapfile      "
 "set nobackup       " TODO
 "set nowb           " TODO
 
+" Spliting
+set splitbelow      " <vertical?> splits open below current window.
+set splitright      " <horizontal?> splits open right of the current window.
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 " Scrolling
 set scrolloff=4     " Start scrolling 4 lines from the bottom.
 set sidescrolloff=8 " TODO verify
