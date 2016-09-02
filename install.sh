@@ -16,7 +16,6 @@ if [ ! -d ~/.config ]; then
     mkdir ~/.config
 fi
 
-#ln -s ~/.dotfiles/nvim ~/.config/nvim
 for f in *; do
     if [ -d $f ]; then
         `chmod +x ${f}/install.sh`
