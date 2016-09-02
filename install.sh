@@ -16,8 +16,12 @@ if [ ! -d ~/.config ]; then
     mkdir ~/.config
 fi
 
-# TODO: turn this into a loop and check if the files already exist before symlinking
-# Symlink directories from dotfiles to config
-ln -s ~/.dotfiles/nvim ~/.config/nvim
+#ln -s ~/.dotfiles/nvim ~/.config/nvim
+for f in *; do
+    if [ -d $f ]; then
+        `chmod +x ${f}/install.sh`
+        ./${f}/install.sh
+    fi
+done
 
 cd $user_dir
