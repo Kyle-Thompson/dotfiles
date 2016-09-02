@@ -9,7 +9,7 @@ if [ -d ~/.dotfiles ]; then
     echo '.dotfiles already exists. Removing and replacing.'
     rm -rf ~/.dotfiles
 fi
-`git clone --quiet https://github.com/Kyle-Thompson/dotfiles.git`
+`git clone --quiet https://github.com/Kyle-Thompson/.dotfiles.git`
 
 # If no ~/.config file exists, make one.
 if [ ! -d ~/.config ]; then
