@@ -16,11 +16,19 @@ if [ ! -d ~/.config ]; then
     mkdir ~/.config
 fi
 
-for f in *; do
-    if [ -d $f ]; then
-        `chmod +x ${f}/install.sh`
-        ./${f}/install.sh
-    fi
-done
+# TODO: move back to monolithic install script.
+
+
+
+
+
+
+
+#for f in *; do
+#    if [ -d $f ]; then
+#        `chmod +x ${f}/install.sh`
+#        ./${f}/install.sh
+#    fi
+#done
 
 cd $user_dir
