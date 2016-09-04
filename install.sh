@@ -4,9 +4,9 @@
 
 
 # initial setup
-rm -rf ~/.dotfiles
-git clone --quiet git@github.com:Kyle-Thompson/.dotfiles.git ~/.dotfiles
 mkdir -p ~/.config
+rm -rf ~/.dotfiles
+git clone --quiet git@github.com:Kyle-Thompson/dotfiles.git ~/.dotfiles
 
 
 ### media  TODO: Host media somewhere and fetch it here
