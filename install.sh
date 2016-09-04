@@ -4,26 +4,19 @@
 
 
 # initial setup
-user_dir=`pwd`
-
-cd ~
 rm -rf ~/.dotfiles
-git clone --quiet https://github.com/Kyle-Thompson/.dotfiles.git
-
+git clone --quiet git@github.com:Kyle-Thompson/.dotfiles.git ~
 mkdir -p ~/.config
-
-cd $user_dir
 
 
 ### media  TODO: Host media somewhere and fetch it here
-
 mkdir -p ~/Pictures/Wallpapers
 wget --quiet --output-document=~/Pictures/Wallpapers/deer.jpg
 
 
 # neovim
-rm -rf ~/.config/nvim
-ln -s ~/.dotfiles/nvim ~/.config/nvim
+#rm -rf ~/.config/nvim
+ln -sf ~/.dotfiles/nvim ~/.config/nvim
 
 
 # git
@@ -33,5 +26,5 @@ git config --global user.editor nvim
 
 
 # i3
-rm -rf ~/.config/i3
-ln -s ~/.dotfiles/i3 ~/.config/i3
+#rm -rf ~/.config/i3
+ln -sf ~/.dotfiles/i3 ~/.config/i3
