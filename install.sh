@@ -10,7 +10,7 @@ git clone --quiet git@github.com:Kyle-Thompson/dotfiles.git ~/.dotfiles
 
 
 ### media  TODO: Host media somewhere and fetch it here
-curl http://i.imgur.com/SpBfUZi.jpg --create-dirs -o ~/Pictures/Wallpapers/deer.jpg > /dev/null
+curl -s http://i.imgur.com/SpBfUZi.jpg --create-dirs -o ~/Pictures/Wallpapers/deer.jpg
 
 
 # neovim
