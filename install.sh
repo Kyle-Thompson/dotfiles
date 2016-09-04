@@ -10,8 +10,7 @@ mkdir -p ~/.config
 
 
 ### media  TODO: Host media somewhere and fetch it here
-mkdir -p ~/Pictures/Wallpapers
-wget --quiet http://i.imgur.com/SpBfUZi.jpg -O ~/Pictures/Wallpapers/deer.jpg 
+curl http://i.imgur.com/SpBfUZi.jpg --create-dirs -o ~/Pictures/Wallpapers/deer.jpg > /dev/null
 
 
 # neovim
