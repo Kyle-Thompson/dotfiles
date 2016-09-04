@@ -158,3 +158,6 @@ bar {
         status_command i3status
         tray_output primary
 }
+
+# background
+exec_always feh --bg-scale ~/Pictures/Wallpapers/ #10\ -\ ujJ3g1k.jpg
