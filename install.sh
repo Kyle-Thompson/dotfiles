@@ -1,12 +1,40 @@
 #!/bin/bash
 
-# Connection Check TODO
+# connection check
+if ! ping -c 1 google.com > /dev/null 2>&1; then
+    echo "no internet connection"
+    exit 1
+fi
 
 
-# initial setup
+case `lsb_release -si` in
+    Ubuntu)
+        # neovim
+        add-apt-repository -y ppa:neovim-ppa/unstable > /dev/null 2>&1
+        apt-get -qq update 
+
+        install () {
+            apt-get -qq install $1
+        }
+        ;;
+    *)
+        echo "$(lsb_release -si) isn't supported"
+        exit 1
+        ;;
+esac
+
+
+# git
+install git
+git config --global user.name "Kyle Thompson"
+git config --global user.email "kyle.thompson228@gmail.com"
+git config --global user.editor nvim
+
+
+# dotfile directory
 mkdir -p ~/.config
 rm -rf ~/.dotfiles
-git clone --quiet git@github.com:Kyle-Thompson/dotfiles.git ~/.dotfiles
+sudo -u $SUDO_USER git clone --quiet git@github.com:Kyle-Thompson/dotfiles.git ~/.dotfiles
 
 
 ### media  TODO: Host media somewhere and fetch it here
@@ -14,17 +42,13 @@ curl -s http://i.imgur.com/SpBfUZi.jpg --create-dirs -o ~/Pictures/Wallpapers/de
 
 
 # neovim
+install neovim
 rm -rf ~/.config/nvim
 ln -s ~/.dotfiles/nvim ~/.config/nvim
 
 
-# git
-git config --global user.name "Kyle Thompson"
-git config --global user.email "kyle.thompson228@gmail.com"
-git config --global user.editor nvim
-
-
 # i3
+install i3
 rm -rf ~/.config/i3
 ln -s ~/.dotfiles/i3 ~/.config/i3
 
