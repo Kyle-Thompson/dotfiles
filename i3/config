@@ -138,7 +138,7 @@ bar {
 }
 
 # background
-exec_always feh --bg-scale ~/Pictures/Wallpapers/deer.jpg
+exec_always feh --randomize --no-fehbg --bg-scale ~/Pictures/Wallpapers
 
 # monitor layout
 exec_always ~/.dotfiles/etc/monitor-layout.sh
