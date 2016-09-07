@@ -53,6 +53,7 @@ ln -s ~/.dotfiles/nvim ~/.config/nvim
 
 
 # i3
+install feh
 install i3
 rm -rf ~/.config/i3
 chmod +x ~/.dotfiles/etc/monitor-layout.sh
