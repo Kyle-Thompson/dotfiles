@@ -17,8 +17,8 @@ install () {
 
 
 # git
-ssh-keygen -t rsa -b 4096 -C "kyle.thompson228@gmail.com"
-ssh-add ~/.ssh/id_rsa
+sudo -u $SUDO_USER ssh-keygen -t rsa -b 4096 -C "kyle.thompson228@gmail.com"
+sudo -u $SUDO_USER ssh-add ~/.ssh/id_rsa
 echo "add id_rsa.pub to github and press [ENTER]"
 read
 install git
