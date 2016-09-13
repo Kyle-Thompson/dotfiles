@@ -11,25 +11,16 @@ if ! ping -c 1 google.com > /dev/null 2>&1; then
     exit 1
 fi
 
-
-case `lsb_release -si` in
-    Ubuntu)
-        # neovim
-        add-apt-repository -y ppa:neovim-ppa/unstable > /dev/null 2>&1
-        apt-get -qq update 
-
-        install () {
-            apt-get -qq install $1
-        }
-        ;;
-    *)
-        echo "$(lsb_release -si) isn't supported"
-        exit 1
-        ;;
-esac
+install () {
+    apt-get -qq install $1
+}
 
 
 # git
+ssk-keygen -t rsa -b 4096 -C "kyle.thompson228@gmail.com"
+ssh-add ~/.ssh/id_rsa
+echo "add id_rsa.pub to github and press [ENTER]"
+read
 install git
 git config --global user.name "Kyle Thompson"
 git config --global user.email "kyle.thompson228@gmail.com"
@@ -47,6 +38,8 @@ curl -s http://i.imgur.com/SpBfUZi.jpg --create-dirs -o ~/Pictures/Wallpapers/de
 
 
 # neovim
+add-apt-repository -y ppa:neovim-ppa/unstable > /dev/null 2>&1
+apt-get -qq update 
 install neovim
 rm -rf ~/.config/nvim
 ln -s ~/.dotfiles/nvim ~/.config/nvim
