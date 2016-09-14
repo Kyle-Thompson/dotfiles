@@ -51,3 +51,10 @@ install i3
 rm -rf ~/.config/i3
 chmod +x ~/.dotfiles/etc/monitor-layout.sh
 ln -s ~/.dotfiles/i3 ~/.config/i3
+
+
+# zsh
+install zsh
+chsh -s `which zsh`
+# change dotfile path in zsh etc dir or something
+#ln -s ~/.dotfiles/zsh ~/.config/zsh
