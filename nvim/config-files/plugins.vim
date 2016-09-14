@@ -5,6 +5,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall
 endif
 
+
 " Plugins to get:
 " - easymotion
 
@@ -41,6 +42,7 @@ call plug#begin()
     " colour schemes
     Plug 'mhartington/oceanic-next'
     Plug 'morhetz/gruvbox'  " Current
+    Plug 'jacoborus/tender'
 
 call plug#end()
 
@@ -51,10 +53,11 @@ call plug#end()
 let g:deoplete#enable_at_startup = 1
 
 " status line
-let g:airline_theme='gruvbox'
+let g:tender_airline = 1
+let g:airline_theme='tender'
 
 " colorscheme
-colorscheme gruvbox
+colorscheme tender
 
 " syntastic
 " let g:syntastic_cpp_compiler = 'clang++'
