@@ -37,7 +37,7 @@ rm -rf ~/.dotfiles
 sudo -u $SUDO_USER git clone --quiet git@github.com:Kyle-Thompson/dotfiles.git ~/.dotfiles
 
 
-### media  TODO: Host media somewhere and fetch it here
+# media  TODO: Host media somewhere and fetch it here
 as_user curl -s http://i.imgur.com/SpBfUZi.jpg --create-dirs -o ~/Pictures/Wallpapers/deer.jpg
 
 
@@ -45,9 +45,14 @@ as_user curl -s http://i.imgur.com/SpBfUZi.jpg --create-dirs -o ~/Pictures/Wallp
 add-apt-repository -y ppa:neovim-ppa/unstable > /dev/null 2>&1
 apt-get -qq update 
 install neovim
+install python-pip python3-pip # needed for deoplete
+pip install --upgrade pip neovim
+pip3 install --upgrade pip neovim
+#pip install neovim
+#pip3 install neovim
 rm -rf ~/.config/nvim
 ln -s ~/.dotfiles/nvim ~/.config/nvim
-nvim +PlugInstall +qa
+# nvim +PlugInstall +qa
 
 
 # i3
@@ -63,3 +68,6 @@ install zsh
 chsh -s `which zsh`
 # change dotfile path in zsh etc dir or something
 #ln -s ~/.dotfiles/zsh ~/.config/zsh
+
+
+
