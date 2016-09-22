@@ -37,12 +37,16 @@ call plug#begin()
     Plug 'godlygeek/tabular'
 
     " autocompletion
-    " TODO youcompleteme
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'ervandew/supertab'
+
+    " REPL messages
+    Plug 'metakirby5/codi.vim'
 
     " colour schemes
     Plug 'mhartington/oceanic-next'
-    Plug 'morhetz/gruvbox'  " Current
-    Plug 'jacoborus/tender'
+    Plug 'morhetz/gruvbox'
+    Plug 'jacoborus/tender'  " Current 
 
 call plug#end()
 
@@ -58,10 +62,6 @@ let g:airline_theme='tender'
 
 " colorscheme
 colorscheme tender
-
-" syntastic
-" let g:syntastic_cpp_compiler = 'clang++'
-" let g:syntastic_cpp_compiler_options = ' -std=c++14 -stdlib=libc++'
 
 " visual indentaion
 
