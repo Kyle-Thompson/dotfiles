@@ -15,6 +15,10 @@ install () {
     apt-get -qq install $1
 }
 
+as_user () {
+    sudo -u $SUDO_USER $@
+}
+
 
 # git
 sudo -u $SUDO_USER ssh-keygen -t rsa -b 4096 -C "kyle.thompson228@gmail.com"
@@ -34,7 +38,7 @@ sudo -u $SUDO_USER git clone --quiet git@github.com:Kyle-Thompson/dotfiles.git ~
 
 
 ### media  TODO: Host media somewhere and fetch it here
-curl -s http://i.imgur.com/SpBfUZi.jpg --create-dirs -o ~/Pictures/Wallpapers/deer.jpg
+as_user curl -s http://i.imgur.com/SpBfUZi.jpg --create-dirs -o ~/Pictures/Wallpapers/deer.jpg
 
 
 # neovim
@@ -43,6 +47,7 @@ apt-get -qq update
 install neovim
 rm -rf ~/.config/nvim
 ln -s ~/.dotfiles/nvim ~/.config/nvim
+nvim +PlugInstall +qa
 
 
 # i3
