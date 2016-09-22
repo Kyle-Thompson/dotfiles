@@ -37,7 +37,7 @@ call plug#begin()
     Plug 'godlygeek/tabular'
 
     " autocompletion
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'Shougo/deoplete.nvim' ", { 'do': ':UpdateRemotePlugins' }
     Plug 'ervandew/supertab'
 
     " REPL messages
