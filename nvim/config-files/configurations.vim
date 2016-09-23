@@ -44,10 +44,11 @@ set wildignore=*.o
 
 " Visual
 set number          " Show line numbers
+set relativenumber  " Line numbers are relative to current line
 set cursorline      " Highlight cursorline
 syntax on           " Syntax highlighting
 syntax enable       " TODO
-set background=dark " TODO
+set background=dark " Use colours that suit a dark background
 set termguicolors   " Enable true colours
 
 " Uncatagorized (TODO: for now)

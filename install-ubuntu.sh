@@ -21,8 +21,8 @@ as_user () {
 
 
 # git
-sudo -u $SUDO_USER ssh-keygen -t rsa -b 4096 -C "kyle.thompson228@gmail.com"
-sudo -u $SUDO_USER ssh-add ~/.ssh/id_rsa
+as_user ssh-keygen -t rsa -b 4096 -C "kyle.thompson228@gmail.com"
+as_user ssh-add ~/.ssh/id_rsa
 echo "add id_rsa.pub to github and press [ENTER]"
 read
 install git
@@ -34,7 +34,7 @@ git config --global user.editor nvim
 # dotfile directory
 mkdir -p ~/.config
 rm -rf ~/.dotfiles
-sudo -u $SUDO_USER git clone --quiet git@github.com:Kyle-Thompson/dotfiles.git ~/.dotfiles
+as_user git clone --quiet git@github.com:Kyle-Thompson/dotfiles.git ~/.dotfiles
 
 
 # media  TODO: Host media somewhere and fetch it here

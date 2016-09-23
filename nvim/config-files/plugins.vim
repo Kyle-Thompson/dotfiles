@@ -21,14 +21,12 @@ call plug#begin()
     Plug 'tpope/vim-surround'
     Plug 'jiangmiao/auto-pairs'
 
-    " Syntax checking
-    Plug 'scrooloose/syntastic'
-    
-    " commenting utility
+    " commenting
     Plug 'scrooloose/nerdcommenter'   
     
-    " git wrapper
-    Plug 'tpope/vim-fugitive'         
+    " git
+    Plug 'tpope/vim-fugitive'
+    Plug 'airblade/vim-gitgutter'
     
     " Visual tabs
     Plug 'Yggdroot/indentLine'
@@ -39,6 +37,10 @@ call plug#begin()
     " autocompletion
     Plug 'Shougo/deoplete.nvim' ", { 'do': ':UpdateRemotePlugins' }
     Plug 'ervandew/supertab'
+    Plug 'zchee/deoplete-clang'
+
+    " Linting
+    Plug 'benekastah/neomake'
 
     " REPL messages
     Plug 'metakirby5/codi.vim'
