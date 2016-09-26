@@ -19,10 +19,10 @@ call plug#begin()
 
     " pairing utilities
     Plug 'tpope/vim-surround'
-    Plug 'jiangmiao/auto-pairs'
+    Plug 'jiangmiao/auto-pairs' " TODO
 
     " commenting
-    Plug 'scrooloose/nerdcommenter'   
+    Plug 'scrooloose/nerdcommenter' " TODO
     
     " git
     Plug 'tpope/vim-fugitive'
@@ -37,15 +37,15 @@ call plug#begin()
     " autocompletion
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'ervandew/supertab'
-    Plug 'zchee/deoplete-clang'
-    Plug 'SirVer/ultisnips'
-    Plug 'honza/vim-snippets'
+    Plug 'zchee/deoplete-clang' " TODO
+    Plug 'SirVer/ultisnips' " TODO
+    Plug 'honza/vim-snippets' " TODO
 
     " Linting
-    Plug 'benekastah/neomake'
+    Plug 'benekastah/neomake' " TODO
 
     " REPL messages
-    Plug 'metakirby5/codi.vim'
+    Plug 'metakirby5/codi.vim' " TODO
 
     " colour schemes
     Plug 'mhartington/oceanic-next'
