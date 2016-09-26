@@ -4,8 +4,8 @@ let mapleader = ',' " Set mapleader to ,
 " Indentation (TODO: it seems like there's a lot of redundancy. learn more.)
 set tabstop=4       " A tab is 4 spaces wide
 set softtabstop=4   " Number of spaces to replace tabs by
-set expandtab       " Use spaces instead of tabs (Insert mode)
 set shiftwidth=4    " Number of spaces for autoindent
+set expandtab       " Use spaces instead of tabs (Insert mode)
 set smarttab        " Go to next tabstop when tab pressed (Insert mode)
 set smartindent     " TODO
 set autoindent      " TODO
@@ -17,18 +17,19 @@ set smartcase       " Match given captials in search. (Override ignorecase)
 set incsearch       " Incremental searching. (TODO: find out more)
 set hlsearch        " Highlight previous searches
 
+" Word wrapping (soft)
+set wrap            " Spread long lines across multiple lines
+set linebreak       " Do not break words on wrap
+set nolist          " Do not show characters at the end of lines (needed for linebreak)
+
 " Swapfiles
 set noswapfile      " Do not create swap files
 "set nobackup       " TODO
 "set nowb           " TODO
 
 " Spliting
-set splitbelow      " <vertical?> splits open below current window
-set splitright      " <horizontal?> splits open right of the current window
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+set splitbelow      " Vertical splits open below current window
+set splitright      " Horizontal splits open right of the current window
 
 " Scrolling
 set scrolloff=4     " Start scrolling 4 lines from the bottom.

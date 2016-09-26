@@ -17,7 +17,7 @@ call plug#begin()
     " tree file explorer
     Plug 'scrooloose/nerdtree'        
 
-    " quotes, brackets, etc. utility
+    " pairing utilities
     Plug 'tpope/vim-surround'
     Plug 'jiangmiao/auto-pairs'
 
@@ -35,9 +35,11 @@ call plug#begin()
     Plug 'godlygeek/tabular'
 
     " autocompletion
-    Plug 'Shougo/deoplete.nvim' ", { 'do': ':UpdateRemotePlugins' }
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'ervandew/supertab'
     Plug 'zchee/deoplete-clang'
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
 
     " Linting
     Plug 'benekastah/neomake'
@@ -57,6 +59,8 @@ call plug#end()
 
 " autocompletion
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#clang#libclang_path = "/usr/lib/x86_64-linux-gnu/libclang.so"
+let g:deoplete#sources#clang#clang_header = "/usr/lib/clang/"
 
 " status line
 let g:tender_airline = 1
