@@ -93,7 +93,7 @@ call plug#begin()
     Plug 'sheerun/vim-polyglot'
 
     " linting
-    Plug 'benekastah/neomake'
+    Plug 'neomake/neomake'
 
     " movement
     Plug 'easymotion/vim-easymotion'
@@ -140,8 +140,11 @@ let g:neomake_verbose = 0
 let g:neomake_open_list = 2
 " linter: neomake: c++
 let g:neomake_cpp_enable_makers = ['clang']
-let g:neomake_cpp_clang_maker = {'exe': 'clang'}
-let g:neomake_cpp_clang_args = ['-std=c++14', '-Wall', '-Wextra', '-Weverything', '-pedantic']
+let g:neomake_cpp_clang_args = [
+            \ '-std=c++14', '-stdlib=libc++',
+            \ '-Wall', '-Wextra', '-pedantic', 'fsyntax-only',
+            \ '-Wno-c++98-compat', '-Wno-c++11-extensions'
+            \ ]
 " linter: neomake: c
 let g:neomake_c_enable_makers = ['clang']
 let g:neomake_c_clang_args = ['-Wextra', '-Wall', '-fsyntax-only']
@@ -159,6 +162,9 @@ let g:airline_theme='tender'
 
 " ========== Mappings =========
 " =============================
+
+" Easy escape to normal
+inoremap jj <ESC>
 
 " Move along visual lines, not numbered ones.
 nnoremap j gj
