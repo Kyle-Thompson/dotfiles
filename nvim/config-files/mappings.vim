@@ -3,10 +3,10 @@ nnoremap j gj
 nnoremap k gk
 nnoremap ^ g^
 nnoremap $ g$
-inoremap j gj
-inoremap k gk
-inoremap ^ g^
-inoremap $ g$
+vnoremap j gj
+vnoremap k gk
+vnoremap ^ g^
+vnoremap $ g$
 " TODO find out if noremap should be used instead
 
 " Simplify moving across splits. (No more W)

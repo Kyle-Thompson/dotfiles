@@ -31,11 +31,12 @@ call plug#begin()
     " Visual tabs
     Plug 'Yggdroot/indentLine'
 
-    " text alignment
-    Plug 'godlygeek/tabular'
+    " text manipulation
+    Plug 'godlygeek/tabular'    " tab alignment
+    Plug 'tommcdo/vim-exchange' " text swapping
 
     " autocompletion
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'ervandew/supertab'
     Plug 'zchee/deoplete-clang' " TODO
     Plug 'SirVer/ultisnips' " TODO
@@ -48,8 +49,8 @@ call plug#begin()
     Plug 'metakirby5/codi.vim' " TODO
 
     " colour schemes
-    Plug 'mhartington/oceanic-next'
-    Plug 'morhetz/gruvbox'
+    " Plug 'mhartington/oceanic-next'
+    " Plug 'morhetz/gruvbox'
     Plug 'jacoborus/tender'  " Current 
 
 call plug#end()
@@ -70,5 +71,22 @@ let g:airline_theme='tender'
 colorscheme tender
 
 " visual indentaion
+
+" Move along visual lines, not numbered ones.
+nnoremap j gj
+nnoremap k gk
+nnoremap ^ g^
+nnoremap $ g$
+vnoremap j gj
+vnoremap k gk
+vnoremap ^ g^
+vnoremap $ g$
+" TODO find out if noremap should be used instead
+
+" Simplify moving across splits. (No more W)
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 
