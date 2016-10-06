@@ -1,92 +1,73 @@
-" Check if plugged exists.
+" ========== Plugins ==========
+" =============================
+
+" watchlist:
+" - incsearch.vim
+
+" install vim-plug if it's not already
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
-    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs 
+    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall
 endif
 
-
-" Plugins to get:
-" - easymotion
-
 call plug#begin()
 
-    " status line
-    Plug 'vim-airline/vim-airline'
+    " autocompletion
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocomplete system
+    Plug 'ervandew/supertab'    " TODO
+    Plug 'zchee/deoplete-clang' " TODO
 
-    " tree file explorer
-    Plug 'scrooloose/nerdtree'        
-
-    " pairing utilities
-    Plug 'tpope/vim-surround'
-    Plug 'jiangmiao/auto-pairs' " TODO
+    " colourscheme
+    Plug 'jacoborus/tender'
 
     " commenting
-    Plug 'scrooloose/nerdcommenter' " TODO
-    
+    Plug 'scrooloose/nerdcommenter'
+
+    " file explorer
+    Plug 'scrooloose/nerdtree'
+
+    " fuzzy file searching
+    Plug 'ctrlpvim/ctrlp.vim'
+
     " git
-    Plug 'tpope/vim-fugitive'
-    Plug 'airblade/vim-gitgutter'
-    
-    " Visual tabs
-    Plug 'Yggdroot/indentLine'
+    Plug 'tpope/vim-fugitive'     " command-line git wrapper
+    Plug 'airblade/vim-gitgutter' " git changes in the gutter
 
-    " text manipulation
-    Plug 'godlygeek/tabular'    " tab alignment
-    Plug 'tommcdo/vim-exchange' " text swapping
+    " language pack
+    Plug 'sheerun/vim-polyglot'
 
-    " autocompletion
-"    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'ervandew/supertab'
-    Plug 'zchee/deoplete-clang' " TODO
-    Plug 'SirVer/ultisnips' " TODO
-    Plug 'honza/vim-snippets' " TODO
+    " linting
+    Plug 'neomake/neomake'
 
-    " Linting
-    Plug 'benekastah/neomake' " TODO
+    " movement
+    Plug 'easymotion/vim-easymotion'
+
+    " pairing utilities
+    Plug 'tpope/vim-surround'   " wrap text with new pair
+    Plug 'jiangmiao/auto-pairs' " create new empty pair
 
     " REPL messages
     Plug 'metakirby5/codi.vim' " TODO
 
-    " colour schemes
-    " Plug 'mhartington/oceanic-next'
-    " Plug 'morhetz/gruvbox'
-    Plug 'jacoborus/tender'  " Current 
+    " visual tabs
+    Plug 'Yggdroot/indentLine'
+
+    " snippets
+    Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+    " status line
+    Plug 'vim-airline/vim-airline'
+
+    " text
+    Plug 'godlygeek/tabular'    " alignment
+    Plug 'tommcdo/vim-exchange' " swapping
+    Plug 'wellle/targets.vim'   " objects
 
 call plug#end()
 
 
-"--- Plugin Configurations
-
-" autocompletion
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#clang#libclang_path = "/usr/lib/x86_64-linux-gnu/libclang.so"
-let g:deoplete#sources#clang#clang_header = "/usr/lib/clang/"
-
-" status line
-let g:tender_airline = 1
-let g:airline_theme='tender'
-
-" colorscheme
-colorscheme tender
-
-" visual indentaion
-
-" Move along visual lines, not numbered ones.
-nnoremap j gj
-nnoremap k gk
-nnoremap ^ g^
-nnoremap $ g$
-vnoremap j gj
-vnoremap k gk
-vnoremap ^ g^
-vnoremap $ g$
-" TODO find out if noremap should be used instead
-
-" Simplify moving across splits. (No more W)
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
+for f in split(glob('~/.config/nvim/config-files/plugins/*.vim'), '\n')
+    exe 'source' f
+endfor
 

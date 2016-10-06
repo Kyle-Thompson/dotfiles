@@ -1,0 +1,3 @@
+" colorscheme
+silent! colorscheme tender
+

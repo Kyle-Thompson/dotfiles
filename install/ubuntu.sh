@@ -45,7 +45,7 @@ as_user curl -s http://i.imgur.com/SpBfUZi.jpg --create-dirs -o ~/Pictures/Wallp
 add-apt-repository -y ppa:neovim-ppa/unstable > /dev/null 2>&1
 apt-get -qq update 
 install neovim
-install python-pip python3-pip # needed for deoplete
+install python-pip python3-pip
 pip install --upgrade pip neovim
 pip3 install --upgrade pip neovim
 rm -rf ~/.config/nvim
