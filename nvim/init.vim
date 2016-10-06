@@ -9,7 +9,7 @@ set wildmode=list:longest
 set wildmenu
 set wildignore=*.o
 
-" Folds (TODO learn)
+" Folds
 
 " Indentation
 set tabstop=4       " A tab is 4 spaces wide
@@ -51,6 +51,7 @@ set termguicolors   " Enable true colours
 set wrap            " Spread long lines across multiple lines
 set linebreak       " Do not break words on wrap
 set nolist          " Do not show characters at the end of lines (needed for linebreak)
+
 
 
 " ========== Plugins ==========
@@ -159,7 +160,7 @@ let g:airline_theme='tender'
 " ========== Mappings =========
 " =============================
 
-" Easy escape to normal
+" Easy escape to normal.
 inoremap jj <ESC>
 
 " Move along visual lines, not numbered ones.
