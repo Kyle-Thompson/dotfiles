@@ -1,4 +1,4 @@
-" General Configurations
+""" General Configurations
 
 " Leader
 let mapleader = ',' " Set mapleader to ,
