@@ -9,9 +9,7 @@ set softtabstop=4   " Number of spaces to replace tabs by
 set shiftwidth=4    " Number of spaces for autoindent
 set expandtab       " Use spaces instead of tabs (Insert mode)
 set smarttab        " Go to next tabstop when tab pressed (Insert mode)
-set smartindent     " TODO
-set autoindent      " TODO
-set copyindent      " TODO
+set smartindent     " Use proper indentation for filetype
 
 " Searching
 set ignorecase      " Ignore case when searching
@@ -34,8 +32,6 @@ set splitright      " Horizontal splits open right of the current window
 
 " Scrolling
 set scrolloff=4     " Start scrolling 4 lines from the bottom.
-set sidescrolloff=8 " TODO verify
-set sidescroll=1    " TODO verify
 
 " Folds (TODO learn)
 
@@ -48,9 +44,7 @@ set wildignore=*.o
 set number          " Show line numbers
 set relativenumber  " Line numbers are relative to current line
 set cursorline      " Highlight cursorline
-syntax on           " Syntax highlighting
-syntax enable       " TODO
-set background=dark " Use colours that suit a dark background
+syntax enable       " Syntax highlighting
 set termguicolors   " Enable true colours
 
 " Uncatagorized (TODO: for now)
@@ -129,7 +123,6 @@ let g:airline_theme='tender'
 
 " colorscheme
 colorscheme tender
-
 
 
 """ Mappings
