@@ -143,7 +143,7 @@ let g:neomake_cpp_enabled_makers = ['clang']
 let g:neomake_cpp_clang_args = ['-std=c++1z', '-Wall', '-Wextra', '-fsyntax-only']
 " linter: neomake: c
 let g:neomake_c_enabled_makers = ['clang']
-let g:neomake_c_clang_args = ['-std=c11', '-Wextra', '-Wall', '-fsyntax-only']
+let g:neomake_c_clang_args = ['-std=c11', '-Wall', '-Wextra', '-fsyntax-only']
 " linter: neomake: python
 let g:neomake_python_enable_markers = ['flake8']
 
