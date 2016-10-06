@@ -139,15 +139,11 @@ autocmd! BufWritePost * Neomake
 let g:neomake_verbose = 0
 let g:neomake_open_list = 2
 " linter: neomake: c++
-let g:neomake_cpp_enable_makers = ['clang']
-let g:neomake_cpp_clang_args = [
-            \ '-std=c++14', '-stdlib=libc++',
-            \ '-Wall', '-Wextra', '-pedantic', 'fsyntax-only',
-            \ '-Wno-c++98-compat', '-Wno-c++11-extensions'
-            \ ]
+let g:neomake_cpp_enabled_makers = ['clang']
+let g:neomake_cpp_clang_args = ['-std=c++1z', '-Wall', '-Wextra', '-fsyntax-only']
 " linter: neomake: c
-let g:neomake_c_enable_makers = ['clang']
-let g:neomake_c_clang_args = ['-Wextra', '-Wall', '-fsyntax-only']
+let g:neomake_c_enabled_makers = ['clang']
+let g:neomake_c_clang_args = ['-std=c11', '-Wextra', '-Wall', '-fsyntax-only']
 " linter: neomake: python
 let g:neomake_python_enable_markers = ['flake8']
 
