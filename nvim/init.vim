@@ -35,7 +35,7 @@ set scrolloff=4     " Start scrolling 4 lines from the bottom.
 
 " Folds (TODO learn)
 
-" Completion (TODO learn more)
+" Completion
 set wildmode=list:longest
 set wildmenu
 set wildignore=*.o
@@ -47,13 +47,15 @@ set cursorline      " Highlight cursorline
 syntax enable       " Syntax highlighting
 set termguicolors   " Enable true colours
 
-" Uncatagorized (TODO: for now)
+" Miscelanious
 set hidden          " Hide file, don't close on file switch
 set visualbell      " No beeps
 
 
 
 """ Plugins
+" watchlist:
+" - incsearch.vim
 
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
     silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs 
@@ -63,64 +65,86 @@ endif
 
 call plug#begin()
 
-    " status line
-    Plug 'vim-airline/vim-airline'
+    " autocompletion
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocomplete system
+    Plug 'ervandew/supertab'    " TODO
+    Plug 'zchee/deoplete-clang' " TODO
 
-    " tree file explorer
-    Plug 'scrooloose/nerdtree'        
-
-    " pairing utilities
-    Plug 'tpope/vim-surround'
-    Plug 'jiangmiao/auto-pairs' " TODO
+    " colourscheme
+    Plug 'jacoborus/tender'
 
     " commenting
-    Plug 'scrooloose/nerdcommenter' " TODO
+    Plug 'scrooloose/nerdcommenter'
     
+    " file explorer
+    Plug 'scrooloose/nerdtree'        
+
     " git
-    Plug 'tpope/vim-fugitive'
-    Plug 'airblade/vim-gitgutter'
+    Plug 'tpope/vim-fugitive'     " command-line git wrapper
+    Plug 'airblade/vim-gitgutter' " git change-log
     
-    " Visual tabs
-    Plug 'Yggdroot/indentLine'
+    " linting
+    Plug 'benekastah/neomake', { 'for': 'cpp,c,python' }
 
-    " text manipulation
-    Plug 'godlygeek/tabular'    " tab alignment
-    Plug 'tommcdo/vim-exchange' " text swapping
+    " movement
+    Plug 'easymotion/vim-easymotion'
 
-    " autocompletion
-"    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'ervandew/supertab'
-    Plug 'zchee/deoplete-clang' " TODO
-    Plug 'SirVer/ultisnips' " TODO
-    Plug 'honza/vim-snippets' " TODO
-
-    " Linting
-    Plug 'benekastah/neomake' " TODO
+    " pairing utilities
+    Plug 'tpope/vim-surround'   " wrap text with new pair
+    Plug 'jiangmiao/auto-pairs' " create new empty pair
 
     " REPL messages
     Plug 'metakirby5/codi.vim' " TODO
 
-    " colour schemes
-    " Plug 'mhartington/oceanic-next'
-    " Plug 'morhetz/gruvbox'
-    Plug 'jacoborus/tender'  " Current 
+    " visual tabs
+    Plug 'Yggdroot/indentLine'
+
+    " snippets
+    Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+    " status line
+    Plug 'vim-airline/vim-airline'
+
+    " text
+    Plug 'godlygeek/tabular'    " alignment
+    Plug 'tommcdo/vim-exchange' " swapping
+    Plug 'wellle/targets.vim'   " objects
 
 call plug#end()
 
 
-"" Plugin Configurations
-
-" autocompletion
+" autocompletion: deoplete
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#clang#libclang_path = "/usr/lib/x86_64-linux-gnu/libclang.so"
+let g:deoplete#sources#clang#libclang_path = "/usr/lib/x86_64-linux-gnu/libclang-3.8.so"
 let g:deoplete#sources#clang#clang_header = "/usr/lib/clang/"
+
+" colorscheme
+silent! colorscheme tender
+
+" file explorer
+nnoremap <leader>n :NERDTree<CR>
+" TODO function to auto-close when nerdtree is the only buffer left
+
+" linter: neomake: general
+autocmd! BufWritePost * Neomake
+let g:neomake_verbose = 0
+" linter: neomake: c++
+let g:neomake_cpp_clang_maker = { 'exe' : 'clang' }
+let g:neomake_cpp_enable_makers = ['clang']
+let g:neomake_cpp_clang_args = ["-std=c++14", "-Wextra", "-Wall", "-fsyntax-only"]
+" linter: neomake: c
+let g:neomake_c_enable_makers = ['clang']
+let g:neomake_c_clang_args = ["-Wextra", "-Wall", "-fsyntax-only"]
+" linter: neomake: python
+let g:neomake_python_enable_markers = ['flake8']
+
+" movement
+" map <leader>m <Plug>(easymotion-prefix)
 
 " status line
 let g:tender_airline = 1
 let g:airline_theme='tender'
 
-" colorscheme
-colorscheme tender
 
 
 """ Mappings
