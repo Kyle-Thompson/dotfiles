@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# check
+# checks
 if [ "$EUID" -ne 0 ]; then
     echo "must be root"
     exit 1
@@ -12,7 +12,7 @@ if ! ping -c 1 google.com > /dev/null 2>&1; then
 fi
 
 install () {
-    apt-get -qq install $1
+    apt-get -qq install $1 # might need $@
 }
 
 as_user () {
@@ -26,13 +26,13 @@ as_user ssh-add ~/.ssh/id_rsa
 echo "add id_rsa.pub to github and press [ENTER]"
 read
 install git
-git config --global user.name "Kyle Thompson"
-git config --global user.email "kyle.thompson228@gmail.com"
-git config --global user.editor nvim
+as_user git config --global user.name "Kyle Thompson"
+as_user git config --global user.email "kyle.thompson228@gmail.com"
+as_user git config --global user.editor nvim
 
 
 # dotfile directory
-mkdir -p ~/.config
+as_user mkdir -p ~/.config
 rm -rf ~/.dotfiles
 as_user git clone --quiet git@github.com:Kyle-Thompson/dotfiles.git ~/.dotfiles
 
@@ -48,8 +48,6 @@ install neovim
 install python-pip python3-pip # needed for deoplete
 pip install --upgrade pip neovim
 pip3 install --upgrade pip neovim
-#pip install neovim
-#pip3 install neovim
 rm -rf ~/.config/nvim
 ln -s ~/.dotfiles/nvim ~/.config/nvim
 # nvim +PlugInstall +qa
