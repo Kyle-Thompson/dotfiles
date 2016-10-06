@@ -24,10 +24,9 @@ set wrap            " Spread long lines across multiple lines
 set linebreak       " Do not break words on wrap
 set nolist          " Do not show characters at the end of lines (needed for linebreak)
 
-" Swapfiles
+" Safety files
 set noswapfile      " Do not create swap files
-"set nobackup       " TODO
-"set nowb           " TODO
+set nobackup        " Do not create backup files
 
 " Spliting
 set splitbelow      " Vertical splits open below current window
