@@ -55,9 +55,11 @@ set nolist          " Do not show characters at the end of lines (needed for lin
 
 " ========== Plugins ==========
 " =============================
+
 " watchlist:
 " - incsearch.vim
 
+" install vim-plug if it's not already
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
     silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -80,9 +82,15 @@ call plug#begin()
     " file explorer
     Plug 'scrooloose/nerdtree'
 
+    " fuzzy file searching
+    Plug 'ctrlpvim/ctrlp.vim'
+
     " git
     Plug 'tpope/vim-fugitive'     " command-line git wrapper
-    Plug 'airblade/vim-gitgutter' " git change-log
+    Plug 'airblade/vim-gitgutter' " git changes in the gutter
+
+    " language pack
+    Plug 'sheerun/vim-polyglot'
 
     " linting
     Plug 'benekastah/neomake'
@@ -127,18 +135,16 @@ nnoremap <leader>n :NERDTree<CR>
 " TODO function to auto-close when nerdtree is the only buffer left
 
 " linter: neomake: general
-autocmd! BufEnter,BufWritePost * Neomake
+autocmd! BufWritePost * Neomake
 let g:neomake_verbose = 0
+let g:neomake_open_list = 2
 " linter: neomake: c++
-let g:neomake_cpp_enable_makers = ['clang++']
-let g:neomake_cpp_clang_maker = {
-    \ 'exe': 'clang++',
-    \ 'args': ['-std=c++14', '-Wall', '-Wextra', '-Weverything', '-pedantic'],
-\ }
-"let g:neomake_cpp_clang_args = ["-std=c++14", "-Wextra", "-Wall"]
+let g:neomake_cpp_enable_makers = ['clang']
+let g:neomake_cpp_clang_maker = {'exe': 'clang'}
+let g:neomake_cpp_clang_args = ['-std=c++14', '-Wall', '-Wextra', '-Weverything', '-pedantic']
 " linter: neomake: c
 let g:neomake_c_enable_makers = ['clang']
-let g:neomake_c_clang_args = ["-Wextra", "-Wall", "-fsyntax-only"]
+let g:neomake_c_clang_args = ['-Wextra', '-Wall', '-fsyntax-only']
 " linter: neomake: python
 let g:neomake_python_enable_markers = ['flake8']
 
