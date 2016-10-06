@@ -1,4 +1,5 @@
-""" General Configurations
+" ========== General ==========
+" =============================
 
 " Leader
 let mapleader = ',' " Set mapleader to ,
@@ -52,13 +53,13 @@ set linebreak       " Do not break words on wrap
 set nolist          " Do not show characters at the end of lines (needed for linebreak)
 
 
-
-""" Plugins
+" ========== Plugins ==========
+" =============================
 " watchlist:
 " - incsearch.vim
 
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
-    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs 
+    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall
 endif
@@ -75,16 +76,16 @@ call plug#begin()
 
     " commenting
     Plug 'scrooloose/nerdcommenter'
-    
+
     " file explorer
-    Plug 'scrooloose/nerdtree'        
+    Plug 'scrooloose/nerdtree'
 
     " git
     Plug 'tpope/vim-fugitive'     " command-line git wrapper
     Plug 'airblade/vim-gitgutter' " git change-log
-    
+
     " linting
-    Plug 'benekastah/neomake', { 'for': 'cpp,c,python' }
+    Plug 'benekastah/neomake'
 
     " movement
     Plug 'easymotion/vim-easymotion'
@@ -126,12 +127,15 @@ nnoremap <leader>n :NERDTree<CR>
 " TODO function to auto-close when nerdtree is the only buffer left
 
 " linter: neomake: general
-autocmd! BufWritePost * Neomake
+autocmd! BufEnter,BufWritePost * Neomake
 let g:neomake_verbose = 0
 " linter: neomake: c++
-let g:neomake_cpp_clang_maker = { 'exe' : 'clang' }
-let g:neomake_cpp_enable_makers = ['clang']
-let g:neomake_cpp_clang_args = ["-std=c++14", "-Wextra", "-Wall", "-fsyntax-only"]
+let g:neomake_cpp_enable_makers = ['clang++']
+let g:neomake_cpp_clang_maker = {
+    \ 'exe': 'clang++',
+    \ 'args': ['-std=c++14', '-Wall', '-Wextra', '-Weverything', '-pedantic'],
+\ }
+"let g:neomake_cpp_clang_args = ["-std=c++14", "-Wextra", "-Wall"]
 " linter: neomake: c
 let g:neomake_c_enable_makers = ['clang']
 let g:neomake_c_clang_args = ["-Wextra", "-Wall", "-fsyntax-only"]
@@ -147,7 +151,8 @@ let g:airline_theme='tender'
 
 
 
-""" Mappings
+" ========== Mappings =========
+" =============================
 
 " Move along visual lines, not numbered ones.
 nnoremap j gj
