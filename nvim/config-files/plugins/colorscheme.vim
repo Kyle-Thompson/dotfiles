@@ -1,3 +1,4 @@
-" colorscheme
+" ===== colorscheme =====
+
 silent! colorscheme tender
 
