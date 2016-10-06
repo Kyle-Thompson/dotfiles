@@ -3,7 +3,7 @@
 " Leader
 let mapleader = ',' " Set mapleader to ,
 
-" Indentation (TODO: it seems like there's a lot of redundancy. learn more.)
+" Indentation
 set tabstop=4       " A tab is 4 spaces wide
 set softtabstop=4   " Number of spaces to replace tabs by
 set shiftwidth=4    " Number of spaces for autoindent
@@ -13,11 +13,11 @@ set smartindent     " Use proper indentation for filetype
 
 " Searching
 set ignorecase      " Ignore case when searching
-set smartcase       " Match given captials in search. (Override ignorecase)
-set incsearch       " Incremental searching. (TODO: find out more)
+set smartcase       " Match any given captials in search
+set incsearch       " Highlight matches in real time
 set hlsearch        " Highlight previous searches
 
-" Word wrapping (soft)
+" Word wrapping
 set wrap            " Spread long lines across multiple lines
 set linebreak       " Do not break words on wrap
 set nolist          " Do not show characters at the end of lines (needed for linebreak)
@@ -55,13 +55,11 @@ set visualbell      " No beeps
 
 """ Plugins
 
-" Check if plugged exists.
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
     silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs 
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall
 endif
-
 
 call plug#begin()
 
