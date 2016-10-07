@@ -1,4 +1,4 @@
 " ===== colorscheme =====
 
-silent! colorscheme tender
+silent! colorscheme gotham
 

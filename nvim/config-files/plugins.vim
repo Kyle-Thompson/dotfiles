@@ -20,6 +20,7 @@ call plug#begin()
 
     " colourscheme
     Plug 'jacoborus/tender'
+    Plug 'whatyouhide/vim-gotham'
 
     " commenting
     Plug 'scrooloose/nerdcommenter'
@@ -67,6 +68,7 @@ call plug#begin()
 call plug#end()
 
 
+" Source all plugin config files
 for f in split(glob('~/.config/nvim/config-files/plugins/*.vim'), '\n')
     exe 'source' f
 endfor
