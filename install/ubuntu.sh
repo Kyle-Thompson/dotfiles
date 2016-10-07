@@ -68,4 +68,8 @@ chsh -s `which zsh`
 #ln -s ~/.dotfiles/zsh ~/.config/zsh
 
 
+# termite
+# -- add all install stuff here
+ln -s ~/.dotfiles/termite ~/.config/termite
+
 
