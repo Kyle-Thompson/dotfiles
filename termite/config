@@ -1,4 +1,6 @@
-
+# font
+[options]
+font = Monospace 9
 
 # colorscheme
 
