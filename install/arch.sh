@@ -12,7 +12,7 @@ if ! ping -c 1 google.com > /dev/null 2>&1; then
 fi
 
 install () {
-    pacman -S $1 # might need $@
+    pacman -S --noconfirm $@
 }
 
 as_user () {
@@ -21,14 +21,18 @@ as_user () {
 
 
 # git
-as_user ssh-keygen -t rsa -b 4096 -C "kyle.thompson228@gmail.com"
-as_user ssh-add ~/.ssh/id_rsa
-echo "add id_rsa.pub to github and press [ENTER]"
-read
-install git
-as_user git config --global user.name "Kyle Thompson"
-as_user git config --global user.email "kyle.thompson228@gmail.com"
-as_user git config --global user.editor nvim
+echo "configure git? [Y/n]"
+read -n 1 config_git
+if [ -z "$config_git" ] || [ "$config_git" = "Y" ] || [ "$config_git" = 'y' ]; then
+    as_user ssh-keygen -t rsa -b 4096 -C "kyle.thompson228@gmail.com"
+    as_user ssh-add ~/.ssh/id_rsa
+    echo "add id_rsa.pub to github and press [ENTER]"
+    read
+    install git
+    as_user git config --global user.name "Kyle Thompson"
+    as_user git config --global user.email "kyle.thompson228@gmail.com"
+    as_user git config --global user.editor nvim
+fi
 
 
 # dotfile directory
