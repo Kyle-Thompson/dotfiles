@@ -33,7 +33,7 @@ as_user git config --global user.editor nvim
 
 # dotfile directory
 as_user mkdir -p ~/.config
-rm -rf ~/.dotfiles
+as_user rm -rf ~/.dotfiles
 as_user git clone --quiet git@github.com:Kyle-Thompson/dotfiles.git ~/.dotfiles
 
 
@@ -43,31 +43,29 @@ as_user curl -s http://i.imgur.com/SpBfUZi.jpg --create-dirs -o ~/Pictures/Wallp
 
 # neovim
 install neovim
-install python-pip python3-pip
+install python2-pip python-pip
+pip2 install --upgrade pip neovim
 pip install --upgrade pip neovim
-pip3 install --upgrade pip neovim
 rm -rf ~/.config/nvim
 ln -s ~/.dotfiles/nvim ~/.config/nvim
-# nvim +PlugInstall +qa
 
 
 # i3
 install feh
 install i3
 rm -rf ~/.config/i3
-chmod +x ~/.dotfiles/etc/monitor-layout.sh
+#chmod +x ~/.dotfiles/etc/monitor-layout.sh
 ln -s ~/.dotfiles/i3 ~/.config/i3
 
 
 # zsh
 install zsh
 chsh -s `which zsh`
-# change dotfile path in zsh etc dir or something
-#ln -s ~/.dotfiles/zsh ~/.config/zsh
+ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
 
 
 # termite
-# -- add all install stuff here
+install termite
 ln -s ~/.dotfiles/termite ~/.config/termite
 
 
