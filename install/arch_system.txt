@@ -1,0 +1,82 @@
+1 Prepare the disk
+------------------
+
+1.1 Partition the drive
+    EFI   (FAT32) (200MiB) (Should already exist if dual-booting)
+    boot  (ext4)  (200MiB)
+    root  (ext4)  (20GiB)
+    var   (ext4)  (?????)  (TODO)
+    swap  (swap)  (RAM)    (Same size as RAM.)
+    home  (ext4)  (rest)   (TODO: look into btrfs)
+
+1.2 Format the partitions
+    (EFI)  mkfs.fat -F 32 <EFI partition>
+    (boot) mkfs.ext4 <boot partition>
+    (root) mkfs.ext4 <root partition>
+    (var)  mkfs.ext4 <var partition>
+    (swap) mkswap <swap partition>
+    (home) mkfs.ext4 <home partition>
+
+1.3 Mount the partitions
+    mount <root partition> /mnt
+    mount <boot partition> /mnt/boot
+    mount <EFI partition>  /mnt/boot/efi
+    mount <var partition>  /mnt/var
+    mount <home partition> /mnt/home
+    swapon <swap partition>
+
+
+2 Install base packages
+-----------------------
+
+    pacstrap /mnt base base-devel
+
+
+3 Generate fstab
+----------------
+
+    genfstab -U /mnt > /mnt/etc/fstab
+
+
+4 Chroot system setup
+---------------------
+
+4.1 Timezone
+    ln -s /usr/share/zoneinfo/Canada/Eastern /etc/localtime
+
+4.2 Locale
+    # uncomment en_CA.UTF-8 in /etc/locale.gen
+    locale-gen
+    LANG=en_CA.UTF-8
+
+4.3 Hostname
+    echo hostname > /etc/hostname
+    # add "127.0.1.1   hostname.localdomain   hostname" to the end of /etc/hosts
+
+4.4 Initramfs
+    mkinitcpio -p linux
+
+4.5 Root passwd
+    passwd
+
+4.6 New user
+    useradd -m (TODO: complete)
+    passwd kyle
+    # uncomment "%wheel ALL=(ALL) ALL" from /etc/sudoers
+
+4.7 Exit
+    exit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
