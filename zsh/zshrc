@@ -1,8 +1,11 @@
-# Set up the prompt
+# prompt
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status rbenv)
+POWERLEVEL9K_STATUS_VERBOSE=false
+source ~/.dotfiles/zsh/powerlevel9k/powerlevel9k.zsh-theme
 
-autoload -Uz promptinit
-promptinit
-prompt adam1
+# aliases
+alias ls='ls --color=auto'
 
 setopt histignorealldups sharehistory
 
