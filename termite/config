@@ -1,36 +1,45 @@
-# font
+
 [options]
+
 font = Monospace 9
 
-# colorscheme
 
 [colors]
 
-foreground      = #98d1ce
-foreground_bold = #98d1ce
-cursor          = #98d1ce
-background      = #0a0f14
+# special
+foreground      = #7ea2b4
+foreground_bold = #7ea2b4
+cursor          = #7ea2b4
+background      = #161b1d
 
-color0  = #0a0f14
-color8  = #10151b
+# black
+color0  = #161b1d
+color8  = #5a7b8c
 
-color1  = #c33027
-color9  = #d26939
+# red
+color1  = #d22d72
+color9  = #d22d72
 
-color2  = #26a98b
-color10 = #081f2d
+# green
+color2  = #568c3b
+color10 = #568c3b
 
-color3  = #edb54b
-color11 = #245361
+# yellow
+color3  = #8a8a0f
+color11 = #8a8a0f
 
-color4  = #195465
-color12 = #093748
+# blue
+color4  = #257fad
+color12 = #257fad
 
-color5  = #4e5165
-color13 = #888ba5
+# magenta
+color5  = #5d5db1
+color13 = #5d5db1
 
-color6  = #33859d
-color14 = #599caa
+# cyan
+color6  = #2d8f6f
+color14 = #2d8f6f
 
-color7  = #98d1ce
-color15 = #d3ebe9
+# white
+color7  = #7ea2b4
+color15 = #ebf8ff
