@@ -19,8 +19,7 @@ call plug#begin()
     Plug 'zchee/deoplete-clang' " TODO
 
     " colourscheme
-    Plug 'jacoborus/tender'
-    Plug 'whatyouhide/vim-gotham'
+    Plug 'chriskempson/base16-vim'
 
     " commenting
     Plug 'scrooloose/nerdcommenter'
