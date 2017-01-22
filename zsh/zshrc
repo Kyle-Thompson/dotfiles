@@ -1,8 +1,13 @@
 # prompt
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status rbenv)
-POWERLEVEL9K_STATUS_VERBOSE=false
-source ~/.dotfiles/zsh/powerlevel9k.zsh-theme
+if [ $(tput colors) -ge "256" ]; then
+    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
+    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status rbenv)
+    POWERLEVEL9K_STATUS_VERBOSE=false
+    source ~/.dotfiles/zsh/powerlevel9k.zsh-theme
+else
+    #PS1=' > '
+    prompt="%1~ > "
+fi
 
 # aliases
 alias ls='ls --color=auto'
