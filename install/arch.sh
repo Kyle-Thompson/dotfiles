@@ -45,12 +45,19 @@ rm -rf ~/.config/nvim
 ln -s ~/.dotfiles/nvim ~/.config/nvim
 
 
+# general WM
+install feh thunar
+
 # i3
-install feh
 install i3
 rm -rf ~/.config/i3
 #chmod +x ~/.dotfiles/etc/monitor-layout.sh
 ln -s ~/.dotfiles/i3 ~/.config/i3
+
+# openbox
+install openbox
+rm -rf ~/.config/openbox
+ln -s ~/.dotfiles/openbox ~/.config/openbox
 
 
 # zsh
