@@ -61,6 +61,10 @@ ln -s ~/.dotfiles/openbox ~/.config/openbox
 
 
 # zsh
+# get powerline fonts
+#mkdir -p ~/.fonts ~/.config/fontconfig/conf.d
+#wget -O ~/.fonts/PowerlineSymbols.otf https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+#wget -O ~/.config/fontconfig/conf.d/10-powerline-symbols.conf https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
 install zsh
 chsh -s `which zsh`
 rm ~/.zshrc
