@@ -77,6 +77,9 @@ fi
 echo "configure zsh? [Y/n]"
 read -n 1 config_section
 if [ -z "$config_section" ] || [ "$config_section" = "Y" ] || [ "$config_section" = 'y' ]; then
+    #mkdir -p ~/.fonts ~/.config/fontconfig/conf.d
+    #wget -O ~/.fonts/PowerlineSymbols.otf https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+    #wget -O ~/.config/fontconfig/conf.d/10-powerline-symbols.conf https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
 	install zsh
 	chsh -s `which zsh`
 	rm ~/.zshrc
