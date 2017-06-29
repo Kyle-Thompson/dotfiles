@@ -16,3 +16,4 @@ let g:neomake_c_clang_args = ['-std=c11', '-Wall', '-Wextra', '-fsyntax-only']
 " python
 let g:neomake_python_enable_markers = ['flake8']
 
+" rust
