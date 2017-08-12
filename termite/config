@@ -10,7 +10,8 @@ font = Monospace 9
 foreground      = #7ea2b4
 foreground_bold = #7ea2b4
 cursor          = #7ea2b4
-background      = #161b1d
+#background      = #161b1d
+background      = rgba(22, 27, 29, 0.9)
 
 # black
 color0  = #161b1d
