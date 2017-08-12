@@ -70,6 +70,16 @@ if [ -z "$config_section" ] || [ "$config_section" = "Y" ] || [ "$config_section
 	install openbox
 	rm -rf ~/.config/openbox
 	ln -s ~/.dotfiles/openbox ~/.config/openbox
+
+    #rofi
+    install rofi
+    rm -rf ~/.config/rofi
+    ln -s ~/.dotfiles/rofi ~/.config/rofi
+
+    #compton
+    install compton
+    rm -rf ~/.config/compton.conf
+    ln -s ~/.dotfiles/compton/compton.conf ~/.config/compton.conf
 fi
 
 
