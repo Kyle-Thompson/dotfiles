@@ -5,7 +5,6 @@ if [ $(tput colors) -ge "256" ]; then
     POWERLEVEL9K_STATUS_VERBOSE=false
     source ~/.dotfiles/zsh/powerlevel9k.zsh-theme
 else
-    #PS1=' > '
     prompt="%1~ > "
 fi
 
