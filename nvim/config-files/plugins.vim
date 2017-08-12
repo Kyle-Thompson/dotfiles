@@ -58,6 +58,7 @@ call plug#begin()
 
     " status line
     Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 
     " text
     Plug 'godlygeek/tabular'    " alignment
