@@ -14,9 +14,13 @@ endif
 call plug#begin()
 
     " autocompletion
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocomplete system
-    Plug 'ervandew/supertab'    " TODO
-    Plug 'zchee/deoplete-clang' " TODO
+    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocomplete system
+    " Plug 'ervandew/supertab'    " TODO
+    " Plug 'zchee/deoplete-clang' " TODO
+    Plug 'roxma/nvim-completion-manager'  " Completion engine
+    Plug 'rust-lang/rust.vim'             " TODO
+    Plug 'racer-rust/vim-racer'           " TODO
+    Plug 'roxma/nvim-cm-racer'            " TODO
 
     " colourscheme
     Plug 'chriskempson/base16-vim'
