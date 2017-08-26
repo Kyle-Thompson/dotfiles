@@ -48,6 +48,7 @@ if [ -z "$config_section" ] || [ "$config_section" = "Y" ] || [ "$config_section
 	install python2-pip python-pip
 	pip2 install --upgrade pip neovim
 	pip install --upgrade pip neovim
+    pip install jedi # python completion
 	rm -rf ~/.config/nvim
 	ln -s ~/.dotfiles/nvim ~/.config/nvim
 fi
