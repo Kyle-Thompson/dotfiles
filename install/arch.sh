@@ -108,3 +108,13 @@ if [ -z "$config_section" ] || [ "$config_section" = "Y" ] || [ "$config_section
 fi
 
 
+# polybar
+echo "configure polybar? [Y/n]"
+read -n 1 config_section
+if [ -z "$config_section" ] || [ "$config_section" = "Y" ] || [ "$config_section" = 'y' ]; then
+	yaourt polyboar
+	rm -rf ~/.config/polybar
+	ln -s ~/.dotfiles/polybar ~/.config/polybar
+fi
+
+
