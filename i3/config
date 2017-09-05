@@ -155,6 +155,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
 # monitor layout
 # exec_always ~/.dotfiles/etc/monitor-layout.sh
 
+# brightness keys
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
+
 # start compton
 exec compton
 
