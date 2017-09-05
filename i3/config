@@ -98,10 +98,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes' 'i3-msg e
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 2 px or 2 ppt
+        bindsym j resize grow height 2 px or 2 ppt
+        bindsym k resize shrink height 2 px or 2 ppt
+        bindsym l resize grow width 2 px or 2 ppt
 
         # back to normal: Enter or Escape
         bindsym Escape mode "default"
@@ -117,10 +117,10 @@ set $urgent-bg-color     #d22d72
 
 # window colors (not currently used)
 #                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #257fad
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #257fad
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #257fad
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #257fad
+client.focused          $bg-color           $bg-color          $text-color          $text-color
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $text-color
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $text-color
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $text-color
 
 # remove window title and borders
 hide_edge_borders both
@@ -129,7 +129,6 @@ new_window 1pixel
 # gaps
 gaps inner 10
 gaps outer 0
-smart_gaps on
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
