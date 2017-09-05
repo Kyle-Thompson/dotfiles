@@ -130,24 +130,8 @@ new_window 1pixel
 gaps inner 10
 gaps outer 0
 
-# bar
-exec_always . ~/.config/polybar/launch.sh
-
-#bar {
-#        status_command i3status
-#        tray_output primary
-#        position top
-#
-#        colors {
-#            background $bg-color
-#            separator #757575
-#
-#            #                  border           background       text
-#            focused_workspace  $bg-color        $bg-color        $text-color
-#            inactive_workspace $bg-color        $bg-color        $inactive-text-color 
-#            urgent_workspace   $urgent-bg-color $urgent-bg-color $text-color
-#        }
-#}
+# polybar
+exec_always ~/.config/polybar/launch.sh
 
 # media keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
