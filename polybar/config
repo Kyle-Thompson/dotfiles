@@ -6,11 +6,11 @@ background-alt = #161b1d
 ;foreground = ${xrdb:color7:#222}
 foreground = #7ea2b4
 foreground-alt = #7ea2b4
-primary = #ffb52a
+primary = #257fad
 secondary = #e60053
 alert = #d22d72
 
-[bar/example]
+[bar/main]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 27
@@ -28,7 +28,7 @@ line-color = #f00
 border-size = 4
 border-color = #00000000
 
-padding-left = 0
+padding-left = 2
 padding-right = 2
 
 module-margin-left = 1
