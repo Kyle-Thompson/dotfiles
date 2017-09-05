@@ -1,29 +1,21 @@
-;=====================================================
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/jaagr/polybar
-;
-;   The README contains alot of information
-;
-;=====================================================
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #222
-background-alt = #444
+background = #161b1d
+background-alt = #161b1d
 ;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
-foreground-alt = #555
+foreground = #7ea2b4
+foreground-alt = #7ea2b4
 primary = #ffb52a
 secondary = #e60053
-alert = #bd2c40
+alert = #d22d72
 
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 27
-;offset-x = 1%
-;offset-y = 1%
+offset-x = 1%
+offset-y = 1%
 radius = 6.0
 fixed-center = false
 
@@ -48,7 +40,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = i3
 modules-center = 
-modules-right = filesystem xbacklight volume xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-right = filesystem volume temperature wlan eth memory cpu battery date
 
 tray-position = right
 tray-padding = 2
@@ -215,11 +207,11 @@ format-disconnected =
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-;ramp-signal-0 = 
-;ramp-signal-1 = 
-;ramp-signal-2 = 
-;ramp-signal-3 = 
-;ramp-signal-4 = 
+ramp-signal-0 = W
+ramp-signal-1 = W
+ramp-signal-2 = W
+ramp-signal-3 = W
+ramp-signal-4 = W
 ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
@@ -242,7 +234,7 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date =
+date = "%Y-%m-%d"
 date-alt = " %Y-%m-%d"
 
 time = %H:%M
@@ -261,7 +253,7 @@ format-volume = <label-volume> <bar-volume>
 label-volume = VOL
 label-volume-foreground = ${root.foreground}
 
-;format-muted-prefix = " "
+format-muted-prefix = ""
 format-muted-foreground = ${colors.foreground-alt}
 label-muted = sound muted
 
@@ -294,18 +286,18 @@ format-charging-underline = #ffb52a
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
+;format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
-;ramp-capacity-0 = 
-;ramp-capacity-1 = 
-;ramp-capacity-2 = 
+ramp-capacity-0 = R
+ramp-capacity-1 = R
+ramp-capacity-2 = R
 ramp-capacity-foreground = ${colors.foreground-alt}
 
-;animation-charging-0 = 
-;animation-charging-1 = 
-;animation-charging-2 = 
+animation-charging-0 = C
+animation-charging-1 = C
+animation-charging-2 = C
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 
@@ -323,9 +315,9 @@ label = %temperature%
 label-warn = %temperature%
 label-warn-foreground = ${colors.secondary}
 
-;ramp-0 = 
-;ramp-1 = 
-;ramp-2 = 
+ramp-0 = T
+ramp-1 = T
+ramp-2 = T
 ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
