@@ -40,7 +40,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = i3
 modules-center = 
-modules-right = volume wlan battery date
+modules-right = volume wlan battery date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -311,8 +311,6 @@ label-warn = %temperature%
 label-warn-foreground = ${colors.secondary}
 
 ramp-0 = T
-ramp-1 = T
-ramp-2 = T
 ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
@@ -322,7 +320,7 @@ expand-right = true
 
 format-spacing = 1
 
-;label-open = 
+label-open = power
 label-open-foreground = ${colors.secondary}
 label-close =  cancel
 label-close-foreground = ${colors.secondary}
