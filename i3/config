@@ -131,7 +131,7 @@ gaps inner 10
 gaps outer 0
 
 # polybar
-exec_always ~/.config/polybar/launch.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # media keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
@@ -145,7 +145,7 @@ bindsym XF86MonBrightnessUp exec light -A 5
 bindsym XF86MonBrightnessDown exec light -U 5
 
 # start compton
-exec compton
+exec --no-startup-id compton
 
 # background
 exec --no-startup-id feh --bg-scale --no-fehbg ~/media/wallpapers/deer.jpg
