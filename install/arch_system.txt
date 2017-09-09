@@ -42,12 +42,12 @@
 ---------------------
 
 4.1 Timezone
-    ln -s /usr/share/zoneinfo/Canada/Eastern /etc/localtime
+    ln -s /usr/share/zoneinfo/America/New_York /etc/localtime
 
 4.2 Locale
-    # uncomment en_CA.UTF-8 in /etc/locale.gen
+    # uncomment en_US.UTF-8 in /etc/locale.gen
     locale-gen
-    LANG=en_CA.UTF-8
+    LANG=en_US.UTF-8
 
 4.3 Hostname
     echo hostname > /etc/hostname
@@ -60,7 +60,10 @@
     passwd
 
 4.6 New user
-    useradd -m (TODO: complete)
+    useradd -m -g users -G wheel kyle
+        -m: creates home directory for user
+        -g: make new user's initial group users
+        -G: add user to wheel group (necessary for sudo)
     passwd kyle
     # uncomment "%wheel ALL=(ALL) ALL" from /etc/sudoers
 
