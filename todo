@@ -5,11 +5,12 @@
 * use systemd-networkd instead of netctl
 * conky
 * global color config
+    - Xresources controls all colors
+    - make python script with pywal module
 * background (make cycle. get a folder)
 * polybar
     - powermenu
 * i3-lock (make pretty)
-* screen tearing (compton)
 * fonts
     - ttf monospace
     - bitmap
@@ -18,6 +19,7 @@
 * music (mpd, ncmpcpp, mpc)
 * polybar
     - powermenu dropdown
+    - wifi dropdown
 * neovim
     - transparency
     - airline customization
