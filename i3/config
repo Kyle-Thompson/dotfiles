@@ -4,10 +4,6 @@ set $mod Mod4
 # Custom stuff. TODO: move to appropriate place later
 focus_follows_mouse no
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-font pango:monospace 9
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -109,22 +105,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $bg-color 	         #161b1d
-set $inactive-bg-color   #161b1d
-set $text-color          #257fad
-set $inactive-text-color #7ea2b4
-set $urgent-bg-color     #d22d72
-
-# window colors (not currently used)
-#                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          $bg-color
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $bg-color
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $bg-color
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $bg-color
-
 # remove window title and borders
-hide_edge_borders both
-new_window 1pixel
+new_window none
 
 # gaps
 gaps inner 10
@@ -134,11 +116,9 @@ gaps outer 0
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # media keys
+# TODO: move to xinitrc
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
-
-# monitor layout
-# exec_always ~/.dotfiles/etc/monitor-layout.sh
 
 # brightness keys
 bindsym XF86MonBrightnessUp exec light -A 5
