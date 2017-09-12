@@ -24,7 +24,6 @@
     - powermenu dropdown
     - wifi dropdown
 * neovim
-    - transparency
     - airline customization
 * compton (general config)
 * power management (sleep and hibernate)
