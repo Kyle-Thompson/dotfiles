@@ -70,6 +70,9 @@ call plug#begin()
     Plug 'tommcdo/vim-exchange' " swapping
     Plug 'wellle/targets.vim'   " objects
 
+    " transparency
+    Plug 'miyakogi/seiya.vim'
+
 call plug#end()
 
 
