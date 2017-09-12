@@ -72,7 +72,6 @@ if [ -z "$config_section" ] || [ "$config_section" = "Y" ] || [ "$config_section
 	# i3
 	install i3
 	rm -rf ~/.config/i3
-	#chmod +x ~/.dotfiles/etc/monitor-layout.sh
 	ln -s ~/.dotfiles/i3 ~/.config/i3
 
 	# openbox
