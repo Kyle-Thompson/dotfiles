@@ -2,6 +2,7 @@
 * irssi
 * brightness script
 * fill in missing unicode
+* use systemd-networkd instead of netctl
 * conky
 * global color config
 * background (make cycle. get a folder)
