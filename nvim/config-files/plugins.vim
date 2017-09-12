@@ -24,6 +24,7 @@ call plug#begin()
 
     " colourscheme
     Plug 'chriskempson/base16-vim'
+    Plug 'dylanaraps/wal.vim'
 
     " commenting
     Plug 'scrooloose/nerdcommenter'
