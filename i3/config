@@ -115,15 +115,6 @@ gaps outer 0
 # polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
-# media keys
-# TODO: move to xinitrc
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
-
-# brightness keys
-bindsym XF86MonBrightnessUp exec light -A 5
-bindsym XF86MonBrightnessDown exec light -U 5
-
 # start compton
 exec --no-startup-id compton
 
