@@ -11,10 +11,11 @@ floating_modifier $mod
 bindsym $mod+Return exec termite
 
 # kill focused window
+bindsym $mod+q kill
 bindsym $mod+Shift+q kill
 
 # lock
-bindsym $mod+Shift+x exec i3lock
+bindsym $mod+x exec --no-startup-id ~/.config/i3/lock.sh
 
 # program launcher
 bindsym $mod+space exec rofi -show run
@@ -31,9 +32,9 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# orientation
-bindsym $mod+b split h
-bindsym $mod+v split v
+# next split position
+bindsym $mod+b split horizontal
+bindsym $mod+v split vertical
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -70,6 +71,7 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
+bindsym $mod+Tab workspace back_and_forth
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -82,6 +84,13 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
+
+# dropdown
+for_window [instance="dropdown"] floating enable
+for_window [instance="dropdown"] move position center
+for_window [instance="dropdown"] move scratchpad
+exec --no-startup-id termite -name dropdown
+bindsym $mod+u [instance="dropdown"] scratchpad show; move position center
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
