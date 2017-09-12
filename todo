@@ -5,6 +5,7 @@
 * fill in missing unicode
 * use systemd-networkd instead of netctl
 * conky
+* get wal colorscheme to work
 * global color config
     - Xresources controls all colors
     - make python script with pywal module
