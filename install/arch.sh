@@ -130,3 +130,11 @@ if [ -z "$config_section" ] || [ "$config_section" = "Y" ] || [ "$config_section
 fi
 
 
+# X
+echo "configure X? [Y/n]"
+read -n 1 config_section
+if [ -z "$config_section" ] || [ "$config_section" = "Y" ] || [ "$config_section" = 'y' ]; then
+    rm ~/.xinitrc ~/.Xresources
+    ln -s ~/.dotfiles/X/xinitrc ~/.xinitrc
+    ln -s ~/.dotfiles/X/Xresources ~/.Xresources
+fi
