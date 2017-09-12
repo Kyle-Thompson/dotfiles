@@ -1,6 +1,11 @@
 * keyboard backlight
 * figure out what all the zstyle commands in zshrc are doing
 * irssi
+    - learn
+    - move config files to ~/.config/irssi
+    - add alias in zshrc 
+        `alias irssi='irssi --home=~/.config/irssi --config=~/.config/irssi/config'`
+    - find out if specifying --config is irrelevant after doing --home
 * brightness script
 * get i3 dropdown menu to work
 * fill in missing unicode
@@ -25,6 +30,7 @@
     - wifi dropdown
 * neovim
     - airline customization
+    - gutter background same as regular background
 * compton (general config)
 * power management (sleep and hibernate)
 * figure out how to exit i3 back into default terminal prompt
