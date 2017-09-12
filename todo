@@ -2,6 +2,7 @@
 * figure out what all the zstyle commands in zshrc are doing
 * irssi
 * brightness script
+* get i3 dropdown menu to work
 * fill in missing unicode
 * use systemd-networkd instead of netctl
 * conky
