@@ -1,0 +1,17 @@
+# global keybindings
+
+# volume
+"amixer set Master 5%+" 
+  XF86AudioRaiseVolume
+"amixer set Master 5%-" 
+  XF86AudioLowerVolume
+"amixer set Master toggle" 
+  XF86AudioMute
+
+# screen brightness
+"light -A 5" 
+  XF86MonBrightnessUp
+"light -U 5" 
+  XF86MonBrightnessDown
+
+# keyboard brightness (TODO)

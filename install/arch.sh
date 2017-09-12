@@ -96,7 +96,7 @@ fi
 echo "configure zsh? [Y/n]"
 read -n 1 config_section
 if [ -z "$config_section" ] || [ "$config_section" = "Y" ] || [ "$config_section" = 'y' ]; then
-    #mkdir -p ~/.fonts
+    #mkdir -p ~/.fonts # deprecated
     #wget -O ~/.fonts/PowerlineSymbols.otf https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
     mkdir -p ~/.config/fontconfig/conf.d
     if [ ! -f ~/.config/fontconfig/conf.d/10-powerline-symbols.conf ]; then
@@ -134,7 +134,8 @@ fi
 echo "configure X? [Y/n]"
 read -n 1 config_section
 if [ -z "$config_section" ] || [ "$config_section" = "Y" ] || [ "$config_section" = 'y' ]; then
-    rm ~/.xinitrc ~/.Xresources
+    rm ~/.xinitrc ~/.Xresources ~/.xbindkeysrc
     ln -s ~/.dotfiles/X/xinitrc ~/.xinitrc
     ln -s ~/.dotfiles/X/Xresources ~/.Xresources
+    ln -s ~/.dotfiles/X/xbindkeysrc ~/.xbindkeysrc
 fi
