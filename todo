@@ -1,4 +1,5 @@
 * keyboard backlight
+* figure out what all the zstyle commands in zshrc are doing
 * irssi
 * brightness script
 * fill in missing unicode
