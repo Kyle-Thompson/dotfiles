@@ -1,0 +1,24 @@
+* keyboard backlight
+* irssi
+* fill in missing unicode
+* conky
+* global color config
+* background (make cycle. get a folder)
+* polybar
+    - powermenu
+* i3-lock (make pretty)
+* screen tearing (compton)
+* fonts
+    - ttf monospace
+    - bitmap
+* firefox rice
+* rofi config
+* music (mpd, ncmpcpp, mpc)
+* polybar
+    - powermenu dropdown
+* neovim
+    - transparency
+    - airline customization
+* compton (general config)
+* power management (sleep and hibernate)
+* figure out how to exit i3 back into default terminal prompt
