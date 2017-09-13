@@ -8,8 +8,9 @@
     - find out if specifying --config is irrelevant after doing --home
 * brightness script
 * neovim colorscheme
+    - understand all of base16-atelier-lakeside.vim
     - figure out how wal grabs system colors
-    - figure out how seiya implements transparency
+    - note: cursorline transparency is infeasible. Don't bother.
 * get i3 dropdown menu to work
 * fill in missing unicode
 * use systemd-networkd instead of netctl
