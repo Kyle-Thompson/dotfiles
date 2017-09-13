@@ -7,6 +7,9 @@
         `alias irssi='irssi --home=~/.config/irssi --config=~/.config/irssi/config'`
     - find out if specifying --config is irrelevant after doing --home
 * brightness script
+* neovim colorscheme
+    - figure out how wal grabs system colors
+    - figure out how seiya implements transparency
 * get i3 dropdown menu to work
 * fill in missing unicode
 * use systemd-networkd instead of netctl
@@ -16,18 +19,15 @@
     - Xresources controls all colors
     - make python script with pywal module
 * background (make cycle. get a folder)
-* polybar
-    - powermenu
 * i3-lock (make pretty)
-* fonts
-    - ttf monospace
-    - bitmap
+* bitmap font
 * firefox rice
 * rofi config
 * music (mpd, ncmpcpp, mpc)
 * polybar
     - powermenu dropdown
     - wifi dropdown
+    - date dropdown (time, dropdown is calendar with date)
 * neovim
     - airline customization
     - gutter background same as regular background
