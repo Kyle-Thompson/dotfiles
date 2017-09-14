@@ -43,7 +43,6 @@ set splitright      " Horizontal splits open right of the current window
 " Visual
 set number          " Show line numbers
 set relativenumber  " Line numbers are relative to current line
-set cursorline      " Highlight cursorline
 syntax enable       " Syntax highlighting
 set termguicolors   " Enable true colours
 
