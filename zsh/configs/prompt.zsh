@@ -59,6 +59,6 @@ function has_unstaged_files() {
 }
 
 setopt prompt_subst
-prompt='$(has_unstaged_files)%1~ ${vcs_info_msg_0_}> %f'
+prompt='%1~ $(has_unstaged_files)${vcs_info_msg_0_}%f> '
 #prompt='${vcs_info_msg_0_}  ────  '
 #RPROMPT='${vcs_info_msg_0_}'
