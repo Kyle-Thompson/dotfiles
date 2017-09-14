@@ -31,7 +31,11 @@
 * music (mpd, ncmpcpp, mpc)
 * polybar
     - powermenu dropdown
-    - wifi dropdown
+    - internet dropdown
+        - lone glyph of either disconnected wifi, connected wifi or ethernet
+        - clicking glyph will open dropdown of all available networks
+            - clicking entry in dropdown will connect to that network
+            - clicking wifi network while connected over ethernet is a NOP
     - date dropdown (time, dropdown is calendar with date)
 * neovim
     - airline customization
