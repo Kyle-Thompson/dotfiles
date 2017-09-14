@@ -1,5 +1,9 @@
 * keyboard backlight
 * figure out what all the zstyle commands in zshrc are doing
+* zsh git prompt
+    - get MVP done
+    - color it
+    - Optimize (async?)
 * irssi
     - learn
     - move config files to ~/.config/irssi
