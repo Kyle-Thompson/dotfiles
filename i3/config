@@ -8,7 +8,7 @@ focus_follows_mouse no
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec --no-startup-id termite
 
 # kill focused window
 bindsym $mod+q kill
@@ -18,7 +18,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+x exec --no-startup-id ~/.config/i3/lock.sh
 
 # program launcher
-bindsym $mod+space exec rofi -show run
+bindsym $mod+space exec --no-startup-id rofi -show run
 
 # change focus
 bindsym $mod+h focus left
@@ -97,7 +97,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes' 'i3-msg exit'"
+bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
