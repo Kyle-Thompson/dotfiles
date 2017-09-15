@@ -1,5 +1,9 @@
 * keyboard backlight
 * figure out what all the zstyle commands in zshrc are doing
+* functional urxvt config
+* other WMs to set up
+    - bspwm
+    - openbox
 * zsh git prompt
     - get MVP done
     - color it
@@ -26,6 +30,7 @@
 * background (make cycle. get a folder)
 * i3-lock (make pretty)
 * bitmap font
+    - montecarlo
 * firefox rice
 * rofi config
 * music (mpd, ncmpcpp, mpc)
@@ -37,6 +42,12 @@
             - clicking entry in dropdown will connect to that network
             - clicking wifi network while connected over ethernet is a NOP
     - date dropdown (time, dropdown is calendar with date)
+    - battery dropdown
+        - displays estimated time remaining
+        - displays which programs are using most power
+    - volume dropdown
+        - Basically a NOP for the time being
+        - instead of a dropdown, clicking toggles mute
 * neovim
     - airline customization
     - gutter background same as regular background
