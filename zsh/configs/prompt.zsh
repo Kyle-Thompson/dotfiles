@@ -24,7 +24,7 @@ precmd() {
 }
 
 # Report existence of untracked files
-zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
+# zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 function +vi-git-untracked() {
     if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
         git status --porcelain | grep '??' &> /dev/null; then
@@ -34,7 +34,7 @@ function +vi-git-untracked() {
 
 # Report status relative to remote HEAD. (ahead-of or behind by # commits)
 # TODO: Get this to work!
-# zstyle ':vcs_info:git*+set-message:*' hooks git-st
+zstyle ':vcs_info:git*+set-message:*' hooks git-st
 function +vi-git-st() {
     local ahead behind
     local -a gitstatus
@@ -52,9 +52,9 @@ function +vi-git-st() {
 function has_unstaged_files() {
     if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
         git status --porcelain | grep -E '\bM' &> /dev/null; then
-        echo '%F{5}'
+        echo '%F{3}'
     else
-        echo '%F{6}'
+        echo '%F{2}'
     fi
 }
 
