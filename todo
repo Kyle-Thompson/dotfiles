@@ -1,6 +1,6 @@
 * keyboard backlight
 * figure out what all the zstyle commands in zshrc are doing
-* functional urxvt config
+* functional xiate config
 * other WMs to set up
     - bspwm
     - openbox
@@ -8,27 +8,23 @@
     - get MVP done
     - color it
     - Optimize (async?)
-* irssi
+* weechat
     - learn
-    - move config files to ~/.config/irssi
-    - add alias in zshrc 
-        `alias irssi='irssi --home=~/.config/irssi --config=~/.config/irssi/config'`
-    - find out if specifying --config is irrelevant after doing --home
 * brightness script
 * neovim colorscheme
     - understand all of base16-atelier-lakeside.vim
     - figure out how wal grabs system colors
     - note: cursorline transparency is infeasible. Don't bother.
-* get i3 dropdown terminal to work
+* tdrop
 * fill in missing unicode
-* use systemd-networkd instead of netctl
+* use wicd instead of netctl
 * conky
 * get wal colorscheme to work
 * global color config
     - Xresources controls all colors
     - make python script with pywal module
 * background (make cycle. get a folder)
-* i3-lock (make pretty)
+* i3lock-next
 * bitmap font
     - montecarlo
 * firefox rice
@@ -53,4 +49,4 @@
     - gutter background same as regular background
 * compton (general config)
 * power management (sleep and hibernate)
-* figure out how to exit i3 back into default terminal prompt
+* xkill -a && killall xinit
