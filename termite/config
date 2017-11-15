@@ -1,11 +1,10 @@
+# termite config
 
 [options]
-
 font = Monospace 9
 
 
 [colors]
-
 # special
 foreground      = #7ea2b4
 foreground_bold = #7ea2b4

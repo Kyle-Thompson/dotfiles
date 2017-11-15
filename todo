@@ -1,6 +1,7 @@
 * keyboard backlight
 * figure out what all the zstyle commands in zshrc are doing
 * functional urxvt config
+* transmission cli
 * other WMs to set up
     - bspwm
     - openbox
@@ -15,10 +16,13 @@
         `alias irssi='irssi --home=~/.config/irssi --config=~/.config/irssi/config'`
     - find out if specifying --config is irrelevant after doing --home
 * brightness script
-* neovim colorscheme
-    - understand all of base16-atelier-lakeside.vim
-    - figure out how wal grabs system colors
-    - note: cursorline transparency is infeasible. Don't bother.
+* neovim
+    - colorscheme
+        - understand all of base16-atelier-lakeside.vim
+        - figure out how wal grabs system colors
+        - note: cursorline transparency is infeasible. Don't bother.
+    - statusline
+        - color updating
 * get i3 dropdown terminal to work
 * fill in missing unicode
 * use systemd-networkd instead of netctl
@@ -34,6 +38,8 @@
 * firefox rice
 * rofi config
 * music (mpd, ncmpcpp, mpc)
+* tint2
+    create a setup to be adjacent to polybar
 * polybar
     - powermenu dropdown
     - internet dropdown
