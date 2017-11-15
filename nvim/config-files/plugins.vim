@@ -18,7 +18,7 @@ call plug#begin()
     " Plug 'ervandew/supertab'    " TODO
     " Plug 'zchee/deoplete-clang' " TODO
     Plug 'roxma/nvim-completion-manager'  " Completion engine
-    Plug 'rust-lang/rust.vim'             " TODO
+    " Plug 'rust-lang/rust.vim'             " (Included in polyglot)
     Plug 'racer-rust/vim-racer'           " TODO
     Plug 'roxma/nvim-cm-racer'            " TODO
 
@@ -62,8 +62,8 @@ call plug#begin()
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
     " status line
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
+    " Plug 'vim-airline/vim-airline'
+    " Plug 'vim-airline/vim-airline-themes'
 
     " text
     Plug 'godlygeek/tabular'    " alignment
