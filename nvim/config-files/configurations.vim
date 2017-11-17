@@ -51,4 +51,5 @@ set wrap            " Spread long lines across multiple lines
 set linebreak       " Do not break words on wrap
 set nolist          " Do not show characters at the end of lines (needed for linebreak)
 
-
+" Automatically change the working path to the path of the current file
+autocmd BufNewFile,BufEnter * silent! lcd %:p:h
