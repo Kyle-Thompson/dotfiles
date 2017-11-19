@@ -7,7 +7,7 @@ let mapleader = ',' " Set mapleader to ,
 " Completion
 set wildmode=list:longest
 set wildmenu
-set wildignore=*.o
+set wildignore=*.o,*.pyc
 
 " Folds
 
@@ -41,8 +41,8 @@ set splitbelow      " Vertical splits open below current window
 set splitright      " Horizontal splits open right of the current window
 
 " Visual
-set number          " Show line numbers
-set relativenumber  " Line numbers are relative to current line
+" set number          " Show line numbers
+" set relativenumber  " Line numbers are relative to current line
 syntax enable       " Syntax highlighting
 set termguicolors   " Enable true colours
 

@@ -14,9 +14,6 @@ endif
 call plug#begin()
 
     " autocompletion
-    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " autocomplete system
-    " Plug 'ervandew/supertab'    " TODO
-    " Plug 'zchee/deoplete-clang' " TODO
     Plug 'roxma/nvim-completion-manager'  " Completion engine
     " Plug 'rust-lang/rust.vim'             " (Included in polyglot)
     Plug 'racer-rust/vim-racer'           " TODO
@@ -33,11 +30,13 @@ call plug#begin()
     Plug 'scrooloose/nerdtree'
 
     " fuzzy file searching
-    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'junegunn/fzf', { 'dir': $XDG_DATA_HOME . '/fzf',
+                         \ 'do': './install --all'}
+    Plug 'junegunn/fzf.vim'
 
     " git
     Plug 'tpope/vim-fugitive'     " command-line git wrapper
-    Plug 'airblade/vim-gitgutter' " git changes in the gutter
+    " Plug 'airblade/vim-gitgutter' " git changes in the gutter
 
     " language pack
     Plug 'sheerun/vim-polyglot'
@@ -60,10 +59,6 @@ call plug#begin()
 
     " snippets
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
-    " status line
-    " Plug 'vim-airline/vim-airline'
-    " Plug 'vim-airline/vim-airline-themes'
 
     " text
     Plug 'godlygeek/tabular'    " alignment
