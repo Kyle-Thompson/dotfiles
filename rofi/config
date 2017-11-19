@@ -11,15 +11,15 @@ rofi.color-window: #161b1d, #7ea2b4, #161b1d
 
 ! general ----------------------------------------------------
 rofi.font:          pango:monospace 15      
-rofi.modi:          run,window,ssh          !mode order
-rofi.width:         30                      !window width
-rofi.columns:       1                       !number of seach columns
-rofi.lines:         5                       !results per page
-rofi.bw:            1                       !border width
-rofi.location:      0                       !location on screen
-rofi.padding:       5                       !border to text space
-rofi.yoffset:       0                       !y offset from location
-rofi.xoffset:       0                       !x offset from location
+rofi.modi:          run,window,ssh
+rofi.width:         30                      ! window width
+rofi.columns:       1                       ! number of seach columns
+rofi.lines:         5                       ! results per page
+rofi.bw:            1                       ! border width
+rofi.location:      0                       ! location on screen
+rofi.padding:       5                       ! border to text space
+rofi.yoffset:       0                       ! y offset from location
+rofi.xoffset:       0                       ! x offset from location
 
 
 ! "Always show number of lines" Set from: Default
