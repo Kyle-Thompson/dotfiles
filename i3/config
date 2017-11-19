@@ -39,7 +39,7 @@ bindsym $mod+v split vertical
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# TODO: figure out what this does.
+# toggle the split orientation of the current window (vertical/horizontal)
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
