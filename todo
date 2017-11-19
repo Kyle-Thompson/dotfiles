@@ -21,13 +21,13 @@
         - understand all of base16-atelier-lakeside.vim
         - figure out how wal grabs system colors
         - note: cursorline transparency is infeasible. Don't bother.
+        - get wal to work
     - statusline
         - color updating
 * get i3 dropdown terminal to work
 * fill in missing unicode
 * use systemd-networkd instead of netctl
 * conky
-* get wal colorscheme to work
 * global color config
     - Xresources controls all colors
     - make python script with pywal module
@@ -35,6 +35,7 @@
 * i3-lock (make pretty)
 * bitmap font
     - montecarlo
+    - can bitmap fonts be bolded?
 * firefox rice
 * rofi config
 * music (mpd, ncmpcpp, mpc)
@@ -54,9 +55,6 @@
     - volume dropdown
         - Basically a NOP for the time being
         - instead of a dropdown, clicking toggles mute
-* neovim
-    - airline customization
-    - gutter background same as regular background
 * compton (general config)
 * power management (sleep and hibernate)
 * figure out how to exit i3 back into default terminal prompt
