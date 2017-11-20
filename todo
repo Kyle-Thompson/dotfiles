@@ -58,3 +58,5 @@
 * compton (general config)
 * power management (sleep and hibernate)
 * figure out how to exit i3 back into default terminal prompt
+* fix odd zsh behaviour
+    - long commands wrapping back on same line instead of going to newline. (Could be PROMP_CR?)
