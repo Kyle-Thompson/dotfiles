@@ -8,7 +8,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 # merge in defaults and keymaps
 [[ -f $sysresources ]] && xrdb -merge $sysresources
 [[ -f $sysmodmap ]] && xmodmap $sysmodmap
-[[ -f $userresources ]] && xrdb -merge $userresources
+[[ -f $userresources ]] && xrdb -merge -I$HOME $userresources
 [[ -f $usermodmap ]] && xmodmap $usremodmap
 
 # start some nice programs
