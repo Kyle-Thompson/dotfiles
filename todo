@@ -32,7 +32,6 @@
     - Xresources controls all colors
     - make python script with pywal module
 * background (make cycle. get a folder)
-* i3-lock (make pretty)
 * bitmap font
     - montecarlo
     - can bitmap fonts be bolded?
