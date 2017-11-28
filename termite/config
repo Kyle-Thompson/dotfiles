@@ -1,11 +1,12 @@
 # termite config
 
 [options]
-#font = Monospace 9
+
 font = Gohu GohuFont 14px
 
 
 [colors]
+
 # special
 foreground      = #7ea2b4
 foreground_bold = #7ea2b4
