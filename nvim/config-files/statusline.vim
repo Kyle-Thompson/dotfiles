@@ -63,7 +63,7 @@ set statusline+=%#warningmsg#                           " Warning messages
 set statusline+=%9*\ %=                                 " Space
 set statusline+=%1*\ [%n]                               " buffernr
 set statusline+=%8*\ %y\                                " FileType
-set statusline+=%0*\ %l/%L,%c\                          " Rownumber/total,Colnumber
+set statusline+=%8*%l/%L,%c\                            " Rownumber/total,Colnumber
 
 hi User1 ctermfg=007
 hi User2 ctermfg=008
