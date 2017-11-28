@@ -1,8 +1,8 @@
 # termite config
 
 [options]
-font = Monospace 9
-#font = Gohu 14px
+#font = Monospace 9
+font = Gohu GohuFont 14px
 
 
 [colors]
