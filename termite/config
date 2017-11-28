@@ -2,6 +2,7 @@
 
 [options]
 font = Monospace 9
+#font = Gohu 14px
 
 
 [colors]
