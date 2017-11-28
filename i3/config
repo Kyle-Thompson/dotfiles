@@ -86,11 +86,12 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # dropdown
-for_window [instance="dropdown"] floating enable
-for_window [instance="dropdown"] move position center
-for_window [instance="dropdown"] move scratchpad
-exec --no-startup-id termite -name dropdown
-bindsym $mod+u [instance="dropdown"] scratchpad show; move position center
+bindsym $mod+u exec tdrop -am -h 70% -s dropdown termite
+#for_window [instance="dropdown"] floating enable
+#for_window [instance="dropdown"] move position center
+#for_window [instance="dropdown"] move scratchpad
+#exec --no-startup-id termite -name dropdown
+#bindsym $mod+u [instance="dropdown"] scratchpad show; move position center
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
