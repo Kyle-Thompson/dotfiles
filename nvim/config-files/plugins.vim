@@ -20,8 +20,7 @@ call plug#begin()
     Plug 'roxma/nvim-cm-racer'            " TODO
 
     " colourscheme
-    Plug 'chriskempson/base16-vim'
-    Plug 'dylanaraps/wal.vim'
+    Plug 'Kyle-Thompson/xresources-colors.vim'
 
     " commenting
     Plug 'scrooloose/nerdcommenter'
