@@ -56,3 +56,5 @@
     - empty tab completions when git prompt is displayed also misbehave. (tab over all
         text, copying what was already there and essesntially resetting the line over
         one tab width to the right but all existing text is still visible on right.)
+* Desktop audio
+* no background for polybar
