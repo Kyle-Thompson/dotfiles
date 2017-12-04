@@ -12,6 +12,7 @@
         `alias irssi='irssi --home=~/.config/irssi --config=~/.config/irssi/config'`
     - find out if specifying --config is irrelevant after doing --home
 * brightness script
+    - Decrease by smaller ammounts at lower brightness settings
 * neovim
     - colorscheme
         - understand all of base16-atelier-lakeside.vim
@@ -51,6 +52,7 @@
 * compton (general config)
 * power management (sleep and hibernate)
 * figure out how to exit i3 back into default terminal prompt
+* i3lock-color
 * fix odd zsh behaviour
     - the output from git_prompt_status affects wrap around behaviour for long lines.
     - empty tab completions when git prompt is displayed also misbehave. (tab over all
