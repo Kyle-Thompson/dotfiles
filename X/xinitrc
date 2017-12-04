@@ -24,8 +24,8 @@ fi
 # set up key bindings
 xbindkeys
 
-case $1 in
-    i3)         exec i3;;
-    openbox)    exec openbox-session;;
-    *)          exec i3;;
+case $2 in
+    "i3")       exec i3 ;;
+    "openbox")  exec openbox-session ;;
+    *)          exec i3 ;;
 esac
