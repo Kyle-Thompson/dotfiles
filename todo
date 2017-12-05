@@ -14,11 +14,6 @@
 * brightness script
     - Decrease by smaller ammounts at lower brightness settings
 * neovim
-    - colorscheme
-        - understand all of base16-atelier-lakeside.vim
-        - figure out how wal grabs system colors
-        - note: cursorline transparency is infeasible. Don't bother.
-        - get wal to work (need t_Co=256)
     - statusline
         - color updating
 * get tdrop to work. (create new terminal, not affect current)
@@ -28,13 +23,15 @@
 * conky
 * global color config
     - Xresources controls all colors
+    - Modify lakeside so that nvim xres colorschme matches regular lakeside colorscheme.
     - make python script with pywal module
 * background (make cycle. get a folder)
 * firefox rice
 * rofi config
+    - how to update rofi colors dynamically?
 * music (mpd, ncmpcpp, mpc)
 * tint2
-    create a setup to be adjacent to polybar
+    - create a setup to be adjacent to polybar
 * polybar
     - powermenu dropdown
     - internet dropdown
@@ -46,10 +43,9 @@
     - battery dropdown
         - displays estimated time remaining
         - displays which programs are using most power
-    - volume dropdown
-        - Basically a NOP for the time being
-        - instead of a dropdown, clicking toggles mute
-* compton (general config)
+    - volume
+        - clicking toggles mute
+    - consider switching to lemonbar for added flexibility.
 * power management (sleep and hibernate)
 * figure out how to exit i3 back into default terminal prompt
 * i3lock-color
@@ -59,4 +55,4 @@
         text, copying what was already there and essesntially resetting the line over
         one tab width to the right but all existing text is still visible on right.)
 * Desktop audio
-* no background for polybar
+* no background for polybar (desktop)
