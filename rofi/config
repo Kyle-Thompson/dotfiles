@@ -10,7 +10,7 @@ rofi.color-window: #161b1d, #7ea2b4, #161b1d
 
 
 ! general ----------------------------------------------------
-rofi.font:          pango:monospace 15      
+rofi.font:          Gohu GohuFont 14px
 rofi.modi:          run,window,ssh
 rofi.width:         30                      ! window width
 rofi.columns:       1                       ! number of seach columns
