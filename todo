@@ -33,7 +33,7 @@
 * rofi config
 * music (mpd, ncmpcpp, mpc)
 * tint2
-    create a setup to be adjacent to polybar
+   create openbox config
 * polybar
     - powermenu dropdown
     - internet dropdown
@@ -62,3 +62,5 @@
     - font issues
     - Icon split between first and second screen
 * Get a good glyph font (git)
+* figure out why games take over all monitors and mess up window arrangements
+* rEFInd desktop setup (boot windows from custom stanza)
