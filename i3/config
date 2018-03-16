@@ -1,5 +1,5 @@
 # Set the mod key
-set $mod Mod4
+set $mod Mod1
 
 # Custom stuff. TODO: move to appropriate place later
 focus_follows_mouse no
@@ -119,6 +119,8 @@ new_window none
 # gaps
 gaps inner 10
 gaps outer 0
+
+exec_always --no-startup-id screenlayout.sh
 
 # polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
