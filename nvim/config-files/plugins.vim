@@ -1,9 +1,6 @@
 " ========== Plugins ==========
 " =============================
 
-" watchlist:
-" - incsearch.vim
-
 " install vim-plug if it's not already
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
     silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
@@ -54,10 +51,7 @@ call plug#begin()
     " REPL messages
     Plug 'metakirby5/codi.vim' " TODO
 
-    " visual tabs
-    Plug 'Yggdroot/indentLine'
-
-    " snippets
+    " snippets TODO actually make use of this.
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
     " text
