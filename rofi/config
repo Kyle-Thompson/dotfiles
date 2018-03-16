@@ -6,11 +6,11 @@ rofi.color-urgent: #fdf6e3, #dc322f, #eee8d5, #dc322f, #fdf6e3
 rofi.color-active: #fdf6e3, #268bd2, #eee8d5, #268bd2, #fdf6e3
 
 ! window           bg       border   separator
-rofi.color-window: #161b1d, #7ea2b4, #161b1d
+rofi.color-window: #161b1d, #161b1d, #161b1d
 
 
 ! general ----------------------------------------------------
-rofi.font:          pango:monospace 15      
+rofi.font:          Gohu GohuFont 14px
 rofi.modi:          run,window,ssh
 rofi.width:         30                      ! window width
 rofi.columns:       1                       ! number of seach columns
@@ -20,12 +20,11 @@ rofi.location:      0                       ! location on screen
 rofi.padding:       5                       ! border to text space
 rofi.yoffset:       0                       ! y offset from location
 rofi.xoffset:       0                       ! x offset from location
+rofi.terminal       termite                 ! use termite as a terminal
 
 
 ! "Always show number of lines" Set from: Default
 rofi.fixed-num-lines:                true
-! "Terminal to use" Set from: Default
-rofi.terminal:                       termite
 ! "Ssh client to use" Set from: Default
 ! rofi.ssh-client:                     ssh
 ! "Ssh command to execute" Set from: Default
