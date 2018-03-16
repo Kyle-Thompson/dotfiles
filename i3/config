@@ -1,5 +1,5 @@
 # Set the mod key
-set $mod Mod1
+set_from_resource $mod i3.mod Mod4
 
 # Custom stuff. TODO: move to appropriate place later
 focus_follows_mouse no

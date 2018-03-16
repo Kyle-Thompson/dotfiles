@@ -43,9 +43,7 @@ set splitright      " Horizontal splits open right of the current window
 " Visual
 " set number          " Show line numbers
 " set relativenumber  " Line numbers are relative to current line
-syntax enable       " Syntax highlighting
 set termguicolors   " Enable true colours
-"set t_Co=256
 
 " Word wrapping
 set wrap            " Spread long lines across multiple lines

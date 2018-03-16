@@ -1,6 +1,6 @@
 " ===== colorscheme =====
 
-" silent! colorscheme wal
+" silent! colorscheme xres
 silent! colorscheme base16-atelier-lakeside
 " silent! colorscheme base16-grayscale-dark
 

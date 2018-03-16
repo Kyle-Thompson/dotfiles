@@ -1,0 +1,4 @@
+! urxvt
+
+URxvt.font: xft:"Gohu GohuFont":size=14
+URxvt.scrollBar: false
