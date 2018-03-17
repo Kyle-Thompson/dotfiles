@@ -46,7 +46,7 @@
     <item label="Reconfigure">
         <action name="Reconfigure" />
     </item>
-    <item label="Log Out">
+    <item label="Exit Openbox">
       <action name="Exit">
         <prompt>yes</prompt>
       </action>
