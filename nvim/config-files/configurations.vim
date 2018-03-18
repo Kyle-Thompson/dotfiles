@@ -12,9 +12,9 @@ set wildignore=*.o,*.pyc
 " Folds
 
 " Indentation
-set tabstop=4       " A tab is 4 spaces wide
-set softtabstop=4   " Number of spaces to replace tabs by
-set shiftwidth=4    " Number of spaces for autoindent
+set tabstop=2       " A tab is 2 spaces wide
+set softtabstop=2   " Number of spaces to replace tabs by
+set shiftwidth=2    " Number of spaces for autoindent
 set expandtab       " Use spaces instead of tabs (Insert mode)
 set smarttab        " Go to next tabstop when tab pressed (Insert mode)
 set smartindent     " Use proper indentation for filetype
