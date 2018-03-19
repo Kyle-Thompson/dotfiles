@@ -55,6 +55,12 @@
     - empty tab completions when git prompt is displayed also misbehave. (tab over all
         text, copying what was already there and essesntially resetting the line over
         one tab width to the right but all existing text is still visible on right.)
-* Desktop audio
+* power managerment (sleep)
+* Steam
+    - font issues
+    - Icon split between first and second screen (i3)
+* Get a good glyph font (git)
+* figure out why games take over all monitors and mess up window arrangements
+* rEFInd desktop setup (boot windows from custom stanza)
 * no background for polybar (desktop)
 * fix flaky ass wifi (laptop)

@@ -120,6 +120,8 @@ new_window none
 gaps inner 10
 gaps outer 0
 
+exec_always --no-startup-id screenlayout.sh
+
 # polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 

@@ -308,6 +308,35 @@
       <command>kfmclient openProfile filemanagement</command>
     </action>
   </keybind>
+
+  <!-- Keybindings for snapping windows -->
+  <!-- TODO: Use generic meta key instead of alt -->
+  <keybind key="A-Left">
+    <action name="UnmaximizeFull"/>
+    <action name="MaximizeVert"/>
+    <action name="MoveResizeTo">
+        <width>50%</width>
+    </action>
+    <action name="MoveToEdge"><direction>west</direction></action>
+  </keybind>
+  <keybind key="A-Right">
+    <action name="UnmaximizeFull"/>
+    <action name="MaximizeVert"/>
+    <action name="MoveResizeTo">
+        <width>50%</width>
+    </action>
+    <action name="MoveToEdge"><direction>east</direction></action>
+  </keybind>
+
+  <!-- Launch rofi -->
+  <keybind key="A-Space">
+    <action name="Execute">
+      <command>rofi -show run</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action> 
+  </keybind>
 </keyboard>
 
 <mouse>

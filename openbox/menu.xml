@@ -2,22 +2,8 @@
 
 <openbox_menu xmlns="http://openbox.org/3.4/menu">
 
-
-<menu id="system-menu" label="System">
-  <item label="Openbox Configuration Manager">
-    <action name="Execute">
-      <command>obconf</command>
-      <startupnotify><enabled>yes</enabled></startupnotify>
-    </action>
-  </item>
-  <item label="Reconfigure Openbox">
-    <action name="Reconfigure" />
-  </item>
-</menu>
-
 <menu id="root-menu" label="Openbox 3">
-    <separator label="Applications" />
-    <item id="launch-termite" label="termite">
+    <item id="launch-termite" label="Termite">
         <action name="Execute">
             <command>termite</command>
         </action>
@@ -31,6 +17,23 @@
             </startupnotify>
         </action>
     </item>
+    <item label="Google Chrome">
+        <action name="Execute">
+            <command>google-chrome-stable</command>
+            <startupnotify>
+                <enabled>yes</enabled>
+                <wmclass>GoogleChrome</wmclass>
+            </startupnotify>
+        </action>
+    </item>
+    <item label="Steam">
+        <action name="Execute">
+            <command>steam</command>
+            <startupnotify>
+                <enabled>yes</enabled>
+            </startupnotify>
+        </action>
+    </item>
     <item label="Thunar">
         <action name="Execute">
             <command>Thunar</command>
@@ -39,18 +42,11 @@
             </startupnotify>
         </action>
     </item>
-    <separator label="System" />
-    <item label="Config Manager">
-        <action name="Execute">
-            <command>obconf</command>
-            <startupnotify><enabled>yes</enabled></startupnotify>
-        </action>
-    </item>
-    <item label="Reconfigure Openbox">
+    <separator />
+    <item label="Reconfigure">
         <action name="Reconfigure" />
     </item>
-    <separator />
-    <item label="Log Out">
+    <item label="Exit Openbox">
       <action name="Exit">
         <prompt>yes</prompt>
       </action>
