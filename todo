@@ -31,7 +31,8 @@
     - how to update rofi colors dynamically?
 * music (mpd, ncmpcpp, mpc)
 * tint2
-    - create a setup to be adjacent to polybar
+    - create a setup to be adjacent to polybar (i3)
+    - create a misc setup for generic use. (openbox)
 * polybar
     - powermenu dropdown
     - internet dropdown
@@ -56,3 +57,4 @@
         one tab width to the right but all existing text is still visible on right.)
 * Desktop audio
 * no background for polybar (desktop)
+* fix flaky ass wifi (laptop)
