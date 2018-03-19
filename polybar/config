@@ -70,7 +70,7 @@ font-0 = "Gohu GohuFont:pixelsize=14;1"
 
 modules-left = i3
 modules-center = 
-modules-right = battery volume date
+modules-right = wlan battery volume date
 
 tray-position = right
 tray-padding = 2
@@ -226,18 +226,12 @@ type = internal/date
 interval = 5
 
 date = "%Y-%m-%d"
-date-alt = " %Y-%m-%d"
-
 time = %H:%M
-time-alt = %H:%M:%S
-
-format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
 
 label = %date% %time%
 
 [module/volume]
-type = internal/volume
+type = internal/alsa
 
 format-volume = <label-volume>
 label-volume = V_%percentage%
@@ -256,7 +250,7 @@ format-charging = <label-charging>
 label-charging = C_%percentage%
 
 format-discharging = <label-discharging>
-label-discharging = D_%percentage%
+label-discharging = B_%percentage%
 
 format-full-prefix-foreground = ${colors.foreground-alt}
 
