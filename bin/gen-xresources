@@ -4,7 +4,7 @@ cat ~/.dotfiles/colorschemes/lakeside
 
 case $(cat /etc/hostname) in
     "macarch") echo "i3.mod: Mod4" ;;
-    "ArchPC") echo "i3.mod: Mod1" ;;
+    "archpc") echo "i3.mod: Mod1" ;;
 esac
 
 cat ~/.dotfiles/urxvt/config
