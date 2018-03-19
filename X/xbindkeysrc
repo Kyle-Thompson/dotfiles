@@ -9,9 +9,9 @@
   XF86AudioMute
 
 # screen brightness
-"light -A 5" 
+"light -A 2" 
   XF86MonBrightnessUp
-"light -U 5" 
+"light -U 2" 
   XF86MonBrightnessDown
 
 # keyboard brightness (TODO)

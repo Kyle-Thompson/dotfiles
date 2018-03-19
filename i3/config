@@ -16,6 +16,7 @@ bindsym $mod+Shift+q kill
 
 # lock
 bindsym $mod+x exec --no-startup-id ~/.config/i3/lock.sh
+bindsym $mod+Shift+x exec --no-startup-id ~/.config/i3/lock.sh && systemctl suspend
 
 # program launcher
 bindsym $mod+space exec --no-startup-id rofi -show run
