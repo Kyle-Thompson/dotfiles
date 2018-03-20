@@ -40,7 +40,7 @@ endfunction
 
 function! ReadOnly()
   if &readonly || !&modifiable
-    return ' '
+    return 'RO'
   else
     return ''
 endfunction
@@ -48,7 +48,7 @@ endfunction
 function! GitInfo()
   let git = fugitive#head()
   if git != ''
-    return ' '.fugitive#head()
+    return 'git:'.fugitive#head()
   else
     return ''
 endfunction
