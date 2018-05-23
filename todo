@@ -64,3 +64,4 @@
 * rEFInd desktop setup (boot windows from custom stanza)
 * no background for polybar (desktop)
 * keyboard and mouse colors on linux (desktop)
+* replace i3-gaps with standard i3. bspwm can handle tiling gaps.
