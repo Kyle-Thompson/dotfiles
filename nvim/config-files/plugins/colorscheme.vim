@@ -1,3 +1,0 @@
-" ===== colorscheme =====
-
-silent! colorscheme xres

@@ -64,8 +64,51 @@ call plug#begin()
 call plug#end()
 
 
-" Source all plugin config files
-for f in split(glob('~/.config/nvim/config-files/plugins/*.vim'), '\n')
-    exe 'source' f
-endfor
+" ===== autocompletion =====
+" rust
+let g:rustc_path = $HOME.".cargo/bin/rustc"
 
+
+" ===== colorscheme =====
+silent! colorscheme xres
+
+
+" ===== deoplete =====
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#clang#libclang_path = "/usr/lib/x86_64-linux-gnu/libclang-3.8.so"
+let g:deoplete#sources#clang#clang_header = "/usr/lib/clang/"
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+
+" ===== easymotion =====
+" map <leader>m <Plug>(easymotion-prefix)
+
+
+" ===== neomake =====
+" general
+autocmd! BufWritePost * Neomake
+let g:neomake_verbose = 0
+let g:neomake_open_list = 2
+
+" c++
+let g:neomake_cpp_enabled_makers = ['clang']
+let g:neomake_cpp_clang_args = ['-std=c++1z', '-Wall', '-Wextra', '-fsyntax-only']
+
+" c
+let g:neomake_c_enabled_makers = ['clang']
+let g:neomake_c_clang_args = ['-std=c11', '-Wall', '-Wextra', '-fsyntax-only']
+
+" python
+let g:neomake_python_enable_markers = ['flake8']
+
+" rust
+
+
+" ===== nerdtree =====
+nnoremap <leader>n :NERDTree<CR>
+" TODO function to auto-close when nerdtree is the only buffer left
+
+
+" ===== transparency =====
+let g:seiya_auto_enable=1
+let g:seiya_target_groups = has('nvim') ? ['guibg'] : ['ctermbg']
