@@ -19,9 +19,3 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-" HJKL movement in insert mode.
-inoremap <C-J> <ESC><Down><Right>i
-inoremap <C-K> <ESC><Up><Right>i
-inoremap <C-L> <ESC><Right><Right>i
-inoremap <C-H> <ESC>i
