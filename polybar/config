@@ -35,8 +35,8 @@ module-margin-right = 1
 font-0 = "Gohu GohuFont:pixelsize=14;1"
 
 modules-left = i3
-modules-center =
-modules-right = volume date
+modules-center = date
+modules-right = volume
 
 tray-position = right
 tray-padding = 2
