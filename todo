@@ -48,7 +48,7 @@
         - clicking toggles mute
     - consider switching to lemonbar for added flexibility.
 * power management (sleep and hibernate)
-* figure out how to exit i3 back into default terminal prompt
+* figure out how to exit i3 back into default terminal prompt (laptop)
 * i3lock-color
 * fix odd zsh behaviour
     - the output from git_prompt_status affects wrap around behaviour for long lines.
