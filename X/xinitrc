@@ -27,6 +27,7 @@ xbindkeys
 case $2 in
     "i3")       exec i3 ;;
     "openbox")  exec openbox-session ;;
+    "bspwm")    exec bspwm ;;
     "xfce")     exec startxfce4 ;;
     "cinnamon") exec cinnamon-session ;;
     *)          exec i3 ;;
