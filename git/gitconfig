@@ -1,0 +1,36 @@
+[init]
+  templatedir = ~/.git_template
+[push]
+  default = current
+[color]
+  ui = auto
+[alias]
+  aa = add --all
+  ap = add --patch
+  branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
+  cam = commit -am
+  ci = commit -v
+  cm = commit -m
+  co = checkout
+  pf = push --force-with-lease
+  st = status
+	reset-master = !git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
+[core]
+  excludesfile = ~/.gitignore
+  autocrlf = input
+	editor = nvim
+[merge]
+  ff = only
+[commit]
+  template = ~/.gitmessage
+[fetch]
+  prune = true
+[rebase]
+  autosquash = true
+[include]
+  path = ~/.gitconfig.local
+[diff]
+  colorMoved = zebra
+[user]
+	name = Kyle Thompson
+	email = kyle.thompson228@gmail.com
