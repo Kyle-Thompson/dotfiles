@@ -14,11 +14,11 @@
   co = checkout
   pf = push --force-with-lease
   st = status
-	reset-master = !git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
+  reset-master = !git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
-	editor = nvim
+  editor = nvim
 [merge]
   ff = only
 [commit]
@@ -32,5 +32,5 @@
 [diff]
   colorMoved = zebra
 [user]
-	name = Kyle Thompson
-	email = kyle.thompson228@gmail.com
+  name = Kyle Thompson
+  email = kyle.thompson228@gmail.com
