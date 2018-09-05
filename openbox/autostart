@@ -1,7 +1,3 @@
-screenlayout.sh
-
-feh --bg-scale --no-fehbg ~/media/wallpapers/deer.jpg
-
 compton &
 
 tint2 &
