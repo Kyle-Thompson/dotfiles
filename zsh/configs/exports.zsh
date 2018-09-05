@@ -1,5 +1,5 @@
 # exports
-export PATH="$PATH:$HOME/.cargo/bin:$HOME/bin"
+export PATH="$PATH:$HOME/.cargo/bin:$HOME/bin:$HOME/.local/bin"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 export LESSHISTFILE="-"
 
