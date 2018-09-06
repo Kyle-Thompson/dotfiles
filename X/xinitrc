@@ -31,7 +31,7 @@ screenlayout.sh
 wallpaper.sh
 
 # set the keyboard key repeat speed
-xset r rate 200 50
+xset r rate 200 70
 
 case $2 in
     "i3")       exec i3 ;;
