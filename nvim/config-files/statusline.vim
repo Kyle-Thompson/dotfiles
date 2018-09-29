@@ -13,7 +13,7 @@ let g:currentmode={
     \ 'i'  : 'I ',
     \ 'R'  : 'R ',
     \ 'Rv' : 'V·Replace ',
-    \ 'c'  : 'Command ',
+    \ 'c'  : 'C ',
     \ 'cv' : 'Vim Ex ',
     \ 'ce' : 'Ex ',
     \ 'r'  : 'Prompt ',
@@ -22,21 +22,6 @@ let g:currentmode={
     \ '!'  : 'Shell ',
     \ 't'  : 'Terminal '
     \}
-
-" Automatically change the statusline color depending on mode
-function! ChangeStatuslineColor()
-  if (mode() =~# '\v(n|no)')
-    exe 'hi! StatusLine ctermfg=008'
-  elseif (mode() =~# '\v(v|V)' || g:currentmode[mode()] ==# 'V·Block' || get(g:currentmode, mode(), '') ==# 't')
-    exe 'hi! StatusLine ctermfg=005'
-  elseif (mode() ==# 'i')
-    exe 'hi! StatusLine ctermfg=004'
-  else
-    exe 'hi! StatusLine ctermfg=006'
-  endif
-
-  return ''
-endfunction
 
 function! ReadOnly()
   if &readonly || !&modifiable
@@ -55,7 +40,6 @@ endfunction
 
 set laststatus=2
 set statusline=
-"set statusline+=%{ChangeStatuslineColor()}              " Update color
 set statusline+=%0*\ %{toupper(g:currentmode[mode()])}  " Current mode
 set statusline+=%8*\ %{GitInfo()}                       " Git Branch name
 set statusline+=%8*\ %<%f%{ReadOnly()}\ %m\ %w          " File+path
