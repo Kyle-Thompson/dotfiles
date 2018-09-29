@@ -16,6 +16,7 @@
 * neovim
     - statusline
         - color updating
+    - have autocomplete fill in selected text but do not auto-select the first item.
 * get tdrop to work. (create new terminal, not affect current)
 * fill in missing unicode
 * use systemd-networkd instead of netctl
