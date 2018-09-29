@@ -39,7 +39,7 @@ call plug#begin()
   Plug 'racer-rust/racer', { 'for': 'rust',
                            \ 'do': 'cargo +nightly install racer'}
   Plug 'ncm2/ncm2-racer', { 'for': 'rust'}
-  Plug 'ncm2/ncm2-jedi'  " , { 'for': 'python' }
+  Plug 'ncm2/ncm2-jedi', { 'for': 'python' }
   " Plug 'lervag/vimtext', { 'for': 'tex' }
 
   " linting and fixing
