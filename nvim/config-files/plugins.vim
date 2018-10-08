@@ -53,7 +53,7 @@ call plug#begin()
   Plug 'jiangmiao/auto-pairs'  " create new empty pair
 
   " REPL messages
-  " Plug 'metakirby5/codi.vim', { 'for': 'python' }
+  Plug 'metakirby5/codi.vim', { 'for': 'python' }  " TODO
 
   " snippets
   " Plug 'ncm2/ncm2-ultisnips'
@@ -111,6 +111,15 @@ let g:ale_fixers = {
 " python
 let g:ale_python_flake8_args="--ignore=W0511"
 
+
+
+" ===== codi =====
+let g:codi#interpreters = {
+  \ 'python': {
+    \ 'bin': 'python',
+    \ 'prompt': '^\(>>>\|\.\.\.\) ',
+  \ }
+\ }
 
 
 " ===== transparency =====
