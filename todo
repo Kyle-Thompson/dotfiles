@@ -3,63 +3,65 @@
 * functional urxvt config
 * transmission cli
 * other WMs to set up
-    - bspwm
-    - openbox
+  - bspwm
+  - openbox
+    - Theme
+    - Icon pack
 * irssi
-    - learn
-    - move config files to ~/.config/irssi
-    - add alias in zshrc 
-        `alias irssi='irssi --home=~/.config/irssi --config=~/.config/irssi/config'`
-    - find out if specifying --config is irrelevant after doing --home
+  - learn
+  - move config files to ~/.config/irssi
+  - add alias in zshrc 
+    `alias irssi='irssi --home=~/.config/irssi --config=~/.config/irssi/config'`
+  - find out if specifying --config is irrelevant after doing --home
 * brightness script
-    - Decrease by smaller ammounts at lower brightness settings
+  - Decrease by smaller ammounts at lower brightness settings
 * neovim
-    - statusline
-        - color updating
-    - have autocomplete fill in selected text but do not auto-select the first item.
+  - statusline
+    - color updating
+  - have autocomplete fill in selected text but do not auto-select the first item.
 * get tdrop to work. (create new terminal, not affect current)
 * fill in missing unicode
 * use systemd-networkd instead of netctl
-    - Get wifi to connect to known networks automatically.
+  - Get wifi to connect to known networks automatically.
 * conky
 * global color config
-    - Xresources controls all colors
-    - Modify lakeside so that nvim xres colorschme matches regular lakeside colorscheme.
-    - make python script with pywal module
+  - Xresources controls all colors
+  - Modify lakeside so that nvim xres colorschme matches regular lakeside colorscheme.
+  - make python script with pywal module
 * background (make cycle. get a folder)
 * firefox rice
 * rofi config
-    - how to update rofi colors dynamically?
+  - how to update rofi colors dynamically?
 * music (mpd, ncmpcpp, mpc)
 * tint2
-    - create a setup to be adjacent to polybar (i3)
-    - create a misc setup for generic use. (openbox)
+  - create a setup to be adjacent to polybar (i3)
+  - create a misc setup for generic use. (openbox)
 * polybar
-    - powermenu dropdown
-    - internet dropdown
-        - lone glyph of either disconnected wifi, connected wifi or ethernet
-        - clicking glyph will open dropdown of all available networks
-            - clicking entry in dropdown will connect to that network
-            - clicking wifi network while connected over ethernet is a NOP
-    - date dropdown (time, dropdown is calendar with date)
-    - battery dropdown
-        - displays estimated time remaining
-        - displays which programs are using most power
-    - volume
-        - clicking toggles mute
-    - consider switching to lemonbar for added flexibility.
+  - powermenu dropdown
+  - internet dropdown
+    - lone glyph of either disconnected wifi, connected wifi or ethernet
+    - clicking glyph will open dropdown of all available networks
+      - clicking entry in dropdown will connect to that network
+      - clicking wifi network while connected over ethernet is a NOP
+  - date dropdown (time, dropdown is calendar with date)
+  - battery dropdown
+    - displays estimated time remaining
+    - displays which programs are using most power
+  - volume
+    - clicking toggles mute
+  - consider switching to lemonbar for added flexibility.
 * power management (sleep and hibernate)
 * figure out how to exit i3 back into default terminal prompt (laptop)
 * i3lock-color
 * fix odd zsh behaviour
-    - the output from git_prompt_status affects wrap around behaviour for long lines.
-    - empty tab completions when git prompt is displayed also misbehave. (tab over all
-        text, copying what was already there and essesntially resetting the line over
-        one tab width to the right but all existing text is still visible on right.)
+  - the output from git_prompt_status affects wrap around behaviour for long lines.
+  - empty tab completions when git prompt is displayed also misbehave. (tab over all
+      text, copying what was already there and essesntially resetting the line over
+      one tab width to the right but all existing text is still visible on right.)
 * power managerment (sleep)
 * Steam
-    - font issues
-    - Icon split between first and second screen (i3)
+  - font issues
+  - Icon split between first and second screen (i3)
 * Get a good glyph font (git)
 * figure out why games take over all monitors and mess up window arrangements
 * rEFInd desktop setup (boot windows from custom stanza)
