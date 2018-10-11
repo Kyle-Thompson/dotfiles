@@ -31,9 +31,9 @@ function! ReadOnly()
 endfunction
 
 function! GitInfo()
-  let git = fugitive#head()
+  let git = system('echo -n $(git rev-parse --abbrev-ref HEAD)')
   if git != ''
-    return 'git:'.fugitive#head()
+    return 'git:'.git
   else
     return ''
 endfunction
