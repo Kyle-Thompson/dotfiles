@@ -21,8 +21,6 @@
   - have autocomplete fill in selected text but do not auto-select the first item.
 * get tdrop to work. (create new terminal, not affect current)
 * fill in missing unicode
-* use systemd-networkd instead of netctl
-  - Get wifi to connect to known networks automatically.
 * conky
 * global color config
   - Xresources controls all colors
