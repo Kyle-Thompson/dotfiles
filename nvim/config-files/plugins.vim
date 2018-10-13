@@ -25,9 +25,6 @@ call plug#begin()
   " file explorer
   Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
-  " git
-  Plug 'tpope/vim-fugitive'  " command-line git wrapper (needed for statusline)
-
   " fuzzy file searching
   " Plug 'junegunn/fzf', { 'dir': $XDG_DATA_HOME . '/fzf',
   "                      \ 'do': './install --all'}
