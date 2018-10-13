@@ -30,24 +30,24 @@ function! ReadOnly()
     return ''
 endfunction
 
+let g:is_git_dir = system('echo -n $(git rev-parse --is-inside-work-tree)')
+let g:git = system('echo -n $(git rev-parse --abbrev-ref HEAD)')
 function! GitInfo()
-  let git = system('echo -n $(git rev-parse --abbrev-ref HEAD)')
-  if git != ''
-    return 'git:'.git
+  if g:is_git_dir == 'true'
+    return 'git:'.g:git
   else
     return ''
 endfunction
 
 set laststatus=2
 set statusline=
-set statusline+=%0*\ %{toupper(g:currentmode[mode()])}  " Current mode
-set statusline+=%8*\ %{GitInfo()}                       " Git Branch name
-set statusline+=%8*\ %<%f%{ReadOnly()}\ %m\ %w          " File+path
-set statusline+=%#warningmsg#                           " Warning messages
-set statusline+=%9*\ %=                                 " Space
-set statusline+=%1*\ [%n]                               " buffernr
-set statusline+=%8*\ %y\                                " FileType
-set statusline+=%8*%l/%L,%c\                            " Rownumber/total,Colnumber
+set statusline+=%0*\ %{toupper(g:currentmode[mode()])}  " current mode
+set statusline+=%8*\ %{GitInfo()}                       " git branch name
+set statusline+=%8*\ %<%f%{ReadOnly()}\ %m\ %w          " file+path
+set statusline+=%#warningmsg#                           " warning messages
+set statusline+=%9*\ %=                                 " space
+set statusline+=%8*\ %y\                                " fileType
+set statusline+=%8*%l/%L,%c\                            " rownumber/total,colnumber
 
 hi User1 ctermfg=007
 hi User2 ctermfg=008
