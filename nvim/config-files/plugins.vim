@@ -49,6 +49,9 @@ call plug#begin()
   Plug 'tpope/vim-surround'    " wrap text with new pair
   Plug 'jiangmiao/auto-pairs'  " create new empty pair
 
+  " repeat
+  Plug 'tpope/vim-repeat'  " '.' repeats last plugin op
+
   " REPL messages
   Plug 'metakirby5/codi.vim', { 'for': 'python' }  " TODO
 
