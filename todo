@@ -5,8 +5,10 @@
 * other WMs to set up
   - bspwm
   - openbox
-    - Theme
-    - Icon pack
+    - theme
+    - icon pack
+    - fix: windows changing monitor after exiting fullscreen
+    - fix: web videos replaced with green screen after waking from sleep
 * irssi
   - learn
   - move config files to ~/.config/irssi
