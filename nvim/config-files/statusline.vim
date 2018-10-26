@@ -2,52 +2,46 @@
 " =============================
 
 let g:currentmode={
-    \ 'n'  : 'N ',
-    \ 'no' : 'N·Operator Pending ',
-    \ 'v'  : 'V ',
-    \ 'V'  : 'V·Line ',
-    \ '^V' : 'V·Block ',
-    \ 's'  : 'Select ',
-    \ 'S'  : 'S·Line ',
-    \ '^S' : 'S·Block ',
-    \ 'i'  : 'I ',
-    \ 'R'  : 'R ',
-    \ 'Rv' : 'V·Replace ',
-    \ 'c'  : 'C ',
-    \ 'cv' : 'Vim Ex ',
-    \ 'ce' : 'Ex ',
-    \ 'r'  : 'Prompt ',
-    \ 'rm' : 'More ',
-    \ 'r?' : 'Confirm ',
-    \ '!'  : 'Shell ',
-    \ 't'  : 'Terminal '
-    \}
+  \ 'n'  : 'N ',
+  \ 'no' : 'N_Operator Pending ',
+  \ 'v'  : 'V ',
+  \ 'V'  : 'V_Line ',
+  \ '^V' : 'V_Block ',
+  \ 's'  : 'Select ',
+  \ 'S'  : 'S_Line ',
+  \ '^S' : 'S_Block ',
+  \ 'i'  : 'I ',
+  \ 'R'  : 'R ',
+  \ 'Rv' : 'V_Replace ',
+  \ 'c'  : 'C ',
+  \ 'cv' : 'Vim Ex ',
+  \ 'ce' : 'Ex ',
+  \ 'r'  : 'Prompt ',
+  \ 'rm' : 'More ',
+  \ 'r?' : 'Confirm ',
+  \ '!'  : 'SH',
+  \ 't'  : 'TERM'
+\}
 
 function! ReadOnly()
-  if &readonly || !&modifiable
-    return 'RO'
-  else
-    return ''
+  return &readonly || !&modifiable ? ' RO' : ''
 endfunction
 
 let g:is_git_dir = system('echo -n $(git rev-parse --is-inside-work-tree)')
 let g:git = system('echo -n $(git rev-parse --abbrev-ref HEAD)')
 function! GitInfo()
-  if g:is_git_dir == 'true'
-    return 'git:'.g:git
-  else
-    return ''
+  return g:is_git_dir == 'true' ? 'git:'.g:git : ''
 endfunction
 
 set laststatus=2
 set statusline=
-set statusline+=%0*\ %{toupper(g:currentmode[mode()])}  " current mode
-set statusline+=%8*\ %{GitInfo()}                       " git branch name
-set statusline+=%8*\ %<%f%{ReadOnly()}\ %m\ %w          " file+path
-set statusline+=%#warningmsg#                           " warning messages
-set statusline+=%9*\ %=                                 " space
-set statusline+=%8*\ %y\                                " fileType
-set statusline+=%8*%l/%L,%c\                            " rownumber/total,colnumber
+set statusline+=%0*\ %{g:currentmode[mode()]}   " current mode
+set statusline+=%8*\ %{GitInfo()}               " git branch name
+set statusline+=%8*\ %<%f%{ReadOnly()}\ %m\ %w  " file+path
+set statusline+=%#warningmsg#                   " warning messages
+set statusline+=%9*\ %=                         " space
+set statusline+=%8*\ %y\                        " fileType
+set statusline+=%8*%l/%L,%c\                    " rownumber/total,colnumber
 
 hi User1 ctermfg=007
 hi User2 ctermfg=008

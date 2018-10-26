@@ -1,7 +1,7 @@
-1 Prepare the disk
+1 prepare the disk
 ------------------
 
-1.1 Partition the drive
+1.1 partition the drive
     EFI   (FAT32) (200MiB) (Should already exist if dual-booting)
     boot  (ext4)  (200MiB)
     root  (ext4)  (20GiB)
@@ -9,7 +9,7 @@
     swap  (swap)  (RAM)    (Same size as RAM.)
     home  (ext4)  (rest)   (TODO: look into btrfs)
 
-1.2 Format the partitions
+1.2 format the partitions
     (EFI)  mkfs.fat -F 32 <EFI partition>
     (boot) mkfs.ext4 <boot partition>
     (root) mkfs.ext4 <root partition>
@@ -17,7 +17,7 @@
     (swap) mkswap <swap partition>
     (home) mkfs.ext4 <home partition>
 
-1.3 Mount the partitions
+1.3 mount the partitions
     mount <root partition> /mnt
     mount <boot partition> /mnt/boot
     mount <EFI partition>  /mnt/boot/efi
@@ -26,40 +26,40 @@
     swapon <swap partition>
 
 
-2 Install base packages
+2 install base packages
 -----------------------
 
     pacstrap /mnt base base-devel
 
 
-3 Generate fstab
+3 generate fstab
 ----------------
 
     genfstab -U /mnt > /mnt/etc/fstab
 
 
-4 Chroot system setup
+4 chroot system setup
 ---------------------
 
-4.1 Timezone
+4.1 timezone
     ln -s /usr/share/zoneinfo/America/New_York /etc/localtime
 
-4.2 Locale
+4.2 locale
     # uncomment en_US.UTF-8 in /etc/locale.gen
     locale-gen
     LANG=en_US.UTF-8
 
-4.3 Hostname
+4.3 hostname
     echo hostname > /etc/hostname
     # add "127.0.1.1   hostname.localdomain   hostname" to the end of /etc/hosts
 
-4.4 Initramfs
+4.4 initramfs
     mkinitcpio -p linux
 
-4.5 Root passwd
+4.5 root passwd
     passwd
 
-4.6 New user
+4.6 new user
     useradd -m -g users -G wheel kyle
         -m: creates home directory for user
         -g: make new user's initial group users
@@ -67,11 +67,30 @@
     passwd kyle
     # uncomment "%wheel ALL=(ALL) ALL" from /etc/sudoers
 
-4.7 Exit
+4.7 exit
     exit
 
 
+5 post install
+--------------
 
+--- prevent Gohu Font from being bold
+  - add the following to '~/.config/fontconfig/fonts.conf'
+     |<?xml version="1.0"?>
+     |<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+     |<fontconfig>
+     |  <match target="pattern">
+     |    <test qual="any" name="family">
+     |      <string>Gohu GohuFont</string>
+     |    </test>
+     |    <test name="weight" compare="more">
+     |      <const>medium</const>
+     |    </test>
+     |    <edit name="weight" mode="assign" binding="same">
+     |      <const>medium</const>
+     |    </edit>
+     |  </match>
+     |</fontconfig>
 
 
 

@@ -1,4 +1,36 @@
 #!/bin/bash
+#include "/home/kyle/.dotfiles/colorschemes/lakeside"
+
+
+# special
+*.foreground: FOREGROUND
+*.background: BACKGROUND
+*.cursor:     FOREGROUND
+
+# black
+*.color0:     COLOR0
+*.color8:     COLOR8
+# red
+*.color1:     COLOR1
+*.color9:     COLOR9
+# green
+*.color2:     COLOR1
+*.color10:    COLOR9
+# yellow
+*.color3:     COLOR1
+*.color11     COLOR9
+# blue
+*.color4:     COLOR1
+*.color12:    COLOR9
+# magenta
+*.color5:     COLOR1
+*.color13:    COLOR9
+# cyan
+*.color6:     COLOR1
+*.color14:    COLOR9
+# white
+*.color7:     COLOR7
+*.color15:    COLOR15
 
 cat ~/.dotfiles/colorschemes/lakeside
 
