@@ -4,6 +4,9 @@
 " leader
 let mapleader = ',' " Set mapleader to ,
 
+" clipboard
+set clipboard=unnamedplus  " Enable system clipboard
+
 " completion
 set wildmode=list:longest
 set wildignore=*.o,*.pyc
