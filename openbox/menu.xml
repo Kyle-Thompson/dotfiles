@@ -3,7 +3,7 @@
 <openbox_menu xmlns="http://openbox.org/3.4/menu">
 
 <menu id="root-menu" label="Openbox 3">
-    <item id="launch-termite" label="Termite">
+    <item id="launch-termite" label="termite">
         <action name="Execute">
             <command>termite</command>
         </action>
@@ -13,7 +13,7 @@
             <command>urxvt</command>
         </action>
     </item>
-    <item label="Firefox">
+    <item label="firefox">
         <action name="Execute">
             <command>firefox</command>
             <startupnotify>
@@ -22,7 +22,7 @@
             </startupnotify>
         </action>
     </item>
-    <item label="Google Chrome">
+    <item label="google chrome">
         <action name="Execute">
             <command>google-chrome-stable</command>
             <startupnotify>
@@ -31,7 +31,7 @@
             </startupnotify>
         </action>
     </item>
-    <item label="Steam">
+    <item label="steam">
         <action name="Execute">
             <command>steam</command>
             <startupnotify>
@@ -39,7 +39,7 @@
             </startupnotify>
         </action>
     </item>
-    <item label="Thunar">
+    <item label="thunar">
         <action name="Execute">
             <command>Thunar</command>
             <startupnotify>
@@ -48,10 +48,10 @@
         </action>
     </item>
     <separator />
-    <item label="Reconfigure">
+    <item label="reconfigure">
         <action name="Reconfigure" />
     </item>
-    <item label="Exit Openbox">
+    <item label="exit">
       <action name="Exit">
         <prompt>yes</prompt>
       </action>
