@@ -7,11 +7,11 @@ cat ~/.dotfiles/colorschemes/lakeside
 printf "\n\n"
 
 
-# globally assign colorscheme definitions
+# assign colorscheme definitions for all programs that load from Xresources
 echo "
 ! special
 *.foreground: FOREGROUND
-*.background: BACKGROUND
+*.background: [90]BACKGROUND
 *.cursor:     FOREGROUND
 
 ! black
@@ -21,20 +21,20 @@ echo "
 *.color1:     COLOR1
 *.color9:     COLOR9
 ! green
-*.color2:     COLOR1
-*.color10:    COLOR9
+*.color2:     COLOR2
+*.color10:    COLOR10
 ! yellow
-*.color3:     COLOR1
-*.color11:    COLOR9
+*.color3:     COLOR3
+*.color11:    COLOR11
 ! blue
-*.color4:     COLOR1
-*.color12:    COLOR9
+*.color4:     COLOR4
+*.color12:    COLOR12
 ! magenta
-*.color5:     COLOR1
-*.color13:    COLOR9
+*.color5:     COLOR5
+*.color13:    COLOR13
 ! cyan
-*.color6:     COLOR1
-*.color14:    COLOR9
+*.color6:     COLOR6
+*.color14:    COLOR14
 ! white
 *.color7:     COLOR7
 *.color15:    COLOR15
