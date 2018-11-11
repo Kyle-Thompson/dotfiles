@@ -1,6 +1,7 @@
-* keyboard backlight
-* figure out what all the zstyle commands in zshrc are doing
-* functional urxvt config
+* urxvt
+  - fix colors
+    - neovim
+    - tmux
 * transmission cli
 * other WMs to set up
   - bspwm
@@ -26,13 +27,11 @@
 * conky
 * global color config
   - Xresources controls all colors
-    - switch to a terminal that would support this. (Termite does not.)
+    - switch to a urxvt when ready.
   - Modify lakeside so that nvim xres colorschme matches regular lakeside colorscheme.
   - make python script with pywal module
 * background (make cycle. get a folder)
 * firefox rice
-* rofi config
-  - how to update rofi colors dynamically?
 * music (mpd, ncmpcpp, mpc)
 * tint2
   - create a misc setup for generic use. (openbox)
@@ -50,12 +49,7 @@
   - volume
     - clicking toggles mute
   - consider switching to lemonbar for added flexibility.
-* power management (sleep and hibernate)
-* figure out how to exit i3 back into default terminal prompt (laptop)
-* i3lock-color
-* power managerment (sleep)
 * rEFInd desktop setup (boot windows from custom stanza)
-* no background for polybar (desktop)
 * keyboard and mouse colors on linux (desktop)
 * replace i3-gaps with standard i3. bspwm can handle tiling gaps.
 * zsh plugins
