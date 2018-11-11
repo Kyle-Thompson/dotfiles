@@ -2,31 +2,3 @@
 
 URxvt.font: xft:Gohu GohuFont:pixelsize=11
 URxvt.scrollBar: false
-
-!! colors
-URxvt.foreground: FOREGROUND
-URxvt.background: BACKGROUND
-! black
-URxvt.color0: COLOR0
-URxvt.color8: COLOR8
-! red
-URxvt.color1: COLOR1
-URxvt.color9: COLOR9
-! green
-URxvt.color2: COLOR2
-URxvt.color10: COLOR10
-! yellow
-URxvt.color3: COLOR3
-URxvt.color11: COLOR11
-! blue
-URxvt.color4: COLOR4
-URxvt.color12: COLOR12
-! magenta
-URxvt.color5: COLOR5
-URxvt.color13: COLOR13
-! cyan
-URxvt.color6: COLOR6
-URxvt.color14: COLOR14
-! white
-URxvt.color7: COLOR7
-URxvt.color15: COLOR15
