@@ -39,4 +39,5 @@ case $(cat /etc/hostname) in
     "archpc") echo "i3.mod: Mod1" ;;
 esac
 
+echo "\n"
 cat ~/.dotfiles/urxvt/config
