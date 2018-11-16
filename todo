@@ -27,14 +27,18 @@
 * conky
 * global color config
   - Xresources controls all colors
-    - switch to a urxvt when ready.
+    - (done) terminal
+    - (done) rofi
+    - i3
+    - openbox
+    - neovim
   - Modify lakeside so that nvim xres colorschme matches regular lakeside colorscheme.
   - make python script with pywal module
 * background (make cycle. get a folder)
 * firefox rice
 * music (mpd, ncmpcpp, mpc)
 * tint2
-  - create a misc setup for generic use. (openbox)
+  - create a misc setup for generic use.
 * polybar
   - powermenu dropdown
   - internet dropdown
