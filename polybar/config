@@ -43,13 +43,14 @@ tray-padding = 2
 tray-transparent = true
 
 [bar/archpc-openbox]
-monitor = ${env:MONITOR:}
+monitor = ${env:MONITOR:DP-0}
 width = 100%
 height = 27
 offset-x = 1%
 offset-y = 1%
 radius = 6.0
 fixed-center = false
+bottom = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -68,9 +69,9 @@ module-margin-right = 1
 
 font-0 = "Gohu GohuFont:pixelsize=14;1"
 
-modules-left =
+modules-left = obws
 modules-center =
-modules-right = volume date
+modules-right = eth date
 
 tray-position = right
 tray-padding = 2
@@ -247,11 +248,11 @@ format-disconnected =
 
 [module/eth]
 type = internal/network
-interface = enp2s0f0
+interface = ${env:POLYBAR_ETH_INTERFACE:}
 interval = 3.0
 
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+label-connected = %ifname%
 
 format-disconnected =
 
@@ -331,6 +332,19 @@ menu-2-0 = power off
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+
+[module/obws]
+; openbox workspaces
+type = internal/xworkspaces
+
+pin-workspaces = false
+enable-click = true
+enable-scroll = false
+
+label-active = active %name% 
+label-occupied = occupied %name% 
+label-urgent = urgent %name% 
+label-empty = empty
 
 [settings]
 screenchange-reload = true
