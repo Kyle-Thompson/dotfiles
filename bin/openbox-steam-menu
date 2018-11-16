@@ -1,0 +1,20 @@
+#!/bin/bash
+
+STEAMAPPS=~/.steam/steam/steamapps/
+shopt -s nullglob
+
+echo_game_item () {
+  echo "<item label=\"$1\"><action name=\"Execute\"><execute>steam steam://run/$2</execute></action></item>"
+}
+
+echo '<openbox_pipe_menu>'
+echo '<item label="steam client"><action name="Execute"><command>steam</command><startupnotify><enabled>yes</enabled></startupnotify></action></item>'
+echo '<separator />'
+for file in "$STEAMAPPS"/*.acf; do
+    ID=$(grep -w -m 1 '"appid"' "$file" | sed -r 's/[^"]*"appid"[^"]*"([^"]*)"/\1/')
+    NAME=$(grep -w -m 1 '"name"' "$file" | sed -r -e 's/[^"]*"name"[^"]*"([^"]*)"/\1/' -e 's/&/&amp;/')
+    if [ "$NAME" != "Proton 3.7" ]; then
+      echo_game_item "$NAME" $ID
+    fi
+done | sort
+echo '</openbox_pipe_menu>'
