@@ -2,22 +2,36 @@
 " =============================
 
 " install vim-plug if it's not already
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
+if has('nvim') && empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall
+elseif empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin()
 
-  " autocompletion
-  Plug 'ncm2/ncm2'        " Completion engine
-  Plug 'roxma/nvim-yarp'  " Needed for ncm2
-  Plug 'ncm2/ncm2-tmux'   " find completions from tmux panes
-  Plug 'ncm2/ncm2-path'   " complete filesystem paths
+  " ===== autocompletion =====
+  if has('nvim')
+    Plug 'ncm2/ncm2'        " Completion engine
+    Plug 'roxma/nvim-yarp'  " Needed for ncm2
+    Plug 'ncm2/ncm2-tmux'   " find completions from tmux panes
+    Plug 'ncm2/ncm2-path'   " complete filesystem paths
 
-  " colourscheme
+    " general
+    autocmd BufEnter * call ncm2#enable_for_buffer()
+    set completeopt=menuone,noinsert,noselect
+
+    " rust
+    let g:rustc_path = $HOME.".cargo/bin/rustc"
+  endif
+
+  " ===== colorscheme =====
   Plug 'Kyle-Thompson/xresources-colors.vim'
+  silent! colorscheme xres
 
   " commenting
   Plug 'scrooloose/nerdcommenter'
@@ -70,19 +84,6 @@ call plug#begin()
 call plug#end()
 
 
-" ===== autocompletion =====
-" general
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=menuone,noinsert,noselect
-
-" rust
-let g:rustc_path = $HOME.".cargo/bin/rustc"
-
-
-
-" ===== colorscheme =====
-silent! colorscheme xres
-
 
 
 " ===== commenting =====
@@ -110,16 +111,6 @@ let g:ale_fixers = {
 
 " python
 let g:ale_python_flake8_args="--ignore=W0511"
-
-
-
-" ===== codi =====
-let g:codi#interpreters = {
-  \ 'python': {
-    \ 'bin': 'python',
-    \ 'prompt': '^\(>>>\|\.\.\.\) ',
-  \ }
-\ }
 
 
 " ===== transparency =====

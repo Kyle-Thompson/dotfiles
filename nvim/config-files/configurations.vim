@@ -40,7 +40,9 @@ set splitright      " Horizontal splits open right of the current window
 " visual
 " set number          " Show line numbers
 " set relativenumber  " Line numbers are relative to current line
-set termguicolors   " Enable true colours
+if has('nvim')
+  set termguicolors   " Enable true colours
+endif
 
 " word wrapping
 set wrap            " Spread long lines across multiple lines
@@ -51,4 +53,7 @@ set nolist          " Do not show characters at the end of lines
 autocmd BufNewFile,BufEnter * silent! lcd %:p:h
 
 " fill chars
-set fillchars+=vert:\|,eob:\ 
+set fillchars+=vert:\|
+if has('nvim')
+  set fillchars+=eob:\
+endif
