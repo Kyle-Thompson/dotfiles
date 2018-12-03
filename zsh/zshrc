@@ -2,4 +2,5 @@ for f in ~/.dotfiles/zsh/configs/*; do
     source "$f";
 done
 
+[ -f ~/.zshrc.work ] && source ~/.zshrc.work
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
