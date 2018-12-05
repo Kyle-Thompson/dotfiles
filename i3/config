@@ -120,8 +120,8 @@ bindsym $mod+r mode "resize"
 new_window none
 
 # gaps
-gaps inner 10
-gaps outer 0
+# gaps inner 10
+# gaps outer 0
 
 exec_always --no-startup-id screenlayout.sh
 
