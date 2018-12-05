@@ -52,6 +52,9 @@ set nolist          " Do not show characters at the end of lines
 " automatically change the working path to the path of the current file
 autocmd BufNewFile,BufEnter * silent! lcd %:p:h
 
+" recurse up directories looking for tag files.
+set tags=./tags;/
+
 " fill chars
 set fillchars+=vert:\|
 if has('nvim')
