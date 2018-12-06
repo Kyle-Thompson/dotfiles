@@ -2,3 +2,4 @@ nvim/plugged/
 nvim/autoload/
 nvim/.init.vim-rplugin~
 **/*.o
+tags
