@@ -9,7 +9,12 @@ set clipboard=unnamedplus  " Enable system clipboard
 
 " completion
 set wildmode=list:longest
-set wildignore=*.o,*.pyc
+
+" fill chars
+set fillchars+=vert:\|
+if has('nvim')
+  set fillchars+=eob:\ 
+endif
 
 " folds
 
@@ -37,26 +42,20 @@ set smartcase       " Match any given captials in search
 set splitbelow      " Vertical splits open below current window
 set splitright      " Horizontal splits open right of the current window
 
+" tags
+set tags=./tags;/   " recurse up directories looking for tag files.
+
 " visual
 " set number          " Show line numbers
 " set relativenumber  " Line numbers are relative to current line
 if has('nvim')
-  set termguicolors   " Enable true colours
+  " set termguicolors   " Enable true colours
 endif
+
+" wildignore
+set wildignore=*.o,*.pyc
 
 " word wrapping
 set wrap            " Spread long lines across multiple lines
 set linebreak       " Do not break words on wrap
 set nolist          " Do not show characters at the end of lines
-
-" automatically change the working path to the path of the current file
-autocmd BufNewFile,BufEnter * silent! lcd %:p:h
-
-" recurse up directories looking for tag files.
-set tags=./tags;/
-
-" fill chars
-set fillchars+=vert:\|
-if has('nvim')
-  set fillchars+=eob:\
-endif
