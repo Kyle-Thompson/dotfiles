@@ -44,6 +44,8 @@ call plug#begin()
   Plug 'junegunn/fzf', { 'dir': $HOME . '/.config/fzf',
                        \ 'do': './install --all'}
   Plug 'junegunn/fzf.vim'
+  nnoremap <leader>f :Files<CR>
+  nnoremap <leader>b :Buffers<CR>
 
 
   " ===== languages =====
