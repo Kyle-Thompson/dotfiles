@@ -1,10 +1,10 @@
 " ========== Mappings =========
 " =============================
 
-" Easy escape to normal.
+" easy escape to normal
 inoremap jj <ESC>
 
-" Move along visual lines, not numbered ones.
+" move along visual lines, not numbered ones
 nnoremap j gj
 nnoremap k gk
 nnoremap ^ g^
@@ -14,11 +14,14 @@ vnoremap k gk
 vnoremap ^ g^
 vnoremap $ g$
 
-" Simplify moving across splits. (No more W)
+" simplify moving across splits
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Save when file is readonly
+" save when file is readonly
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
+" show options if tag has multiple matches
+nnoremap <C-]> g<C-]>
