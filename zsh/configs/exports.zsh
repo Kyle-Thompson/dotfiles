@@ -12,4 +12,4 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export VISUAL=nvim
 
 # polybar
-export POLYBAR_ETH_INTERFACE="${$(ip a | grep "[1-9]: enp" | head -n 1 | awk '{print $2}'): : -1}"
+export POLYBAR_ETH_INTERFACE="$($(ip a | grep "[1-9]: enp" | head -n 1 | awk '{print $2}'): : -1)"
