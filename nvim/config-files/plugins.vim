@@ -17,8 +17,8 @@ call plug#begin()
 
   " ===== autocompletion =====
   if has('nvim') || version >= 800
-    Plug 'ncm2/ncm2'        " Completion engine
-    Plug 'roxma/nvim-yarp'  " Needed for ncm2
+    Plug 'ncm2/ncm2'        " completion engine
+    Plug 'roxma/nvim-yarp'  " needed for ncm2
     Plug 'ncm2/ncm2-tmux'   " find completions from tmux panes
     Plug 'ncm2/ncm2-path'   " complete filesystem paths
 
@@ -26,7 +26,18 @@ call plug#begin()
     autocmd BufEnter * call ncm2#enable_for_buffer()
     set completeopt=menuone,noinsert,noselect
 
+    " cpp
+    Plug 'ncm2/ncm2-pyclang', { 'for': 'cpp' }
+    let g:ncm2_pyclang#library_path = $LIBCLANG_DIR
+
+    " python
+    Plug 'ncm2/ncm2-jedi', { 'for': 'python' }
+
     " rust
+    Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+    Plug 'racer-rust/racer', { 'for': 'rust',
+                             \ 'do': 'cargo +nightly install racer'}
+    Plug 'ncm2/ncm2-racer', { 'for': 'rust'}
     let g:rustc_path = $HOME.".cargo/bin/rustc"
   endif
 
@@ -36,25 +47,12 @@ call plug#begin()
   silent! colorscheme xres
 
 
-  " ===== commenting =====
-  Plug 'tpope/vim-commentary'
-
-
   " ===== fuzzy file searching =====
   Plug 'junegunn/fzf', { 'dir': $HOME . '/.config/fzf',
                        \ 'do': './install --all'}
   Plug 'junegunn/fzf.vim'
   nnoremap <leader>f :Files<CR>
   nnoremap <leader>b :Buffers<CR>
-
-
-  " ===== languages =====
-  " TODO: determine if all 3 rust plugins are necessary.
-  Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-  Plug 'racer-rust/racer', { 'for': 'rust',
-                           \ 'do': 'cargo +nightly install racer'}
-  Plug 'ncm2/ncm2-racer', { 'for': 'rust'}
-  Plug 'ncm2/ncm2-jedi', { 'for': 'python' }
 
 
   " ===== linting and fixing =====
@@ -75,7 +73,6 @@ call plug#begin()
   let g:ale_python_flake8_args="--ignore=W0511"
 
 
-
   " ===== movement =====
   Plug 'easymotion/vim-easymotion'
 
@@ -93,7 +90,6 @@ call plug#begin()
   " ===== tags =====
   Plug 'majutsushi/tagbar'
   if has('nvim') || version >= 800
-    " TODO: only load if tag file exists.
     Plug 'ludovicchabant/vim-gutentags'
   endif
 
@@ -103,6 +99,7 @@ call plug#begin()
   Plug 'tommcdo/vim-exchange'  " swapping
   Plug 'tpope/vim-surround'    " wrapping
   Plug 'jiangmiao/auto-pairs'  " creating pairs
+  Plug 'tpope/vim-commentary'  " commenting
 
 
   " ===== transparency =====
