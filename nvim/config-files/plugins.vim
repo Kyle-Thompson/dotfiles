@@ -27,32 +27,22 @@ call plug#begin()
     set completeopt=menuone,noinsert,noselect
 
     " cpp
-    Plug 'ncm2/ncm2-pyclang', { 'for': 'cpp' }
+    Plug 'ncm2/ncm2-pyclang'
     let g:ncm2_pyclang#library_path = $LIBCLANG_DIR
 
     " python
-    Plug 'ncm2/ncm2-jedi', { 'for': 'python' }
+    Plug 'ncm2/ncm2-jedi'
 
     " rust
-    Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-    Plug 'racer-rust/racer', { 'for': 'rust',
-                             \ 'do': 'cargo +nightly install racer'}
-    Plug 'ncm2/ncm2-racer', { 'for': 'rust'}
+    Plug 'rust-lang/rust.vim'
+    Plug 'racer-rust/racer', { 'do': 'cargo +nightly install racer' }
+    Plug 'ncm2/ncm2-racer'
     let g:rustc_path = $HOME.".cargo/bin/rustc"
   endif
 
 
   " ===== colorscheme =====
   Plug 'Kyle-Thompson/xresources-colors.vim'
-  silent! colorscheme xres
-
-
-  " ===== fuzzy file searching =====
-  Plug 'junegunn/fzf', { 'dir': $HOME . '/.config/fzf',
-                       \ 'do': './install --all'}
-  Plug 'junegunn/fzf.vim'
-  nnoremap <leader>f :Files<CR>
-  nnoremap <leader>b :Buffers<CR>
 
 
   " ===== linting and fixing =====
@@ -73,18 +63,37 @@ call plug#begin()
   let g:ale_python_flake8_args="--ignore=W0511"
 
 
-  " ===== movement =====
-  Plug 'easymotion/vim-easymotion'
-
-
   " ===== repeat =====
   Plug 'tpope/vim-repeat'  " '.' repeats last plugin op
 
 
+  " ===== searching =====
+  Plug 'junegunn/fzf', { 'dir': $HOME . '/.config/fzf', 'do': './install --all'}
+  Plug 'junegunn/fzf.vim'
+  nnoremap <leader>f :Files<CR>
+  nnoremap <leader>b :Buffers<CR>
+
+  Plug 'jremmen/vim-ripgrep'
+  nnoremap <leader>g :Rg<CR>
+
+  Plug 'easymotion/vim-easymotion'
+  map <leader>e <Plug>(easymotion-prefix)
+
+  Plug 'haya14busa/incsearch.vim'
+  map / <Plug>(incsearch-forward)
+  map ? <Plug>(incsearch-backward)
+  map g/ <Plug>(incsearch-stay)
+
+  Plug 'haya14busa/incsearch-easymotion.vim'
+  map z/ <Plug>(incsearch-easymotion-/)
+  map z? <Plug>(incsearch-easymotion-?)
+  map zg/ <Plug>(incsearch-easymotion-stay)
+
+
   " ===== snippets =====
-  Plug 'ncm2/ncm2-ultisnips'
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
+  Plug 'ncm2/ncm2-ultisnips'
 
 
   " ===== tags =====
@@ -108,3 +117,6 @@ call plug#begin()
   let g:seiya_target_groups = has('nvim') ? ['guibg'] : ['ctermbg']
 
 call plug#end()
+
+" set here since colorschemes can't be defined before plug#end()
+silent! colorscheme xres
