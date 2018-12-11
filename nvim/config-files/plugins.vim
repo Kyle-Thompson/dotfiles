@@ -91,14 +91,18 @@ call plug#begin()
 
 
   " ===== snippets =====
-  Plug 'SirVer/ultisnips'
-  Plug 'honza/vim-snippets'
-  Plug 'ncm2/ncm2-ultisnips'
+  Plug 'SirVer/ultisnips'     " snippet engine
+  Plug 'honza/vim-snippets'   " snippet collection
+  Plug 'ncm2/ncm2-ultisnips'  " autocompletion support
+
+  let g:UltiSnipsExpandTrigger='<tab>'
+  let g:UltiSnipsJumpForwardTrigger='<tab>'
+  let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 
 
   " ===== tags =====
   Plug 'majutsushi/tagbar'
-  if has('nvim') || version >= 800
+  if has('nvim') || v:version >= 800
     Plug 'ludovicchabant/vim-gutentags'
   endif
 
