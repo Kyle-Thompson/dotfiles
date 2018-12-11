@@ -2,7 +2,7 @@
 " =============================
 
 " leader
-let mapleader = ',' " Set mapleader to ,
+let mapleader = ' '
 
 " clipboard
 set clipboard=unnamedplus  " Enable system clipboard
@@ -48,7 +48,7 @@ set tags=./tags;/   " recurse up directories looking for tag files.
 " visual
 " set number          " Show line numbers
 " set relativenumber  " Line numbers are relative to current line
-if has('nvim') && &t_Co > 256
+if has('nvim') && &t_Co >= 256
   set termguicolors   " Enable true colours
 endif
 
