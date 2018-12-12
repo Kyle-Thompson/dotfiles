@@ -15,7 +15,7 @@ endif
 
 call plug#begin()
 
-  " ===== autocompletion =====
+  " ========== autocompletion ==================================================
   if has('nvim') || version >= 800
     Plug 'ncm2/ncm2'        " completion engine
     Plug 'roxma/nvim-yarp'  " needed for ncm2
@@ -41,33 +41,55 @@ call plug#begin()
   endif
 
 
-  " ===== colorscheme =====
+  " ========== colorscheme =====================================================
   Plug 'Kyle-Thompson/xresources-colors.vim'
 
 
-  " ===== linting and fixing =====
-  Plug 'w0rp/ale'
-
-  " general
-  let g:ale_linters_explicit = 1
-  let g:ale_linters = {
-    \ 'python': ['flake8'],
-  \ }
-
-  let g:ale_fix_on_save = 1
-  let g:ale_fixers = {
-    \ 'python': ['yapf'],
-  \ }
-
-  " python
-  let g:ale_python_flake8_args="--ignore=W0511"
+  " ========== language servers ================================================
+  if has('nvim')
+    Plug 'autozimu/LanguageClient-neovim', {
+      \ 'branch': 'next',
+      \ 'do': 'bash install.sh',
+    \ }
+  endif
 
 
-  " ===== repeat =====
+  " ========== linting and fixing ==============================================
+  if has('nvim') || has('job')
+    Plug 'w0rp/ale'
+
+    " general
+    let g:ale_echo_msg_format = '[%linter%] (%severity%) %code%: %s'
+
+    " linters
+    let g:ale_linters_explicit = 1
+    let g:ale_linters = {
+      \ 'cpp': ['clang', 'clangcheck', 'clangtidy', 'cppcheck', 'cpplint'],
+      \ 'python': ['flake8'],
+    \ }
+
+    " fixers
+    let g:ale_fix_on_save = 1
+    let g:ale_fixers = {
+      \ 'python': ['yapf'],
+    \ }
+
+    " cpp
+    let g:ale_cpp_clang_executable = 'clang++'
+    let g:ale_cpp_clang_options = '-std=c++1z -Wall'
+    let g:ale_cpp_cpplint_options = '--filter=-whitespace/line_length'
+    " let g:ale_cpp_cpplint_options = '--linelength=120'
+
+    " python
+    let g:ale_python_flake8_args = '--ignore=W0511'
+  endif
+
+
+  " ========== repeat ==========================================================
   Plug 'tpope/vim-repeat'  " '.' repeats last plugin op
 
 
-  " ===== searching =====
+  " ========== searching =======================================================
   Plug 'junegunn/fzf', { 'dir': $HOME . '/.config/fzf', 'do': './install --all'}
   Plug 'junegunn/fzf.vim'
   nnoremap <leader>f :Files<CR>
@@ -90,7 +112,7 @@ call plug#begin()
   map zg/ <Plug>(incsearch-easymotion-stay)
 
 
-  " ===== snippets =====
+  " ========== snippets ========================================================
   Plug 'SirVer/ultisnips'     " snippet engine
   Plug 'honza/vim-snippets'   " snippet collection
   Plug 'ncm2/ncm2-ultisnips'  " autocompletion support
@@ -100,14 +122,14 @@ call plug#begin()
   let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 
 
-  " ===== tags =====
+  " ========== tags ============================================================
   Plug 'majutsushi/tagbar'
-  if has('nvim') || v:version >= 800
+  if has('nvim') || has('job')
     Plug 'ludovicchabant/vim-gutentags'
   endif
 
 
-  " ===== text =====
+  " ========== text ============================================================
   Plug 'wellle/targets.vim'    " objects
   Plug 'tommcdo/vim-exchange'  " swapping
   Plug 'tpope/vim-surround'    " wrapping
@@ -115,7 +137,7 @@ call plug#begin()
   Plug 'tpope/vim-commentary'  " commenting
 
 
-  " ===== transparency =====
+  " ========== transparency ====================================================
   Plug 'miyakogi/seiya.vim'
   let g:seiya_auto_enable=1
   let g:seiya_target_groups = has('nvim') ? ['guibg'] : ['ctermbg']
