@@ -51,6 +51,11 @@ call plug#begin()
       \ 'branch': 'next',
       \ 'do': 'bash install.sh',
     \ }
+
+    let g:LanguageClient_autoStart = 1
+    let g:LanguageClient_serverCommands = {
+      \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+    \ }
   endif
 
 
@@ -64,7 +69,7 @@ call plug#begin()
     " linters
     let g:ale_linters_explicit = 1
     let g:ale_linters = {
-      \ 'cpp': ['clang', 'clangcheck', 'clangtidy', 'cppcheck', 'cpplint'],
+      \ 'cpp': ['clang', 'clangtidy', 'cppcheck', 'cpplint'],
       \ 'python': ['flake8'],
     \ }
 
@@ -76,17 +81,13 @@ call plug#begin()
 
     " cpp
     let g:ale_cpp_clang_executable = 'clang++'
-    let g:ale_cpp_clang_options = '-std=c++1z -Wall'
-    let g:ale_cpp_cpplint_options = '--filter=-whitespace/line_length'
-    " let g:ale_cpp_cpplint_options = '--linelength=120'
+    let g:ale_cpp_clang_options = '-std=c++14 -Wall'
+    let g:ale_cpp_cpplint_options = '--linelength=120 --filter=-legal/copyright'
+    let g:ale_cpp_clangtidy_options = '-x c++'
 
     " python
     let g:ale_python_flake8_args = '--ignore=W0511'
   endif
-
-
-  " ========== repeat ==========================================================
-  Plug 'tpope/vim-repeat'  " '.' repeats last plugin op
 
 
   " ========== searching =======================================================
@@ -129,12 +130,13 @@ call plug#begin()
   endif
 
 
-  " ========== text ============================================================
-  Plug 'wellle/targets.vim'    " objects
-  Plug 'tommcdo/vim-exchange'  " swapping
-  Plug 'tpope/vim-surround'    " wrapping
+  " ========== utilities =======================================================
+  Plug 'wellle/targets.vim'    " extra text objects
+  Plug 'tommcdo/vim-exchange'  " text swapping
+  Plug 'tpope/vim-surround'    " wrapping text with pairs
   Plug 'jiangmiao/auto-pairs'  " creating pairs
   Plug 'tpope/vim-commentary'  " commenting
+  Plug 'tpope/vim-repeat'      " repeatable plugins
 
 
   " ========== transparency ====================================================
