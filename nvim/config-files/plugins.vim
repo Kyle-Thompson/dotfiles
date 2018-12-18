@@ -16,7 +16,7 @@ endif
 call plug#begin()
 
   " ========== autocompletion ==================================================
-  if has('nvim') || version >= 800
+  if has('nvim') || has('job')
     Plug 'ncm2/ncm2'        " completion engine
     Plug 'roxma/nvim-yarp'  " needed for ncm2
     Plug 'ncm2/ncm2-tmux'   " find completions from tmux panes
@@ -45,7 +45,7 @@ call plug#begin()
   Plug 'Kyle-Thompson/xresources-colors.vim'
 
 
-  " ========== language servers ================================================
+  " ========== language server =================================================
   if has('nvim')
     Plug 'autozimu/LanguageClient-neovim', {
       \ 'branch': 'next',
@@ -59,7 +59,7 @@ call plug#begin()
   endif
 
 
-  " ========== linting and fixing ==============================================
+  " ========== linting & fixing ================================================
   if has('nvim') || has('job')
     Plug 'w0rp/ale'
 
@@ -82,8 +82,9 @@ call plug#begin()
     " cpp
     let g:ale_cpp_clang_executable = 'clang++'
     let g:ale_cpp_clang_options = '-std=c++14 -Wall'
-    let g:ale_cpp_cpplint_options = '--linelength=120 --filter=-legal/copyright'
-    let g:ale_cpp_clangtidy_options = '-x c++'
+    let g:ale_cpp_clangtidy_options = '-std=c++14 -x c++'
+    let g:ale_cpp_cpplint_options =
+      \ '--linelength=120 --filter=-legal/copyright,-build/include'
 
     " python
     let g:ale_python_flake8_args = '--ignore=W0511'
@@ -131,12 +132,15 @@ call plug#begin()
 
 
   " ========== utilities =======================================================
-  Plug 'wellle/targets.vim'    " extra text objects
-  Plug 'tommcdo/vim-exchange'  " text swapping
-  Plug 'tpope/vim-surround'    " wrapping text with pairs
-  Plug 'jiangmiao/auto-pairs'  " creating pairs
-  Plug 'tpope/vim-commentary'  " commenting
-  Plug 'tpope/vim-repeat'      " repeatable plugins
+  Plug 'wellle/targets.vim'       " extra text objects
+  Plug 'tommcdo/vim-exchange'     " text swapping
+  Plug 'tpope/vim-surround'       " wrapping text with pairs
+  Plug 'jiangmiao/auto-pairs'     " creating pairs
+  Plug 'tpope/vim-commentary'     " commenting
+  Plug 'tpope/vim-repeat'         " repeatable plugins
+  Plug 'junegunn/vim-easy-align'  " text alignment
+  xmap ga <Plug>(EasyAlign)
+  nmap ga <Plug>(EasyAlign)
 
 
   " ========== transparency ====================================================
