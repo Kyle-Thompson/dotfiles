@@ -25,3 +25,6 @@ cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 " show options if tag has multiple matches
 nnoremap <C-]> g<C-]>
+
+" clear highlights
+nnoremap <leader>c :nohls<CR>
