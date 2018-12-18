@@ -3,5 +3,5 @@ for f in split(glob('~/.config/nvim/config-files/*.vim'), '\n')
 endfor
 
 if !empty(glob("~/.nvim.local"))
-  exe 'source' f
+  exe 'source' "~/.nvim.local"
 endif

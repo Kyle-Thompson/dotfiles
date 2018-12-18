@@ -29,6 +29,7 @@ call plug#begin()
     " cpp
     Plug 'ncm2/ncm2-pyclang'
     let g:ncm2_pyclang#library_path = $LIBCLANG_DIR
+    let g:ncm2_pyclang#database_path = ['compile_commands.json']
 
     " python
     Plug 'ncm2/ncm2-jedi'
@@ -83,8 +84,7 @@ call plug#begin()
     let g:ale_cpp_clang_executable = 'clang++'
     let g:ale_cpp_clang_options = '-std=c++14 -Wall'
     let g:ale_cpp_clangtidy_options = '-std=c++14 -x c++'
-    let g:ale_cpp_cpplint_options =
-      \ '--linelength=120 --filter=-legal/copyright,-build/include'
+    let g:ale_cpp_cpplint_options = '--filter=-legal/copyright'
 
     " python
     let g:ale_python_flake8_args = '--ignore=W0511'
