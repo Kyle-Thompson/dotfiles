@@ -25,20 +25,6 @@ call plug#begin()
     " general
     autocmd BufEnter * call ncm2#enable_for_buffer()
     set completeopt=menuone,noinsert,noselect
-
-    " cpp
-    Plug 'ncm2/ncm2-pyclang'
-    let g:ncm2_pyclang#library_path = $LIBCLANG_DIR
-    let g:ncm2_pyclang#database_path = ['compile_commands.json']
-
-    " python
-    Plug 'ncm2/ncm2-jedi'
-
-    " rust
-    Plug 'rust-lang/rust.vim'
-    Plug 'racer-rust/racer', { 'do': 'cargo +nightly install racer' }
-    Plug 'ncm2/ncm2-racer'
-    let g:rustc_path = $HOME.".cargo/bin/rustc"
   endif
 
 
@@ -55,6 +41,7 @@ call plug#begin()
 
     let g:LanguageClient_autoStart = 1
     let g:LanguageClient_serverCommands = {
+      \ 'cpp': ['ccls'],
       \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ }
   endif
