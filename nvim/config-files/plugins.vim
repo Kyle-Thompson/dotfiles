@@ -119,13 +119,12 @@ call plug#begin()
   Plug 'tpope/vim-commentary'     " commenting
   Plug 'tpope/vim-repeat'         " repeatable plugins
   Plug 'majutsushi/tagbar'        " show file tags in sidebar
+
   Plug 'junegunn/vim-easy-align'  " text alignment
   xmap ga <Plug>(EasyAlign)
   nmap ga <Plug>(EasyAlign)
 
-
-  " ========== transparency ====================================================
-  Plug 'miyakogi/seiya.vim'
+  Plug 'miyakogi/seiya.vim'       " background transparency
   let g:seiya_auto_enable=1
   let g:seiya_target_groups = has('nvim') ? ['guibg'] : ['ctermbg']
 
