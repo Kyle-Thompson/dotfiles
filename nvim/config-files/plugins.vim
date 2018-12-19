@@ -111,13 +111,6 @@ call plug#begin()
   let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 
 
-  " ========== tags ============================================================
-  Plug 'majutsushi/tagbar'
-  if has('nvim') || has('job')
-    Plug 'ludovicchabant/vim-gutentags'
-  endif
-
-
   " ========== utilities =======================================================
   Plug 'wellle/targets.vim'       " extra text objects
   Plug 'tommcdo/vim-exchange'     " text swapping
@@ -125,6 +118,7 @@ call plug#begin()
   Plug 'jiangmiao/auto-pairs'     " creating pairs
   Plug 'tpope/vim-commentary'     " commenting
   Plug 'tpope/vim-repeat'         " repeatable plugins
+  Plug 'majutsushi/tagbar'        " show file tags in sidebar
   Plug 'junegunn/vim-easy-align'  " text alignment
   xmap ga <Plug>(EasyAlign)
   nmap ga <Plug>(EasyAlign)
