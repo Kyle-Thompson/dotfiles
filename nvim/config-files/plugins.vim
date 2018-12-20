@@ -41,7 +41,8 @@ call plug#begin()
 
     let g:LanguageClient_autoStart = 1
     let g:LanguageClient_serverCommands = {
-      \ 'cpp': ['ccls'],
+      \ 'c': ['ccls', '--log-file=/tmp/ccls_c.log'],
+      \ 'cpp': ['ccls', '--log-file=/tmp/ccls_cpp.log'],
       \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ }
   endif
@@ -57,7 +58,7 @@ call plug#begin()
     " linters
     let g:ale_linters_explicit = 1
     let g:ale_linters = {
-      \ 'cpp': ['clang', 'clangtidy', 'cppcheck', 'cpplint'],
+      \ 'cpp': ['clang', 'clangtidy', 'cppcheck'],
       \ 'python': ['flake8'],
     \ }
 
@@ -71,7 +72,6 @@ call plug#begin()
     let g:ale_cpp_clang_executable = 'clang++'
     let g:ale_cpp_clang_options = '-std=c++14 -Wall'
     let g:ale_cpp_clangtidy_options = '-std=c++14 -x c++'
-    let g:ale_cpp_cpplint_options = '--filter=-legal/copyright'
 
     " python
     let g:ale_python_flake8_args = '--ignore=W0511'
