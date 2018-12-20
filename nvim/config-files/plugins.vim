@@ -1,12 +1,13 @@
-" ========== Plugins ==========
-" =============================
+" ==============================================================================
+" ==================   Plugins   ===============================================
+" ==============================================================================
 
 " install vim-plug if it's not already
-if has('nvim') && empty(glob('~/.config/nvim/autoload/plug.vim'))
+if has('nvim') && empty(glob('~/.config/nvim/autoload/plug.vim'))  " nvim
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall
-elseif !has('nvim') && empty(glob('~/.vim/autoload/plug.vim'))
+elseif !has('nvim') && empty(glob('~/.vim/autoload/plug.vim'))  " vim
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -79,7 +80,7 @@ call plug#begin()
 
 
   " ========== searching =======================================================
-  Plug 'junegunn/fzf', { 'dir': $HOME . '/.config/fzf', 'do': './install --all'}
+  Plug 'junegunn/fzf', { 'dir': $HOME.'/.config/fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   nnoremap <leader>f :Files<CR>
   nnoremap <leader>b :Buffers<CR>
