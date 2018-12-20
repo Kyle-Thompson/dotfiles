@@ -89,7 +89,8 @@ call plug#begin()
   nnoremap <leader>g :Rg<CR>
 
   Plug 'easymotion/vim-easymotion'
-  map <leader><leader> <Plug>(easymotion-prefix)
+  map <leader><leader>w <Plug>(easymotion-bd-w)
+  map <leader><leader>f <Plug>(easymotion-s)
 
   Plug 'haya14busa/incsearch.vim'
   map / <Plug>(incsearch-forward)
