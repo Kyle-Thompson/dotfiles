@@ -1,7 +1,3 @@
-* urxvt
-  - fix colors
-    - neovim
-    - tmux
 * transmission cli
 * other WMs to set up
   - bspwm
@@ -59,3 +55,7 @@
 * zsh plugins
   - syntax highlighting
   - autosuggestions
+* suckless terminal
+  - get custom fork going
+  - Xresources colors
+  - copy and paste
