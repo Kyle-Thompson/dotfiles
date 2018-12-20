@@ -47,8 +47,6 @@ set splitright      " Horizontal splits open right of the current window
 set tags=./tags;/   " recurse up directories looking for tag files.
 
 " visual
-set number          " Show line numbers
-set relativenumber  " Line numbers are relative to current line
 set termguicolors   " Enable true colours
 
 " wildignore
