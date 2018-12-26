@@ -1,32 +1,32 @@
 !! MENU
 
 ! background
-menu.items.bg: flat
+menu.items.bg:       flat
 menu.items.bg.color: #161b1d
-menu.overlap.x: -6
+menu.overlap.x:      -6
 
 ! text
-menu.items.text.color: #7ea2b4
-menu.items.justify: left
+menu.items.text.color:          #7ea2b4
+menu.items.justify:             left
 menu.items.disabled.text.color: #4d5066
 
 ! separator
 menu.separator.padding.height: 2
-menu.separator.color: #161b1d
+menu.separator.color:          #161b1d
 
 ! border
 menu.border.width: 6
 menu.border.color: #161b1d
 
 ! headers
-menu.title.bg: flat
-menu.title.bg.color: #161b1d
-menu.title.text.color: #7ea2b4
+menu.title.bg:           flat
+menu.title.bg.color:     #161b1d
+menu.title.text.color:   #7ea2b4
 menu.title.text.justify: center
 
 ! selected item
-menu.items.active.bg: flat
-menu.items.active.bg.color: #161b1d
+menu.items.active.bg:         flat
+menu.items.active.bg.color:   #161b1d
 menu.items.active.text.color: #257fad
 
 
@@ -34,9 +34,9 @@ menu.items.active.text.color: #257fad
 !! TITLEBAR
 
 ! bar
-window.active.title.bg: flat
-window.active.title.bg.color: #161b1d
-window.inactive.title.bg: flat
+window.active.title.bg:         flat
+window.active.title.bg.color:   #161b1d
+window.inactive.title.bg:       flat
 window.inactive.title.bg.color: #161b1d
 
 
@@ -44,57 +44,51 @@ window.inactive.title.bg.color: #161b1d
 !! BUTTONS
 
 ! button colors (active)
-window.active.button.iconify.unpressed.image.color: #257fad
-window.active.button.iconify.pressed.image.color: #257fad
-window.active.button.max.unpressed.image.color: #257fad
-window.active.button.max.pressed.image.color: #257fad
-window.active.button.toggled.unpressed.image.color: #257fad
-window.active.button.toggled.pressed.image.color: #257fad
-window.active.button.close.unpressed.image.color: #d22d72
-window.active.button.close.pressed.image.color: #d22d72
+window.active.button.iconify.*.image.color: #257fad
+window.active.button.max.*.image.color:     #257fad
+window.active.button.toggled.*.image.color: #257fad
+window.active.button.close.*.image.color:   #d22d72
 
 ! button colors (inactive)
 window.inactive.button.*.image.color: #7ea2b4
 
-! hover (active)
-window.*.button.iconify.hover.image.color: #257fad
-window.*.button.max.hover.image.color: #257fad
-window.*.button.toggled.hover.image.color: #257fad
-window.*.button.close.hover.image.color: #d22d72
+! hover
+window.*.button.*.hover.image.color: parentrelative
+
 
 
 !! borders
-window.active.border.color: #444444
+window.active.border.color:   #444444
 window.inactive.border.color: #444444
-padding.width: 8
-padding.height: 8
-window.client.padding.width: 0
+padding.width:                8
+padding.height:               8
+window.client.padding.width:  0
 window.client.padding.height: 0
-border.width: 0
-window.handle.width: 2
+border.width:                 0
+window.handle.width:          2
 
-window.active.client.color:  #444444
-window.inactive.client.color:  #444444
+window.active.client.color:   #444444
+window.inactive.client.color: #444444
 
-window.active.handle.bg: flat
-window.active.handle.bg.color: #444444
-window.inactive.handle.bg: flat
+window.active.handle.bg:         flat
+window.active.handle.bg.color:   #444444
+window.inactive.handle.bg:       flat
 window.inactive.handle.bg.color: #444444
 
-window.active.grip.bg: flat
-window.active.grip.bg.color: #444444
-window.inactive.grip.bg: flat
+window.active.grip.bg:         flat
+window.active.grip.bg.color:   #444444
+window.inactive.grip.bg:       flat
 window.inactive.grip.bg.color: #444444
 
 !! on-screen displays
-osd.border.width: 1
-osd.border.color: #444444
-osd.label.text.color: #f5f5f0
-osd.bg: flat solid
-osd.bg.color: #444444
-osd.label.bg: flat solid
-osd.label.bg.color: #444444
-osd.hilight.bg: flat solid
-osd.hilight.bg.color: #f0544c
-osd.unhilight.bg: flat solid
+osd.border.width:       1
+osd.border.color:       #444444
+osd.label.text.color:   #f5f5f0
+osd.bg:                 flat solid
+osd.bg.color:           #444444
+osd.label.bg:           flat solid
+osd.label.bg.color:     #444444
+osd.hilight.bg:         flat solid
+osd.hilight.bg.color:   #f0544c
+osd.unhilight.bg:       flat solid
 osd.unhilight.bg.color: #4d5066
