@@ -60,6 +60,7 @@ call plug#begin()
     let g:ale_linters_explicit = 1
     let g:ale_linters = {
       \ 'cpp': ['clang', 'clangtidy', 'cppcheck'],
+      \ 'c': ['clang'],
       \ 'python': ['flake8'],
     \ }
 
