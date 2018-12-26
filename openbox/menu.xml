@@ -5,7 +5,7 @@
 <menu id="root-menu" label="Openbox 3">
   <item label="terminal">
     <action name="Execute">
-      <command>urxvt</command>
+      <command>st</command>
     </action>
   </item>
   <item label="firefox">
