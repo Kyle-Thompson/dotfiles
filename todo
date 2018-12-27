@@ -4,6 +4,7 @@
   - openbox
     - theme
     - icon pack
+      - terminal icon
     - fix: windows changing monitor after exiting fullscreen
     - fix: web videos replaced with green screen after waking from sleep
 * irssi
@@ -15,8 +16,6 @@
 * brightness script
   - Decrease by smaller ammounts at lower brightness settings
 * neovim
-  - statusline
-    - color updating
   - have autocomplete fill in selected text but do not auto-select the first item.
 * get tdrop to work. (create new terminal, not affect current)
 * fill in missing unicode
@@ -26,15 +25,13 @@
     - (done) terminal
     - (done) rofi
     - i3
+    - bspwm
     - openbox
     - neovim
   - Modify lakeside so that nvim xres colorschme matches regular lakeside colorscheme.
   - make python script with pywal module
-* background (make cycle. get a folder)
 * firefox rice
-* music (mpd, ncmpcpp, mpc)
-* tint2
-  - create a misc setup for generic use.
+* music (mpd, ncmpcpp, mpc), (tizonia)
 * polybar
   - powermenu dropdown
   - internet dropdown
@@ -55,7 +52,4 @@
 * zsh plugins
   - syntax highlighting
   - autosuggestions
-* suckless terminal
-  - get custom fork going
-  - Xresources colors
-  - copy and paste
+* custom cursor shape
