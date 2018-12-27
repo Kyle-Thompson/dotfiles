@@ -57,9 +57,7 @@ window.*.button.*.hover.image.color: parentrelative
 
 
 
-!! borders
-window.active.border.color:   #444444
-window.inactive.border.color: #444444
+!! BORDERS
 padding.width:                8
 padding.height:               8
 window.client.padding.width:  0
@@ -67,28 +65,23 @@ window.client.padding.height: 0
 border.width:                 0
 window.handle.width:          2
 
-window.active.client.color:   #444444
-window.inactive.client.color: #444444
-
 window.active.handle.bg:         flat
-window.active.handle.bg.color:   #444444
+window.active.handle.bg.color:   #161b1d
 window.inactive.handle.bg:       flat
-window.inactive.handle.bg.color: #444444
+window.inactive.handle.bg.color: #161b1d
 
-window.active.grip.bg:         flat
-window.active.grip.bg.color:   #444444
-window.inactive.grip.bg:       flat
-window.inactive.grip.bg.color: #444444
+window.active.grip.bg:   parentrelative
+window.inactive.grip.bg: parentrelative
 
 !! on-screen displays
 osd.border.width:       1
-osd.border.color:       #444444
-osd.label.text.color:   #f5f5f0
+osd.border.color:       #161b1d
+osd.label.text.color:   #7ea2b4
 osd.bg:                 flat solid
-osd.bg.color:           #444444
+osd.bg.color:           #161b1d
 osd.label.bg:           flat solid
-osd.label.bg.color:     #444444
+osd.label.bg.color:     #161b1d
 osd.hilight.bg:         flat solid
-osd.hilight.bg.color:   #f0544c
+osd.hilight.bg.color:   #7ea2b4
 osd.unhilight.bg:       flat solid
-osd.unhilight.bg.color: #4d5066
+osd.unhilight.bg.color: #161b1d
