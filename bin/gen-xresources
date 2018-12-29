@@ -11,7 +11,7 @@ printf "\n\n"
 echo "
 ! special
 *.foreground: FOREGROUND
-*.background: [90]BACKGROUND
+*.background: BACKGROUND
 *.cursor:     FOREGROUND
 
 ! black
