@@ -7,6 +7,7 @@
       - terminal icon
     - fix: windows changing monitor after exiting fullscreen
     - fix: web videos replaced with green screen after waking from sleep
+    - remove shadows from windows
 * irssi
   - learn
   - move config files to ~/.config/irssi
