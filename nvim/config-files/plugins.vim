@@ -59,8 +59,6 @@ call plug#begin()
     " linters
     let g:ale_linters_explicit = 1
     let g:ale_linters = {
-      \ 'c': ['clang'],
-      \ 'cpp': ['clang', 'clangtidy', 'cppcheck'],
       \ 'python': ['flake8'],
     \ }
 
@@ -69,11 +67,6 @@ call plug#begin()
     let g:ale_fixers = {
       \ 'python': ['yapf'],
     \ }
-
-    " cpp
-    let g:ale_cpp_clang_executable = 'clang++'
-    let g:ale_cpp_clang_options = '-std=c++14 -Wall'
-    let g:ale_cpp_clangtidy_options = '-std=c++14 -x c++'
 
     " python
     let g:ale_python_flake8_args = '--ignore=W0511'
