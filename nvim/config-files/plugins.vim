@@ -83,8 +83,8 @@ call plug#begin()
   nnoremap <leader>g :Rg<CR>
 
   Plug 'easymotion/vim-easymotion'
-  map <leader><leader>w <Plug>(easymotion-bd-w)
-  map <leader><leader>f <Plug>(easymotion-s)
+  map <leader>w <Plug>(easymotion-bd-w)
+  map <leader>c <Plug>(easymotion-s)
 
   Plug 'haya14busa/incsearch.vim'
   map / <Plug>(incsearch-forward)
@@ -102,9 +102,9 @@ call plug#begin()
   Plug 'honza/vim-snippets'   " snippet collection
   Plug 'ncm2/ncm2-ultisnips'  " autocompletion support
 
-  let g:UltiSnipsExpandTrigger='<tab>'
-  let g:UltiSnipsJumpForwardTrigger='<tab>'
-  let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
+  let g:UltiSnipsExpandTrigger       = '<tab>'
+  let g:UltiSnipsJumpForwardTrigger  = '<tab>'
+  let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 
   " ========== utilities =======================================================
