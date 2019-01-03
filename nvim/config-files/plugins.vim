@@ -13,11 +13,13 @@ elseif !has('nvim') && empty(glob('~/.vim/autoload/plug.vim'))  " vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+let s:async = has('nvim') || has('job')
+
 
 call plug#begin()
 
   " ========== autocompletion ==================================================
-  if has('nvim') || has('job')
+  if s:async && has('python3')
     Plug 'ncm2/ncm2'        " completion engine
     Plug 'roxma/nvim-yarp'  " needed for ncm2
     Plug 'ncm2/ncm2-tmux'   " find completions from tmux panes
@@ -31,6 +33,7 @@ call plug#begin()
 
   " ========== colorscheme =====================================================
   Plug 'Kyle-Thompson/xresources-colors.vim'
+  Plug 'chriskempson/base16-vim'
 
 
   " ========== language server =================================================
@@ -50,7 +53,7 @@ call plug#begin()
 
 
   " ========== linting & fixing ================================================
-  if has('nvim') || has('job')
+  if s:async
     Plug 'w0rp/ale'
 
     " general
@@ -98,9 +101,13 @@ call plug#begin()
 
 
   " ========== snippets ========================================================
-  Plug 'SirVer/ultisnips'     " snippet engine
-  Plug 'honza/vim-snippets'   " snippet collection
-  Plug 'ncm2/ncm2-ultisnips'  " autocompletion support
+  if has('python3')
+    Plug 'SirVer/ultisnips'       " snippet engine
+    Plug 'honza/vim-snippets'     " snippet collection
+    if s:async
+      Plug 'ncm2/ncm2-ultisnips'  " autocompletion support
+    endif
+  endif
 
   let g:UltiSnipsExpandTrigger       = '<tab>'
   let g:UltiSnipsJumpForwardTrigger  = '<tab>'
@@ -127,4 +134,4 @@ call plug#begin()
 call plug#end()
 
 " set here since colorschemes can't be defined before plug#end()
-silent! colorscheme xres
+silent! colorscheme base16-atelier-lakeside
