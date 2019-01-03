@@ -28,4 +28,4 @@ cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 nnoremap <C-]> g<C-]>
 
 " clear highlights
-nnoremap <leader>c :nohls<CR>
+nnoremap <leader>h :nohls<CR>
