@@ -47,7 +47,7 @@ set splitright      " Horizontal splits open right of the current window
 set tags=./tags;/   " recurse up directories looking for tag files.
 
 " visual
-set termguicolors   " Enable true colours
+" set termguicolors   " Enable true colours
 
 " wildignore
 set wildignore=*.o,*.pyc
