@@ -58,6 +58,13 @@ call plug#begin()
 
     " general
     let g:ale_echo_msg_format = '[%linter%] (%severity%) %code%: %s'
+    let g:ale_lint_on_text_changed = 'normal'
+    let g:ale_lint_on_insert_leave = 1
+    let g:ale_lint_delay = 0
+    let g:ale_set_signs  = 0
+
+    hi link ALEErrorLine ErrorMsg
+    hi link ALEWarningLine WarningMsg
 
     " linters
     let g:ale_linters_explicit = 1
