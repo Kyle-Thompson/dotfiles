@@ -28,10 +28,13 @@
     - i3
     - bspwm
     - openbox
-    - neovim
+    - neovim (wip)
+    - firefox
+    - startpage (need a startpage first though)
   - Modify lakeside so that nvim xres colorschme matches regular lakeside colorscheme.
   - make python script with pywal module
 * firefox rice
+* startpage
 * music (mpd, ncmpcpp, mpc), (tizonia)
 * polybar
   - powermenu dropdown
