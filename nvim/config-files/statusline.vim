@@ -24,7 +24,7 @@ let g:currentmode={
   \ 'r?' : 'Confirm',
   \ '!'  : 'SH',
   \ 't'  : 'TERM'
-\}
+\ }
 
 function! GetMode()
   return g:currentmode[mode()].' '
@@ -32,20 +32,22 @@ endfunction
 
 
 " ========== git info ==========================================================
-let g:git = system(join(['git rev-parse --abbrev-ref HEAD 2> /dev/null',
-                        \'sed "s/^/git:/"',
-                        \'tr -d "\n"']
-                   \ , '|'))
-function! GitInfo()
-  return g:git != '' ? g:git.' ' : ''
+function! GetGitBranch()
+  let g:git = system(join(['git rev-parse --abbrev-ref HEAD 2> /dev/null',
+                          \'sed "s/^/git:/"',
+                          \'tr "\n" " "']
+                         \, '|'))
+endfunction
+autocmd BufEnter * call GetGitBranch()
 endfunction
 
 
 " ========== statusline ========================================================
 set laststatus=2
 set statusline=
-set statusline+=\ %{GetMode()}  " current mode
-set statusline+=%{GitInfo()}  " git branch name
+set statusline+=\             " initial leading space
+set statusline+=%{GetMode()}  " current mode
+set statusline+=%{g:git}      " git branch name
 set statusline+=%<            " trim from here
 set statusline+=%f\           " path+filename
 set statusline+=%m\           " check modifi{ed,able}
