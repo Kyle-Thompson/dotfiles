@@ -39,6 +39,19 @@ function! GetGitBranch()
                          \, '|'))
 endfunction
 autocmd BufEnter * call GetGitBranch()
+
+
+" ========== ale ===============================================================
+function! LinterStatus() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  if l:counts.total == 0
+    return ''
+  endif
+
+  let l:all_errors = l:counts.error + l:counts.style_error
+  return printf('%dW %dE '
+               \, l:counts.total - l:all_errors
+               \, l:all_errors)
 endfunction
 
 
