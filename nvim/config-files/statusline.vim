@@ -33,26 +33,29 @@ endfunction
 
 " ========== git info ==========================================================
 function! GetGitBranch()
-  let g:git = system(join(['git rev-parse --abbrev-ref HEAD 2> /dev/null',
-                          \'sed "s/^/git:/"',
-                          \'tr "\n" " "']
-                         \, '|'))
+  let g:git = system(join([ 'git rev-parse --abbrev-ref HEAD 2> /dev/null',
+                          \ 'sed "s/^/git:/"',
+                          \ 'tr "\n" " "']
+                     \ , '|'))
 endfunction
 autocmd BufEnter * call GetGitBranch()
 
 
 " ========== ale ===============================================================
-function! Linter() abort
+function! UpdateLinterStatus() abort
   let l:counts = ale#statusline#Count(bufnr(''))
-  if l:counts.total == 0
-    return ''
-  endif
-
   let l:all_errors = l:counts.error + l:counts.style_error
-  return printf('%dW %dE '
-               \, l:counts.total - l:all_errors
-               \, l:all_errors)
+
+  let g:linter =
+    \ l:counts.total == 0
+    \ ? ''
+    \ : join(
+        \ '%#Error#',
+        \ printf('%dW %dE ', l:counts.total - l:all_errors, l:all_errors),
+        \ '%#Normal#')
 endfunction
+autocmd BufEnter,TextChanged,TextChangedI,TextChangedP *
+  \ call UpdateLinterStatus()
 
 
 " ========== statusline ========================================================
@@ -67,9 +70,7 @@ set statusline+=%m\           " check modifi{ed,able}
 set statusline+=%r\           " check readonly
 set statusline+=%w\           " check preview window
 set statusline+=%=            " left/right separator
-set statusline+=%{Linter()}   " linter warnings and errors
+set statusline+=%{g:linter}   " linter warnings and errors
 set statusline+=%l/%L,%c\     " rownumber/total,colnumber
 
-
-" ========== colors ============================================================
 hi statusline guifg=#7ea2b4 guibg=#161b1d
