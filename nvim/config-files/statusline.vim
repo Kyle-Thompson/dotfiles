@@ -42,7 +42,7 @@ autocmd BufEnter * call GetGitBranch()
 
 
 " ========== ale ===============================================================
-function! LinterStatus() abort
+function! Linter() abort
   let l:counts = ale#statusline#Count(bufnr(''))
   if l:counts.total == 0
     return ''
@@ -67,7 +67,7 @@ set statusline+=%m\           " check modifi{ed,able}
 set statusline+=%r\           " check readonly
 set statusline+=%w\           " check preview window
 set statusline+=%=            " left/right separator
-set statusline+=%y\           " fileType
+set statusline+=%{Linter()}   " linter warnings and errors
 set statusline+=%l/%L,%c\     " rownumber/total,colnumber
 
 
