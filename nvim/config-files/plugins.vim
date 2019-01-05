@@ -45,8 +45,8 @@ call plug#begin()
 
     let g:LanguageClient_autoStart = 1
     let g:LanguageClient_serverCommands = {
-      \ 'c': ['ccls', '--log-file=/tmp/ccls_c.log'],
-      \ 'cpp': ['ccls', '--log-file=/tmp/ccls_cpp.log'],
+      \ 'c':    ['ccls', '--log-file=/tmp/ccls_c.log'],
+      \ 'cpp':  ['ccls', '--log-file=/tmp/ccls_cpp.log'],
       \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ }
   endif
