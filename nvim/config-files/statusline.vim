@@ -59,7 +59,6 @@ autocmd BufEnter,TextChanged,TextChangedI,TextChangedP *
 
 
 " ========== statusline ========================================================
-set laststatus=2
 set statusline=
 set statusline+=\             " initial leading space
 set statusline+=%{GetMode()}  " current mode
@@ -72,5 +71,3 @@ set statusline+=%w\           " check preview window
 set statusline+=%=            " left/right separator
 set statusline+=%{g:linter}   " linter warnings and errors
 set statusline+=%l/%L,%c\     " rownumber/total,colnumber
-
-hi statusline guifg=#7ea2b4 guibg=#161b1d
