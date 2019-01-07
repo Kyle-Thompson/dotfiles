@@ -141,4 +141,4 @@ call plug#begin()
 call plug#end()
 
 " set here since colorschemes can't be defined before plug#end()
-silent! colorscheme base16-atelier-lakeside
+silent! colorscheme xres
