@@ -8,6 +8,7 @@
     - fix: windows changing monitor after exiting fullscreen
     - fix: web videos replaced with green screen after waking from sleep
     - remove shadows from windows
+    - fix button backgrounds. (Currently pure black rather than #161b1d)
 * irssi
   - learn
   - move config files to ~/.config/irssi
