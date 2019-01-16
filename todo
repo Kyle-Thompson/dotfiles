@@ -19,6 +19,7 @@
   - Decrease by smaller ammounts at lower brightness settings
 * neovim
   - have autocomplete fill in selected text but do not auto-select the first item.
+  - fix comment syntax highlighting in vimscript after '|' character.
 * get tdrop to work. (create new terminal, not affect current)
 * fill in missing unicode
 * conky
