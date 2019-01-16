@@ -55,6 +55,7 @@ function! UpdateLinterStatus() abort
 endfunction
 autocmd BufRead,TextChanged,TextChangedI,TextChangedP *
   \ call UpdateLinterStatus()
+autocmd BufNewFile * let g:linter = ''
 
 
 " ========== statusline ========================================================
