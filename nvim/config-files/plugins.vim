@@ -90,6 +90,12 @@ call plug#begin()
   Plug 'junegunn/fzf.vim'
   nnoremap <leader>f :Files<CR>
   nnoremap <leader>b :Buffers<CR>
+  " files from project root
+  let g:fzf_action = {
+    \ 'ctrl-t': 'tab split',
+    \ 'ctrl-x': 'split',
+    \ 'ctrl-v': 'vsplit',
+  \ }
 
   Plug 'jremmen/vim-ripgrep'
   nnoremap <leader>g :Rg<CR>
