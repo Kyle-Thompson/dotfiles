@@ -116,13 +116,10 @@ call plug#begin()
 
 
   " ========== snippets ========================================================
-  if has('python3')
-    Plug 'SirVer/ultisnips'       " snippet engine
-    Plug 'honza/vim-snippets'     " snippet collection
-    if s:async
-      Plug 'ncm2/ncm2-ultisnips'  " autocompletion support
-    endif
-  endif
+  " if s:async && has('python3')
+  "   Plug 'SirVer/ultisnips'     " snippet engine
+  "   Plug 'ncm2/ncm2-ultisnips'  " autocompletion support
+  " endif
 
   let g:UltiSnipsExpandTrigger       = '<tab>'
   let g:UltiSnipsJumpForwardTrigger  = '<tab>'
