@@ -135,7 +135,7 @@ call plug#begin()
   nmap ga <Plug>(EasyAlign)
 
   Plug 'miyakogi/seiya.vim'       " background transparency
-  let g:seiya_auto_enable=1
+  let g:seiya_auto_enable = 1
 
 call plug#end()
 

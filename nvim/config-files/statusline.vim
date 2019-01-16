@@ -53,7 +53,7 @@ function! UpdateLinterStatus() abort
     let g:linter = printf('%dW %dE ', l:all_warnings, l:all_errors)
   endif
 endfunction
-autocmd TextChanged,TextChangedI,TextChangedP *
+autocmd BufRead,TextChanged,TextChangedI,TextChangedP *
   \ call UpdateLinterStatus()
 
 
