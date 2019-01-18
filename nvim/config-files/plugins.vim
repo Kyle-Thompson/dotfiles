@@ -96,6 +96,18 @@ call plug#begin()
     \ 'ctrl-x': 'split',
     \ 'ctrl-v': 'vsplit',
   \ }
+  " TODO
+  " <fuzzy> = <leader>f
+  " <fuzzy>f -> files from cwd and sub directories
+  " <fuzzy>b -> open buffers
+  " <fuzzy>r -> files from project root and sub directories
+  " <fuzzy>t -> tags -> open menu of tag definition and references
+  " <fuzzy>i -> lines inside current buffer
+  " Within an fzf buffer
+  " <ctrl-t> -> open in tab
+  " <ctrl-x> -> open in split
+  " <ctrl-v> -> open in vertival split
+  " <ctrl-d> -> (buffer only) delete buffer
 
   Plug 'jremmen/vim-ripgrep'
   nnoremap <leader>g :Rg<CR>
