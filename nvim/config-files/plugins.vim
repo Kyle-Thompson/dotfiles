@@ -53,6 +53,13 @@ call plug#begin()
     \ }
   endif
 
+  nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+  nnoremap <leader>lwd :call
+    \ LanguageClient#textDocument_definition({'gotoCmd': 'split'})<CR>
+  nnoremap <leader>lr :call LanguageClient#textDocument_references()<CR>
+  nnoremap <leader>lwr :call
+    \ LanguageClient#textDocument_references({'gotoCmd': 'split'})<CR>
+
 
   " ========== linting & fixing ================================================
   if s:async
@@ -88,26 +95,19 @@ call plug#begin()
   " ========== searching =======================================================
   Plug 'junegunn/fzf', { 'dir': $HOME.'/.config/fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
-  nnoremap <leader>f :Files<CR>
-  nnoremap <leader>b :Buffers<CR>
-  " files from project root
+  nnoremap <leader>ff  :Files<CR>
+  nnoremap <leader>fb  :Buffers<CR>
+  nnoremap <leader>fp  :call fzf#run({'dir': b:LanguageClient_projectRoot})<CR>
+  nnoremap <leader>ft  :Tags<CR>
+  nnoremap <leader>fl  :Lines<CR>
+  nnoremap <leader>fbt :BTags<CR>
+  nnoremap <leader>fbl :BLines<CR>
   let g:fzf_action = {
     \ 'ctrl-t': 'tab split',
     \ 'ctrl-x': 'split',
     \ 'ctrl-v': 'vsplit',
   \ }
-  " TODO
-  " <fuzzy> = <leader>f
-  " <fuzzy>f -> files from cwd and sub directories
-  " <fuzzy>b -> open buffers
-  " <fuzzy>r -> files from project root and sub directories
-  " <fuzzy>t -> tags -> open menu of tag definition and references
-  " <fuzzy>i -> lines inside current buffer
-  " Within an fzf buffer
-  " <ctrl-t> -> open in tab
-  " <ctrl-x> -> open in split
-  " <ctrl-v> -> open in vertival split
-  " <ctrl-d> -> (buffer only) delete buffer
+  " TODO <ctrl-d> -> (buffer only) delete selected buffer w/o switching buffers
 
   Plug 'jremmen/vim-ripgrep'
   nnoremap <leader>g :Rg<CR>
