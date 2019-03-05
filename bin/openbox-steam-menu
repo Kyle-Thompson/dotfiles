@@ -13,7 +13,7 @@ echo '<separator />'
 for file in "$STEAMAPPS"/*.acf; do
     ID=$(grep -w -m 1 '"appid"' "$file" | sed -r 's/[^"]*"appid"[^"]*"([^"]*)"/\1/')
     NAME=$(grep -w -m 1 '"name"' "$file" | sed -r -e 's/[^"]*"name"[^"]*"([^"]*)"/\1/' -e 's/&/&amp;/')
-    if [ "$NAME" != "Proton 3.7" ]; then
+    if ! [[ "$NAME" =~ Proton* ]] && ! [[ "$NAME" =~ Steamworks* ]]; then
       echo_game_item "$NAME" $ID
     fi
 done | sort
