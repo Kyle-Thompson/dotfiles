@@ -40,5 +40,5 @@ set statusline+=%m\           " check modifi{ed,able}
 set statusline+=%r\           " check readonly
 set statusline+=%w\           " check preview window
 set statusline+=%=            " left/right separator
-" set statusline+=%{g:linter}   " linter warnings and errors
+set statusline+=%{g:linter}   " linter warnings and errors
 set statusline+=%l/%L,%c\     " rownumber/total,colnumber
