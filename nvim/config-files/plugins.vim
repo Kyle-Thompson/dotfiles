@@ -47,9 +47,11 @@ call plug#begin()
 
     let g:LanguageClient_autoStart = 1
     let g:LanguageClient_serverCommands = {
-      \ 'c':    ['ccls', '--log-file=/tmp/ccls_c.log'],
-      \ 'cpp':  ['ccls', '--log-file=/tmp/ccls_cpp.log'],
-      \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+      \ 'c':      ['ccls', '--log-file=/tmp/ccls_c.log'],
+      \ 'cpp':    ['ccls', '--log-file=/tmp/ccls_cpp.log'],
+      \ 'python': ['pyls'],
+      \ 'rust':   ['rustup', 'run', 'stable', 'rls'],
+      \ 'sh':     ['bash-language-server', 'start'],
     \ }
   endif
 
@@ -61,37 +63,6 @@ call plug#begin()
     \ LanguageClient#textDocument_references({'gotoCmd': 'split'})<CR>
 
 
-  " ========== linting & fixing ================================================
-  if s:async
-    Plug 'w0rp/ale'
-
-    " general
-    let g:ale_echo_msg_format = '[%linter%] (%severity%) %code%: %s'
-    let g:ale_lint_on_text_changed = 'normal'
-    let g:ale_lint_on_insert_leave = 1
-    let g:ale_lint_delay = 0
-    let g:ale_set_signs  = 0
-
-    hi link ALEErrorLine ErrorMsg
-    hi link ALEWarningLine WarningMsg
-
-    " linters
-    let g:ale_linters_explicit = 1
-    let g:ale_linters = {
-      \ 'python': ['flake8'],
-    \ }
-
-    " fixers
-    let g:ale_fix_on_save = 1
-    let g:ale_fixers = {
-      \ 'python': ['yapf'],
-    \ }
-
-    " python
-    let g:ale_python_flake8_args = '--ignore=W0511'
-  endif
-
-
   " ========== searching =======================================================
   Plug 'junegunn/fzf', { 'dir': $HOME.'/.config/fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
@@ -99,8 +70,8 @@ call plug#begin()
   nnoremap <leader>fb  :Buffers<CR>
   nnoremap <leader>fp  :call fzf#run({'dir': b:LanguageClient_projectRoot})<CR>
   nnoremap <leader>ft  :Tags<CR>
-  nnoremap <leader>fl  :Lines<CR>
   nnoremap <leader>fbt :BTags<CR>
+  nnoremap <leader>fl  :Lines<CR>
   nnoremap <leader>fbl :BLines<CR>
   let g:fzf_action = {
     \ 'ctrl-t': 'tab split',
@@ -128,10 +99,10 @@ call plug#begin()
 
 
   " ========== snippets ========================================================
-  " if s:async && has('python3')
-  "   Plug 'SirVer/ultisnips'     " snippet engine
-  "   Plug 'ncm2/ncm2-ultisnips'  " autocompletion support
-  " endif
+  if s:async && has('python3')
+    Plug 'SirVer/ultisnips'     " snippet engine
+    Plug 'ncm2/ncm2-ultisnips'  " autocompletion support
+  endif
 
   let g:UltiSnipsExpandTrigger       = '<tab>'
   let g:UltiSnipsJumpForwardTrigger  = '<tab>'
