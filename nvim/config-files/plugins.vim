@@ -68,7 +68,7 @@ call plug#begin()
   Plug 'junegunn/fzf.vim'
   nnoremap <leader>ff  :Files<CR>
   nnoremap <leader>fb  :Buffers<CR>
-  nnoremap <leader>fp  :call fzf#run({'dir': b:LanguageClient_projectRoot})<CR>
+  nnoremap <leader>fp  :exec 'Files' b:LanguageClient_projectRoot<CR>
   nnoremap <leader>ft  :Tags<CR>
   nnoremap <leader>fbt :BTags<CR>
   nnoremap <leader>fl  :Lines<CR>
