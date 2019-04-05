@@ -6,7 +6,7 @@
 let mapleader = ' '
 
 " clipboard
-set clipboard=unnamedplus  " Enable system clipboard
+set clipboard=unnamedplus  " enable system clipboard
 
 " completion
 set wildmode=list:longest
@@ -20,28 +20,27 @@ endif
 " folds
 
 " indentation
-set tabstop=2       " A tab is 2 spaces wide
-set softtabstop=2   " Number of spaces to replace tabs by
-set shiftwidth=2    " Number of spaces for autoindent
-set expandtab       " Use spaces instead of tabs
+set softtabstop=2   " number of spaces to replace tabs by
+set shiftwidth=2    " number of spaces for autoindent
+set expandtab       " use spaces instead of tabs
 
 " miscelanious
-set hidden          " Hide file, don't close on file switch
+set hidden          " hide file, don't close on file switch
 
 " safety files
-set noswapfile      " Do not create swap files
-set nobackup        " Do not create backup files
+set noswapfile      " do not create swap files
+set nobackup        " do not create backup files
 
 " scrolling
-set scrolloff=4     " Start scrolling 4 lines from the bottom
+set scrolloff=4     " start scrolling 4 lines from the bottom
 
 " searching
-set ignorecase      " Ignore case when searching
-set smartcase       " Match any given captials in search
+set ignorecase      " ignore case when searching
+set smartcase       " match any given captials in search
 
 " spliting
-set splitbelow      " Vertical splits open below current window
-set splitright      " Horizontal splits open right of the current window
+set splitbelow      " vertical splits open below current window
+set splitright      " horizontal splits open right of the current window
 
 " tags
 set tags=./tags;/   " recurse up directories looking for tag files.
@@ -50,6 +49,6 @@ set tags=./tags;/   " recurse up directories looking for tag files.
 set wildignore=*.o,*.pyc
 
 " word wrapping
-set wrap            " Spread long lines across multiple lines
-set linebreak       " Do not break words on wrap
-set nolist          " Do not show characters at the end of lines
+set wrap            " spread long lines across multiple lines
+set linebreak       " do not break words on wrap
+set nolist          " do not show characters at the end of lines
