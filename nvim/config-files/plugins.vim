@@ -92,11 +92,6 @@ call plug#begin()
   map ? <Plug>(incsearch-backward)
   map g/ <Plug>(incsearch-stay)
 
-  Plug 'haya14busa/incsearch-easymotion.vim'
-  map z/ <Plug>(incsearch-easymotion-/)
-  map z? <Plug>(incsearch-easymotion-?)
-  map zg/ <Plug>(incsearch-easymotion-stay)
-
 
   " ========== snippets ========================================================
   if s:async && has('python3')
