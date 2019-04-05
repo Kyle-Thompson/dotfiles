@@ -11,8 +11,5 @@ export XDG_DATA_HOME="$HOME/.local/share"
 # editor
 export VISUAL=nvim
 
-# polybar
-export POLYBAR_ETH_INTERFACE="${$(ip a | grep "[1-9]: enp" | head -n 1 | awk '{print $2}'): : -1}"
-
 # fzf
 FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
