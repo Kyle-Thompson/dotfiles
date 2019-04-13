@@ -13,24 +13,20 @@ elseif !has('nvim') && empty(glob('~/.vim/autoload/plug.vim'))  " vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-let s:async = has('nvim') || has('job')
-
 
 call plug#begin()
 
   " ========== autocompletion ==================================================
-  if s:async && has('python3')
-    Plug 'ncm2/ncm2'        " completion engine
-    Plug 'roxma/nvim-yarp'  " needed for ncm2
-    Plug 'ncm2/ncm2-tmux'   " find completions from tmux panes
-    Plug 'ncm2/ncm2-path'   " complete filesystem paths
+  Plug 'ncm2/ncm2'        " completion engine
+  Plug 'roxma/nvim-yarp'  " needed for ncm2
+  Plug 'ncm2/ncm2-tmux'   " find completions from tmux panes
+  Plug 'ncm2/ncm2-path'   " complete filesystem paths
 
-    " general
-    autocmd BufEnter * call ncm2#enable_for_buffer()
-    set completeopt=menuone,noinsert,noselect
-    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-  endif
+  " general
+  autocmd BufEnter * call ncm2#enable_for_buffer()
+  set completeopt=menuone,noinsert,noselect
+  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 
   " ========== colorscheme =====================================================
@@ -39,28 +35,24 @@ call plug#begin()
 
 
   " ========== language server =================================================
-  if has('nvim')
-    Plug 'autozimu/LanguageClient-neovim', {
-      \ 'branch': 'next',
-      \ 'do': 'bash install.sh',
-    \ }
+  Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+  \ }
 
-    let g:LanguageClient_autoStart = 1
-    let g:LanguageClient_serverCommands = {
-      \ 'c':      ['ccls', '--log-file=/tmp/ccls_c.log'],
-      \ 'cpp':    ['ccls', '--log-file=/tmp/ccls_cpp.log'],
-      \ 'python': ['pyls'],
-      \ 'rust':   ['rustup', 'run', 'stable', 'rls'],
-      \ 'sh':     ['bash-language-server', 'start'],
-    \ }
-  endif
+  let g:LanguageClient_autoStart = 1
+  let g:LanguageClient_serverCommands = {
+    \ 'c':      ['ccls', '--log-file=/tmp/ccls_c.log'],
+    \ 'cpp':    ['ccls', '--log-file=/tmp/ccls_cpp.log'],
+    \ 'python': ['pyls'],
+    \ 'rust':   ['rustup', 'run', 'stable', 'rls'],
+    \ 'sh':     ['bash-language-server', 'start'],
+  \ }
 
   nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
   nnoremap <leader>lwd :call
     \ LanguageClient#textDocument_definition({'gotoCmd': 'split'})<CR>
   nnoremap <leader>lr :call LanguageClient#textDocument_references()<CR>
-  nnoremap <leader>lwr :call
-    \ LanguageClient#textDocument_references({'gotoCmd': 'split'})<CR>
 
 
   " ========== searching =======================================================
@@ -94,14 +86,17 @@ call plug#begin()
 
 
   " ========== snippets ========================================================
-  if s:async && has('python3')
-    Plug 'SirVer/ultisnips'     " snippet engine
-    Plug 'ncm2/ncm2-ultisnips'  " autocompletion support
-  endif
+  Plug 'SirVer/ultisnips'     " snippet engine
+  Plug 'ncm2/ncm2-ultisnips'  " autocompletion support
 
-  let g:UltiSnipsExpandTrigger       = '<tab>'
+  " let g:UltiSnipsExpandTrigger       = '<CR>'
   let g:UltiSnipsJumpForwardTrigger  = '<tab>'
   let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+  imap <expr> <CR> (pumvisible() && ncm2_ultisnips#completed_is_snippet() ? "\<C-U>" : "\<CR>")
+  " imap <expr> <CR> (pumvisible() ? "\<C-Y>\<Plug>(expand_or_cr)" : "\<CR>")
+  " imap <expr> <Plug>(expand_or_cr) (ncm2_ultisnips#completed_is_snippet() ? "\<C-U>" : "\<CR>")
+  let g:UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
+  inoremap <silent> <C-U> <C-R>=ncm2_ultisnips#completed_is_snippet("\<Plug>(ultisnips_expand)")<CR>
 
 
   " ========== utilities =======================================================

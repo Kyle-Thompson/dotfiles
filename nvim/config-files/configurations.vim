@@ -12,9 +12,9 @@ set clipboard=unnamedplus  " enable system clipboard
 set wildmode=list:longest
 
 " fill chars
-set fillchars+=vert:\|
+set fillchars+=vert:\| |  " use | for vertical split borders
 if has('nvim')
-  set fillchars+=eob:\ 
+  set fillchars+=eob:\ |  " no ~ for end-of-buffer lines.
 endif
 
 " folds
@@ -26,6 +26,9 @@ set expandtab       " use spaces instead of tabs
 
 " miscelanious
 set hidden          " hide file, don't close on file switch
+set autoread        " automatically update buffer when file chaged externally
+set pumheight=30    " limits popup menu height
+set noshowmode      " don't display mode under statusline (e.g. -- INSERT --)
 
 " safety files
 set noswapfile      " do not create swap files
@@ -37,6 +40,12 @@ set scrolloff=4     " start scrolling 4 lines from the bottom
 " searching
 set ignorecase      " ignore case when searching
 set smartcase       " match any given captials in search
+
+" shortmess
+set shortmess=cas
+" set shortmess+=c    " no (match n of m) or (the only match) messages
+" set shortmess+=a    " all abbreviations
+" set shortmess+=s    " no (search hit BOTTOM) messages
 
 " spliting
 set splitbelow      " vertical splits open below current window
