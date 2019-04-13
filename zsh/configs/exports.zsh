@@ -13,3 +13,7 @@ export VISUAL=nvim
 
 # fzf
 FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+
+# {neo}vimrc
+export VIMRC="$HOME/.vimrc"
+export NEOVIMRC="$HOME/.config/nvim/init.vim"
