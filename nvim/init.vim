@@ -167,6 +167,7 @@ set completeopt=menuone,noinsert,noselect
 
 " ========== snippets
 Plug 'SirVer/ultisnips'     " snippet engine
+Plug 'honza/vim-snippets'   " default snippets
 Plug 'ncm2/ncm2-ultisnips'  " autocompletion support
 
 inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
