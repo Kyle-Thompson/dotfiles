@@ -60,18 +60,6 @@
   -->
   <keepBorder>no</keepBorder>
   <animateIconify>yes</animateIconify>
-  <font place="ActiveWindow">
-    <name>Gohu GohuFont</name>
-    <size>9</size>
-    <weight>normal</weight>
-    <slant>normal</slant>
-  </font>
-  <font place="InactiveWindow">
-    <name>Gohu GohuFont</name>
-    <size>9</size>
-    <weight>normal</weight>
-    <slant>normal</slant>
-  </font>
   <font place="MenuHeader">
     <name>Gohu GohuFont</name>
     <size>9</size>
