@@ -31,17 +31,11 @@ menu.items.active.text.color: #257fad
 
 
 
-!! TITLEBAR
+!! TITLEBAR & BUTTONS
 
 ! bar
-window.active.title.bg:         flat
-window.active.title.bg.color:   #161b1d
-window.inactive.title.bg:       flat
-window.inactive.title.bg.color: #161b1d
-
-
-
-!! BUTTONS
+window.*.title.bg:       flat
+window.*.title.bg.color: #161b1d
 
 ! button colors (active)
 window.active.button.iconify.*.image.color: #257fad
@@ -55,9 +49,14 @@ window.inactive.button.*.image.color: #7ea2b4
 ! hover
 window.*.button.*.hover.image.color: parentrelative
 
+! button background
+window.*.button.*.*.bg: flat
+window.*.button.*.*.bg.color: #161b1d
+
 
 
 !! BORDERS
+
 padding.width:                8
 padding.height:               8
 window.client.padding.width:  0
@@ -65,13 +64,10 @@ window.client.padding.height: 0
 border.width:                 0
 window.handle.width:          2
 
-window.active.handle.bg:         flat
-window.active.handle.bg.color:   #161b1d
-window.inactive.handle.bg:       flat
-window.inactive.handle.bg.color: #161b1d
+window.*.handle.bg:       flat
+window.*.handle.bg.color: #161b1d
 
-window.active.grip.bg:   parentrelative
-window.inactive.grip.bg: parentrelative
+window.*.grip.bg: parentrelative
 
 !! on-screen displays
 osd.border.width:       1
