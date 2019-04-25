@@ -5,7 +5,7 @@
 #define COLOR0  #161b1d
 #define COLOR8  #5a7b8c
 #define COLOR1  #d22d72
-#define COLOR9  #d22d72
+#define COLOR9  #935C25
 #define COLOR2  #568c3b
 #define COLOR10 #568c3b
 #define COLOR3  #8a8a0f
