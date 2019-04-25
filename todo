@@ -15,9 +15,6 @@
   - add alias in zshrc 
     `alias irssi='irssi --home=~/.config/irssi --config=~/.config/irssi/config'`
   - find out if specifying --config is irrelevant after doing --home
-* neovim
-  - have autocomplete fill in selected text but do not auto-select the first item.
-  - fix comment syntax highlighting in vimscript after '|' character.
 * fill in missing unicode
 * conky
 * global color config
