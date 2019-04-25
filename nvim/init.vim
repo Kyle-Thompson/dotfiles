@@ -76,7 +76,7 @@ set nolist          " do not show characters at the end of lines
 
 " automatically change the working path to the path of the current file
 autocmd BufNewFile,BufEnter * silent! lcd %:p:h
-au BufRead * if search('\M-*- C++ -*-', 'n', 1) | setlocal ft=cpp | endif
+" au BufRead * if search('\M-*- C++ -*-', 'n', 1) | setlocal ft=cpp | endif
 
 
 " ==============================================================================
@@ -114,7 +114,6 @@ nnoremap <silent> <leader>h :nohls<CR>
 " pop-up menu navigation
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <Esc>   pumvisible() ? "\<C-e>" : "\<Esc>"
 
 
 " ==============================================================================
@@ -144,6 +143,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_hasSnippetSupport = 1
+let g:LanguageClient_useFloatingHover = 1
 let g:LanguageClient_serverCommands = {
   \ 'c':      ['ccls', '--log-file=/tmp/ccls_c.log'],
   \ 'cpp':    ['ccls', '--log-file=/tmp/ccls_cpp.log'],
@@ -266,6 +266,6 @@ set statusline+=%l/%L,%c\     " rownumber/total,colnumber
 " ==============================================================================
 
 " ========== local settings ====================================================
-if !empty(glob("~/.nvim.local.vim"))
-  exe 'source' "~/.nvim.local.vim"
+if !empty(glob('~/.nvim.local.vim'))
+  exe 'source' '~/.nvim.local.vim'
 endif
