@@ -39,5 +39,5 @@ case $2 in
     "bspwm")    exec bspwm ;;
     "xfce")     exec startxfce4 ;;
     "cinnamon") exec cinnamon-session ;;
-    *)          exec i3 ;;
+    *)          exec openbox-session ;;
 esac
