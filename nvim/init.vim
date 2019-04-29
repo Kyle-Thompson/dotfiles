@@ -54,9 +54,6 @@ set shortmess+=I    " no intro messages when starting vim
 set splitbelow      " vertical splits open below current window
 set splitright      " horizontal splits open right of the current window
 
-" tags
-set tags=./tags;/   " recurse up directories looking for tag files
-
 " visual
 set noshowcmd       " don't display partial commands in bottom right
 set noshowmode      " don't display mode under statusline (e.g. -- INSERT --)
@@ -96,6 +93,10 @@ vnoremap k gk
 vnoremap ^ g^
 vnoremap $ g$
 
+" keep visual selection when (de)indenting
+vmap < <gv
+vmap > >gv
+
 " simplify moving across splits
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -104,9 +105,6 @@ nnoremap <C-H> <C-W><C-H>
 
 " save when file is readonly
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
-
-" show options if tag has multiple matches
-nnoremap <C-]> g<C-]>
 
 " clear highlights
 nnoremap <silent> <leader>h :nohls<CR>
@@ -184,8 +182,6 @@ Plug 'junegunn/fzf.vim'
 nnoremap <leader>ff  :Files<CR>
 nnoremap <leader>fb  :Buffers<CR>
 nnoremap <leader>fp  :exec 'Files' b:LanguageClient_projectRoot<CR>
-nnoremap <leader>ft  :Tags<CR>
-nnoremap <leader>fbt :BTags<CR>
 nnoremap <leader>fl  :Lines<CR>
 nnoremap <leader>fbl :BLines<CR>
 let g:fzf_action = {
