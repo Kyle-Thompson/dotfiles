@@ -17,15 +17,6 @@
       </startupnotify>
     </action>
   </item>
-  <item label="google chrome">
-    <action name="Execute">
-      <command>google-chrome-stable</command>
-      <startupnotify>
-        <enabled>yes</enabled>
-        <wmclass>GoogleChrome</wmclass>
-      </startupnotify>
-      </action>
-  </item>
   <menu id="game-menu" label="games" execute="openbox-steam-menu" />
   <item label="thunar">
     <action name="Execute">
