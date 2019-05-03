@@ -17,3 +17,6 @@ FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 # {neo}vimrc
 export VIMRC="$HOME/.vimrc"
 export NEOVIMRC="$HOME/.config/nvim/init.vim"
+
+# LS_COLORS
+eval `dircolors $HOME/.dotfiles/dir_colors`
