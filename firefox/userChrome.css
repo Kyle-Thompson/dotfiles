@@ -1,0 +1,136 @@
+/* ========== colorscheme =================================================== */
+:root {
+  --background: #161b1d !important;
+  --text-main:  #7ea2b4 !important;
+  --text-alt:   #257fad !important;
+}
+
+
+/* ========== apply theme =================================================== */
+/* colors */
+.tab-background,
+.tabbrowser-tab,
+#nav-bar,
+#urlbar,
+#TabsToolbar,
+#navigator-toolbox,
+#PersonalToolbar,
+#appMenu-popup
+{
+  color:      var(--text-main)  !important;  /* text color */
+  background: var(--background) !important;  /* background color */
+
+  /* borders */
+  border:     none !important;
+  box-shadow: none !important;
+}
+/* colors (selected, hover) */
+#TabsToolbar
+.tabbrowser-tab[selected],
+.tabbrowser-tab:hover
+{
+  color: var(--text-alt) !important; 
+}
+/* font */
+.tab-background,
+.tabbrowser-tab,
+#nav-bar,
+#urlbar,
+#TabsToolbar,
+#navigator-toolbox,
+#PersonalToolbar,
+#appMenu-popup
+{
+  font-family: "Gohu GohuFont" !important;
+  font-size:   11px !important;
+  font-weight: normal !important;
+}
+
+
+/* ========== hide elements ================================================= */
+/* buttons */
+#forward-button,
+#back-button,
+/* tabs */
+.tab-line,                       /* line atop selected tab */
+.tabbrowser-tab:not([pinned])
+  .tab-icon-image,               /* favicons */
+.tab-close-button.close-icon,    /* close button */
+/*#PersonalToolbar,                /* bookmarks bar */
+/* menu */
+#appMenu-tp-label,               /* content blocking */
+#appMenu-tp-separator,           /* separator */
+#appMenu-new-window-button,      /* new window */
+#appMenu-private-window-button,  /* new private window */
+#appMenu-zoom-controls,          /* zoom controls */
+#appMenu-edit-controls,          /* edit controls */
+#appMenu-addons-button,          /* addons */
+#appMenu-customize-button,       /* customize */
+#appMenu-open-file-button,       /* open file */
+#appMenu-save-file-button,       /* save file */
+#appMenu-print-button,           /* print */
+#appMenu-find-button,            /* find */
+#appMenu-more-button,            /* more */
+#appMenu-help-button,            /* help */
+#appMenu-quit-button,            /* quit */
+toolbarseparator,                /* all separators */
+/* url-bar */
+#pageActionButton,               /* */
+#pocket-button-box,              /* */
+#reader-mode-button,             /* activate reader mode */
+.urlbar-history-dropmarker,      /* history dropdown arrow */
+#identity-box,                   /* */
+#identity-icon-labels            /* */
+{
+  display: none !important;
+}
+
+#PanelUI-button {
+  border-image-slice: 0 !important; /*hide panel menu separation */
+}
+#PanelUI-menu-button:before {
+  content: '';
+  width: 0px !important;
+  display: flex !important;
+  margin-left: -5px !important;
+  padding: 1px !important;
+}
+/* Move hamburger menu to the left */
+#PanelUI-button,
+#customization-panel-container,
+#customization-panelWrapper .panel-arrow { 
+  -moz-box-ordinal-group: 0 !important;
+  margin-right: -6px !important;
+}
+#appMenu-popup {
+  margin-right: -258px !important;
+}
+#appMenu-popup .panel-arrow {
+  margin-right: 248px !important;
+} /**/
+
+
+/* Back & Forward buttons */  
+#back-button > .toolbarbutton-icon,
+#forward-button > .toolbarbutton-icon {
+  transform: scale(0.9, 0.9) !important;
+  margin-left: -2px !important;
+  margin-right: -2px !important;
+}
+
+/* fix white bg when opening new tabs -- to fix*/
+browser,
+browser.display.background_color,
+tabbrowser
+tabpanels,
+.browserStack > browser,
+.browserStack
+{
+  background: var(--bg-main) !important; 
+  background-color: var(--text-main) !important; 
+}
+
+/* single bar */
+#TabsToolbar,#nav-bar { height: 32px !important; } 
+#TabsToolbar {margin-left:35vw !important;margin-right:0px; }
+#nav-bar {margin-top:-32px !important;margin-right: 65vw!important;}
