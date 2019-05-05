@@ -21,10 +21,10 @@
   - Xresources controls all colors
     - (done) terminal
     - (done) rofi
+    - (done) neovim
     - i3
     - bspwm
     - openbox
-    - neovim (wip)
     - firefox
     - startpage (need a startpage first though)
   - make python script with pywal module to reload programs on color change.
