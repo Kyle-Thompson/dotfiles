@@ -32,26 +32,21 @@
   - finish moving to one-line.
 * startpage
 * music (mpd, ncmpcpp, mpc), (tizonia)
-* polybar
-  - powermenu dropdown
+* lemonbar
+  - virtual desktops / workspaces
+  - currently running applications
+  - time & date dropdown (time, dropdown is calendar with date)
   - internet dropdown
     - lone glyph of either disconnected wifi, connected wifi or ethernet
     - clicking glyph will open dropdown of all available networks
       - clicking entry in dropdown will connect to that network
       - clicking wifi network while connected over ethernet is a NOP
-  - date dropdown (time, dropdown is calendar with date)
-  - battery dropdown
+  - volume (laptop)
+    - clicking toggles mute
+  - battery dropdown (laptop)
     - displays estimated time remaining
     - displays which programs are using most power
-  - volume
-    - clicking toggles mute
-* lemonbar
-  - virtual desktops / workspaces
-  - time & date
-  - internet
-  - volume (laptop)
-  - battery (laptop)
-  - currently running applications
+  - powermenu dropdown
 * rEFInd desktop setup (boot windows from custom stanza)
 * keyboard and mouse colors on linux (desktop)
 * replace i3-gaps with standard i3. bspwm can handle tiling gaps.
