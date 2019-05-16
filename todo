@@ -1,14 +1,9 @@
 * transmission cli
 * other WMs to set up
   - bspwm
-  - openbox
-    - theme
-    - icon pack
-      - terminal icon
-    - fix: windows changing monitor after exiting fullscreen
-    - fix: web videos replaced with green screen after waking from sleep
-    - remove shadows from windows
-    - fix button backgrounds. (Currently pure black rather than #161b1d)
+  - i3 (no-gaps)
+* tint2
+  - terminal icon
 * irssi
   - learn
   - move config files to ~/.config/irssi
@@ -29,10 +24,12 @@
     - startpage (need a startpage first though)
   - make python script with pywal module to reload programs on color change.
 * firefox rice
-  - finish moving to one-line.
+  - move bookmarks into button that expands across the line.
 * startpage
 * music (mpd, ncmpcpp, mpc), (tizonia)
-* lemonbar
+* oxybar
+  - MVP release
+  - figure out IPC for instant module updates. (review polybar for this)
   - virtual desktops / workspaces
   - currently running applications
   - time & date dropdown (time, dropdown is calendar with date)
@@ -43,13 +40,12 @@
       - clicking wifi network while connected over ethernet is a NOP
   - volume (laptop)
     - clicking toggles mute
-  - battery dropdown (laptop)
+  - battery (laptop)
     - displays estimated time remaining
     - displays which programs are using most power
-  - powermenu dropdown
+  - currently running applications
 * rEFInd desktop setup (boot windows from custom stanza)
 * keyboard and mouse colors on linux (desktop)
-* replace i3-gaps with standard i3. bspwm can handle tiling gaps.
 * zsh plugins
   - syntax highlighting
   - autosuggestions
