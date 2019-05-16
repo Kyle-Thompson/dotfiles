@@ -18,14 +18,6 @@
     </action>
   </item>
   <menu id="game-menu" label="games" execute="openbox-steam-menu" />
-  <item label="thunar">
-    <action name="Execute">
-      <command>Thunar</command>
-      <startupnotify>
-        <enabled>yes</enabled>
-      </startupnotify>
-    </action>
-  </item>
 
   <separator />
   <item label="reconfigure">
