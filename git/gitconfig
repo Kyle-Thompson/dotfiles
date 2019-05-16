@@ -1,5 +1,4 @@
 [init]
-  templatedir = ~/.git_template
 [push]
   default = current
 [color]
