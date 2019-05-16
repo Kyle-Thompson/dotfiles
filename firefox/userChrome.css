@@ -59,9 +59,11 @@
 /*#PersonalToolbar,                /* bookmarks bar */
 /* menu */
 #appMenu-tp-label,               /* content blocking */
+#appMenu-tp-button,              /* content blocking */
 #appMenu-tp-separator,           /* separator */
 #appMenu-new-window-button,      /* new window */
 #appMenu-private-window-button,  /* new private window */
+#appMenuRestoreLastSession,      /* restore last session */
 #appMenu-zoom-controls,          /* zoom controls */
 #appMenu-edit-controls,          /* edit controls */
 #appMenu-addons-button,          /* addons */
