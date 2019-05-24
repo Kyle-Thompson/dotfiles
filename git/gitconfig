@@ -21,6 +21,10 @@
   excludesfile = ~/.gitignore
   autocrlf = input
   editor = nvim
+[log]
+  date = short
+[format]
+  pretty = format:%C(yellow)%h %Cblue%>(10)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s
 [merge]
   ff = only
 [commit]
