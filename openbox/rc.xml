@@ -176,7 +176,7 @@
   </keybind>
 
   <!-- windows -->
-  <keybind key="A-F4">
+  <keybind key="A-Q">
     <action name="Close"/>
   </keybind>
 
