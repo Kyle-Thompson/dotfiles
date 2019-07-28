@@ -51,6 +51,9 @@
 /* buttons */
 #forward-button,
 #back-button,
+#page-action-buttons,
+#fxa-toolbar-menu-button,        /* firefox account */
+#nav-bar-overflow-button,        /* overflow arrows */
 /* tabs */
 .tab-line,                       /* line atop selected tab */
 .tabbrowser-tab:not([pinned])
