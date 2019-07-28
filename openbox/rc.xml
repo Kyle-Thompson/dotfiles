@@ -603,7 +603,7 @@
 </menu>
 
 <applications>
-  <application class="Firefox">
+  <application class="firefox">
     <decor>no</decor>
   </application>
 </applications>
