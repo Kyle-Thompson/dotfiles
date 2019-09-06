@@ -1,14 +1,12 @@
-#
-# wm independent hotkeys
-#
+# bspwm hotkeys
 
 # terminal emulator
 alt + Return
-	st
+  st
 
 # program launcher
 alt + @space
-	rofi -show run
+  rofi -show run
 
 # make sxhkd reload its configuration files:
 alt + Escape

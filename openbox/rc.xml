@@ -62,7 +62,19 @@
   <animateIconify>yes</animateIconify>
   <font place="MenuItem">
     <name>Gohu GohuFont</name>
-    <size>9</size>
+    <size>11</size>
+    <weight>normal</weight>
+    <slant>normal</slant>
+  </font>
+  <font place="ActiveOnScreenDisplay">
+    <name>Gohu GohuFont</name>
+    <size>11</size>
+    <weight>normal</weight>
+    <slant>normal</slant>
+  </font>
+    <font place="InactiveOnScreenDisplay">
+    <name>Gohu GohuFont</name>
+    <size>11</size>
     <weight>normal</weight>
     <slant>normal</slant>
   </font>
@@ -124,42 +136,9 @@
 <keyboard>
   <chainQuitKey>C-g</chainQuitKey> <!-- TODO -->
 
-  <!-- desktop switching -->
-  <keybind key="A-1">
-    <action name="GoToDesktop"><to>1</to></action>
-  </keybind>
-  <keybind key="A-2">
-    <action name="GoToDesktop"><to>2</to></action>
-  </keybind>
-  <keybind key="A-3">
-    <action name="GoToDesktop"><to>3</to></action>
-  </keybind>
-  <keybind key="A-4">
-    <action name="GoToDesktop"><to>4</to></action>
-  </keybind>
-
-  <!-- send program to desktop -->
-  <keybind key="A-S-1">
-    <action name="SendToDesktop"><to>1</to></action>
-  </keybind>
-  <keybind key="A-S-2">
-    <action name="SendToDesktop"><to>2</to></action>
-  </keybind>
-  <keybind key="A-S-3">
-    <action name="SendToDesktop"><to>3</to></action>
-  </keybind>
-  <keybind key="A-S-4">
-    <action name="SendToDesktop"><to>4</to></action>
-  </keybind>
-
   <!-- TODO -->
   <keybind key="W-d">
     <action name="ToggleShowDesktop"/>
-  </keybind>
-
-  <!-- windows -->
-  <keybind key="A-Q">
-    <action name="Close"/>
   </keybind>
 
   <!-- window switching -->
@@ -170,59 +149,6 @@
         <action name="Raise"/>
         <action name="Unshade"/>
       </finalactions>
-    </action>
-  </keybind>
-  <keybind key="A-S-Tab">
-    <action name="PreviousWindow">
-      <finalactions>
-        <action name="Focus"/>
-        <action name="Raise"/>
-        <action name="Unshade"/>
-      </finalactions>
-    </action>
-  </keybind>
-  <keybind key="C-A-Tab">
-    <action name="NextWindow">
-      <panels>yes</panels><desktop>yes</desktop>
-      <finalactions>
-        <action name="Focus"/>
-        <action name="Raise"/>
-        <action name="Unshade"/>
-      </finalactions>
-    </action>
-  </keybind>
-
-  <!-- running applications -->
-  <!-- rofi -->
-  <keybind key="A-space">
-    <action name="Execute">
-      <startupnotify>
-        <enabled>yes</enabled>
-        <name>rofi</name>
-      </startupnotify>
-      <command>rofi -show run</command>
-    </action>
-  </keybind>
-
-  <!-- lock -->
-  <keybind key="A-x">
-    <action name="Execute">
-      <startupnotify>
-        <enabled>yes</enabled>
-        <name>i3lock</name>
-      </startupnotify>
-      <command>~/.config/i3/lock.sh</command>
-    </action>
-  </keybind>
-
-  <!-- lock & sleep -->
-  <keybind key="A-S-x">
-    <action name="Execute">
-      <startupnotify>
-        <enabled>yes</enabled>
-        <name>i3lock</name>
-      </startupnotify>
-      <command>lock-and-sleep</command>
     </action>
   </keybind>
 
@@ -289,25 +215,6 @@
       <action name="Lower"/>
       <action name="FocusToBottom"/>
       <action name="Unfocus"/>
-    </mousebind>
-
-    <mousebind button="A-Up" action="Click">
-      <action name="GoToDesktop"><to>previous</to></action>
-    </mousebind>
-    <mousebind button="A-Down" action="Click">
-      <action name="GoToDesktop"><to>next</to></action>
-    </mousebind>
-    <mousebind button="C-A-Up" action="Click">
-      <action name="GoToDesktop"><to>previous</to></action>
-    </mousebind>
-    <mousebind button="C-A-Down" action="Click">
-      <action name="GoToDesktop"><to>next</to></action>
-    </mousebind>
-    <mousebind button="A-S-Up" action="Click">
-      <action name="SendToDesktop"><to>previous</to></action>
-    </mousebind>
-    <mousebind button="A-S-Down" action="Click">
-      <action name="SendToDesktop"><to>next</to></action>
     </mousebind>
   </context>
 
