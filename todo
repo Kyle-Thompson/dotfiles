@@ -2,8 +2,6 @@
 * other WMs to set up
   - bspwm
   - i3 (no-gaps)
-* tint2
-  - terminal icon
 * irssi
   - learn
   - move config files to ~/.config/irssi
@@ -27,11 +25,10 @@
   - move bookmarks into button that expands across the line.
 * startpage
 * music (mpd, ncmpcpp, mpc), (tizonia)
-* oxybar
-  - MVP release
-  - figure out IPC for instant module updates. (review polybar for this)
-  - virtual desktops / workspaces
+* lemonbar
+  - figure out how to make interactive dropdowns in general
   - currently running applications
+    - apply color to selected application
   - time & date dropdown (time, dropdown is calendar with date)
   - internet dropdown
     - lone glyph of either disconnected wifi, connected wifi or ethernet
@@ -43,7 +40,7 @@
   - battery (laptop)
     - displays estimated time remaining
     - displays which programs are using most power
-  - currently running applications
+  - fix zombie lemonbar.sh process
 * rEFInd desktop setup (boot windows from custom stanza)
 * keyboard and mouse colors on linux (desktop)
 * zsh plugins
@@ -53,3 +50,4 @@
 * mail
   - neomutt
   - proton mail
+* fix weird looking horizontal line in terminal
