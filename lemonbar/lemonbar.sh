@@ -16,6 +16,11 @@ wm_name=$(wmctrl -m             \
   | sed -e 's/\ //'             \
   | tr '[:upper:]' '[:lower:]')
 
+# number_of_displays=$(xrandr -d :0 -q \
+#   | rg ' connected'                  \
+#   | wc -l                            \
+#   | xargs echo -1+                   \
+#   | bc)
 number_of_displays=$(xrandr -d :0 -q \
   | rg ' connected'                  \
   | wc -l)
@@ -25,15 +30,16 @@ number_of_displays="$(($number_of_displays-1))"
 # ======================   Utilities   =========================================
 # ==============================================================================
 
-function color() {
-  echo $(xrdb -query | rg color$1: | awk '{print $2}')
-}
+function color() { echo $(xrdb -query | rg color$1: | awk '{print $2}') }
 
-function log() {
-  echo $(date +'%Y/%m/%d-%H:%M:%S') - "$@" >> /tmp/lemon.log
-}
+function log() { echo $(date +'%Y/%m/%d-%H:%M:%S') - "$@" >> /tmp/lemon.log }
+
+function join_by { local IFS="$1"; shift; echo "$*"; }
 
 function generate_bar() {
+  # seq 0 $number_of_displays \
+  #   | awk '{ printf "\%{S%d}'$(${wm_name}_bar)'\n", $1 }' \
+  #   | xargs join_by ' '
   for i in $(seq 0 $number_of_displays); do
     final_bar="${final_bar}%{S$i}$(${wm_name}_bar)"
   done
@@ -41,10 +47,8 @@ function generate_bar() {
   echo $final_bar
 }
 
-function refresh() {
-  mod_clock
-  for mod in "$@"; do mod_$mod; done
-}
+# TODO: make clock daemon
+function refresh() { mod_clock; for mod in "$@"; do mod_$mod; done }
 
 # ==============================================================================
 # ======================   Modules   ===========================================
@@ -77,20 +81,20 @@ function mod_internet() {
 
 function mod_workspaces() {
   workspaces=""
-  local workspace_current=$(wmctrl -d | rg '\*' | awk '{print $1}')
-  # local workspace_iterator=0
-  #TODO: replace this loop with a two variable for-each using `cat -n`
-  #TODO: write into array and python-join over " "
+  local current_workspace=$(wmctrl -d | rg '\*' | awk '{print $1}')
   for index ws in $(wmctrl -d | awk '{print NR-1,$NF}'); do
     ws_fmt="%{A:wmctrl -s $index && refbar workspace windows:}$ws%{A}"
-    if [ "$index" -eq "$workspace_current" ]; then
+    if [ "$index" -eq "$current_workspace" ]; then
       workspaces="$workspaces %{F$(color 4)}$ws_fmt%{F$(color 7)}"
     else
       workspaces="$workspaces $ws_fmt"
     fi
-    # workspace_iterator=$(($workspace_iterator+1))
-    log $workspaces
   done
+  # workspaces=$(wmctrl -d \
+  #   | awk '{printf "\%{A:wmctrl -s %d && refbar workspace windows:}%s\%{A}\n", NR-1, $NF}' \
+  #   | sed $current_workspace's/.*/%{F'$(color 4)'}&%{F'$(color 7)'}/' \
+  #   | xargs join_by ' ')
+  log $workspaces
 }
 
 # Display the current active windows for this workspace
