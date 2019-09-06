@@ -36,6 +36,9 @@ function log() { echo $(date +'%Y/%m/%d-%H:%M:%S') - "$@" >> /tmp/lemon.log }
 
 function join_by { local IFS="$1"; shift; echo "$*"; }
 
+# TODO: make clock daemon
+function refresh() { mod_clock; for mod in "$@"; do mod_$mod; done }
+
 function generate_bar() {
   # seq 0 $number_of_displays \
   #   | awk '{ printf "\%{S%d}'$(${wm_name}_bar)'\n", $1 }' \
@@ -46,9 +49,6 @@ function generate_bar() {
   
   echo $final_bar
 }
-
-# TODO: make clock daemon
-function refresh() { mod_clock; for mod in "$@"; do mod_$mod; done }
 
 # ==============================================================================
 # ======================   Modules   ===========================================
