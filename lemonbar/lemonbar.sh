@@ -90,9 +90,11 @@ function mod_workspaces() {
       workspaces="$workspaces $ws_fmt"
     fi
   done
+  # ws_fmt="\%{A:wmctrl -s %d && refbar workspace windows:}%s\%{A}\n"
+  # color_wrap="%{F$(color 4)}&%{F$(color 7)}"
   # workspaces=$(wmctrl -d \
-  #   | awk '{printf "\%{A:wmctrl -s %d && refbar workspace windows:}%s\%{A}\n", NR-1, $NF}' \
-  #   | sed $current_workspace's/.*/%{F'$(color 4)'}&%{F'$(color 7)'}/' \
+  #   | awk '{printf '$ws_fmt', NR-1, $NF}' \
+  #   | sed $current_workspace's/.*/'$color_wrap'/' \
   #   | xargs join_by ' ')
   log $workspaces
 }
