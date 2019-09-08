@@ -1,43 +1,23 @@
-#!/usr/bin/zsh
+#!/bin/sh
+
+# NOTE: calls to zsh are required since xinit only uses sh which does not
+#       support sub-shells
+
+wm_name=${2:-openbox}
 
 # load Xresources
-gen-xresources > $HOME/.Xresources
-xrdb -merge -I$HOME $HOME/.Xresources
+zsh -c "xrdb -load =(gen-xresources)"
 
-# TODO: why does this work in the terminal but not here?
-#xrdb -load =(gen-xresources)
+# key bindings
+zsh -c "sxhkd -c <(cat ~/.dotfiles/sxhkd/sxhkdrc.{base,$wm_name})" &
 
-# start some nice programs
-if [ -d /etc/X11/xinit/xinitrc.d ] ; then
- for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
-  [ -x "$f" ] && . "$f"
- done
- unset f
-fi
+screenlayout.sh &   # screenlayout
+wallpaper.sh &      # wallpaper
+compton &           # compositor
+xset r rate 200 70  # keyboard key repeat speed
 
-# set up key bindings
-# TODO: why does this work in the terminal but not here?
-wm_name=$(wmctrl -m             \
-  | awk -F: 'NR==1 {print $2}'  \
-  | sed -e 's/\ //'             \
-  | tr '[:upper:]' '[:lower:]')
-sxhkd -c "~/.dotfiles/sxhkd/sxhkdrc.$wm_name" &
-
-# screenlayout
-screenlayout.sh
-
-# wallpaper
-wallpaper.sh
-
-# screen compositor (remove screen tearing)
-compton &
-
-# set the keyboard key repeat speed
-xset r rate 200 70
-
-case $2 in
-    "i3")       exec i3 ;;
-    "openbox")  exec openbox-session ;;
-    "bspwm")    exec bspwm ;;
-    *)          exec openbox-session ;;
+case $wm_name in
+    i3)       exec i3 ;;
+    openbox)  exec openbox-session ;;
+    bspwm)    exec bspwm ;;
 esac
