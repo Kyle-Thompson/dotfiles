@@ -143,8 +143,8 @@ let g:LanguageClient_autoStart = 1
 let g:LanguageClient_hasSnippetSupport = 1
 let g:LanguageClient_useFloatingHover = 1
 let g:LanguageClient_serverCommands = {
-  \ 'c':      ['ccls', '--log-file=/tmp/ccls_c.log'],
-  \ 'cpp':    ['ccls', '--log-file=/tmp/ccls_cpp.log'],
+  \ 'c':      ['clangd'],
+  \ 'cpp':    ['clangd'],
   \ 'python': ['pyls'],
   \ 'rust':   ['rustup', 'run', 'stable', 'rls'],
   \ 'sh':     ['bash-language-server', 'start'],
