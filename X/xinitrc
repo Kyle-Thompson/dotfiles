@@ -5,8 +5,7 @@
 
 wm_name=${2:-openbox}
 
-# load Xresources
-zsh -c "xrdb -load =(gen-xresources)"
+gen-xresources | xrdb -load -  # load Xresources
 
 # key bindings
 zsh -c "sxhkd -c <(cat ~/.dotfiles/sxhkd/sxhkdrc.{base,$wm_name})" &
