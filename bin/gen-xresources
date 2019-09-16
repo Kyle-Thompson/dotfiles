@@ -1,11 +1,9 @@
 #!/bin/bash
 #include "/home/kyle/.dotfiles/colorschemes/lakeside"
 
-
 # load colorscheme definitions
 cat ~/.dotfiles/colorschemes/lakeside
 printf "\n\n"
-
 
 # assign colorscheme definitions for all programs that load from Xresources
 echo "
@@ -45,9 +43,6 @@ case $(cat /etc/hostname) in
     "macarch") echo "i3.mod: Mod4" ;;
     "archpc") echo "i3.mod: Mod1" ;;
 esac
-printf "\n\n"
-
-cat ~/.dotfiles/urxvt/config
 printf "\n\n"
 
 cat ~/.dotfiles/rofi/config
