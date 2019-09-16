@@ -40,7 +40,6 @@
   - battery (laptop)
     - displays estimated time remaining
     - displays which programs are using most power
-  - fix zombie lemonbar.sh process
 * rEFInd desktop setup (boot windows from custom stanza)
 * keyboard and mouse colors on linux (desktop)
 * zsh plugins
@@ -49,5 +48,5 @@
 * update GTK theme and icons
 * mail
   - neomutt
-  - proton mail
 * fix weird looking horizontal line in terminal
+* switch from rofi to dmenu
