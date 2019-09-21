@@ -4,9 +4,9 @@
 # ======================   Setup   =============================================
 # ==============================================================================
 
-killall -q lemonbar
+killall -q limebar
 
-fifo_pipe=/tmp/lemonbar_refresh
+fifo_pipe=/tmp/limebar_refresh
 [ -p $fifo_pipe ] && mkfifo $fifo_pipe
 
 wm_name=$(wmctrl -m             \
@@ -25,13 +25,16 @@ number_of_displays=$(xrandr -d :0 -q \
 
 color() { xrdb -query | rg color"$1": | awk '{print $2}'; }
 
-log() { echo "$(date +'%Y/%m/%d-%H:%M:%S')" - "$@" >> /tmp/lemon.log; }
+log() { echo "$(date +'%Y/%m/%d-%H:%M:%S')" - "$@" >> /tmp/lime_shell.log; }
 
 refresh() { for mod in $@; do mod_"$mod"; done }
 
 generate_bar() {
   bar=$("${wm_name}"_bar)
   echo $(seq 0 "$number_of_displays" | sed "s/.*/%{S&}$bar/")
+  # for i in $(seq 0 $number_of_displays); do
+  #   echo -n %{S${i}}${bar//[$'\n']/ }
+  # done
 }
 
 # ==============================================================================
@@ -40,10 +43,16 @@ generate_bar() {
 
 # TODO: vpn
 # TODO: internet connection
-# TODO: network device (ethernet/wifi) 
+# TODO: network device (ethernet/wifi)
 # TODO: workspace
 # TODO: active window
-# TODO: clock
+
+daemon_clock() {
+  while true; do
+    refbar clock
+    sleep 1m
+  done
+}
 
 # ==============================================================================
 # ======================   Modules   ===========================================
@@ -66,14 +75,14 @@ mod_internet() {
     *) connection="??"       ;;
   esac
 
-  # reset colors and assign to internet
+  # assign to internet and reset color
   internet="${vpn}${connection}%{F$(color 7)}"
 }
 
 mod_workspaces() {
   curr_ws=$(wmctrl -d | rg '\*' | awk '{print $1}')
   workspaces=$(wmctrl -d \
-    | awk '{printf "%%{A:wmctrl -s %d && refbar workspaces windows:}%s%%{A}\n", NR-1, $NF}' \
+    | awk '{printf "%%{A:wmctrl -s %s && refbar workspaces windows:}%s%%{A}\n", NR-1, $NF}' \
     | sed $((curr_ws+1))"s/.*/%{F$(color 4)}&%{F$(color 7)}/")
 }
 
@@ -91,6 +100,7 @@ mod_windows() {
 # ==============================================================================
 
 openbox_initialize_modules() {
+  daemon_clock &
   refbar workspaces windows clock internet
 }
 openbox_bar() {
@@ -106,11 +116,4 @@ openbox_bar() {
 while read -r line < $fifo_pipe; do
   refresh "$line"
   generate_bar
-done \
-  | lemonbar \
-      -p \
-      -f 'Gohu GohuFont' \
-      -B "$(color 0)" \
-      -a 100 \
-      -g 5760x20+0+0 \
-  | while read -r line; do eval "$line"; done
+done | limebar
