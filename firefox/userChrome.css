@@ -41,7 +41,7 @@
 #PersonalToolbar,
 #appMenu-popup
 {
-  font-family: "Gohu GohuFont" !important;
+  font-family: "GohuFont" !important;
   font-size:   11px !important;
   font-weight: normal !important;
 }
@@ -54,6 +54,11 @@
 #page-action-buttons,
 #fxa-toolbar-menu-button,        /* firefox account */
 #nav-bar-overflow-button,        /* overflow arrows */
+#tabs-newtab-button,             /* new tab button */
+#new-tab-button,                 /* new tab button when tabs overflow */
+.scrollbutton-up,                /* scroll overflow tabs up */
+.scrollbutton-down,              /* scroll overflow tabs down */
+.arrowscrollbox-overflow-end-indicator,
 /* tabs */
 .tab-line,                       /* line atop selected tab */
 .tabbrowser-tab:not([pinned])
@@ -84,6 +89,7 @@ toolbarseparator,                /* all separators */
 #pocket-button-box,              /* */
 #reader-mode-button,             /* activate reader mode */
 .urlbar-history-dropmarker,      /* history dropdown arrow */
+#tracking-protection-icon-container,  /* tracking protection button */
 #identity-box,                   /* */
 #identity-icon-labels            /* */
 {
