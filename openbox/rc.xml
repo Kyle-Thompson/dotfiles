@@ -61,20 +61,20 @@
   <keepBorder>no</keepBorder>
   <animateIconify>yes</animateIconify>
   <font place="MenuItem">
-    <name>Gohu GohuFont</name>
-    <size>11</size>
+    <name>GohuFont</name>
+    <pixelsize>11</pixelsize>
     <weight>normal</weight>
     <slant>normal</slant>
   </font>
   <font place="ActiveOnScreenDisplay">
-    <name>Gohu GohuFont</name>
-    <size>11</size>
+    <name>GohuFont</name>
+    <pixelsize>11</pixelsize>
     <weight>normal</weight>
     <slant>normal</slant>
   </font>
     <font place="InactiveOnScreenDisplay">
-    <name>Gohu GohuFont</name>
-    <size>11</size>
+    <name>GohuFont</name>
+    <pixelsize>11</pixelsize>
     <weight>normal</weight>
     <slant>normal</slant>
   </font>
