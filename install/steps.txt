@@ -81,7 +81,7 @@
      |<fontconfig>
      |  <match target="pattern">
      |    <test qual="any" name="family">
-     |      <string>Gohu GohuFont</string>
+     |      <string>GohuFont</string>
      |    </test>
      |    <test name="weight" compare="more">
      |      <const>medium</const>
