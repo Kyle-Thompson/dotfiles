@@ -8,3 +8,5 @@ alias update_pacman_mirrors='reflector --sort rate --protocol https --fastest 50
 
 alias transd='transmission-daemon --paused --download-dir ~/media/downloads'
 alias transcli='transmission-remote-cli'
+
+alias fehf='feh -.'
