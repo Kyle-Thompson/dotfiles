@@ -9,7 +9,7 @@ rofi.color-window: COLOR0, COLOR0, COLOR0
 
 
 ! general ----------------------------------------------------
-rofi.font:          Gohu GohuFont 11px
+rofi.font:          GohuFont 11px
 rofi.modi:          run,window,ssh
 rofi.width:         30                  ! window width
 rofi.columns:       1                   ! number of seach columns
