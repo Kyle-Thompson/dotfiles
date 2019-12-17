@@ -47,7 +47,7 @@ window.active.button.close.*.image.color:   #d22d72
 window.inactive.button.*.image.color: #7ea2b4
 
 ! hover
-window.*.button.*.hover.image.color: parentrelative
+! window.*.button.*.hover.image.color: parentrelative
 
 ! button background
 window.*.button.*.*.bg: flat
@@ -57,8 +57,8 @@ window.*.button.*.*.bg.color: #161b1d
 
 !! BORDERS
 
-padding.width:                8
-padding.height:               8
+padding.width:                6
+padding.height:               6
 window.client.padding.width:  0
 window.client.padding.height: 0
 border.width:                 0
@@ -66,8 +66,10 @@ window.handle.width:          2
 
 window.*.handle.bg:       flat
 window.*.handle.bg.color: #161b1d
+window.*.grip.bg:         flat
+window.*.grip.bg.color:   #161b1d
 
-window.*.grip.bg: parentrelative
+! window.*.grip.bg: parentrelative
 
 !! on-screen displays
 osd.border.width:       1
