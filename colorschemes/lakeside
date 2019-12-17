@@ -3,7 +3,7 @@
 #define BACKGROUND #161b1d
 
 #define COLOR0  #161b1d
-#define COLOR8  #5a7b8c
+#define COLOR8  #1f292e
 #define COLOR1  #d22d72
 #define COLOR9  #935C25
 #define COLOR2  #568c3b
@@ -17,4 +17,4 @@
 #define COLOR6  #2d8f6f 
 #define COLOR14 #2d8f6f 
 #define COLOR7  #7ea2b4
-#define COLOR15 #3bf8ff
+#define COLOR15 #5a7b8c
