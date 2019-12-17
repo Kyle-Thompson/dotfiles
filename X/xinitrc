@@ -12,8 +12,9 @@ zsh -c "sxhkd -c <(cat ~/.dotfiles/sxhkd/sxhkdrc.{base,$wm_name})" &
 
 screenlayout.sh &   # screenlayout
 wallpaper.sh &      # wallpaper
-compton &           # compositor
+#compton &           # compositor
 xset r rate 200 70  # keyboard key repeat speed
+xset +fp ~/.local/share/fonts
 
 case $wm_name in
     i3)       exec i3 ;;
