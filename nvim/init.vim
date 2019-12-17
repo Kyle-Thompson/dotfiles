@@ -13,9 +13,7 @@ set wildmode=list:longest
 
 " fill chars
 set fillchars+=vert:\| |  " use | for vertical split borders
-if has('nvim')
-  set fillchars+=eob:\ |  " no ~ for end-of-buffer lines.
-endif
+set fillchars+=eob:\   |  " no ~ for end-of-buffer lines.
 
 " folds
 
@@ -119,14 +117,10 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " ==============================================================================
 
 " install vim-plug if it's not already
-if has('nvim') && empty(glob('~/.config/nvim/autoload/plug.vim'))  " nvim
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall | source $NEOVIMRC
-elseif !has('nvim') && empty(glob('~/.vim/autoload/plug.vim'))  " vim
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $VIMRC
 endif
 
 
@@ -143,8 +137,8 @@ let g:LanguageClient_autoStart = 1
 let g:LanguageClient_hasSnippetSupport = 1
 let g:LanguageClient_useFloatingHover = 1
 let g:LanguageClient_serverCommands = {
-  \ 'c':      ['clangd'],
-  \ 'cpp':    ['clangd'],
+  \ 'c':      ['clangd', '-clang-tidy'],
+  \ 'cpp':    ['clangd', '-clang-tidy'],
   \ 'python': ['pyls'],
   \ 'rust':   ['rustup', 'run', 'stable', 'rls'],
   \ 'sh':     ['bash-language-server', 'start'],
@@ -154,6 +148,7 @@ nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
 nnoremap <leader>lwd :call
   \ LanguageClient#textDocument_definition({'gotoCmd': 'split'})<CR>
 nnoremap <leader>lr :call LanguageClient#textDocument_references()<CR>
+nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
 
 " ========== completion manager
 Plug 'ncm2/ncm2'        " completion engine
@@ -179,6 +174,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 " ========== searching =========================================================
 Plug 'junegunn/fzf', { 'dir': $HOME.'/.config/fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+" TODO override FZF_DEFAULT_COMMAND
 nnoremap <leader>ff  :Files<CR>
 nnoremap <leader>fb  :Buffers<CR>
 nnoremap <leader>fp  :exec 'Files' b:LanguageClient_projectRoot<CR>
@@ -212,6 +208,7 @@ Plug 'jiangmiao/auto-pairs'     " creating pairs
 Plug 'tpope/vim-commentary'     " commenting
 Plug 'tpope/vim-repeat'         " repeatable plugins
 Plug 'majutsushi/tagbar'        " show file tags in sidebar
+nnoremap <silent> <leader>t :TagbarToggle<CR><C-W>=
 
 Plug 'junegunn/vim-easy-align'  " text alignment
 xmap ga <Plug>(EasyAlign)
@@ -236,10 +233,10 @@ silent! colorscheme xres
 
 " ========== git info ==========================================================
 function! GetGitBranch()
-  let g:git = system(join([ 'git rev-parse --abbrev-ref HEAD 2> /dev/null',
-                          \ 'sed "s/^/git:/"',
-                          \ 'tr "\n" " "']
-                     \ , '|'))
+  let g:git = system( join([ 'git rev-parse --abbrev-ref HEAD 2> /dev/null',
+                           \ 'sed "s/^/git:/"',
+                           \ 'tr "\n" " "']
+                    \ , '|'))
 endfunction
 autocmd BufEnter * call GetGitBranch()
 
