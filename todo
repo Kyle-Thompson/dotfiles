@@ -25,10 +25,10 @@
   - move bookmarks into button that expands across the line.
 * startpage
 * music (mpd, ncmpcpp, mpc), (tizonia)
-* lemonbar
+* limebar
   - figure out how to make interactive dropdowns in general
-  - currently running applications
-    - apply color to selected application
+  - currently running applications (done)
+    - apply color to selected application (done)
   - time & date dropdown (time, dropdown is calendar with date)
   - internet dropdown
     - lone glyph of either disconnected wifi, connected wifi or ethernet
@@ -50,3 +50,5 @@
   - neomutt
 * fix weird looking horizontal line in terminal
 * switch from rofi to dmenu
+* fix st opacity and cursor shape (in shell and vim)
+* set up Tor and Encrypted DNS
