@@ -8,9 +8,6 @@ let mapleader = ' '
 " clipboard
 set clipboard=unnamedplus  " enable system clipboard
 
-" completion
-set wildmode=list:longest
-
 " fill chars
 set fillchars+=vert:\| |  " use | for vertical split borders
 set fillchars+=eob:\   |  " no ~ for end-of-buffer lines.
@@ -47,6 +44,7 @@ set shortmess+=s    " no 'search hit BOTTOM' messages
 set shortmess+=W    " no [w] when writing a file
 set shortmess+=T    " truncate long messages with '...'
 set shortmess+=I    " no intro messages when starting vim
+set shortmess+=F    " no prompt when opening multiple files
 
 " spliting
 set splitbelow      " vertical splits open below current window
@@ -56,7 +54,7 @@ set splitright      " horizontal splits open right of the current window
 set noshowcmd       " don't display partial commands in bottom right
 set noshowmode      " don't display mode under statusline (e.g. -- INSERT --)
 
-" wildignore
+" wildmenu
 set wildignore=*.o,*.pyc
 
 " word wrapping
