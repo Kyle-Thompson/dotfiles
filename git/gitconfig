@@ -14,9 +14,10 @@
   com = checkout master
   pf = push --force-with-lease
   st = status
+  up = !git fetch origin && git rebase origin/master
+  done = !git up && git com && git merge @{-1} && git push
   reset-master = !git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
   conflicts = diff --name-only --diff-filter=U
-  lg = log --oneline
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
