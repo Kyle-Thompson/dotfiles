@@ -1,5 +1,3 @@
-# openbox hotkeys
-
 # terminal emulator
 alt + Return
   st
@@ -12,22 +10,15 @@ alt + @space
 alt + q
   wmctrl -c :ACTIVE:
 
-# lock  (TODO: combine lock with lock-and-sleep)
-alt + x
-  ~/.config/i3/lock.sh
-
-# lock and sleep
-alt + shift + x
-  lock-and-sleep
+# lock and sleep TODO
+alt + {_,shift} + x
+  i3lock -c 161b1d {echo "ayy",&& systemctl suspend}
 
 # change to workspace  (TODO: combine with move to workspace?)
 alt + {1,2,3,4,5,6,7,8,9,0}
-  wmctrl -s {0,1,2,3,4,5,6,7,8,9} \
-    && refbar workspaces windows
+  wmctrl -s {0,1,2,3,4,5,6,7,8,9}
 
 # move window to workspace
 alt + shift + {1,2,3,4,5,6,7,8,9,0}
   window_id=$(xprop -root 32x '\t$0' _NET_ACTIVE_WINDOW | cut -f 2); \
-  wmctrl -i -r $window_id -t {0,1,2,3,4,5,6,7,8,9} \
-    && wmctrl -i -a $window_id \
-    && refbar workspaces windows
+  wmctrl -i -r $window_id -t {0,1,2,3,4,5,6,7,8,9} && wmctrl -i -a $window_id
