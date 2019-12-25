@@ -1,0 +1,46 @@
+# misc
+swig  # needed for clang
+ninja
+arandr
+man-pages
+openssh
+python-pip
+reflector
+unzip
+xorg-xinit
+
+# amdgpu drivers
+mesa
+xf86-video-amdgpu
+
+# audio
+alsa-utils
+pavucontrol
+pulseaudio-alsa
+
+# browsers
+firefox
+chromium
+
+# desktop environment
+rofi
+openbox
+sxhkd
+wmctrl
+
+# file browser
+nnn
+ranger
+nautilus
+
+# utilities
+cmake
+exa
+fd
+feh
+htop
+picom
+ripgrep
+tmux
+transmission-cli
+zsh

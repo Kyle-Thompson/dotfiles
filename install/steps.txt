@@ -2,26 +2,23 @@
 ------------------
 
 1.1 partition the drive
+    swap  (swap)  (RAM)    (Same size as RAM)
     EFI   (FAT32) (200MiB) (Should already exist if dual-booting)
     boot  (ext4)  (200MiB)
     root  (ext4)  (20GiB)
-    var   (ext4)  (?????)  (TODO)
-    swap  (swap)  (RAM)    (Same size as RAM.)
     home  (ext4)  (rest)   (TODO: look into btrfs)
 
 1.2 format the partitions
+    (swap) mkswap <swap partition>
     (EFI)  mkfs.fat -F 32 <EFI partition>
     (boot) mkfs.ext4 <boot partition>
     (root) mkfs.ext4 <root partition>
-    (var)  mkfs.ext4 <var partition>
-    (swap) mkswap <swap partition>
     (home) mkfs.ext4 <home partition>
 
 1.3 mount the partitions
     mount <root partition> /mnt
     mount <boot partition> /mnt/boot
     mount <EFI partition>  /mnt/boot/efi
-    mount <var partition>  /mnt/var
     mount <home partition> /mnt/home
     swapon <swap partition>
 
