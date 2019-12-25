@@ -50,5 +50,9 @@
   - neomutt
 * fix weird looking horizontal line in terminal
 * switch from rofi to dmenu
-* fix st opacity and cursor shape (in shell and vim)
+* fix st cursor shape (in shell and vim)
 * set up Tor and Encrypted DNS
+* host mda files somewhere
+* allow vim status line to be transparent
+  - blocks st transparency since it looks odd with one opaque bar in the middle
+    of the screen
