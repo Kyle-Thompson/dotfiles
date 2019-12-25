@@ -49,22 +49,31 @@
 
 /* ========== hide elements ================================================= */
 /* buttons */
-#forward-button,
-#back-button,
+#forward-button,                 /* forward button */
+#back-button,                    /* back button */
 #page-action-buttons,
 #fxa-toolbar-menu-button,        /* firefox account */
 #nav-bar-overflow-button,        /* overflow arrows */
 #tabs-newtab-button,             /* new tab button */
 #new-tab-button,                 /* new tab button when tabs overflow */
+#stop-reload-button,             /* reload button */
+#home-button,                    /* home button */
+#library-button,                 /* library button */
+#sidebar-button,                 /* sidebar button */
 .scrollbutton-up,                /* scroll overflow tabs up */
 .scrollbutton-down,              /* scroll overflow tabs down */
 .arrowscrollbox-overflow-end-indicator,
+.webextension-browser-action,    /* extensions */
+
 /* tabs */
 .tab-line,                       /* line atop selected tab */
 .tabbrowser-tab:not([pinned])
   .tab-icon-image,               /* favicons */
 .tab-close-button.close-icon,    /* close button */
+#customizableui-special-spring1, /* left padding */
+#customizableui-special-spring2, /* right padding */
 /*#PersonalToolbar,                /* bookmarks bar */
+
 /* menu */
 #appMenu-tp-label,               /* content blocking */
 #appMenu-tp-button,              /* content blocking */
@@ -84,6 +93,7 @@
 #appMenu-help-button,            /* help */
 #appMenu-quit-button,            /* quit */
 toolbarseparator,                /* all separators */
+
 /* url-bar */
 #pageActionButton,               /* */
 #pocket-button-box,              /* */
@@ -99,13 +109,17 @@ toolbarseparator,                /* all separators */
 #PanelUI-button {
   border-image-slice: 0 !important; /*hide panel menu separation */
 }
+
+
+/* ========== misc ========================================================== */
 #PanelUI-menu-button:before {
   content: '';
   width: 0px !important;
   display: flex !important;
   margin-left: -5px !important;
-  padding: 1px !important;
+  padding: 0px !important;
 }
+
 /* Move hamburger menu to the left */
 #PanelUI-button,
 #customization-panel-container,
@@ -120,15 +134,6 @@ toolbarseparator,                /* all separators */
   margin-right: 248px !important;
 } /**/
 
-
-/* Back & Forward buttons */  
-#back-button > .toolbarbutton-icon,
-#forward-button > .toolbarbutton-icon {
-  transform: scale(0.9, 0.9) !important;
-  margin-left: -2px !important;
-  margin-right: -2px !important;
-}
-
 /* fix white bg when opening new tabs -- to fix*/
 browser,
 browser.display.background_color,
@@ -142,6 +147,7 @@ tabpanels,
 }
 
 /* single bar */
-#TabsToolbar,#nav-bar { height: 32px !important; } 
-#TabsToolbar {margin-left:35vw !important;margin-right:0px; }
-#nav-bar {margin-top:-32px !important;margin-right: 65vw!important;}
+/* TODO: url and tab text don't seem aligned */
+#TabsToolbar,#nav-bar { height: 33px !important; } 
+#TabsToolbar { margin-left:35vw !important; margin-right:0px; }
+#nav-bar { margin-top:-32px !important; margin-right: 65vw!important; }
