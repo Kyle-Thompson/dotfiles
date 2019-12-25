@@ -10,6 +10,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 
 # editor
 export VISUAL=nvim
+export EDITOR=nvim
 
 # fzf
 FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
