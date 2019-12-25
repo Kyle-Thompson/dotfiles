@@ -1,20 +1,18 @@
 #!/bin/sh
 
-# NOTE: calls to zsh are required since xinit only uses sh which does not
-#       support sub-shells
-
 wm_name=${2:-openbox}
 
 gen-xresources | xrdb -load -  # load Xresources
 
 # key bindings
-zsh -c "sxhkd -c <(cat ~/.dotfiles/sxhkd/sxhkdrc.{base,$wm_name})" &
+cat /home/kyle/.dotfiles/sxhkd/sxhkdrc.{base,$wm_name} > /tmp/sxhkdrc
+sxhkd -c /tmp/sxhkdrc &
 
 screenlayout.sh &   # screenlayout
 wallpaper.sh &      # wallpaper
-#compton &           # compositor
+compton &           # compositor
 xset r rate 200 70  # keyboard key repeat speed
-xset +fp ~/.local/share/fonts
+# xset +fp ~/.local/share/fonts
 
 case $wm_name in
     i3)       exec i3 ;;
