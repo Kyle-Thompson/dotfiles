@@ -1,5 +1,5 @@
 # Use emacs keybindings.
-bindkey -e
+bindkey -v
 
 # Do not force prompt to start on a newline.
 setopt NOPROMPT_CR
