@@ -1,5 +1,4 @@
 # misc
-swig  # needed for clang
 ninja
 arandr
 man-pages

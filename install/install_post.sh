@@ -43,8 +43,6 @@ make
 sudo make install
 popd
 
-# TODO: src install llvm
-
 # enable services
 sudo systemctl enable --now ckb-next-daemon.service
 sudo systemctl enable --now nordvpnd.service
