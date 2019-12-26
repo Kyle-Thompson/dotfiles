@@ -8,6 +8,7 @@ python-pip
 reflector
 unzip
 xorg-xinit
+clang
 
 # amdgpu drivers
 mesa
@@ -44,3 +45,4 @@ ripgrep
 tmux
 transmission-cli
 zsh
+vlc
