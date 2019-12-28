@@ -1,3 +1,5 @@
+#/usr/bin/zsh
+
 # ==============================================================================
 # ======================   Aliases   ===========================================
 # ==============================================================================
@@ -46,8 +48,11 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # ======================   Exports   ===========================================
 # ==============================================================================
 
-export PATH="$PATH:$HOME/.cargo/bin:$HOME/bin:$HOME/.local/bin"
-# export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
+export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.config/fzf/bin
+
 export LESSHISTFILE="-"
 
 # XDG
@@ -82,13 +87,9 @@ function mkcd() {
 # ======================   Fzf   ===============================================
 # ==============================================================================
 
-if [[ ! "$PATH" == */home/kyle/.config/fzf/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}/home/kyle/.config/fzf/bin"
-fi
-
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "/home/kyle/.config/fzf/shell/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "$HOME/.config/fzf/shell/completion.zsh" 2> /dev/null
 
 # Key bindings
 # ------------
