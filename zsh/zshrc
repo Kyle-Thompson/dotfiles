@@ -1,5 +1,155 @@
-for f in ~/.dotfiles/zsh/configs/*; do
-  source "$f";
-done
+# ==============================================================================
+# ======================   Aliases   ===========================================
+# ==============================================================================
+
+alias ls='ls --color=auto'
+
+alias ni=nvim
+alias nif='ni $(rg --files | fzf -m || echo +qa)'
+
+alias update_pacman_mirrors='sudo reflector --sort rate --protocol https \
+      --fastest 50 --number 100 --save /etc/pacman.d/mirrorlist'
+
+alias transd='transmission-daemon --paused --download-dir ~/mda/downloads'
+alias transcli='transmission-remote-cli'
+
+alias fehf='feh -.'
+
+
+# ==============================================================================
+# ======================   Completion   ========================================
+# ==============================================================================
+
+autoload -Uz compinit
+compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
+
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu select=2
+eval "$(dircolors -b)"
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+
+# ==============================================================================
+# ======================   Exports   ===========================================
+# ==============================================================================
+
+export PATH="$PATH:$HOME/.cargo/bin:$HOME/bin:$HOME/.local/bin"
+# export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
+export LESSHISTFILE="-"
+
+# XDG
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+
+export VISUAL=nvim
+export EDITOR=nvim
+
+# fzf
+FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+
+# {neo}vimrc
+export VIMRC="$HOME/.vimrc"
+export NEOVIMRC="$HOME/.config/nvim/init.vim"
+
+# LS_COLORS
+eval `dircolors $HOME/.dotfiles/dir_colors`
+
+
+# ==============================================================================
+# ======================   Functions   =========================================
+# ==============================================================================
+
+function mkcd() {
+  mkdir -p $1 && cd $1
+}
+
+
+# ==============================================================================
+# ======================   Fzf   ===============================================
+# ==============================================================================
+
+if [[ ! "$PATH" == */home/kyle/.config/fzf/bin* ]]; then
+  export PATH="${PATH:+${PATH}:}/home/kyle/.config/fzf/bin"
+fi
+
+# Auto-completion
+# ---------------
+[[ $- == *i* ]] && source "/home/kyle/.config/fzf/shell/completion.zsh" 2> /dev/null
+
+# Key bindings
+# ------------
+source "/home/kyle/.config/fzf/shell/key-bindings.zsh"
+
+
+# ==============================================================================
+# ======================   History   ===========================================
+# ==============================================================================
+
+setopt histignorealldups
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=/tmp/zsh_history
+
+
+# ==============================================================================
+# ======================   Misc   ==============================================
+# ==============================================================================
+
+# Use vi keybindings.
+bindkey -v
+
+# Do not force prompt to start on a newline.
+setopt NOPROMPT_CR
+
+# Allow a comment as a zsh command.
+setopt interactivecomments
+
+# Easily cd to certain directories
+setopt auto_cd
+cdpath=($HOME/.dotfiles)
+
+
+# ==============================================================================
+# ======================   Prompt   ============================================
+# ==============================================================================
+
+autoload -Uz vcs_info
+setopt prompt_subst
+
+# Only check for git. This might have some performance benefits.
+zstyle ':vcs_info:*' enable git
+
+# Needed for checking if {un}staged files exist.
+zstyle ':vcs_info:*' check-for-changes true
+
+# Formatting when {un}staged files exist in the branch.
+zstyle ':vcs_info:*' unstagedstr '%F{3}'
+zstyle ':vcs_info:*' stagedstr '%F{4}'
+
+# Formatting for the git prompt if in a repo.
+zstyle ':vcs_info:*' actionformats '[%F{2}%c%u%b %F{1}%a%f] '
+zstyle ':vcs_info:*' formats '[%F{2}%c%u%b%f] '
+
+precmd () { vcs_info }
+prompt='%1~ ${vcs_info_msg_0_}%f> '
+
+
+# ==============================================================================
+# ======================   Overrides   =========================================
+# ==============================================================================
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
