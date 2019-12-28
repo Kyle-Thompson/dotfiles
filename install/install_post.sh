@@ -43,6 +43,13 @@ make
 sudo make install
 popd
 
+# src install dmenu
+git clone git@github.com:Kyle-Thompson/dmenu.git ~/src/dmenu
+pushd ~/src/dmenu
+sudo make install
+popd
+
+
 # enable services
 sudo systemctl enable --now ckb-next-daemon.service
 sudo systemctl enable --now nordvpnd.service
