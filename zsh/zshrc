@@ -64,7 +64,7 @@ export VISUAL=nvim
 export EDITOR=nvim
 
 # fzf
-FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+FZF_DEFAULT_COMMAND='fd --type f'
 
 # {neo}vimrc
 export VIMRC="$HOME/.vimrc"
@@ -93,7 +93,7 @@ function mkcd() {
 
 # Key bindings
 # ------------
-source "/home/kyle/.config/fzf/shell/key-bindings.zsh"
+source "$HOME/.config/fzf/shell/key-bindings.zsh"
 
 
 # ==============================================================================
