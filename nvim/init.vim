@@ -212,9 +212,6 @@ Plug 'junegunn/vim-easy-align'  " text alignment
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-Plug 'miyakogi/seiya.vim'       " background transparency
-let g:seiya_auto_enable = 1
-
 " colorschemes
 Plug 'Kyle-Thompson/xresources-colors.vim'
 Plug 'chriskempson/base16-vim'
