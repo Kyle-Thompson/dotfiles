@@ -33,7 +33,7 @@ hi Conceal                    ctermfg=04 ctermbg=00
 hi Cursor                     ctermfg=00 ctermbg=07
 hi NonText                    ctermfg=08
 hi LineNr                     ctermfg=08 ctermbg=10
-hi SignColumn                 ctermfg=08 ctermbg=10
+hi SignColumn                 ctermfg=08 ctermbg=00
 hi StatusLine                 ctermfg=04 ctermbg=08 cterm=none
 hi StatusLineNC               ctermfg=07 ctermbg=08 cterm=none
 hi VertSplit                  ctermfg=08 ctermbg=00 cterm=none
