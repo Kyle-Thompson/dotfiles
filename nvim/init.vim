@@ -37,14 +37,14 @@ set ignorecase      " ignore case when searching
 set smartcase       " match any given captials in search
 
 " shortmess
-set shortmess=
-set shortmess+=a    " all abbreviations
-set shortmess+=c    " no 'match n of m' or 'the only match' messages
-set shortmess+=s    " no 'search hit BOTTOM' messages
-set shortmess+=W    " no [w] when writing a file
-set shortmess+=T    " truncate long messages with '...'
-set shortmess+=I    " no intro messages when starting vim
-set shortmess+=F    " no prompt when opening multiple files
+" a - all abbreviations
+" c - no 'match n of m' or 'the only match' messages
+" s - no 'search hit BOTTOM' messages
+" W - no [w] when writing a file
+" T - truncate long messages with '...'
+" I - no intro messages when starting vim
+" F - no prompt when opening multiple files
+set shortmess=acsWTIF
 
 " spliting
 set splitbelow      " vertical splits open below current window
