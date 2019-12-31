@@ -212,14 +212,10 @@ Plug 'junegunn/vim-easy-align'  " text alignment
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-" colorschemes
-Plug 'Kyle-Thompson/xresources-colors.vim'
-Plug 'chriskempson/base16-vim'
-
 call plug#end()
 
 " set here since colorschemes can't be defined before plug#end()
-silent! colorscheme xres
+colorscheme xres
 
 
 " ==============================================================================
