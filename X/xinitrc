@@ -10,9 +10,12 @@ sxhkd -c /tmp/sxhkdrc &
 
 screenlayout.sh &   # screenlayout
 wallpaper.sh &      # wallpaper
-compton &           # compositor
+picom &             # compositor
 xset r rate 200 70  # keyboard key repeat speed
 # xset +fp ~/.local/share/fonts
+
+(cd $HOME && tmux new -d -s base)
+(cd $HOME/.dotfiles && tmux new -d -s config)
 
 case $wm_name in
     i3)       exec i3 ;;
