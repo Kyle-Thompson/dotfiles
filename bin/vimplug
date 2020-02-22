@@ -1,0 +1,44 @@
+#!/usr/bin/bash
+
+function add_plugin() {
+  IFS='/'
+  read -ra ARR <<< "$1"
+  acct="${ARR[0]}"
+  repo="${ARR[1]}"
+
+  git submodule add https://github.com/$acct/$repo.git nvim/pack/plugins/start/$repo
+}
+
+function update_plugins() {
+  git submodule update --remote --merge
+}
+
+function remove_plugin() {
+  git submodule deinit vim/pack/shapeshed/start/$1
+  git rm vim/pack/shapeshed/start/$1
+  rm -Rf .git/modules/vim/pack/shapeshed/start/$1
+}
+
+
+BASE_DIR=~/.dotfiles
+pushd $BASE_DIR > /dev/null
+
+case ${1} in
+  add)
+    add_plugin $2
+    ;;
+  
+  update)
+    update_plugins
+    ;;
+
+  remove)
+    remove_plugin $2
+    ;;
+
+  *)
+    echo usage: vimplug {add acct/repo, remove repo, update}
+    ;;
+esac
+
+popd > /dev/null

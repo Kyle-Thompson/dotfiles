@@ -8,6 +8,12 @@ let mapleader = ' '
 " clipboard
 set clipboard=unnamedplus  " enable system clipboard
 
+" completeopt
+" menuone   - pum even for a single match
+" noinstert - no text insterted until selection
+" noselect  - no auto selection
+set completeopt=menuone,noinsert,noselect
+
 " fill chars
 set fillchars+=vert:\| |  " use | for vertical split borders
 set fillchars+=eob:\   |  " no ~ for end-of-buffer lines.
@@ -20,10 +26,14 @@ set shiftwidth=2    " number of spaces for autoindent
 set expandtab       " use spaces instead of tabs
 
 " miscelanious
+colorscheme xres    " set colorscheme
 set hidden          " hide file, don't close on file switch
 set autoread        " automatically update buffer when file chaged externally
 set pumheight=30    " limits popup menu height
 set textwidth=80    " length to break lines
+
+" plugins
+set packpath=~/.config/nvim/
 
 " safety files
 set noswapfile      " do not create swap files
@@ -69,7 +79,9 @@ set nolist          " do not show characters at the end of lines
 
 " automatically change the working path to the path of the current file
 autocmd BufNewFile,BufEnter * silent! lcd %:p:h
-" au BufRead * if search('\M-*- C++ -*-', 'n', 1) | setlocal ft=cpp | endif
+
+autocmd BufEnter * call ncm2#enable_for_buffer()
+autocmd BufEnter * call GetGitBranch()
 
 
 " ==============================================================================
@@ -109,120 +121,78 @@ nnoremap <silent> <leader>h :nohls<CR>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+" plugin majutsushi/tagbar
+nnoremap <silent> <leader>t :TagbarToggle<CR><C-W>=
 
-" ==============================================================================
-" ======================   Plugins   ===========================================
-" ==============================================================================
+" plugin junegunn/vim-easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
-" install vim-plug if it's not already
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall | source $NEOVIMRC
-endif
+" plugin easymotion/vim-easymotion
+map <leader>w <Plug>(easymotion-bd-w)
+map <leader>c <Plug>(easymotion-s)
 
+" plugin haya14busa/incsearch.vim
+map / <Plug>(incsearch-forward)
+map ? <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 
-call plug#begin()
+" plugin ncm2/ncm2-ultisnips
+inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
 
-" ========== completion ========================================================
-" ========== language server
-Plug 'autozimu/LanguageClient-neovim', {
-  \ 'branch': 'next',
-  \ 'do': 'bash install.sh',
-\ }
+" plugin junegunn/fzf.vim
+nnoremap <leader>ff  :Files<CR>
+nnoremap <leader>fb  :Buffers<CR>
+nnoremap <leader>fp  :exec 'Files' b:LanguageClient_projectRoot<CR>
+nnoremap <leader>fl  :Lines<CR>
+nnoremap <leader>fbl :BLines<CR>
 
-let g:LanguageClient_serverStderr = '/tmp/lsp.stderr'
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_hasSnippetSupport = 1
-let g:LanguageClient_useFloatingHover = 1
-let g:LanguageClient_serverCommands = {
-  \ 'c':      ['clangd'
-              \ , '--background-index'
-              \ , '--clang-tidy'
-              \ , '--log=error'
-              \ , '--pretty'],
-  \ 'cpp':    ['clangd'
-              \ , '--background-index'
-              \ , '--clang-tidy'
-              \ , '--log=error'
-              \ , '--pretty'],
-  \ 'python': ['pyls'],
-  \ 'rust':   ['rustup', 'run', 'stable', 'rls'],
-  \ 'sh':     ['bash-language-server', 'start'],
-\ }
-
+" plugin autozimu/LanguageClient-neovim
 nnoremap <silent> <leader>ld :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <leader>lwd :call
   \ LanguageClient#textDocument_definition({'gotoCmd': 'split'})<CR>
 nnoremap <silent> <leader>lr :call LanguageClient#textDocument_references()<CR>
 nnoremap <silent> <leader>lf :call LanguageClient#textDocument_formatting()<CR>
 
-" ========== completion manager
-Plug 'ncm2/ncm2'        " completion engine
-Plug 'roxma/nvim-yarp'  " needed for ncm2
-Plug 'ncm2/ncm2-tmux'   " find completions from tmux panes
-Plug 'ncm2/ncm2-path'   " complete filesystem paths
 
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=menuone,noinsert,noselect
+" ==============================================================================
+" ======================   Plugins   ===========================================
+" ==============================================================================
+
+" ========== language server
+let g:LanguageClient_serverStderr = '/tmp/lsp.stderr'
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_hasSnippetSupport = 1
+let g:LanguageClient_useFloatingHover = 1
+let g:LanguageClient_serverCommands = {
+  \ 'c':      ['clangd',
+              \ '--background-index',
+              \ '--clang-tidy',
+              \ '--log=error',
+              \ '--pretty'],
+  \ 'cpp':    ['clangd',
+              \ '--background-index',
+              \ '--clang-tidy',
+              \ '--log=error',
+              \ '--pretty'],
+  \ 'python': ['pyls'],
+  \ 'rust':   ['rustup', 'run', 'stable', 'rls'],
+  \ 'sh':     ['bash-language-server', 'start'],
+\ }
+
 
 " ========== snippets
-Plug 'SirVer/ultisnips'     " snippet engine
-Plug 'honza/vim-snippets'   " default snippets
-Plug 'ncm2/ncm2-ultisnips'  " autocompletion support
-
-inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
-" ExpandTrigger default conflicts with pum movement
 let g:UltiSnipsExpandTrigger = '\<Plug>(placeholder)'
 let g:UltiSnipsJumpForwardTrigger  = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 
-" ========== searching =========================================================
-Plug 'junegunn/fzf.vim'
-nnoremap <leader>ff  :Files<CR>
-nnoremap <leader>fb  :Buffers<CR>
-nnoremap <leader>fp  :exec 'Files' b:LanguageClient_projectRoot<CR>
-nnoremap <leader>fl  :Lines<CR>
-nnoremap <leader>fbl :BLines<CR>
+" ========== searching
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit',
 \ }
-" TODO <ctrl-d> -> (buffer only) delete selected buffer w/o switching buffers
-
-Plug 'jremmen/vim-ripgrep'
-nnoremap <leader>g :Rg<CR>
-
-Plug 'easymotion/vim-easymotion'
-map <leader>w <Plug>(easymotion-bd-w)
-map <leader>c <Plug>(easymotion-s)
-
-Plug 'haya14busa/incsearch.vim'
-map / <Plug>(incsearch-forward)
-map ? <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-
-
-" ========== utilities =========================================================
-Plug 'wellle/targets.vim'       " extra text objects
-Plug 'tommcdo/vim-exchange'     " text swapping
-Plug 'tpope/vim-surround'       " wrapping text with pairs
-Plug 'jiangmiao/auto-pairs'     " creating pairs
-Plug 'tpope/vim-commentary'     " commenting
-Plug 'tpope/vim-repeat'         " repeatable plugins
-Plug 'majutsushi/tagbar'        " show file tags in sidebar
-nnoremap <silent> <leader>t :TagbarToggle<CR><C-W>=
-
-Plug 'junegunn/vim-easy-align'  " text alignment
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
-
-call plug#end()
-
-" set here since colorschemes can't be defined before plug#end()
-colorscheme xres
 
 
 " ==============================================================================
@@ -231,12 +201,11 @@ colorscheme xres
 
 " ========== git info ==========================================================
 function! GetGitBranch()
-  let g:git = system( join([ 'git rev-parse --abbrev-ref HEAD 2> /dev/null',
-                           \ 'sed "s/^/git:/"',
-                           \ 'tr "\n" " "']
+  let g:git = system(join([ 'git rev-parse --abbrev-ref HEAD 2> /dev/null',
+                          \ 'sed "s/^/git:/"',
+                          \ 'tr "\n" " "']
                     \ , '|'))
 endfunction
-autocmd BufEnter * call GetGitBranch()
 
 
 " ========== statusline ========================================================

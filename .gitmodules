@@ -1,0 +1,61 @@
+[submodule "nvim/pack/plugins/start/vim-commentary"]
+	path = nvim/pack/plugins/start/vim-commentary
+	url = git@github.com:tpope/vim-commentary.git
+[submodule "nvim/pack/plugins/start/vim-repeat"]
+	path = nvim/pack/plugins/start/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "nvim/pack/plugins/start/targets.vim"]
+	path = nvim/pack/plugins/start/targets.vim
+	url = https://github.com/wellle/targets.vim.git
+[submodule "nvim/pack/plugins/start/vim-exchange"]
+	path = nvim/pack/plugins/start/vim-exchange
+	url = https://github.com/tommcdo/vim-exchange.git
+[submodule "nvim/pack/plugins/start/vim-surround"]
+	path = nvim/pack/plugins/start/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "nvim/pack/plugins/start/auto-pairs"]
+	path = nvim/pack/plugins/start/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs.git
+[submodule "nvim/pack/plugins/start/tagbar"]
+	path = nvim/pack/plugins/start/tagbar
+	url = https://github.com/majutsushi/tagbar.git
+[submodule "nvim/pack/plugins/start/vim-easy-align"]
+	path = nvim/pack/plugins/start/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align.git
+[submodule "nvim/pack/plugins/start/vim-easymotion"]
+	path = nvim/pack/plugins/start/vim-easymotion
+	url = https://github.com/easymotion/vim-easymotion.git
+[submodule "nvim/pack/plugins/start/incsearch.vim"]
+	path = nvim/pack/plugins/start/incsearch.vim
+	url = https://github.com/haya14busa/incsearch.vim.git
+[submodule "nvim/pack/plugins/start/ncm2-path"]
+	path = nvim/pack/plugins/start/ncm2-path
+	url = https://github.com/ncm2/ncm2-path.git
+[submodule "nvim/pack/plugins/start/ncm2-tmux"]
+	path = nvim/pack/plugins/start/ncm2-tmux
+	url = https://github.com/ncm2/ncm2-tmux.git
+[submodule "nvim/pack/plugins/start/ncm2-ultisnips"]
+	path = nvim/pack/plugins/start/ncm2-ultisnips
+	url = https://github.com/ncm2/ncm2-ultisnips.git
+[submodule "nvim/pack/plugins/start/ultisnips"]
+	path = nvim/pack/plugins/start/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
+[submodule "nvim/pack/plugins/start/vim-snippets"]
+	path = nvim/pack/plugins/start/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
+[submodule "nvim/pack/plugins/start/ncm2"]
+	path = nvim/pack/plugins/start/ncm2
+	url = https://github.com/ncm2/ncm2.git
+[submodule "nvim/pack/plugins/start/nvim-yarp"]
+	path = nvim/pack/plugins/start/nvim-yarp
+	url = https://github.com/roxma/nvim-yarp.git
+[submodule "nvim/pack/plugins/start/fzf.vim"]
+	path = nvim/pack/plugins/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
+[submodule "nvim/pack/plugins/start/LanguageClient-neovim"]
+	path = nvim/pack/plugins/start/LanguageClient-neovim
+	url = https://github.com/autozimu/LanguageClient-neovim.git
+	branch = next
+[submodule "nvim/pack/plugins/start/fzf"]
+	path = nvim/pack/plugins/start/fzf
+	url = https://github.com/junegunn/fzf.git
