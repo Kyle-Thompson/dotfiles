@@ -142,11 +142,11 @@ let g:LanguageClient_serverCommands = {
   \ 'sh':     ['bash-language-server', 'start'],
 \ }
 
-nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
-nnoremap <leader>lwd :call
+nnoremap <silent> <leader>ld :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <leader>lwd :call
   \ LanguageClient#textDocument_definition({'gotoCmd': 'split'})<CR>
-nnoremap <leader>lr :call LanguageClient#textDocument_references()<CR>
-nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+nnoremap <silent> <leader>lr :call LanguageClient#textDocument_references()<CR>
+nnoremap <silent> <leader>lf :call LanguageClient#textDocument_formatting()<CR>
 
 " ========== completion manager
 Plug 'ncm2/ncm2'        " completion engine
