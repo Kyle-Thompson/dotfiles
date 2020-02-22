@@ -131,12 +131,21 @@ Plug 'autozimu/LanguageClient-neovim', {
   \ 'do': 'bash install.sh',
 \ }
 
+let g:LanguageClient_serverStderr = '/tmp/lsp.stderr'
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_hasSnippetSupport = 1
 let g:LanguageClient_useFloatingHover = 1
 let g:LanguageClient_serverCommands = {
-  \ 'c':      ['clangd', '-clang-tidy'],
-  \ 'cpp':    ['clangd', '-clang-tidy'],
+  \ 'c':      ['clangd'
+              \ , '--background-index'
+              \ , '--clang-tidy'
+              \ , '--log=error'
+              \ , '--pretty'],
+  \ 'cpp':    ['clangd'
+              \ , '--background-index'
+              \ , '--clang-tidy'
+              \ , '--log=error'
+              \ , '--pretty'],
   \ 'python': ['pyls'],
   \ 'rust':   ['rustup', 'run', 'stable', 'rls'],
   \ 'sh':     ['bash-language-server', 'start'],
