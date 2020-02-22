@@ -154,3 +154,5 @@ prompt='%1~ ${vcs_info_msg_0_}%f> '
 # ==============================================================================
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
