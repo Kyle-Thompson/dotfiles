@@ -12,10 +12,10 @@ screenlayout.sh &   # screenlayout
 wallpaper.sh &      # wallpaper
 picom &             # compositor
 xset r rate 200 70  # keyboard key repeat speed
-# xset +fp ~/.local/share/fonts
 
 (cd $HOME && tmux new -d -s base)
 (cd $HOME/.dotfiles && tmux new -d -s config)
+(cd $HOME/src/limebar && tmux new -d -s limebar)
 
 case $wm_name in
     i3)       exec i3 ;;
