@@ -179,7 +179,6 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 
 " ========== searching =========================================================
-Plug 'junegunn/fzf', { 'dir': $HOME.'/.config/fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " TODO override FZF_DEFAULT_COMMAND
 nnoremap <leader>ff  :Files<CR>
