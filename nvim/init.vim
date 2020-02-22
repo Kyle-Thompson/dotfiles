@@ -180,7 +180,6 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 " ========== searching =========================================================
 Plug 'junegunn/fzf.vim'
-" TODO override FZF_DEFAULT_COMMAND
 nnoremap <leader>ff  :Files<CR>
 nnoremap <leader>fb  :Buffers<CR>
 nnoremap <leader>fp  :exec 'Files' b:LanguageClient_projectRoot<CR>
