@@ -25,7 +25,7 @@ set softtabstop=2   " number of spaces to replace tabs by
 set shiftwidth=2    " number of spaces for autoindent
 set expandtab       " use spaces instead of tabs
 
-" miscelanious
+" miscellaneous
 colorscheme xres    " set colorscheme
 set hidden          " hide file, don't close on file switch
 set autoread        " automatically update buffer when file chaged externally
