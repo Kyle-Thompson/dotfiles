@@ -84,6 +84,7 @@ set nolist          " do not show characters at the end of lines
 " automatically change the working path to the path of the current file
 autocmd BufNewFile,BufEnter * silent! lcd %:p:h
 
+packadd ncm2
 autocmd BufEnter * call ncm2#enable_for_buffer()
 autocmd BufEnter * call GetGitBranch()
 
@@ -151,38 +152,46 @@ nnoremap <leader>fp  :exec 'Files' b:LanguageClient_projectRoot<CR>
 nnoremap <leader>fl  :Lines<CR>
 nnoremap <leader>fbl :BLines<CR>
 
-" plugin autozimu/LanguageClient-neovim
-nnoremap <silent> <leader>ld :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <leader>lwd :call
-  \ LanguageClient#textDocument_definition({'gotoCmd': 'split'})<CR>
-nnoremap <silent> <leader>lr :call LanguageClient#textDocument_references()<CR>
-nnoremap <silent> <leader>lf :call LanguageClient#textDocument_formatting()<CR>
-
 
 " ==============================================================================
 " ======================   Plugins   ===========================================
 " ==============================================================================
 
-" ========== language server
-let g:LanguageClient_serverStderr = '/tmp/lsp.stderr'
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_hasSnippetSupport = 1
-let g:LanguageClient_useFloatingHover = 1
-let g:LanguageClient_serverCommands = {
-  \ 'c':      ['clangd',
-              \ '--background-index',
-              \ '--clang-tidy',
-              \ '--log=error',
-              \ '--pretty'],
-  \ 'cpp':    ['clangd',
-              \ '--background-index',
-              \ '--clang-tidy',
-              \ '--log=error',
-              \ '--pretty'],
-  \ 'python': ['pyls'],
-  \ 'rust':   ['rustup', 'run', 'stable', 'rls'],
-  \ 'sh':     ['bash-language-server', 'start'],
-\ }
+packadd nvim-lsp
+
+lua << EOF
+local nvim_lsp = require('nvim_lsp')
+local ncm2 = require('ncm2')
+nvim_lsp.clangd.setup{
+  cmd = {'clangd', '--background-index', '--clang-tidy', '--log=error',
+         '--pretty'};
+  on_init = ncm2.register_lsp_source;
+}
+
+-- disable signs
+do
+  local util = require 'vim.lsp.util'
+  vim.lsp.callbacks['textDocument/publishDiagnostics'] = function(_, _, result)
+    if not result then return end
+    local uri = result.uri
+    local bufnr = vim.uri_to_bufnr(uri)
+    if not bufnr then
+      err_message("LSP.publishDiagnostics: Couldn't find buffer for ", uri)
+      return
+    end
+    util.buf_clear_diagnostics(bufnr)
+    util.buf_diagnostics_save_positions(bufnr, result.diagnostics)
+    util.buf_diagnostics_underline(bufnr, result.diagnostics)
+    util.buf_diagnostics_virtual_text(bufnr, result.diagnostics)
+    vim.api.nvim_command("doautocmd User LspDiagnosticsChanged")
+  end
+end
+EOF
+
+nnoremap <silent> <leader>ld  <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> <leader>lwd <cmd>sp<CR>:lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> <leader>li  <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> <leader>lh  <cmd>lua vim.lsp.buf.hover()<CR>
 
 
 " ========== snippets

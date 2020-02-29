@@ -52,10 +52,12 @@
 [submodule "nvim/pack/plugins/start/fzf.vim"]
 	path = nvim/pack/plugins/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
-[submodule "nvim/pack/plugins/start/LanguageClient-neovim"]
-	path = nvim/pack/plugins/start/LanguageClient-neovim
-	url = https://github.com/autozimu/LanguageClient-neovim.git
-	branch = next
 [submodule "nvim/pack/plugins/start/fzf"]
 	path = nvim/pack/plugins/start/fzf
 	url = https://github.com/junegunn/fzf.git
+[submodule "nvim/pack/plugins/start/nvim-lsp"]
+	path = nvim/pack/plugins/start/nvim-lsp
+	url = https://github.com/neovim/nvim-lsp.git
+[submodule "nvim/pack/plugins/start/ncm2-bufword"]
+	path = nvim/pack/plugins/start/ncm2-bufword
+	url = https://github.com/ncm2/ncm2-bufword.git
