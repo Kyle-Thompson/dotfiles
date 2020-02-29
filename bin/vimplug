@@ -14,9 +14,9 @@ function update_plugins() {
 }
 
 function remove_plugin() {
-  git submodule deinit vim/pack/shapeshed/start/$1
-  git rm vim/pack/shapeshed/start/$1
-  rm -Rf .git/modules/vim/pack/shapeshed/start/$1
+  git submodule deinit nvim/pack/plugins/start/$1
+  git rm nvim/pack/plugins/start/$1
+  rm -Rf .git/modules/nvim/pack/plugins/start/$1
 }
 
 
