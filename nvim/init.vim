@@ -32,6 +32,10 @@ set autoread        " automatically update buffer when file chaged externally
 set pumheight=30    " limits popup menu height
 set textwidth=80    " length to break lines
 
+" netrw
+let g:netrw_dirhistmax = 0  " no netrwhist file
+let g:netrw_banner = 0      " no top comments
+
 " plugins
 set packpath=~/.config/nvim/
 
