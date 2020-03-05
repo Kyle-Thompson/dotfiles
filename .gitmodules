@@ -43,9 +43,6 @@
 [submodule "nvim/pack/plugins/start/vim-snippets"]
 	path = nvim/pack/plugins/start/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
-[submodule "nvim/pack/plugins/start/ncm2"]
-	path = nvim/pack/plugins/start/ncm2
-	url = https://github.com/ncm2/ncm2.git
 [submodule "nvim/pack/plugins/start/nvim-yarp"]
 	path = nvim/pack/plugins/start/nvim-yarp
 	url = https://github.com/roxma/nvim-yarp.git
@@ -61,3 +58,6 @@
 [submodule "nvim/pack/plugins/start/ncm2-bufword"]
 	path = nvim/pack/plugins/start/ncm2-bufword
 	url = https://github.com/ncm2/ncm2-bufword.git
+[submodule "nvim/pack/plugins/start/ncm2"]
+	path = nvim/pack/plugins/start/ncm2
+	url = https://github.com/ncm2/ncm2.git
