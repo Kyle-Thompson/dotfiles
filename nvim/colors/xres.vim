@@ -80,16 +80,20 @@ hi Type                       ctermfg=03            cterm=none
 hi Typedef                    ctermfg=03
 
 " LSP highlighting
-hi LspDiagnosticsError                   ctermfg=01 ctermbg=08
-hi LspDiagnosticsWarning                 ctermfg=15 ctermbg=08
-hi LspDiagnosticsHint                    ctermfg=15 ctermbg=08
-hi LspDiagnosticsInformation             ctermfg=15 ctermbg=08
-hi LspDiagnosticsUnderlineError                     ctermbg=08
-hi LspDiagnosticsUnderlineWarning                   ctermbg=08
-hi LspDiagnosticsUnderlineHint                      ctermbg=08
-hi LspDiagnosticsUnderlineInformation               ctermbg=08
-hi LspDiagnosticsUnderline                          ctermbg=08
+hi LspDiagnostic              ctermfg=15 ctermbg=08
+hi LspDiagnosticsUnderline               ctermbg=08
 
+hi link LspDiagnosticsError                LspDiagnostic
+hi link LspDiagnosticsWarning              LspDiagnostic
+hi link LspDiagnosticsHint                 LspDiagnostic
+hi link LspDiagnosticsInformation          LspDiagnostic
+hi link LspDiagnosticsUnderlineError       LspDiagnosticsUnderline
+hi link LspDiagnosticsUnderlineWarning     LspDiagnosticsUnderline
+hi link LspDiagnosticsUnderlineHint        LspDiagnosticsUnderline
+hi link LspDiagnosticsUnderlineInformation LspDiagnosticsUnderline
+hi link LspDiagnosticsUnderline            LspDiagnosticsUnderline
+
+hi LspDiagnosticsError        ctermfg=01
 
 " CPP highlighting
 hi cppCast                    ctermfg=06
