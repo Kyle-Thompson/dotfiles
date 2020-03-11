@@ -15,7 +15,11 @@ xset r rate 200 70  # keyboard key repeat speed
 
 (cd $HOME && tmux new -d -s base)
 (cd $HOME/.dotfiles && tmux new -d -s config)
-(cd $HOME/src/limebar && tmux new -d -s limebar)
+
+# create a tmux session for every project in ~/src
+for d in $(ls $HOME/src 2> /dev/null); do
+  (cd $HOME/src/$d && tmux new -d -s $d)
+done
 
 case $wm_name in
     i3)       exec i3 ;;
