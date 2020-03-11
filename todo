@@ -42,9 +42,7 @@
     - displays which programs are using most power
 * rEFInd desktop setup (boot windows from custom stanza)
 * keyboard and mouse colors on linux (desktop)
-* zsh plugins
-  - syntax highlighting
-  - autosuggestions
+* match zsh syntax highlighting to vim highlighting for zsh
 * update GTK theme and icons
 * mail
   - neomutt
