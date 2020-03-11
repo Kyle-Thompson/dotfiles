@@ -1,12 +1,16 @@
 #!/bin/bash
 #include "/home/kyle/.dotfiles/colorschemes/lakeside"
 
+function divide() {
+  printf "\n\n"
+}
+
 # load colorscheme definitions
 cat ~/.dotfiles/colorschemes/lakeside
-printf "\n\n"
+divide
 
 # assign colorscheme definitions for all programs that load from Xresources
-echo "
+cat <<-EOF
 ! special
 *.foreground: FOREGROUND
 *.background: BACKGROUND
@@ -36,14 +40,13 @@ echo "
 ! white
 *.color7:     COLOR7
 *.color15:    COLOR15
-"
-printf "\n\n"
+EOF
+divide
 
 case $(cat /etc/hostname) in
     "macarch") echo "i3.mod: Mod4" ;;
     "archpc") echo "i3.mod: Mod1" ;;
 esac
-printf "\n\n"
+divide
 
 cat ~/.dotfiles/rofi/config
-printf "\n\n"
