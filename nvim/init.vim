@@ -162,6 +162,7 @@ lua require 'lsp'
 nnoremap <silent> <leader>ld  <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> <leader>lwd <cmd>sp<CR>:lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> <leader>li  <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> <leader>lwi <cmd>sp<CR>:lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> <leader>lh  <cmd>lua vim.lsp.buf.hover()<CR>
 
 
