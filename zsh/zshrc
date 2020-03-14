@@ -6,7 +6,10 @@
 
 alias ls='ls --color=auto'
 
-alias nif='nvim $(fd -t f | fzf -m || echo +qa)'
+alias nif='nvim $(fd -t f \
+                 | fzf --reverse -m --preview \
+                       "bat --style=numbers --color=always {} | head -100" \
+                 || echo +qa)'
 
 alias update_pacman_mirrors='sudo reflector --sort rate --protocol https \
       --fastest 50 --number 100 --save /etc/pacman.d/mirrorlist'
