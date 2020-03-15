@@ -34,7 +34,7 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
+eval $(dircolors $HOME/.dotfiles/dir_colors)
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -57,6 +57,20 @@ export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.config/fzf/bin
 
+export LESS_TERMCAP_md=$(tput setaf 4)
+export LESS_TERMCAP_mb=$(tput setaf 2)
+# export LESS_TERMCAP_me=$(tput sgr0)
+# export LESS_TERMCAP_so=$(tput setaf 2; tput setab 8)
+# export LESS_TERMCAP_se=$(tput rmso; tput sgr0)
+# export LESS_TERMCAP_us=$(tput smul; tput setaf 7)
+# export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
+# export LESS_TERMCAP_mr=$(tput rev)
+# export LESS_TERMCAP_mh=$(tput dim)
+# export LESS_TERMCAP_ZN=$(tput ssubm)
+# export LESS_TERMCAP_ZV=$(tput rsubm)
+# export LESS_TERMCAP_ZO=$(tput ssupm)
+# export LESS_TERMCAP_ZW=$(tput rsupm)
+
 export LESSHISTFILE="-"
 
 # XDG
@@ -73,9 +87,6 @@ FZF_DEFAULT_COMMAND='fd --type f'
 # {neo}vimrc
 export VIMRC="$HOME/.vimrc"
 export NEOVIMRC="$HOME/.config/nvim/init.vim"
-
-# LS_COLORS
-eval `dircolors $HOME/.dotfiles/dir_colors`
 
 
 # ==============================================================================
