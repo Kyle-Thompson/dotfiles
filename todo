@@ -55,3 +55,5 @@
   - blocks st transparency since it looks odd with one opaque bar in the middle
     of the screen
 * use terminal based pulse audio mixer
+* learn zstyle for completion
+  - /usr/share/zsh/functions/Completion/Zsh/_zstyle
