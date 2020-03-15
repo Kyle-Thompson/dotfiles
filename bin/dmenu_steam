@@ -1,0 +1,21 @@
+#!/bin/bash
+
+declare -A GAME_MAP
+
+for file in ~/.steam/steam/steamapps/*.acf; do
+  ID=$(grep -w -m 1 '"appid"' "$file" \
+       | sed -r 's/[^"]*"appid"[^"]*"([^"]*)"/\1/')
+  NAME=$(grep -w -m 1 '"name"' "$file" \
+         | sed -r -e 's/[^"]*"name"[^"]*"([^"]*)"/\1/' -e 's/&/&amp;/')
+  if ! [[ "$NAME" =~ Proton* ]] && ! [[ "$NAME" =~ Steamworks* ]]; then
+    GAME_MAP[$NAME]=$ID
+  fi
+done
+
+name=$(for game in "${!GAME_MAP[@]}"; do echo $game; done \
+       | sort \
+       | dmenu -i -p "game:")
+
+if ! test -z $name; then
+  steam steam://run/"${GAME_MAP[$name]}" &
+fi
