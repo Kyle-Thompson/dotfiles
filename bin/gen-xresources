@@ -47,6 +47,3 @@ case $(cat /etc/hostname) in
     "macarch") echo "i3.mod: Mod4" ;;
     "archpc") echo "i3.mod: Mod1" ;;
 esac
-divide
-
-cat ~/.dotfiles/rofi/config

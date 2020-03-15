@@ -23,7 +23,6 @@ firefox
 chromium
 
 # desktop environment
-rofi
 openbox
 sxhkd
 wmctrl

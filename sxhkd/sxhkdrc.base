@@ -4,7 +4,7 @@ alt + Return
 
 # program launcher
 alt + @space
-  rofi -show run
+  dmenu_run
 
 # close window
 alt + q

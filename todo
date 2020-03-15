@@ -46,8 +46,6 @@
 * update GTK theme and icons
 * neomutt
 * fix weird looking horizontal line in terminal
-* switch from rofi to dmenu
-  - default to recently used programs
 * fix st cursor shape (in shell and vim)
 * set up Tor and Encrypted DNS
 * host mda files somewhere
