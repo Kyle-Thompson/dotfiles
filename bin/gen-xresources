@@ -43,6 +43,8 @@ cat <<-EOF
 ! white
 *.color7:     COLOR7
 *.color15:    COLOR15
+
+*.font:       GohuFont:pixelsize=11
 EOF
 divide
 
