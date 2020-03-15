@@ -1,7 +1,3 @@
-#define FOREGROUND #7ea2b4
-#define CURSOR     #7ea2b4
-#define BACKGROUND #161b1d
-
 #define COLOR0  #161b1d
 #define COLOR8  #1f292e
 #define COLOR1  #d22d72
@@ -18,3 +14,10 @@
 #define COLOR14 #2d8f6f 
 #define COLOR7  #7ea2b4
 #define COLOR15 #5a7b8c
+
+#define FOREGROUND COLOR7
+#define BACKGROUND COLOR0
+#define CURSOR     COLOR7
+#define PRI_ACCENT COLOR4
+#define SEC_ACCENT COLOR2
+#define ALERT      COLOR1

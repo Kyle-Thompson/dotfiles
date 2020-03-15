@@ -14,7 +14,10 @@ cat <<-EOF
 ! special
 *.foreground: FOREGROUND
 *.background: BACKGROUND
-*.cursor:     FOREGROUND
+*.cursor:     CURSOR
+*.pri_accent: PRI_ACCENT
+*.sec_accent: SEC_ACCENT
+*.alert:      ALERT
 
 ! black
 *.color0:     COLOR0
