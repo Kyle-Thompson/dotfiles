@@ -45,3 +45,4 @@ tmux
 transmission-cli
 zsh
 vlc
+dhcpcd

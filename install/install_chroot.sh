@@ -34,6 +34,7 @@ DHCP=ipv4
 systemctl enable systemd-networkd
 systemctl enable systemd-resolved
 systemctl enable systemd-timedated
+systemctl enable dhcpcd.service
 
 # timezone
 ln -s /usr/share/zoneinfo/America/New_York /etc/localtime
