@@ -6,6 +6,10 @@ alt + Return
 alt + @space
   dmenu_run
 
+# run steam
+alt + p
+  dmenu_steam
+
 # close window
 alt + q
   wmctrl -c :ACTIVE:
