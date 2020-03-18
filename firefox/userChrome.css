@@ -1,15 +1,14 @@
 /* ========== colorscheme =================================================== */
 :root {
-  --background: #161b1d !important;
-  --text-main:  #7ea2b4 !important;
-  --text-alt:   #257fad !important;
+  --background: #161b1d;
+  --sel-bg:     #1f292e;
+  --text-main:  #7ea2b4;
+  --text-alt:   #257fad;
 }
 
 
 /* ========== apply theme =================================================== */
 /* colors */
-.tab-background,
-.tabbrowser-tab,
 #nav-bar,
 #urlbar,
 #TabsToolbar,
@@ -17,20 +16,29 @@
 #PersonalToolbar,
 #appMenu-popup
 {
-  color:      var(--text-main)  !important;  /* text color */
-  background: var(--background) !important;  /* background color */
+  color:      var(--text-main)  !important;
+  background: var(--background) !important;
 
   /* borders */
   border:     none !important;
   box-shadow: none !important;
 }
-/* colors (selected, hover) */
-#TabsToolbar
-.tabbrowser-tab[selected],
-.tabbrowser-tab:hover
-{
-  color: var(--text-alt) !important; 
+
+.tab-background[selected="true"] {
+  background: var(--background) !important;
 }
+tab:not([selected="true"]) {
+  background: var(--background) !important;
+  color:      var(--text-main) !important;
+}
+tab[selected="true"] {
+  background: var(--background) !important;
+  color:      var(--text-alt) !important;
+}
+tab:hover {
+  background: var(--sel-bg) !important;
+}
+
 /* font */
 .tab-background,
 .tabbrowser-tab,
@@ -136,7 +144,7 @@ toolbarseparator,                /* all separators */
 }
 #appMenu-popup .panel-arrow {
   margin-right: 248px !important;
-} /**/
+}
 
 /* fix white bg when opening new tabs -- to fix*/
 browser,
