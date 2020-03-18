@@ -12,11 +12,12 @@ divide
 # assign colorscheme definitions for all programs that load from Xresources
 cat <<-EOF
 ! special
-*.foreground: FOREGROUND
-*.background: BACKGROUND
+*.foreground: FG_PRI
+*.background: BG_PRI
+*.sel_bg:     BG_SEC
 *.cursor:     CURSOR
-*.pri_accent: PRI_ACCENT
-*.sec_accent: SEC_ACCENT
+*.acc_pri:    ACC_PRI
+*.acc_sec:    ACC_SEC
 *.alert:      ALERT
 
 ! black

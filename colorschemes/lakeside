@@ -15,9 +15,10 @@
 #define COLOR7  #7ea2b4
 #define COLOR15 #5a7b8c
 
-#define FOREGROUND COLOR7
-#define BACKGROUND COLOR0
-#define CURSOR     COLOR7
-#define PRI_ACCENT COLOR4
-#define SEC_ACCENT COLOR2
-#define ALERT      COLOR1
+#define FG_PRI  COLOR7
+#define BG_PRI  COLOR0
+#define BG_SEC  COLOR8
+#define CURSOR  COLOR7
+#define ACC_PRI COLOR4
+#define ACC_SEC COLOR2
+#define ALERT   COLOR1
