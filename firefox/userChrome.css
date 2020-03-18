@@ -103,7 +103,9 @@ toolbarseparator,                /* all separators */
 .urlbar-history-dropmarker,      /* history dropdown arrow */
 #tracking-protection-icon-container,  /* tracking protection button */
 #identity-box,                   /* */
-#identity-icon-labels            /* */
+#identity-icon-labels,           /* */
+#appMenu-protection-report-button,  /* Privacy Protections button */
+#appMenu-whatsnew-button         /* what's new button */
 {
   display: none !important;
 }
