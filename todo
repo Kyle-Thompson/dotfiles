@@ -25,28 +25,10 @@
   - move bookmarks into button that expands across the line.
 * startpage
 * music (mpd, ncmpcpp, mpc), (tizonia)
-* limebar
-  - figure out how to make interactive dropdowns in general
-  - currently running applications (done)
-    - apply color to selected application (done)
-  - time & date dropdown (time, dropdown is calendar with date)
-  - internet dropdown
-    - lone glyph of either disconnected wifi, connected wifi or ethernet
-    - clicking glyph will open dropdown of all available networks
-      - clicking entry in dropdown will connect to that network
-      - clicking wifi network while connected over ethernet is a NOP
-  - volume (laptop)
-    - clicking toggles mute
-  - battery (laptop)
-    - displays estimated time remaining
-    - displays which programs are using most power
 * systemd-boot for desktop and laptop
-* keyboard and mouse colors on linux (desktop)
 * match zsh syntax highlighting to vim highlighting for zsh
 * update GTK theme and icons
 * neomutt
-* fix weird looking horizontal line in terminal
-* fix st cursor shape (in shell and vim)
 * set up Tor and Encrypted DNS
 * host mda files somewhere
 * allow vim status line to be transparent
