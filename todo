@@ -23,6 +23,7 @@
   - make python script with pywal module to reload programs on color change.
 * firefox rice
   - move bookmarks into button that expands across the line.
+  - search bar overlaps tabs during search when width is reduced.
 * startpage
 * music (mpd, ncmpcpp, mpc), (tizonia)
 * systemd-boot for desktop and laptop
