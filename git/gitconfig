@@ -28,6 +28,7 @@
   pretty = format:%C(yellow)%h %Cblue%>(10)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s
 [merge]
   ff = only
+  conflictstyle = diff3
 [commit]
   template = ~/.gitmessage
 [fetch]
