@@ -4,7 +4,7 @@
 BRANCH=${2:-master}
 
 # cmake flags
-PROJECTS="-DLLVM_ENABLE_PROJECTS='clang;clang-tools-extra;lld;lldb;compiler-rt'"
+PROJECTS="-DLLVM_ENABLE_PROJECTS='clang;clang-tools-extra;lld;libcxx;libcxxabi;lldb;compiler-rt'"
 BUILD_TYPE="-DCMAKE_BUILD_TYPE=Release"
 BINDINGS="-DLLVM_ENABLE_BINDINGS=Off"
 
