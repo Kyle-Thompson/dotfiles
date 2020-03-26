@@ -1,6 +1,6 @@
 [submodule "nvim/pack/plugins/start/vim-commentary"]
 	path = nvim/pack/plugins/start/vim-commentary
-	url = git@github.com:tpope/vim-commentary.git
+	url = https://github.com/tpope/vim-commentary.git
 [submodule "nvim/pack/plugins/start/vim-repeat"]
 	path = nvim/pack/plugins/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
