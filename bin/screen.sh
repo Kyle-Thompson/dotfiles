@@ -12,7 +12,7 @@ case "$1" in
     ;;
   night)
     redshift -P -O 1500
-    xbacklight -set 10
+    xbacklight -set 1
     ;;
   *)
     echo must provide argument of either day or night
