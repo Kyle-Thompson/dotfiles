@@ -134,8 +134,8 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " plugin easymotion/vim-easymotion
-map <leader>w <Plug>(easymotion-bd-w)
-map <leader>c <Plug>(easymotion-s)
+map <silent> <leader>w <Plug>(easymotion-bd-w)
+map <silent> <leader>c <Plug>(easymotion-s)
 
 " plugin haya14busa/incsearch.vim
 map / <Plug>(incsearch-forward)
@@ -146,11 +146,11 @@ map g/ <Plug>(incsearch-stay)
 inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
 
 " plugin junegunn/fzf.vim
-nnoremap <leader>ff  :Files<CR>
-nnoremap <leader>fb  :Buffers<CR>
-nnoremap <leader>fp  :exec 'Files' b:LanguageClient_projectRoot<CR>
-nnoremap <leader>fl  :Lines<CR>
-nnoremap <leader>fbl :BLines<CR>
+nnoremap <silent> <leader>ff  :Files<CR>
+nnoremap <silent> <leader>fb  :Buffers<CR>
+nnoremap <silent> <leader>fp  :exec 'Files' b:LanguageClient_projectRoot<CR>
+nnoremap <silent> <leader>fl  :Lines<CR>
+nnoremap <silent> <leader>fbl :BLines<CR>
 
 
 " ==============================================================================
