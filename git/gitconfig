@@ -12,6 +12,7 @@
   cm = commit -m
   co = checkout
   com = checkout master
+  lg = log -n 5
   pf = push --force-with-lease
   st = status
   up = !git fetch origin && git rebase origin/master
