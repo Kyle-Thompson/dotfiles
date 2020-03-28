@@ -9,8 +9,21 @@ nvim_lsp.clangd.setup{
   on_init = ncm2.register_lsp_source;
 }
 
--- disable signs
-do
+vim.api.nvim_set_keymap('n', '<leader>ld',
+                        '<cmd>lua vim.lsp.buf.declaration()<CR>',
+                        { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>lwd',
+                        '<cmd>sp<CR>:lua vim.lsp.buf.declaration()<CR>',
+                        { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>li',
+                        '<cmd>lua vim.lsp.buf.definition()<CR>',
+                        { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>lwi',
+                        '<cmd>sp<CR>:lua vim.lsp.buf.definition()<CR>',
+                        { noremap = true, silent = true })
+
+
+do  -- disable signs
   local util = require 'vim.lsp.util'
   vim.lsp.callbacks['textDocument/publishDiagnostics'] = function(_, _, result)
     if not result then return end
