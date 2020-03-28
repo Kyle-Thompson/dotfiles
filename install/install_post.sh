@@ -1,70 +1,86 @@
 #!/bin/bash
 
-# checks
+## checks
 if ! ping -c 1 google.com > /dev/null 2>&1; then
   echo "no internet connection"
   exit 1
 fi
 
-# ssh keys
+
+## ssh keys
 ssh-keygen -b 4096 -t rsa -f ~/.ssh/id_rsa -q -N ""
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
 
-# make directories
-mkdir -p ~/.config/nvim
-mkdir ~/{bin,src,dwn,mda,doc}
+cat ~/.ssh/id_rsa.pub
+echo "Add the above key to github and hit <enter>"
+read -n 1
 
-# src install neovim
-git clone git@github.com:neovim/neovim.git ~/src/neovim
-pushd ~/src/neovim
+
+## make directories
+mkdir ~/{.config,bin,src,dwn,mda,doc,pkg}
+# bin - executable binaries and scripts
+# src - source code of projects being developed
+# dwn - downloads folder
+# mda - general media (pictures, videos, etc)
+# doc - documents
+# pkg - source code for building projects without development intention
+
+
+## dotfiles directory
+git clone git@github.com:Kyle-Thompson/dotfiles.git ~/.dotfiles
+pushd ~/.dotfiles >/dev/null
+git submodule init
+git submodule update
+popd >/dev/null
+
+
+## clone and build pkg repos
+# neovim
+git clone https://github.com/neovim/neovim.git ~/pkg/neovim
+pushd ~/pkg/neovim >/dev/null
 make CMAKE_BUILD_TYPE=Release
 sudo make install
-popd
+popd >/dev/null
 
-# src install yay
-git clone https://aur.archlinux.org/yay.git ~/src/yay
-pushd ~/src/yay
+# yay
+git clone https://aur.archlinux.org/yay.git ~/pkg/yay
+pushd ~/pkg/yay >/dev/null
 makepkg -si
 cd ..
-rm -rf yay  # binary self updates
 yay -Sq --noconfirm - < ~/.dotfiles/install/aur_packages.txt
-popd
+popd >/dev/null
 
-# src install st
-git clone git@github.com:Kyle-Thompson/st.git ~/src/st
-pushd ~/src/st
-make
-sudo make install
-popd
+# clang
+build-clang.sh & 2>&1 >/dev/null
 
-# src install limebar
+
+## clone src repos
+git clone git@github.com:Kyle-Thompson/st.git      ~/src/st
 git clone git@github.com:Kyle-Thompson/limebar.git ~/src/limebar
-pushd ~/src/limebar
-make
-sudo make install
-popd
-
-# src install dmenu
-git clone git@github.com:Kyle-Thompson/dmenu.git ~/src/dmenu
-pushd ~/src/dmenu
-sudo make install
-popd
+git clone git@github.com:Kyle-Thompson/dmenu.git   ~/src/dmenu
+git clone git@github.com:Kyle-Thompson/stest.git   ~/src/stest
 
 
-# enable services
+## enable services
 sudo systemctl enable --now ckb-next-daemon.service
 sudo systemctl enable --now nordvpnd.service
 
-# symlinks
-ln -s ~/.dotfiles/openbox ~/.config/openbox
-ln -s ~/.dotfiles/nvim/init.vim ~/.config/nvim/init.vim
-ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
+
+## symlinks
+ln -s ~/.dotfiles/openbox        ~/.config
+ln -s ~/.dotfiles/nvim           ~/.config
+ln -s ~/.dotfiles/zsh/zshrc      ~/.zshrc
 ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
-ln -s ~/.dotfiles/X/xinitrc
-ln -s ~/.dotfiles/bin/* ~/bin/
-ln -s ~/.dotfiles/openbox/themes ~/.local/share/themes
-ln -s ~/.dotfiles/fonts ~/.local/share/fonts
-# TODO: firefox
+ln -s ~/.dotfiles/X/xinitrc      ~/.xinitrc
+ln -s ~/.dotfiles/bin/*          ~/bin
+ln -s ~/.dotfiles/openbox/themes ~/.local/share
+ln -s ~/.dotfiles/fonts          ~/.local/share
+
+ffdir=$(ls ~/.mozilla/firefox/*.default)
+mkdir $ffdir/chrome
+ln -s ~/.dotfiles/firefox/userChrome.css $ffdir/chrome
 
 
-# update fonts
+## update fonts
 fc-cache -f
