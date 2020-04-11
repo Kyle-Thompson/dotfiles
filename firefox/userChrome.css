@@ -11,6 +11,8 @@
 /* colors */
 #nav-bar,
 #urlbar,
+#urlbar-container,
+#nav-bar-customization-target,
 #TabsToolbar,
 #navigator-toolbox,
 #PersonalToolbar,
@@ -22,6 +24,15 @@
   /* borders */
   border:     none !important;
   box-shadow: none !important;
+}
+
+#urlbar-input,
+.urlbar-input-box,
+#urlbar-input-container,
+#urlbar-background
+{
+  color:      var(--text-main) !important;
+  background: var(--background) !important;
 }
 
 .tab-background[selected="true"] {
