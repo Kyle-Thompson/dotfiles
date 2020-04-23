@@ -12,6 +12,7 @@ screenlayout.sh &   # screenlayout
 wallpaper.sh &      # wallpaper
 picom &             # compositor
 xset r rate 200 70  # keyboard key repeat speed
+xset s off          # disable screensaver
 
 (cd $HOME && tmux new -d -s base)
 (cd $HOME/.dotfiles && tmux new -d -s config)
