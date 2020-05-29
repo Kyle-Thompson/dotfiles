@@ -7,12 +7,12 @@ fi
 
 case "$1" in
   day)
-    redshift -x
-    xbacklight -set 80
+    redshift -x > /dev/null
+    xbacklight -set 80 > /dev/null
     ;;
   night)
-    redshift -P -O 1500
-    xbacklight -set 1
+    redshift -P -O 1500 > /dev/null
+    xbacklight -set 1 > /dev/null
     ;;
   *)
     echo must provide argument of either day or night
