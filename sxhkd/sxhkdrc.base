@@ -26,3 +26,17 @@ alt + {1,2,3,4,5,6,7,8,9,0}
 alt + shift + {1,2,3,4,5,6,7,8,9,0}
   window_id=$(xprop -root 32x '\t$0' _NET_ACTIVE_WINDOW | cut -f 2); \
   wmctrl -i -r $window_id -t {0,1,2,3,4,5,6,7,8,9} && wmctrl -i -a $window_id
+
+# audio
+XF86AudioMute
+  pulsemixer --toggle-mute
+XF86AudioRaiseVolume
+  pulsemixer --change-volume +5
+XF86AudioLowerVolume
+  pulsemixer --change-volume -5
+
+# brightness
+XF86MonBrightnessDown
+  xbacklight -dec 5%
+XF86MonBrightnessUp
+  xbacklight -inc 5%
