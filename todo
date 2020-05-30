@@ -20,6 +20,8 @@
     - openbox
     - firefox
     - startpage (need a startpage first though)
+    - GTK
+    - QT
   - make python script with pywal module to reload programs on color change.
 * firefox rice
   - move bookmarks into button that expands across the line.
@@ -38,3 +40,5 @@
 * use terminal based pulse audio mixer
 * learn zstyle for completion
   - /usr/share/zsh/functions/Completion/Zsh/_zstyle
+* apply font to vconsole
+  - https://unix.stackexchange.com/questions/57085/setting-console-font-in-vconsole-conf-does-not-work-systemd
