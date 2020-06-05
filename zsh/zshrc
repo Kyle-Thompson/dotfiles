@@ -5,10 +5,12 @@
 # ==============================================================================
 
 alias ls='ls --color=auto'
+alias ll='ls -lhG'
 
 alias nif='nvim $(fd -t f \
                  | fzf --reverse -m --preview \
-                       "bat --style=numbers --color=always {} | head -100" \
+                       "bat --style=numbers --color=always {} \
+                 | head -100" \
                  || echo +qa)'
 
 alias update_pacman_mirrors='sudo reflector --sort rate --protocol https \
