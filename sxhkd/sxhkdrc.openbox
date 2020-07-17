@@ -2,5 +2,6 @@
 alt + r
   openbox --reconfigure
 
-alt + e
-  openbox --exit
+# alt + e
+# TODO: prompt
+#   openbox --exit
