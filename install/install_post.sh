@@ -74,8 +74,8 @@ sudo systemctl enable --now nordvpnd.service
 ## symlinks
 ln -s ~/.dotfiles/openbox        ~/.config
 ln -s ~/.dotfiles/nvim           ~/.config
+ln -s ~/.dotfiles/tmux           ~/.config
 ln -s ~/.dotfiles/zsh/zshrc      ~/.zshrc
-ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/X/xinitrc      ~/.xinitrc
 ln -s ~/.dotfiles/bin/*          ~/bin
 ln -s ~/.dotfiles/openbox/themes ~/.local/share
