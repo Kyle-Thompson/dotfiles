@@ -16,6 +16,6 @@ function dmenu_path() {
 
 cmd=$(dmenu_path | dmenu)
 if ! test -z $cmd; then
-  sed -i "/^$cmd$/d; 1s/^/$cmd\n/" $cache
+  # sed -i "/^$cmd$/d; 1s/^/$cmd\n/" $cache
   ${SHELL:-"/bin/sh"} -c $cmd &
 fi
