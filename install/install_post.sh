@@ -18,13 +18,17 @@ read -n 1
 
 
 ## make directories
-mkdir ~/{.config,bin,src,dwn,mda,doc,pkg}
+mkdir ~/{.config,bin,doc,dwn,log,mda,mnt,pkg,prj,src,vms}
 # bin - executable binaries and scripts
-# src - source code of projects being developed
-# dwn - downloads folder
-# mda - general media (pictures, videos, etc)
 # doc - documents
+# dwn - downloads
+# log - logs
+# mda - general media (pictures, videos, etc)
+# mnt - device mount
 # pkg - source code for building projects without development intention
+# prj - personal projects
+# src - source code of projects being developed
+# vms - virtual machines
 
 
 ## dotfiles directory
