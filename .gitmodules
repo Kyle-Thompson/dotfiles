@@ -28,24 +28,12 @@
 [submodule "nvim/pack/plugins/start/incsearch.vim"]
 	path = nvim/pack/plugins/start/incsearch.vim
 	url = https://github.com/haya14busa/incsearch.vim.git
-[submodule "nvim/pack/plugins/start/ncm2-path"]
-	path = nvim/pack/plugins/start/ncm2-path
-	url = https://github.com/ncm2/ncm2-path.git
-[submodule "nvim/pack/plugins/start/ncm2-tmux"]
-	path = nvim/pack/plugins/start/ncm2-tmux
-	url = https://github.com/ncm2/ncm2-tmux.git
-[submodule "nvim/pack/plugins/start/ncm2-ultisnips"]
-	path = nvim/pack/plugins/start/ncm2-ultisnips
-	url = https://github.com/ncm2/ncm2-ultisnips.git
 [submodule "nvim/pack/plugins/start/ultisnips"]
 	path = nvim/pack/plugins/start/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
 [submodule "nvim/pack/plugins/start/vim-snippets"]
 	path = nvim/pack/plugins/start/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
-[submodule "nvim/pack/plugins/start/nvim-yarp"]
-	path = nvim/pack/plugins/start/nvim-yarp
-	url = https://github.com/roxma/nvim-yarp.git
 [submodule "nvim/pack/plugins/start/fzf.vim"]
 	path = nvim/pack/plugins/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
@@ -55,15 +43,12 @@
 [submodule "nvim/pack/plugins/start/nvim-lsp"]
 	path = nvim/pack/plugins/start/nvim-lsp
 	url = https://github.com/neovim/nvim-lsp.git
-[submodule "nvim/pack/plugins/start/ncm2-bufword"]
-	path = nvim/pack/plugins/start/ncm2-bufword
-	url = https://github.com/ncm2/ncm2-bufword.git
-[submodule "nvim/pack/plugins/start/ncm2"]
-	path = nvim/pack/plugins/start/ncm2
-	url = https://github.com/ncm2/ncm2.git
 [submodule "zsh/plugins/zsh-syntax-highlighting"]
 	path = zsh/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "zsh/plugins/zsh-you-should-use"]
 	path = zsh/plugins/zsh-you-should-use
 	url = https://github.com/MichaelAquilina/zsh-you-should-use.git
+[submodule "nvim/pack/plugins/start/completion-nvim"]
+	path = nvim/pack/plugins/start/completion-nvim
+	url = https://github.com/nvim-lua/completion-nvim.git

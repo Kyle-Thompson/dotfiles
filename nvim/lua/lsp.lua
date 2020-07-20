@@ -1,12 +1,12 @@
 vim.cmd('packadd nvim-lsp')  -- can this be removed?
 
-local nvim_lsp = require('nvim_lsp')
-local ncm2 = require('ncm2')
+local lsp = require('nvim_lsp')
+local completion = require('completion')
 
-nvim_lsp.clangd.setup{
+lsp.clangd.setup{
   cmd = {'clangd', '--background-index', '--clang-tidy', '--log=error',
          '--pretty'};
-  on_init = ncm2.register_lsp_source;
+  on_attach = completion.on_attach;
 }
 
 vim.api.nvim_set_keymap('n', '<leader>ld',

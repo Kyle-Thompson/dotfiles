@@ -84,8 +84,8 @@ set nolist          " do not show characters at the end of lines
 " automatically change the working path to the path of the current file
 autocmd BufNewFile,BufEnter * silent! lcd %:p:h
 
-packadd ncm2
-autocmd BufEnter * call ncm2#enable_for_buffer()
+packadd completion-nvim
+autocmd BufEnter * lua require'completion'.on_attach()
 autocmd BufEnter * call GetGitBranch()
 
 
@@ -142,9 +142,6 @@ map / <Plug>(incsearch-forward)
 map ? <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
-" plugin ncm2/ncm2-ultisnips
-inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
-
 " plugin junegunn/fzf.vim
 nnoremap <silent> <leader>ff  :Files<CR>
 nnoremap <silent> <leader>fb  :Buffers<CR>
@@ -159,6 +156,10 @@ nnoremap <silent> <leader>fbl :BLines<CR>
 
 " TODO: make loading this implicit
 lua require 'lsp'
+
+
+" ========== completion
+let g:completion_enable_snippet = 'UltiSnips'
 
 
 " ========== snippets
