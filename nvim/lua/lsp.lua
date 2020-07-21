@@ -1,5 +1,3 @@
-vim.cmd('packadd nvim-lsp')  -- can this be removed?
-
 local lsp = require('nvim_lsp')
 local completion = require('completion')
 

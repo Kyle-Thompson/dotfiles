@@ -2,6 +2,9 @@
 " ======================   General   ===========================================
 " ==============================================================================
 
+" load plugins
+packloadall         " load all plugins in pack/start
+
 " leader
 let mapleader = ' '
 
@@ -35,9 +38,6 @@ set textwidth=80    " length to break lines
 " netrw
 let g:netrw_dirhistmax = 0  " no netrwhist file
 let g:netrw_banner = 0      " no top comments
-
-" plugins
-set packpath=~/.config/nvim/
 
 " safety files
 set noswapfile      " do not create swap files
@@ -84,7 +84,6 @@ set nolist          " do not show characters at the end of lines
 " automatically change the working path to the path of the current file
 autocmd BufNewFile,BufEnter * silent! lcd %:p:h
 
-packadd completion-nvim
 autocmd BufEnter * lua require'completion'.on_attach()
 autocmd BufEnter * call GetGitBranch()
 
@@ -156,6 +155,7 @@ nnoremap <silent> <leader>fbl :BLines<CR>
 
 " TODO: make loading this implicit
 lua require 'lsp'
+lua require 'treesitter'
 
 
 " ========== completion

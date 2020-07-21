@@ -3,6 +3,7 @@ hi clear
 syntax reset
 let g:colors_name = "xres"
 
+
 " Vim editor colors
 hi Normal                     ctermfg=07 ctermbg=00
 hi Debug                      ctermfg=01
@@ -48,18 +49,19 @@ hi TabLine                    ctermfg=07 ctermbg=00 cterm=none
 hi TabLineFill                ctermfg=07 ctermbg=00 cterm=none
 hi TabLineSel                 ctermfg=04 ctermbg=00 cterm=none
 
+
 " Standard syntax highlighting
 hi PodData                    ctermfg=09
 hi link Boolean   PodData
 hi link Character PodData
 hi link Number    PodData
 hi link Float     PodData
-hi String                     ctermfg=02
+
 hi Comment                    ctermfg=15
 hi Conditional                ctermfg=05
 hi Constant                   ctermfg=09
 hi Define                     ctermfg=05            cterm=none
-hi Delimiter                  ctermfg=14
+hi Delimiter                  ctermfg=07
 hi Function                   ctermfg=04
 hi Identifier                 ctermfg=01            cterm=none
 hi Include                    ctermfg=04
@@ -73,11 +75,13 @@ hi Special                    ctermfg=06
 hi SpecialChar                ctermfg=14
 hi Statement                  ctermfg=01
 hi StorageClass               ctermfg=03
+hi String                     ctermfg=02
 hi Structure                  ctermfg=05
 hi Tag                        ctermfg=03
 hi Todo                       ctermfg=00 ctermbg=08
 hi Type                       ctermfg=03            cterm=none
 hi Typedef                    ctermfg=03
+
 
 " LSP highlighting
 hi LspDiagnostic              ctermfg=15 ctermbg=08
@@ -95,8 +99,48 @@ hi link LspDiagnosticsUnderline            LspDiagnosticsUnderline
 
 hi LspDiagnosticsError        ctermfg=01
 
+
+" TreeSitter highlighting
+" TODO why are cpp includes highlighting as keyword?
+hi link TSBoolean        Boolean
+hi link TSCharacter      Character
+hi link TSConditional    Conditional
+hi link TSConstant       Constant
+hi link TSConstBuiltin   Constant
+hi link TSConstMacro     Constant
+hi link TSError          Normal
+hi link TSFloat          Float
+hi link TSFunction       Function
+hi link TSInclude        Include
+hi link TSKeyword        Keyword
+hi link TSNumber         Number
+hi link TSPunctBracket   Normal
+hi link TSPunctDelimiter Delimiter
+hi link TSPunctSpecial   Normal
+hi link TSRepeat         Conditional
+hi link TSString         String
+hi link TSStringEscape   Character
+hi link TSStringRegex    String
+hi link TSType           Type
+hi link TSTypeBuiltin    Type
+
+" TODO
+hi link TSFuncBuiltin    Normal
+hi link TSFuncMacro      Normal
+hi link TSParameter      Normal
+hi link TSMethod         Normal
+hi link TSField          Normal
+hi link TSProperty       Normal
+hi link TSConstructor    Normal
+hi link TSLabel          Normal
+hi link TSOperator       Normal
+hi link TSException      Normal
+hi link TSStructure      Normal
+
+
 " CPP highlighting
 hi cppCast                    ctermfg=06
+
 
 " Diff highlighting
 hi DiffAdd                    ctermfg=02 ctermbg=10
@@ -108,6 +152,7 @@ hi DiffFile                   ctermfg=01 ctermbg=00
 hi DiffNewFile                ctermfg=02 ctermbg=00
 hi DiffLine                   ctermfg=04 ctermbg=00
 hi DiffRemoved                ctermfg=01 ctermbg=00
+
 
 " Git highlighting
 hi gitcommitOverflow          ctermfg=01
@@ -126,11 +171,13 @@ hi gitcommitUnmergedFile      ctermfg=01            cterm=bold
 hi gitcommitDiscardedFile     ctermfg=01            cterm=bold
 hi gitcommitSelectedFile      ctermfg=02            cterm=bold
 
+
 " GitGutter highlighting
 hi GitGutterAdd               ctermfg=02 ctermbg=10
 hi GitGutterChange            ctermfg=04 ctermbg=10
 hi GitGutterDelete            ctermfg=01 ctermbg=10
 hi GitGutterChangeDelete      ctermfg=05 ctermbg=10
+
 
 " Markdown highlighting
 hi markdownCode               ctermfg=02
@@ -138,9 +185,9 @@ hi markdownError              ctermfg=07 ctermbg=00
 hi markdownCodeBlock          ctermfg=02
 hi markdownHeadingDelimiter   ctermfg=04
 
+
 " Python highlighting
 hi pythonOperator             ctermfg=05
 hi pythonRepeat               ctermfg=05
 hi pythonInclude              ctermfg=05
 hi pythonStatement            ctermfg=05
-
