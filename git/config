@@ -43,3 +43,5 @@
 [user]
   name = Kyle Thompson
   email = kyle.thompson228@gmail.com
+[pull]
+  rebase = false
