@@ -5,7 +5,7 @@ let g:colors_name = "xres"
 
 
 " Vim editor colors
-hi Normal                     ctermfg=07 ctermbg=00
+hi Normal                     ctermfg=07
 hi Debug                      ctermfg=01
 hi Directory                  ctermfg=04
 hi Error                      ctermfg=00 ctermbg=01
