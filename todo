@@ -34,11 +34,14 @@
 * neomutt
 * set up Tor and Encrypted DNS
 * host mda files somewhere
-* allow vim status line to be transparent
-  - blocks st transparency since it looks odd with one opaque bar in the middle
-    of the screen
 * use terminal based pulse audio mixer
 * learn zstyle for completion
   - /usr/share/zsh/functions/Completion/Zsh/_zstyle
 * apply font to vconsole
   - https://unix.stackexchange.com/questions/57085/setting-console-font-in-vconsole-conf-does-not-work-systemd
+* figure out how to properly use zathura
+* read infocmp man page
+* st patches
+  - anysize
+  - swapmouse ?
+  - netwmicon
