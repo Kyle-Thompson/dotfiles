@@ -225,9 +225,26 @@ map('n', 'ga', '<Plug>(EasyAlign)', {})
 -- =============================================================================
 
 -- ===================== language server
-lsp.clangd.setup{
+lsp.clangd.setup {
   cmd = {'clangd', '--background-index', '--clang-tidy', '--log=error',
          '--pretty'};
+  on_attach = function()
+    completion.on_attach()
+    diagnostic.on_attach()
+  end
+}
+
+lsp.rust_analyzer.setup {
+  settings = {
+    cargo = {
+      allFeatures = true;
+    };
+    checkOnSave = {
+      allFeatures = true;
+      command = "clippy";
+      enable = true;
+    };
+  };
   on_attach = function()
     completion.on_attach()
     diagnostic.on_attach()
