@@ -34,7 +34,8 @@ vim.api.nvim_command("colorscheme xres")
 vim.o.hidden = true         -- hide file, don't close on file switch
 vim.o.autoread = true       -- update buffer when file changed externally
 vim.o.pumheight = 30        -- limits popup menu height
-vim.o.textwidth = 80        -- length to break lines
+-- vim.o.textwidth = 80        -- length to break lines
+vim.api.nvim_command("set textwidth=80")
 
 -- safety files
 vim.api.nvim_command("set noswapfile")
