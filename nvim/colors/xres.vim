@@ -37,14 +37,14 @@ hi LineNr                     ctermfg=08 ctermbg=10
 hi SignColumn                 ctermfg=08 ctermbg=00
 hi StatusLine                 ctermfg=04 ctermbg=08 cterm=none
 hi StatusLineNC               ctermfg=07 ctermbg=08 cterm=none
-hi VertSplit                  ctermfg=08 ctermbg=00 cterm=none
+hi VertSplit                  ctermfg=08            cterm=none
 hi ColorColumn                           ctermbg=10 cterm=none
 hi CursorColumn                          ctermbg=10 cterm=none
 hi CursorLine                            ctermbg=10 cterm=none
 hi CursorLineNr               ctermfg=12 ctermbg=10
 hi QuickFixLine                          ctermbg=10 cterm=none
-hi PMenu                      ctermfg=07 ctermbg=00 cterm=none
-hi PMenuSel                   ctermfg=04 ctermbg=00
+hi PMenu                      ctermfg=07 ctermbg=08 cterm=none
+hi PMenuSel                   ctermfg=04 ctermbg=08
 hi TabLine                    ctermfg=07 ctermbg=00 cterm=none
 hi TabLineFill                ctermfg=07 ctermbg=00 cterm=none
 hi TabLineSel                 ctermfg=04 ctermbg=00 cterm=none
@@ -78,7 +78,7 @@ hi StorageClass               ctermfg=03
 hi String                     ctermfg=02
 hi Structure                  ctermfg=05
 hi Tag                        ctermfg=03
-hi Todo                       ctermfg=00 ctermbg=08
+hi Todo                       ctermfg=07 ctermbg=08
 hi Type                       ctermfg=03            cterm=none
 hi Typedef                    ctermfg=03
 
