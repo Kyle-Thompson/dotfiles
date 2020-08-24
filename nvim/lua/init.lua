@@ -92,9 +92,6 @@ vim.o.wildignore = '*.o,*.pyc'
 
 
 -- ===================== plugins
--- completion-nvim
-vim.g.completion_enable_snippet = 'UltiSnips'
-
 -- diagnostic-nvim
 vim.g.diagnostic_show_sign = 0
 vim.g.diagnostic_enable_virtual_text = 1

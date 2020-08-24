@@ -28,9 +28,6 @@
 [submodule "nvim/pack/plugins/start/incsearch.vim"]
 	path = nvim/pack/plugins/start/incsearch.vim
 	url = https://github.com/haya14busa/incsearch.vim.git
-[submodule "nvim/pack/plugins/start/ultisnips"]
-	path = nvim/pack/plugins/start/ultisnips
-	url = https://github.com/SirVer/ultisnips.git
 [submodule "nvim/pack/plugins/start/vim-snippets"]
 	path = nvim/pack/plugins/start/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
