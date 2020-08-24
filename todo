@@ -45,3 +45,4 @@
   - anysize
   - swapmouse ?
   - netwmicon
+* fix tmux clipboard
