@@ -191,14 +191,6 @@ map('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]],
 
 
 -- ===================== plugins
--- fzf.vim
--- map('n', leader..'ff', ':Files<CR>', { noremap = true, silent = true })
--- map('n', leader..'fb', ':Buffers<CR>', { noremap = true, silent = true })
--- TODO: this is so contrived because root_dir doesn't have a value when this
--- would otherwise be initially parsed
--- local files_from_root = ':lua vim.api.nvim_command(":Files "..require"init".root_dir)<CR>'
--- map('n', leader..'fp', files_from_root, { noremap = true, silent = true })
-
 -- incsearch.vim
 map('n', '/', '<Plug>(incsearch-forward)', {})
 map('n', '?', '<Plug>(incsearch-backward)', {})
