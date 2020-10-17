@@ -52,3 +52,12 @@
 [submodule "nvim/pack/plugins/start/diagnostic-nvim"]
 	path = nvim/pack/plugins/start/diagnostic-nvim
 	url = https://github.com/nvim-lua/diagnostic-nvim.git
+[submodule "nvim/pack/plugins/start/popup.nvim"]
+	path = nvim/pack/plugins/start/popup.nvim
+	url = https://github.com/nvim-lua/popup.nvim.git
+[submodule "nvim/pack/plugins/start/plenary.nvim"]
+	path = nvim/pack/plugins/start/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim.git
+[submodule "nvim/pack/plugins/start/telescope.nvim"]
+	path = nvim/pack/plugins/start/telescope.nvim
+	url = https://github.com/nvim-lua/telescope.nvim.git
