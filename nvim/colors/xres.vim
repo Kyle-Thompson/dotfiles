@@ -62,6 +62,7 @@ hi Conditional                ctermfg=05
 hi Constant                   ctermfg=09
 hi Define                     ctermfg=05            cterm=none
 hi Delimiter                  ctermfg=07
+hi Field                      ctermfg=09
 hi Function                   ctermfg=04
 hi Identifier                 ctermfg=01            cterm=none
 hi Include                    ctermfg=04
@@ -101,7 +102,6 @@ hi LspDiagnosticsError        ctermfg=01
 
 
 " TreeSitter highlighting
-" TODO why are cpp includes highlighting as keyword?
 hi link TSBoolean        Boolean
 hi link TSCharacter      Character
 hi link TSConditional    Conditional
@@ -109,11 +109,15 @@ hi link TSConstant       Constant
 hi link TSConstBuiltin   Constant
 hi link TSConstMacro     Constant
 hi link TSError          Normal
+hi link TSField          Field
 hi link TSFloat          Float
 hi link TSFunction       Function
+hi link TSFuncMacro      Macro
 hi link TSInclude        Include
 hi link TSKeyword        Keyword
 hi link TSNumber         Number
+hi link TSOperator       Operator
+hi link TSParameter      Normal
 hi link TSPunctBracket   Normal
 hi link TSPunctDelimiter Delimiter
 hi link TSPunctSpecial   Normal
@@ -126,14 +130,10 @@ hi link TSTypeBuiltin    Type
 
 " TODO
 hi link TSFuncBuiltin    Normal
-hi link TSFuncMacro      Normal
-hi link TSParameter      Normal
 hi link TSMethod         Normal
-hi link TSField          Normal
 hi link TSProperty       Normal
 hi link TSConstructor    Normal
 hi link TSLabel          Normal
-hi link TSOperator       Normal
 hi link TSException      Normal
 hi link TSStructure      Normal
 
