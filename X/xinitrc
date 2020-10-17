@@ -8,9 +8,9 @@ gen-xresources | xrdb -load -  # load Xresources
 cat /home/kyle/.dotfiles/sxhkd/sxhkdrc.{base,$wm_name} > /tmp/sxhkdrc
 sxhkd -c /tmp/sxhkdrc &
 
+picom --config /dev/null &  # compositor
 screenlayout.sh &   # screenlayout
 wallpaper.sh &      # wallpaper
-picom &             # compositor
 xset r rate 200 70  # keyboard key repeat speed
 xset s off          # disable screensaver
 
