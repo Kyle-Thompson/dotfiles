@@ -46,3 +46,4 @@
   - swapmouse ?
   - netwmicon
 * fix tmux clipboard
+* make neovim tabline background transparent
