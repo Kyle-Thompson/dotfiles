@@ -28,9 +28,6 @@
 [submodule "nvim/pack/plugins/start/incsearch.vim"]
 	path = nvim/pack/plugins/start/incsearch.vim
 	url = https://github.com/haya14busa/incsearch.vim.git
-[submodule "nvim/pack/plugins/start/fzf.vim"]
-	path = nvim/pack/plugins/start/fzf.vim
-	url = https://github.com/junegunn/fzf.vim.git
 [submodule "nvim/pack/plugins/start/fzf"]
 	path = nvim/pack/plugins/start/fzf
 	url = https://github.com/junegunn/fzf.git
