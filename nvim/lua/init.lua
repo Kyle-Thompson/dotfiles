@@ -25,9 +25,12 @@ vim.o.completeopt = 'menuone,noinsert,noselect'
 vim.o.fillchars = vim.o.fillchars..'vert:|,eob: '
 
 -- indentation
-vim.o.softtabstop = 2       -- number of spaces to replace tabs by
-vim.o.shiftwidth = 2        -- number of spaces for autoindent
-vim.o.expandtab = true      -- use spaces instead of tabs
+-- vim.o.softtabstop = 2       -- number of spaces to replace tabs by
+-- vim.o.shiftwidth = 2        -- number of spaces for autoindent
+-- vim.o.expandtab = true      -- use spaces instead of tabs
+vim.api.nvim_command("set softtabstop=2")
+vim.api.nvim_command("set shiftwidth=2")
+vim.api.nvim_command("set expandtab")
 
 -- miscellaneous
 vim.api.nvim_command("colorscheme xres")
@@ -108,11 +111,6 @@ vim.g.fzf_action = {
 vim.g.netrw_dirhistmax = 0  -- no netrwhist file
 vim.g.netrw_banner = 0      -- no top comments
 
--- ultisnips
-vim.g.UltiSnipsExpandTrigger       = '\\<Plug>(placeholder)'
-vim.g.UltiSnipsJumpForwardTrigger  = '<tab>'
-vim.g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
-
 
 -- =============================================================================
 -- =====================   Autocmds   ==========================================
@@ -120,6 +118,8 @@ vim.g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 -- automatically change the working path to the path of the current file
 vim.api.nvim_command("autocmd BufNewFile,BufEnter * silent! lcd %:p:h")
+
+vim.api.nvim_command("autocmd VimEnter * lua require'init'.get_root_dir()")
 
 vim.api.nvim_command("autocmd BufEnter * lua require'completion'.on_attach()")
 vim.api.nvim_command("autocmd BufEnter * lua require'init'.get_git_branch()")
@@ -136,6 +136,13 @@ M.get_git_branch = function()
       | tr "\n" " " ]])
   vim.g.git = handle:read("*a")
   handle:close()
+end
+
+
+M.root_dir = ""
+M.get_root_dir = function()
+  local path = vim.api.nvim_exec("pwd", true)
+  M.root_dir = lsp.rust_analyzer.document_config.default_config.root_dir(path)
 end
 
 
@@ -185,9 +192,12 @@ map('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]],
 
 -- ===================== plugins
 -- fzf.vim
-map('n', leader..'ff', ':Files<CR>', { noremap = true, silent = true })
-map('n', leader..'fb', ':Buffers<CR>', { noremap = true, silent = true })
--- map('n', leader..'fp', , { noremap = true, silent = true })
+-- map('n', leader..'ff', ':Files<CR>', { noremap = true, silent = true })
+-- map('n', leader..'fb', ':Buffers<CR>', { noremap = true, silent = true })
+-- TODO: this is so contrived because root_dir doesn't have a value when this
+-- would otherwise be initially parsed
+-- local files_from_root = ':lua vim.api.nvim_command(":Files "..require"init".root_dir)<CR>'
+-- map('n', leader..'fp', files_from_root, { noremap = true, silent = true })
 
 -- incsearch.vim
 map('n', '/', '<Plug>(incsearch-forward)', {})
@@ -206,6 +216,13 @@ map('n', leader..'lwi', '<cmd>sp<CR>:lua vim.lsp.buf.definition()<CR>',
 
 -- tagbar
 map('n', leader..'t', ':TagbarToggle<CR><C-W>=',
+    { noremap = true, silent = true })
+
+-- telescope
+map('n', leader..'ff', [[:lua require'telescope.builtin'.fd{}<CR>]],
+    { noremap = true, silent = true })
+map('n', leader..'fp',
+    ":lua require'telescope.builtin'.fd{ cwd = require'init'.root_dir }<CR>",
     { noremap = true, silent = true })
 
 -- vim-easymotion
@@ -228,7 +245,7 @@ lsp.clangd.setup {
   on_attach = function()
     completion.on_attach()
     diagnostic.on_attach()
-  end
+  end;
 }
 
 lsp.rust_analyzer.setup {
@@ -245,7 +262,16 @@ lsp.rust_analyzer.setup {
   on_attach = function()
     completion.on_attach()
     diagnostic.on_attach()
-  end
+  end;
+  capabilities = {
+    textDocument = {
+      completion = {
+        completionItem = {
+          snippetSupport = false
+        }
+      }
+    }
+  };
 }
 
 
