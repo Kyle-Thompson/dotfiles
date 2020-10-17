@@ -84,7 +84,7 @@ export VISUAL=nvim
 export EDITOR=nvim
 
 # fzf
-FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_DEFAULT_COMMAND='fd --type f'
 
 # {neo}vimrc
 export VIMRC="$HOME/.vimrc"
