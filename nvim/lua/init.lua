@@ -231,7 +231,7 @@ map('n', 'ga', '<Plug>(EasyAlign)', {})
 -- =============================================================================
 
 -- ===================== language server
-lsp.clangd.setup {
+lsp.clangd.setup {  -- C++
   cmd = {'clangd', '--background-index', '--clang-tidy', '--log=error',
          '--pretty'};
   on_attach = function()
@@ -240,7 +240,21 @@ lsp.clangd.setup {
   end;
 }
 
-lsp.rust_analyzer.setup {
+lsp.jdtls.setup {  -- Java
+  on_attach = function()
+    completion.on_attach()
+    diagnostic.on_attach()
+  end;
+}
+
+lsp.metals.setup {  -- Scala
+  on_attach = function()
+    completion.on_attach()
+    diagnostic.on_attach()
+  end;
+}
+
+lsp.rust_analyzer.setup {  -- Rust
   settings = {
     cargo = {
       allFeatures = true;
