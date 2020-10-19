@@ -6,7 +6,7 @@ function add_plugin() {
   acct="${ARR[0]}"
   repo="${ARR[1]}"
 
-  git submodule add https://github.com/$acct/$repo.git nvim/pack/plugins/start/$repo
+  git submodule add https://github.com/$acct/$repo.git ~/.dotfiles/nvim/pack/plugins/start/$repo
 }
 
 function update_plugins() {
