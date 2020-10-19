@@ -1,5 +1,0 @@
-!!! urxvt
-
-URxvt.font: xft:Gohu GohuFont:pixelsize=11
-URxvt.scrollBar: false
-URxvt.depth: 32
