@@ -27,6 +27,7 @@ alias vid='vlc > /dev/null 2>&1'
 alias nordc='nordvpn connect United_States New_York'
 alias nordd='killall transmission-daemon; nordvpn d'
 
+alias vim='nvim -u /dev/null'
 
 # ==============================================================================
 # ======================   Completion   ========================================
