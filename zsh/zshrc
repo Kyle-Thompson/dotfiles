@@ -135,7 +135,8 @@ function transd() {
 
 # key bindings
 # ------------
-source "$HOME/.config/fzf/shell/key-bindings.zsh"
+FZF_KEYBINDING_SCRIPT="$HOME/.config/fzf/shell/key-bindings.zsh"
+[ -f $FZF_KEYBINDING_SCRIPT ] && source $FZF_KEYBINDING_SCRIPT
 
 
 # ==============================================================================
