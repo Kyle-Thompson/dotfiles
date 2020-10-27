@@ -1,0 +1,7 @@
+ripgrep
+fd-find
+procs
+sd
+du-dust
+bottom
+zoxide
