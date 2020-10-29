@@ -46,3 +46,5 @@
   - swapmouse ?
   - netwmicon
 * make neovim tabline background transparent
+  - for some reason other tabs are the only ones that can't have transparent
+    backgrounds.

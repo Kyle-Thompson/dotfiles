@@ -46,8 +46,8 @@ hi QuickFixLine                          ctermbg=10 cterm=none
 hi PMenu                      ctermfg=07 ctermbg=08 cterm=none
 hi PMenuSel                   ctermfg=04 ctermbg=08
 hi TabLine                    ctermfg=07 ctermbg=00 cterm=none
-hi TabLineFill                ctermfg=07 ctermbg=00 cterm=none
-hi TabLineSel                 ctermfg=04 ctermbg=00 cterm=none
+hi TabLineFill                ctermfg=07            cterm=none
+hi TabLineSel                 ctermfg=04            cterm=none
 
 
 " Standard syntax highlighting
