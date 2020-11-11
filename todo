@@ -1,14 +1,7 @@
-* transmission cli
 * other WMs to set up
   - bspwm
   - i3 (no-gaps)
 * irssi
-  - learn
-  - move config files to ~/.config/irssi
-  - add alias in zshrc 
-    `alias irssi='irssi --home=~/.config/irssi --config=~/.config/irssi/config'`
-  - find out if specifying --config is irrelevant after doing --home
-* fill in missing unicode
 * conky
 * global color config
   - Xresources controls all colors
@@ -29,7 +22,6 @@
 * startpage
 * music (mpd, ncmpcpp, mpc), (tizonia)
 * systemd-boot for desktop and laptop
-* match zsh syntax highlighting to vim highlighting for zsh
 * update GTK theme and icons
 * neomutt
 * set up Tor and Encrypted DNS
@@ -48,3 +40,8 @@
 * make neovim tabline background transparent
   - for some reason other tabs are the only ones that can't have transparent
     backgrounds.
+* syntax highlighting
+  - treesitter
+    > bash/zsh variables not working
+  - prompt
+    > match highlighting to neovim zsh highlighting
