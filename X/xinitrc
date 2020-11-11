@@ -1,11 +1,10 @@
 #!/bin/sh
 
-wm_name=${2:-openbox}
+export WM_NAME=${2:-openbox}
 
 gen-xresources | xrdb -load -  # load Xresources
 
-# key bindings
-cat /home/kyle/.dotfiles/sxhkd/sxhkdrc.{base,$wm_name} > /tmp/sxhkdrc
+gen-sxhkdrc
 sxhkd -c /tmp/sxhkdrc &
 
 picom --config /dev/null &  # compositor
@@ -22,7 +21,7 @@ for d in $(ls $HOME/src 2> /dev/null); do
   init-workspace.sh $d
 done
 
-case $wm_name in
+case $WM_NAME in
     i3)       exec i3 ;;
     openbox)  exec openbox-session ;;
     bspwm)    exec bspwm ;;

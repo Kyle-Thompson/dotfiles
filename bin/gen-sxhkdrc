@@ -1,0 +1,3 @@
+#!/bin/sh
+
+cat /home/kyle/.dotfiles/sxhkd/sxhkdrc.{base,$WM_NAME} > /tmp/sxhkdrc
