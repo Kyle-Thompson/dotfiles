@@ -43,9 +43,6 @@
 [submodule "nvim/pack/plugins/start/nvim-treesitter"]
 	path = nvim/pack/plugins/start/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter.git
-[submodule "nvim/pack/plugins/start/diagnostic-nvim"]
-	path = nvim/pack/plugins/start/diagnostic-nvim
-	url = https://github.com/nvim-lua/diagnostic-nvim.git
 [submodule "nvim/pack/plugins/start/popup.nvim"]
 	path = nvim/pack/plugins/start/popup.nvim
 	url = https://github.com/nvim-lua/popup.nvim.git
