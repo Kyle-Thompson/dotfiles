@@ -3,10 +3,11 @@ rg (ripgrep)   = grep
 fd (fd-find)   = find
 procs          = ps
 sd             = sed
-dust (du-dust) = du-dust
+dust (du-dust) = du
 btm (bottom)   = top
 z (zoxide)     = cd
 
 EXTRA TOOLS
 tokei - code repo browser (language, num lines, num files, etc)
 bandwhich - network monitor
+transmission-daemon & stig - bittorrent client
