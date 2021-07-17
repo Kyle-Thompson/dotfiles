@@ -37,9 +37,6 @@
 [submodule "zsh/plugins/zsh-you-should-use"]
 	path = zsh/plugins/zsh-you-should-use
 	url = https://github.com/MichaelAquilina/zsh-you-should-use.git
-[submodule "nvim/pack/plugins/start/completion-nvim"]
-	path = nvim/pack/plugins/start/completion-nvim
-	url = https://github.com/nvim-lua/completion-nvim.git
 [submodule "nvim/pack/plugins/start/nvim-treesitter"]
 	path = nvim/pack/plugins/start/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter.git
