@@ -7,11 +7,9 @@
 alias ls='ls --color=auto'
 alias ll='ls -lhG'
 
-alias nif='nvim $(fd -t f \
-                 | fzf --reverse -m --preview \
-                       "bat --style=numbers --color=always {} \
-                 | head -100" \
-                 || echo +qa)'
+alias nif='nvim $(fzf --reverse -m --preview \
+                      "bat --style=numbers --color=always {} | head -100" \
+                  || echo +qa)'
 
 alias update_pacman_mirrors='sudo reflector --sort rate --protocol https \
       --fastest 50 --number 100 --save /etc/pacman.d/mirrorlist'
@@ -145,9 +143,9 @@ FZF_KEYBINDING_SCRIPT="$HOME/.config/fzf/shell/key-bindings.zsh"
 # ==============================================================================
 
 setopt histignorealldups
-HISTSIZE=1000
-SAVEHIST=1000
-HISTFILE=/tmp/zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=$XDG_DATA_HOME/zsh_history
 
 
 # ==============================================================================
