@@ -172,22 +172,26 @@ hi gitcommitDiscardedFile     ctermfg=01            cterm=bold
 hi gitcommitSelectedFile      ctermfg=02            cterm=bold
 
 
-" GitGutter highlighting
+" GitGutter
 hi GitGutterAdd               ctermfg=02 ctermbg=10
 hi GitGutterChange            ctermfg=04 ctermbg=10
 hi GitGutterDelete            ctermfg=01 ctermbg=10
 hi GitGutterChangeDelete      ctermfg=05 ctermbg=10
 
 
-" Markdown highlighting
+" Markdown
 hi markdownCode               ctermfg=02
 hi markdownError              ctermfg=07 ctermbg=00
 hi markdownCodeBlock          ctermfg=02
 hi markdownHeadingDelimiter   ctermfg=04
 
 
-" Python highlighting
+" Python
 hi pythonOperator             ctermfg=05
 hi pythonRepeat               ctermfg=05
 hi pythonInclude              ctermfg=05
 hi pythonStatement            ctermfg=05
+
+
+" Compe
+hi link CompeDocumentation NormalFloat

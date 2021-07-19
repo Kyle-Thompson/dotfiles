@@ -1,10 +1,7 @@
-local lsp = require('nvim_lsp')
-local completion = require('completion')
-local diagnostic = require('diagnostic')
+local lsp = require('lspconfig')
 
 local M = {}
-
--- TODO remove all instances of nvim_command
+local viml = vim.api.nvim_command
 
 -- =============================================================================
 -- =====================   General   ===========================================
@@ -17,7 +14,8 @@ vim.o.clipboard = 'unnamedplus'  -- enable system clipboard
 -- menuone   - pum even for a single match
 -- noinstert - no text insterted until selection
 -- noselect  - no auto selection
-vim.o.completeopt = 'menuone,noinsert,noselect'
+-- vim.o.completeopt = 'menuone,noinsert,noselect'
+vim.o.completeopt = 'menuone,noselect'
 
 -- fill chars
 -- use | for vertical split borders
@@ -25,29 +23,17 @@ vim.o.completeopt = 'menuone,noinsert,noselect'
 vim.o.fillchars = vim.o.fillchars..'vert:|,eob: '
 
 -- indentation
--- vim.o.softtabstop = 2       -- number of spaces to replace tabs by
--- vim.o.shiftwidth = 2        -- number of spaces for autoindent
--- vim.o.expandtab = true      -- use spaces instead of tabs
-vim.api.nvim_command("set softtabstop=2")
-vim.api.nvim_command("set shiftwidth=2")
-vim.api.nvim_command("set expandtab")
+vim.o.softtabstop = 2       -- number of spaces to replace tabs by
+vim.o.shiftwidth = 2        -- number of spaces for autoindent
+vim.o.expandtab = true      -- use spaces instead of tabs
 
 -- miscellaneous
-vim.api.nvim_command("colorscheme xres")
 vim.o.hidden = true         -- hide file, don't close on file switch
 vim.o.autoread = true       -- update buffer when file changed externally
-vim.o.pumheight = 30        -- limits popup menu height
--- vim.o.textwidth = 80        -- length to break lines
-vim.api.nvim_command("set textwidth=80")
 
 -- safety files
-vim.api.nvim_command("set noswapfile")
-vim.api.nvim_command("set nobackup")
--- vim.o.noswapfile = true     -- do not create swap files
--- vim.o.nobackup = true       -- do not create backup files
-
--- scrolling
-vim.o.scrolloff = 4         -- start scrolling 4 lines from the bottom
+vim.b.noswapfile = true     -- do not create swap files
+vim.b.nobackup = true       -- do not create backup files
 
 -- searching
 vim.o.ignorecase = true     -- ignore case when searching
@@ -61,7 +47,8 @@ vim.o.smartcase = true      -- match any given captials in search
 -- T - truncate long messages with '...'
 -- I - no intro messages when starting vim
 -- F - no prompt when opening multiple files
-vim.o.shortmess = 'acsWTIF'
+-- vim.o.shortmess = 'acsWTIF'
+vim.o.shortmess = 'acsWTI'  -- needed for metals
 
 -- splitting
 vim.o.splitbelow = true     -- vertical splits open below current window
@@ -79,27 +66,21 @@ vim.o.splitright = true     -- horizontal splits open right of current window
 vim.o.statusline = " %{g:git}%<%f %m %r %w %=%l/%L,%c "
 
 -- visual
-vim.api.nvim_command("set noshowcmd")
-vim.api.nvim_command("set noshowmode")
--- vim.o.noshowcmd = true      -- don't display partial commands in bottom right
--- vim.o.noshowmode = true     -- don't display mode (e.g. -- INSERT --)
-
--- word wrapping
-vim.o.wrap = true           -- spread long lines across multiple lines
+vim.api.nvim_command("colorscheme xres")
 vim.o.linebreak = true      -- do not break words on wrap
-vim.api.nvim_command("set nolist")
--- vim.o.nolist = true         -- do not show characters at the end of lines
+vim.b.nolist = true         -- do not show characters at the end of lines
+vim.w.noshowcmd = true      -- don't display partial commands in bottom right
+vim.w.noshowmode = true     -- don't display mode (e.g. -- INSERT --)
+vim.o.pumheight = 30        -- limits popup menu height
+vim.o.scrolloff = 4         -- start scrolling 4 lines from the bottom
+vim.o.textwidth = 80        -- length to break lines
+vim.o.wrap = true           -- spread long lines across multiple lines
 
 -- wildmenu
 vim.o.wildignore = '*.o,*.pyc'
 
 
 -- ===================== plugins
--- diagnostic-nvim
-vim.g.diagnostic_show_sign = 0
-vim.g.diagnostic_enable_virtual_text = 1
-vim.g.diagnostic_virtual_text_prefix = ''
-
 -- fzf.vim
 vim.g.fzf_action = {
   ['ctrl-t'] = 'tab split',
@@ -117,12 +98,9 @@ vim.g.netrw_banner = 0      -- no top comments
 -- =============================================================================
 
 -- automatically change the working path to the path of the current file
-vim.api.nvim_command("autocmd BufNewFile,BufEnter * silent! lcd %:p:h")
-
-vim.api.nvim_command("autocmd VimEnter * lua require'init'.get_root_dir()")
-
-vim.api.nvim_command("autocmd BufEnter * lua require'completion'.on_attach()")
-vim.api.nvim_command("autocmd BufEnter * lua require'init'.get_git_branch()")
+viml "autocmd BufNewFile,BufEnter * silent! lcd %:p:h"
+-- get the current git branch
+viml "autocmd BufEnter * lua require'init'.get_git_branch()"
 
 
 -- =============================================================================
@@ -130,19 +108,12 @@ vim.api.nvim_command("autocmd BufEnter * lua require'init'.get_git_branch()")
 -- =============================================================================
 
 M.get_git_branch = function()
-  local handle = io.popen([[
+  local handle = io.popen [[
       git rev-parse --abbrev-ref HEAD 2> /dev/null \
       | sed "s/^/git:/" \
-      | tr "\n" " " ]])
+      | tr "\n" " " ]]
   vim.g.git = handle:read("*a")
   handle:close()
-end
-
-
-M.root_dir = ""
-M.get_root_dir = function()
-  local path = vim.api.nvim_exec("pwd", true)
-  M.root_dir = lsp.rust_analyzer.document_config.default_config.root_dir(path)
 end
 
 
@@ -196,7 +167,7 @@ map('n', '/', '<Plug>(incsearch-forward)', {})
 map('n', '?', '<Plug>(incsearch-backward)', {})
 map('n', 'g/', '<Plug>(incsearch-stay)', {})
 
--- nvim-lsp
+-- nvim lsp
 map('n', leader..'ld', '<cmd>lua vim.lsp.buf.declaration()<CR>',
     { noremap = true, silent = true })
 map('n', leader..'lwd', '<cmd>sp<CR>:lua vim.lsp.buf.declaration()<CR>',
@@ -204,6 +175,8 @@ map('n', leader..'lwd', '<cmd>sp<CR>:lua vim.lsp.buf.declaration()<CR>',
 map('n', leader..'li', '<cmd>lua vim.lsp.buf.definition()<CR>',
     { noremap = true, silent = true })
 map('n', leader..'lwi', '<cmd>sp<CR>:lua vim.lsp.buf.definition()<CR>',
+    { noremap = true, silent = true })
+map('n', leader..'lf', '<cmd>lua vim.lsp.buf.formatting()<CR>',
     { noremap = true, silent = true })
 
 -- tagbar
@@ -214,7 +187,9 @@ map('n', leader..'t', ':TagbarToggle<CR><C-W>=',
 map('n', leader..'ff', [[:lua require'telescope.builtin'.fd{}<CR>]],
     { noremap = true, silent = true })
 map('n', leader..'fp',
-    ":lua require'telescope.builtin'.fd{ cwd = require'init'.root_dir }<CR>",
+    -- is there a more efficient way to do this than calling the function every
+    -- time?
+    ":lua require'telescope.builtin'.fd{ cwd = vim.lsp.buf.list_workspace_folders()[1] }<CR>",
     { noremap = true, silent = true })
 
 -- vim-easymotion
@@ -230,31 +205,35 @@ map('n', 'ga', '<Plug>(EasyAlign)', {})
 -- =====================   Plugins   ===========================================
 -- =============================================================================
 
+-- ===================== completion
+require('compe').setup {
+  enabled = true;
+  autocomplete = true;
+
+  documentation = {
+    border = { '', '' ,'', ' ', '', '', '', ' ' },  -- same as nvim_open_win
+    winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
+    max_width = 120,
+    min_width = 60,
+    max_height = math.floor(vim.o.lines * 0.3),
+    min_height = 1,
+  };
+
+  source = {
+    buffer = true;
+    nvim_lsp = true;
+    nvim_lua = true;
+    path = true;
+  }
+}
+
+
 -- ===================== language server
-lsp.clangd.setup {  -- C++
-  cmd = {'clangd', '--background-index', '--clang-tidy', '--log=error',
-         '--pretty'};
-  on_attach = function()
-    completion.on_attach()
-    diagnostic.on_attach()
-  end;
+lsp.clangd.setup {
+  cmd = {'clangd', '--background-index', '--clang-tidy'};
 }
 
-lsp.jdtls.setup {  -- Java
-  on_attach = function()
-    completion.on_attach()
-    diagnostic.on_attach()
-  end;
-}
-
-lsp.metals.setup {  -- Scala
-  on_attach = function()
-    completion.on_attach()
-    diagnostic.on_attach()
-  end;
-}
-
-lsp.rust_analyzer.setup {  -- Rust
+lsp.rust_analyzer.setup {
   settings = {
     cargo = {
       allFeatures = true;
@@ -265,38 +244,31 @@ lsp.rust_analyzer.setup {  -- Rust
       enable = true;
     };
   };
-  on_attach = function()
-    completion.on_attach()
-    diagnostic.on_attach()
-  end;
-  capabilities = {
-    textDocument = {
-      completion = {
-        completionItem = {
-          snippetSupport = false
-        }
-      }
-    }
-  };
 }
 
+-- diagnostics
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = { spacing = 2, prefix = '' },
+    signs = false,
+  }
+)
 
 -- ===================== tree sitter
-require('nvim-treesitter.configs').setup {
-  highlight = { enable = true, },
-  ensure_installed = 'all'
-}
+-- require('nvim-treesitter.configs').setup {
+--   highlight = { enable = true; };
+-- }
 
 
 -- =============================================================================
 -- =====================   Imports   ===========================================
 -- =============================================================================
 
-vim.api.nvim_command([[
+viml [[
 if !empty(glob('~/.nvim.local.vim'))
   exe 'source' '~/.nvim.local.vim'
 endif
-]])
+]]
 
 
 -- =============================================================================
