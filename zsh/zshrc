@@ -16,13 +16,16 @@ alias nif='nvim $(fd -t f \
 alias update_pacman_mirrors='sudo reflector --sort rate --protocol https \
       --fastest 50 --number 100 --save /etc/pacman.d/mirrorlist'
 
-alias transd='transmission-daemon --paused --download-dir ~/mda/downloads'
+alias transr='transmission-remote'
 
 alias fehf='feh --auto-rotate -.'
 
 alias cdf='cd $(fd -t d | fzf)'
 
 alias vid='vlc > /dev/null 2>&1'
+
+alias nordc='nordvpn connect United_States New_York'
+alias nordd='killall transmission-daemon; nordvpn d'
 
 
 # ==============================================================================
@@ -100,16 +103,37 @@ function mkcd() {
   mkdir -p $1 && cd $1
 }
 
+function vlcf() {
+  v="`fzf`"
+  vlc $v 2>/dev/null &
+}
+
+function vpn_is_connected() {
+  local vpn_status=$(nordvpn status | grep Status | awk '{print $NF}')
+  if [ $vpn_status = "Connected" ]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+function transd() {
+  if ! vpn_is_connected; then
+    echo "no vpn connection. exiting."
+  fi
+  transmission-daemon
+}
+
 
 # ==============================================================================
 # ======================   Fzf   ===============================================
 # ==============================================================================
 
-# Auto-completion
+# auto completion
 # ---------------
 [[ $- == *i* ]] && source "$HOME/.config/fzf/shell/completion.zsh" 2> /dev/null
 
-# Key bindings
+# key bindings
 # ------------
 source "$HOME/.config/fzf/shell/key-bindings.zsh"
 
