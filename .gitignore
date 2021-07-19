@@ -3,3 +3,4 @@ nvim/autoload/
 nvim/.init.vim-rplugin~
 **/*.o
 tags
+fonts/**/*.uuid
