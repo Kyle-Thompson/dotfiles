@@ -2,42 +2,43 @@ local lsp = require('lspconfig')
 
 local M = {}
 local viml = vim.api.nvim_command
+local opt = vim.opt
 
 -- =============================================================================
 -- =====================   General   ===========================================
 -- =============================================================================
 
 -- clipboard
-vim.o.clipboard = 'unnamedplus'  -- enable system clipboard
+opt.clipboard = 'unnamedplus'  -- enable system clipboard
 
 -- completeopt
 -- menuone   - pum even for a single match
 -- noinstert - no text insterted until selection
 -- noselect  - no auto selection
 -- vim.o.completeopt = 'menuone,noinsert,noselect'
-vim.o.completeopt = 'menuone,noselect'
+opt.completeopt = 'menuone,noselect'
 
 -- fill chars
 -- use | for vertical split borders
 -- no ~ for end-of-buffer lines.
-vim.o.fillchars = vim.o.fillchars..'vert:|,eob: '
+opt.fillchars = vim.o.fillchars..'vert:|,eob: '
 
 -- indentation
-vim.o.softtabstop = 2       -- number of spaces to replace tabs by
-vim.o.shiftwidth = 2        -- number of spaces for autoindent
-vim.o.expandtab = true      -- use spaces instead of tabs
+opt.softtabstop = 2       -- number of spaces to replace tabs by
+opt.shiftwidth = 2        -- number of spaces for autoindent
+opt.expandtab = true      -- use spaces instead of tabs
 
 -- miscellaneous
-vim.o.hidden = true         -- hide file, don't close on file switch
-vim.o.autoread = true       -- update buffer when file changed externally
+opt.hidden = true         -- hide file, don't close on file switch
+opt.autoread = true       -- update buffer when file changed externally
 
 -- safety files
-vim.b.noswapfile = true     -- do not create swap files
-vim.b.nobackup = true       -- do not create backup files
+opt.swapfile = false      -- do not create swap files
+opt.backup = false        -- do not create backup files
 
 -- searching
-vim.o.ignorecase = true     -- ignore case when searching
-vim.o.smartcase = true      -- match any given captials in search
+opt.ignorecase = true     -- ignore case when searching
+opt.smartcase = true      -- match any given captials in search
 
 -- shortmess
 -- a - all abbreviations
@@ -47,12 +48,12 @@ vim.o.smartcase = true      -- match any given captials in search
 -- T - truncate long messages with '...'
 -- I - no intro messages when starting vim
 -- F - no prompt when opening multiple files
--- vim.o.shortmess = 'acsWTIF'
-vim.o.shortmess = 'acsWTI'  -- needed for metals
+vim.o.shortmess = 'acsWTIF'
+-- opt.shortmess = 'acsWTI'  -- needed for metals
 
 -- splitting
-vim.o.splitbelow = true     -- vertical splits open below current window
-vim.o.splitright = true     -- horizontal splits open right of current window
+opt.splitbelow = true     -- vertical splits open below current window
+opt.splitright = true     -- horizontal splits open right of current window
 
 -- statusline
 -- %{g:git}   git branch name
@@ -63,21 +64,21 @@ vim.o.splitright = true     -- horizontal splits open right of current window
 -- %w         check preview window
 -- %=         left/right separator
 -- %l/%L,%c\  rownumber/total,colnumber
-vim.o.statusline = " %{g:git}%<%f %m %r %w %=%l/%L,%c "
+opt.statusline = " %{g:git}%<%f %m %r %w %=%l/%L,%c "
 
 -- visual
-vim.api.nvim_command("colorscheme xres")
-vim.o.linebreak = true      -- do not break words on wrap
-vim.b.nolist = true         -- do not show characters at the end of lines
-vim.w.noshowcmd = true      -- don't display partial commands in bottom right
-vim.w.noshowmode = true     -- don't display mode (e.g. -- INSERT --)
-vim.o.pumheight = 30        -- limits popup menu height
-vim.o.scrolloff = 4         -- start scrolling 4 lines from the bottom
-vim.o.textwidth = 80        -- length to break lines
-vim.o.wrap = true           -- spread long lines across multiple lines
+viml "colorscheme xres"
+opt.linebreak = true      -- do not break words on wrap
+opt.list = false          -- do not show characters at the end of lines
+opt.showcmd = false       -- don't display partial commands in bottom right
+opt.showmode = false      -- don't display mode (e.g. -- INSERT --)
+opt.pumheight = 30        -- limits popup menu height
+opt.scrolloff = 4         -- start scrolling 4 lines from the bottom
+opt.textwidth = 80        -- length to break lines
+opt.wrap = true           -- spread long lines across multiple lines
 
 -- wildmenu
-vim.o.wildignore = '*.o,*.pyc'
+opt.wildignore = '*.o,*.pyc'
 
 
 -- ===================== plugins
