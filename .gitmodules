@@ -58,3 +58,6 @@
 [submodule "/home/kyle/.dotfiles/nvim/pack/plugins/start/nvim-dap"]
 	path = /home/kyle/.dotfiles/nvim/pack/plugins/start/nvim-dap
 	url = https://github.com/mfussenegger/nvim-dap.git
+[submodule "/home/kyle/.dotfiles/nvim/pack/plugins/start/nvim-dap-ui"]
+	path = /home/kyle/.dotfiles/nvim/pack/plugins/start/nvim-dap-ui
+	url = https://github.com/rcarriga/nvim-dap-ui.git
