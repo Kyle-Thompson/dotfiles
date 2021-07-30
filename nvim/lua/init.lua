@@ -48,7 +48,7 @@ opt.smartcase = true      -- match any given captials in search
 -- T - truncate long messages with '...'
 -- I - no intro messages when starting vim
 -- F - no prompt when opening multiple files
-vim.o.shortmess = 'acsWTIF'
+opt.shortmess = 'acsWTIF'
 -- opt.shortmess = 'acsWTI'  -- needed for metals
 
 -- splitting
