@@ -206,6 +206,8 @@ lsp.clangd.setup {
   cmd = {'clangd', '--background-index', '--clang-tidy'};
 }
 
+lsp.pylsp.setup{}
+
 lsp.rust_analyzer.setup {
   settings = {
     cargo = {
