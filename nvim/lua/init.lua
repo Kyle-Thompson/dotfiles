@@ -31,6 +31,10 @@ opt.expandtab = true      -- use spaces instead of tabs
 opt.hidden = true         -- hide file, don't close on file switch
 opt.autoread = true       -- update buffer when file changed externally
 
+-- netrw
+vim.g.netrw_dirhistmax = 0  -- no netrwhist file
+vim.g.netrw_banner = 0      -- no top comments
+
 -- safety files
 opt.swapfile = false      -- do not create swap files
 opt.backup = false        -- do not create backup files
@@ -76,19 +80,6 @@ opt.wrap = true           -- spread long lines across multiple lines
 
 -- wildmenu
 opt.wildignore = '*.o,*.pyc'
-
-
--- ===================== plugins
--- fzf.vim
-vim.g.fzf_action = {
-  ['ctrl-t'] = 'tab split',
-  ['ctrl-x'] = 'split',
-  ['ctrl-v'] = 'vsplit',
-}
-
--- netrw
-vim.g.netrw_dirhistmax = 0  -- no netrwhist file
-vim.g.netrw_banner = 0      -- no top comments
 
 
 -- =============================================================================
