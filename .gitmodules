@@ -55,3 +55,6 @@
 [submodule "nvim/pack/plugins/start/nvim-jdtls"]
 	path = nvim/pack/plugins/start/nvim-jdtls
 	url = https://github.com/mfussenegger/nvim-jdtls.git
+[submodule "/home/kyle/.dotfiles/nvim/pack/plugins/start/nvim-dap"]
+	path = /home/kyle/.dotfiles/nvim/pack/plugins/start/nvim-dap
+	url = https://github.com/mfussenegger/nvim-dap.git
