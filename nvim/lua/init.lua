@@ -1,6 +1,5 @@
 local lsp = require('lspconfig')
 
-local M = {}
 local viml = vim.api.nvim_command
 local opt = vim.opt
 
@@ -49,14 +48,12 @@ opt.smartcase = true      -- match any given captials in search
 -- I - no intro messages when starting vim
 -- F - no prompt when opening multiple files
 opt.shortmess = 'acsWTIF'
--- opt.shortmess = 'acsWTI'  -- needed for metals
 
 -- splitting
 opt.splitbelow = true     -- vertical splits open below current window
 opt.splitright = true     -- horizontal splits open right of current window
 
 -- statusline
--- %{g:git}   git branch name
 -- %<         trim from here
 -- %f         path+filename
 -- %m         check modifi{ed,able}
@@ -64,7 +61,7 @@ opt.splitright = true     -- horizontal splits open right of current window
 -- %w         check preview window
 -- %=         left/right separator
 -- %l/%L,%c\  rownumber/total,colnumber
-opt.statusline = " %{g:git}%<%f %m %r %w %=%l/%L,%c "
+opt.statusline = " %<%f %m %r %w %=%l/%L,%c "
 
 -- visual
 viml "colorscheme xres"
@@ -100,22 +97,6 @@ vim.g.netrw_banner = 0      -- no top comments
 
 -- automatically change the working path to the path of the current file
 viml "autocmd BufNewFile,BufEnter * silent! lcd %:p:h"
--- get the current git branch
-viml "autocmd BufEnter * lua require'init'.get_git_branch()"
-
-
--- =============================================================================
--- =====================   Functions   =========================================
--- =============================================================================
-
-M.get_git_branch = function()
-  local handle = io.popen [[
-      git rev-parse --abbrev-ref HEAD 2> /dev/null \
-      | sed "s/^/git:/" \
-      | tr "\n" " " ]]
-  vim.g.git = handle:read("*a")
-  handle:close()
-end
 
 
 -- =============================================================================
@@ -270,10 +251,3 @@ if !empty(glob('~/.nvim.local.vim'))
   exe 'source' '~/.nvim.local.vim'
 endif
 ]]
-
-
--- =============================================================================
--- =====================   Exports   ===========================================
--- =============================================================================
-
-return M
