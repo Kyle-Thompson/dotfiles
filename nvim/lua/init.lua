@@ -237,9 +237,9 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 -- ===================== tree sitter
--- require('nvim-treesitter.configs').setup {
---   highlight = { enable = true; };
--- }
+require('nvim-treesitter.configs').setup {
+  highlight = { enable = true; };
+}
 
 
 -- =============================================================================
