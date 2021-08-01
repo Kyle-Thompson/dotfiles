@@ -27,6 +27,8 @@ alias nordd='killall transmission-daemon; nordvpn d'
 
 alias vim='nvim -u /dev/null'
 
+alias luamake=~/pkg/lua-language-server/3rd/luamake/luamake
+
 # ==============================================================================
 # ======================   Completion   ========================================
 # ==============================================================================
