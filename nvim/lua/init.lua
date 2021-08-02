@@ -96,6 +96,9 @@ viml "autocmd BufNewFile,BufEnter * silent! lcd %:p:h"
 
 local leader = ' '
 local map = vim.api.nvim_set_keymap
+local nmap = function(key, command)
+  map('n', key, command, { noremap = true, silent = true })
+end
 
 -- easy escape to normal
 map('i', 'jj', '<ESC>', { noremap = true })
@@ -125,7 +128,7 @@ map('c', 'w!!', 'execute "silent! write !sudo tee % >/dev/null" <bar> edit!',
     { noremap = true })
 
 -- clear highlights
-map('n', leader..'h', ':nohls<CR>', { noremap = true, silent = true })
+nmap(leader..'h', ':nohls<CR>')
 
 -- pop-up menu navigation
 map('i', '<Tab>', [[pumvisible() ? "\<C-n>" : "\<Tab>"]],
@@ -137,8 +140,7 @@ map('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]],
 -- ===================== plugins
 -- dap
 local dap_map = function(key, cmd)
-  map('n', leader..'d'..key, "<cmd>lua require'dap'."..cmd.."()<CR>",
-      { noremap = true, silent = true })
+  nmap(leader..'d'..key, "<cmd>lua require'dap'."..cmd.."()<CR>")
 end
 
 dap_map('c', "continue")
@@ -157,14 +159,16 @@ map('n', 'g/', '<Plug>(incsearch-stay)', {})
 -- nvim lsp
 local lsp_map = function(key, cmd, new_window)
   local window = function() return new_window and '<cmd>sp<CR>' or '' end
-  map('n', leader..'l'..key, window()..'<cmd>lua vim.lsp.buf.'..cmd..'()<CR>',
-      { noremap = true, silent = true })
+  nmap(leader..'l'..key, window()..'<cmd>lua vim.lsp.buf.'..cmd..'()<CR>')
 end
 lsp_map('d', 'declaration')
 lsp_map('wd', 'declaration', true)
 lsp_map('i', 'definition')
 lsp_map('wi', 'definition', true)
 lsp_map('f', 'formatting')
+lsp_map('r', 'references')
+lsp_map('a', 'codeAction')
+lsp_map('h', 'hover')
 
 -- tagbar
 map('n', leader..'t', ':TagbarToggle<CR><C-W>=',
