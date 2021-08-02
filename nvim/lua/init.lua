@@ -215,6 +215,9 @@ dap.configurations.python = {
     type = 'python';
     request = 'launch';
     name = "Launch file";
+    args = function()
+      return { unpack(vim.split(vim.fn.input('args: '), " ", true)) }
+    end;
 
     -- debugpy options
     program = "${file}";
