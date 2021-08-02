@@ -135,22 +135,36 @@ map('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]],
 
 
 -- ===================== plugins
+-- dap
+local dap_map = function(key, cmd)
+  map('n', leader..'d'..key, "<cmd>lua require'dap'."..cmd.."()<CR>",
+      { noremap = true, silent = true })
+end
+
+dap_map('c', "continue")
+dap_map('i', "step_into")
+dap_map('o', "step_out")
+dap_map('v', "step_over")
+dap_map('b', "toggle_breakpoint")
+dap_map('r', "repl.open")
+dap_map('t', "run_to_cursor")
+
 -- incsearch.vim
 map('n', '/', '<Plug>(incsearch-forward)', {})
 map('n', '?', '<Plug>(incsearch-backward)', {})
 map('n', 'g/', '<Plug>(incsearch-stay)', {})
 
 -- nvim lsp
-map('n', leader..'ld', '<cmd>lua vim.lsp.buf.declaration()<CR>',
-    { noremap = true, silent = true })
-map('n', leader..'lwd', '<cmd>sp<CR>:lua vim.lsp.buf.declaration()<CR>',
-    { noremap = true, silent = true })
-map('n', leader..'li', '<cmd>lua vim.lsp.buf.definition()<CR>',
-    { noremap = true, silent = true })
-map('n', leader..'lwi', '<cmd>sp<CR>:lua vim.lsp.buf.definition()<CR>',
-    { noremap = true, silent = true })
-map('n', leader..'lf', '<cmd>lua vim.lsp.buf.formatting()<CR>',
-    { noremap = true, silent = true })
+local lsp_map = function(key, cmd, new_window)
+  local window = function() return new_window and '<cmd>sp<CR>' or '' end
+  map('n', leader..'l'..key, window()..'<cmd>lua vim.lsp.buf.'..cmd..'()<CR>',
+      { noremap = true, silent = true })
+end
+lsp_map('d', 'declaration')
+lsp_map('wd', 'declaration', true)
+lsp_map('i', 'definition')
+lsp_map('wi', 'definition', true)
+lsp_map('f', 'formatting')
 
 -- tagbar
 map('n', leader..'t', ':TagbarToggle<CR><C-W>=',
