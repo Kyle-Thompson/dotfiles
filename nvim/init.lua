@@ -138,19 +138,6 @@ map('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]],
 
 
 -- ===================== plugins
--- dap
-local dap_map = function(key, cmd)
-  nmap(leader..'d'..key, "<cmd>lua require'dap'."..cmd.."()<CR>")
-end
-
-dap_map('c', "continue")
-dap_map('i', "step_into")
-dap_map('o', "step_out")
-dap_map('v', "step_over")
-dap_map('b', "toggle_breakpoint")
-dap_map('r', "repl.open")
-dap_map('t', "run_to_cursor")
-
 -- incsearch.vim
 map('n', '/', '<Plug>(incsearch-forward)', {})
 map('n', '?', '<Plug>(incsearch-backward)', {})
@@ -220,37 +207,56 @@ require('compe').setup {
 
 
 -- ===================== debugger
-local dap = require('dap')
-dap.adapters.python = {
-  type = 'executable';
-  command = '/usr/bin/python';
-  args = { '-m', 'debugpy.adapter' };
-}
+local dap_map = function(key, cmd)
+  nmap(leader..'d'..key, "<cmd>lua require'dap'."..cmd.."()<CR>")
+end
+dap_map('c', "continue")
+dap_map('i', "step_into")
+dap_map('o', "step_out")
+dap_map('v', "step_over")
+dap_map('b', "toggle_breakpoint")
+dap_map('r', "repl.open")
+dap_map('t', "run_to_cursor")
 
-dap.configurations.python = {
-  {
-    -- needed for nvim-dap
-    type = 'python';
-    request = 'launch';
-    name = "Launch file";
-    args = function()
-      return { unpack(vim.split(vim.fn.input('args: '), " ", true)) }
-    end;
-
-    -- debugpy options
-    program = "${file}";
-    pythonPath = function()
-      local root_dir = vim.lsp.buf.list_workspace_folders()[1]
-      if vim.fn.executable(root_dir .. '/venv/bin/python') == 1 then
-        return root_dir .. '/venv/bin/python'
-      elseif vim.fn.executable(root_dir .. '/.venv/bin/python') == 1 then
-        return root_dir .. '/.venv/bin/python'
-      else
-        return '/usr/bin/python'
-      end
-    end;
+local dapui = require('dapui')
+dapui.setup({
+  icons = {
+    expanded = 'v',
+    collapsed = '>'
   },
-}
+  mappings = {
+    -- Use a table to apply multiple mappings
+    expand = {"<CR>"},
+    open = "o",
+    remove = "d",
+    edit = "e",
+    repl = "r",
+  },
+  sidebar = {
+    open_on_start = true,
+    elements = {
+      -- You can change the order of elements in the sidebar
+      "scopes",
+      "breakpoints",
+      "stacks",
+      "watches"
+    },
+    width = 40,
+    position = "left" -- Can be "left" or "right"
+  },
+  tray = {
+    open_on_start = true,
+    elements = { "repl" },
+    height = 10,
+    position = "bottom"
+  },
+  floating = {
+    max_height = nil, -- These can be integers or a float between 0 and 1.
+    max_width = nil   -- Floats will be treated as percentage of your screen.
+  }
+})
+
+nmap(leader..'du', "<cmd>lua require'dapui'.toggle()<CR>")
 
 
 -- ===================== language server
