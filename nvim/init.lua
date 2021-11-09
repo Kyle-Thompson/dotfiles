@@ -276,7 +276,23 @@ lsp.rust_analyzer.setup {
       command = "clippy";
       enable = true;
     };
+    ["rust-analyzer"] = {
+      assist = {
+        importGranularity = "module",
+        importPrefix = "by_self",
+      },
+      cargo = {
+        loadOutDirsFromCheck = true
+      },
+      procMacro = {
+        enable = true
+      },
+    }
   };
+}
+
+lsp.tsserver.setup{
+  cmd = { 'typescript-language-server', '--stdio' };
 }
 
 local system_name
