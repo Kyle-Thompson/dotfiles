@@ -61,3 +61,18 @@
 [submodule "/home/kyle/.dotfiles/nvim/pack/plugins/start/nvim-dap-ui"]
 	path = /home/kyle/.dotfiles/nvim/pack/plugins/start/nvim-dap-ui
 	url = https://github.com/rcarriga/nvim-dap-ui.git
+[submodule "/home/kyle/.dotfiles/nvim/pack/plugins/start/nvim-cmp"]
+	path = /home/kyle/.dotfiles/nvim/pack/plugins/start/nvim-cmp
+	url = https://github.com/hrsh7th/nvim-cmp.git
+[submodule "/home/kyle/.dotfiles/nvim/pack/plugins/start/cmp-nvim-lsp"]
+	path = /home/kyle/.dotfiles/nvim/pack/plugins/start/cmp-nvim-lsp
+	url = https://github.com/hrsh7th/cmp-nvim-lsp.git
+[submodule "/home/kyle/.dotfiles/nvim/pack/plugins/start/cmp-buffer"]
+	path = /home/kyle/.dotfiles/nvim/pack/plugins/start/cmp-buffer
+	url = https://github.com/hrsh7th/cmp-buffer.git
+[submodule "/home/kyle/.dotfiles/nvim/pack/plugins/start/cmp-path"]
+	path = /home/kyle/.dotfiles/nvim/pack/plugins/start/cmp-path
+	url = https://github.com/hrsh7th/cmp-path.git
+[submodule "/home/kyle/.dotfiles/nvim/pack/plugins/start/LuaSnip"]
+	path = /home/kyle/.dotfiles/nvim/pack/plugins/start/LuaSnip
+	url = https://github.com/L3MON4D3/LuaSnip.git
