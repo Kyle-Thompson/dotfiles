@@ -65,6 +65,9 @@ export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.config/fzf/bin
 
+# fix vlc visual bug. TODO: remove when no longer needed
+export QT_AUTO_SCREEN_SCALE_FACTOR=0
+
 export LESS_TERMCAP_md=$(tput setaf 4)
 export LESS_TERMCAP_mb=$(tput setaf 2)
 # export LESS_TERMCAP_me=$(tput sgr0)
