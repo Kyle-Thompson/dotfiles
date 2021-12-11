@@ -49,9 +49,6 @@
 [submodule "nvim/pack/plugins/start/telescope.nvim"]
 	path = nvim/pack/plugins/start/telescope.nvim
 	url = https://github.com/nvim-lua/telescope.nvim.git
-[submodule "nvim/pack/plugins/start/nvim-compe"]
-	path = nvim/pack/plugins/start/nvim-compe
-	url = https://github.com/hrsh7th/nvim-compe.git
 [submodule "nvim/pack/plugins/start/nvim-jdtls"]
 	path = nvim/pack/plugins/start/nvim-jdtls
 	url = https://github.com/mfussenegger/nvim-jdtls.git
