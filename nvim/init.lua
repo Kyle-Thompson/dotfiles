@@ -127,6 +127,8 @@ map('n', '<C-H>', '<C-W><C-H>', { noremap = true })
 map('c', 'w!!', 'execute "silent! write !sudo tee % >/dev/null" <bar> edit!',
     { noremap = true })
 
+map('c', 'W', 'w', { noremap = true })
+
 -- clear highlights
 nmap(leader..'h', ':nohls<CR>')
 
@@ -184,27 +186,64 @@ map('n', 'ga', '<Plug>(EasyAlign)', {})
 -- =============================================================================
 
 -- ===================== completion
-require('compe').setup {
-  enabled = true;
-  autocomplete = true;
+local luasnip = require('luasnip')
+local cmp = require'cmp'
 
-  documentation = {
-    border = { '', '' ,'', ' ', '', '', '', ' ' },  -- same as nvim_open_win
-    winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
-    max_width = 120,
-    min_width = 60,
-    max_height = math.floor(vim.o.lines * 0.3),
-    min_height = 1,
-  };
+cmp.setup({
+  snippet = {
+    expand = function(args) luasnip.lsp_expand(args.body) end,
+  },
+  mapping = {
+    ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    ['<C-y>'] = cmp.config.disable,
+    ['<C-e>'] = cmp.mapping({
+      i = cmp.mapping.abort(),
+      c = cmp.mapping.close(),
+    }),
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end, {"i", "s"}),
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, {"i", "s"}),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  },
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+    { name = 'buffer' },
+    { name = 'path' },
+  })
+})
 
-  source = {
-    buffer = true;
-    nvim_lsp = true;
-    nvim_lua = true;
-    path = true;
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('/', {
+  sources = {
+    { name = 'buffer' }
   }
-}
+})
 
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
+
+-- Setup lspconfig.
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- ===================== debugger
 local dap_map = function(key, cmd)
@@ -262,33 +301,37 @@ nmap(leader..'du', "<cmd>lua require'dapui'.toggle()<CR>")
 -- ===================== language server
 lsp.clangd.setup {
   cmd = {'clangd', '--background-index', '--clang-tidy'};
+  capabilities = capabilities;
 }
 
-lsp.pylsp.setup{}
+lsp.pylsp.setup{
+  capabilities = capabilities;
+}
 
 lsp.rust_analyzer.setup {
   settings = {
-    cargo = {
-      allFeatures = true;
-    };
-    checkOnSave = {
-      allFeatures = true;
-      command = "clippy";
-      enable = true;
-    };
     ["rust-analyzer"] = {
       assist = {
         importGranularity = "module",
         importPrefix = "by_self",
       },
+      checkOnSave = {
+        allFeatures = true;
+        overrideCommand = { 'cargo', 'clippy', '--message-format=json',
+          '--all-targets', '--all-features', '--', '-Dclippy::all',
+          '-Dclippy::pedantic' };
+        enable = true;
+      };
       cargo = {
-        loadOutDirsFromCheck = true
+        loadOutDirsFromCheck = true,
+        allFeatures = true,
       },
       procMacro = {
         enable = true
       },
     }
   };
+  capabilities = capabilities;
 }
 
 lsp.tsserver.setup{
