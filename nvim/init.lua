@@ -30,6 +30,7 @@ opt.expandtab = true      -- use spaces instead of tabs
 -- miscellaneous
 opt.hidden = true         -- hide file, don't close on file switch
 opt.autoread = true       -- update buffer when file changed externally
+opt.updatetime = 300      -- CursorHold autocmd triggers after x milliseconds
 
 -- netrw
 vim.g.netrw_dirhistmax = 0  -- no netrwhist file
@@ -80,14 +81,6 @@ opt.wrap = true           -- spread long lines across multiple lines
 
 -- wildmenu
 opt.wildignore = '*.o,*.pyc'
-
-
--- =============================================================================
--- =====================   Autocmds   ==========================================
--- =============================================================================
-
--- automatically change the working path to the path of the current file
-viml "autocmd BufNewFile,BufEnter * silent! lcd %:p:h"
 
 
 -- =============================================================================
@@ -182,6 +175,14 @@ map('n', 'ga', '<Plug>(EasyAlign)', {})
 
 
 -- =============================================================================
+-- =====================   Miscellaneous   =====================================
+-- =============================================================================
+
+-- automatically change the working path to the path of the current file
+viml "autocmd BufNewFile,BufEnter * silent! lcd %:p:h"
+
+
+-- =============================================================================
 -- =====================   Plugins   ===========================================
 -- =============================================================================
 
@@ -202,6 +203,19 @@ cmp.setup({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+
+    -- consistent up nav in cmp-pum menu and normal mode
+    ["<C-j>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then cmp.select_next_item() else fallback() end
+    end, {"i", "s"}),
+
+    -- consistent down nav in cmp-pum menu and normal mode
+    ["<C-k>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then cmp.select_prev_item() else fallback() end
+    end, {"i", "s"}),
+
+    -- tab through snippet targets
     ["<Tab>"] = cmp.mapping(function(fallback)
       if luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
@@ -209,17 +223,15 @@ cmp.setup({
         fallback()
       end
     end, {"i", "s"}),
+
+    -- shift tab to reverse through snippet targets
     ["<S-Tab>"] = cmp.mapping(function(fallback)
-      if luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
+      if luasnip.jumpable(-1) then luasnip.jump(-1) else fallback() end
     end, {"i", "s"}),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
+    { name = 'nvim_lua' },
     { name = 'luasnip' },
     { name = 'buffer' },
     { name = 'path' },
@@ -228,16 +240,14 @@ cmp.setup({
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
-  sources = {
-    { name = 'buffer' }
-  }
+  sources = { { name = 'buffer' } }
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
   sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
+    { name = 'path' },
+  -- }, {
     { name = 'cmdline' }
   })
 })
@@ -381,12 +391,11 @@ require'lspconfig'.sumneko_lua.setup {
 }
 
 -- diagnostics
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = { spacing = 2, prefix = '' },
-    signs = false,
-  }
-)
+vim.diagnostic.config({
+  virtual_text = false,  -- disable inline diagnostics
+  signs = false,  -- disable signs
+})
+viml 'autocmd CursorHold * lua vim.diagnostic.open_float()'
 
 -- ===================== tree sitter
 require('nvim-treesitter.configs').setup {
