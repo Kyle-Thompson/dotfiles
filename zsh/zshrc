@@ -13,7 +13,9 @@ alias nif='nvim $(fzf --reverse -m --preview \
 
 alias update_pacman_mirrors='sudo reflector --sort rate --protocol https \
       --fastest 50 --number 100 --save /etc/pacman.d/mirrorlist'
-alias clean_pacman_cache='sudo paccache -r'
+alias clean_pacman_cache='sudo paccache -rk 1'
+
+alias cargo_update='cargo install-update -a'
 
 alias transr='transmission-remote'
 
