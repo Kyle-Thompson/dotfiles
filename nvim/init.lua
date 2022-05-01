@@ -88,90 +88,83 @@ opt.wildignore = '*.o,*.pyc'
 -- =============================================================================
 
 local leader = ' '
-local map = vim.api.nvim_set_keymap
-local nmap = function(key, command)
-  map('n', key, command, { noremap = true, silent = true })
-end
+local map = vim.keymap.set
 
 -- easy escape to normal
-map('i', 'jj', '<ESC>', { noremap = true })
+map('i', 'jj', '<ESC>')
 
 -- move along visual lines, not numbered ones
-map('n', 'j', 'gj', { noremap = true })
-map('n', 'k', 'gk', { noremap = true })
-map('n', '^', 'g^', { noremap = true })
-map('n', '$', 'g$', { noremap = true })
-map('v', 'j', 'gj', { noremap = true })
-map('v', 'k', 'gk', { noremap = true })
-map('v', '^', 'g^', { noremap = true })
-map('v', '$', 'g$', { noremap = true })
+map('n', 'j', 'gj')
+map('n', 'k', 'gk')
+map('n', '^', 'g^')
+map('n', '$', 'g$')
+map('v', 'j', 'gj')
+map('v', 'k', 'gk')
+map('v', '^', 'g^')
+map('v', '$', 'g$')
 
 -- keep visual selections when indenting
-map('v', '<', '<gv', {})
-map('v', '>', '>gv', {})
+map('v', '<', '<gv')
+map('v', '>', '>gv')
 
 -- simplify moving across splits
-map('n', '<C-J>', '<C-W><C-J>', { noremap = true })
-map('n', '<C-K>', '<C-W><C-K>', { noremap = true })
-map('n', '<C-L>', '<C-W><C-L>', { noremap = true })
-map('n', '<C-H>', '<C-W><C-H>', { noremap = true })
+map('n', '<C-J>', '<C-W><C-J>')
+map('n', '<C-K>', '<C-W><C-K>')
+map('n', '<C-L>', '<C-W><C-L>')
+map('n', '<C-H>', '<C-W><C-H>')
 
 -- save when file is readonly
-map('c', 'w!!', 'execute "silent! write !sudo tee % >/dev/null" <bar> edit!',
-    { noremap = true })
+map('c', 'w!!', 'execute "silent! write !sudo tee % >/dev/null" <bar> edit!')
 
-map('c', 'W', 'w', { noremap = true })
+map('c', 'W', 'w')
 
 -- clear highlights
-nmap(leader..'h', ':nohls<CR>')
+map('n', leader..'h', ':nohls<CR>')
 
 -- pop-up menu navigation
-map('i', '<Tab>', [[pumvisible() ? "\<C-n>" : "\<Tab>"]],
-    { noremap = true, expr = true })
-map('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]],
-    { noremap = true, expr = true })
+map('i', '<Tab>', [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
+map('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
 
 
 -- ===================== plugins
 -- incsearch.vim
-map('n', '/', '<Plug>(incsearch-forward)', {})
-map('n', '?', '<Plug>(incsearch-backward)', {})
-map('n', 'g/', '<Plug>(incsearch-stay)', {})
+map('n', '/', '<Plug>(incsearch-forward)')
+map('n', '?', '<Plug>(incsearch-backward)')
+map('n', 'g/', '<Plug>(incsearch-stay)')
 
 -- nvim lsp
-local lsp_map = function(key, cmd, new_window)
-  local window = function() return new_window and '<cmd>sp<CR>' or '' end
-  nmap(leader..'l'..key, window()..'<cmd>lua vim.lsp.buf.'..cmd..'()<CR>')
+local new_window = function() viml ':sp' end
+local noop = function() end
+local lsp_map = function(key, cmd, extra)
+  map('n', leader..'l'..key, function() extra() cmd() end)
 end
-lsp_map('d', 'declaration')
-lsp_map('wd', 'declaration', true)
-lsp_map('i', 'definition')
-lsp_map('wi', 'definition', true)
-lsp_map('f', 'formatting')
-lsp_map('r', 'references')
-lsp_map('a', 'codeAction')
-lsp_map('h', 'hover')
+lsp_map('d', vim.lsp.buf.declaration, noop)
+lsp_map('wd', vim.lsp.buf.declaration, new_window)
+lsp_map('i', vim.lsp.buf.definition, noop)
+lsp_map('wi', vim.lsp.buf.definition, new_window)
+lsp_map('f', vim.lsp.buf.formatting, noop)
+lsp_map('r', vim.lsp.buf.references, noop)
+lsp_map('a', vim.lsp.buf.codeAction, noop)
+lsp_map('h', vim.lsp.buf.hover, noop)
 
 -- tagbar
-map('n', leader..'t', ':TagbarToggle<CR><C-W>=',
-    { noremap = true, silent = true })
+map('n', leader..'t', ':TagbarToggle<CR><C-W>=')
 
 -- telescope
-map('n', leader..'ff', [[:lua require'telescope.builtin'.fd{}<CR>]],
-    { noremap = true, silent = true })
+map('n', leader..'ff', require'telescope.builtin'.fd)
 map('n', leader..'fp',
-    -- is there a more efficient way to do this than calling the function every
-    -- time?
-    ":lua require'telescope.builtin'.fd{ cwd = vim.lsp.buf.list_workspace_folders()[1] }<CR>",
-    { noremap = true, silent = true })
+  function()
+    local folder = vim.lsp.buf.list_workspace_folders()[1]
+    require'telescope.builtin'.fd{ cwd = folder }
+  end)
 
 -- vim-easymotion
-map('n', leader..'w', '<Plug>(easymotion-bd-w)', { silent = true })
-map('n', leader..'c', '<Plug>(easymotion-s)',    { silent = true })
+map('n', leader..'w', '<Plug>(easymotion-bd-w)')
+map('n', leader..'c', '<Plug>(easymotion-s)')
 
 -- vim-easy-align
-map('x', 'ga', '<Plug>(EasyAlign)', {})
-map('n', 'ga', '<Plug>(EasyAlign)', {})
+map('x', 'ga', '<Plug>(EasyAlign)')
+map('n', 'ga', '<Plug>(EasyAlign)')
 
 
 -- =============================================================================
@@ -247,25 +240,22 @@ cmp.setup.cmdline('/', {
 cmp.setup.cmdline(':', {
   sources = cmp.config.sources({
     { name = 'path' },
-  -- }, {
     { name = 'cmdline' }
   })
 })
 
 -- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp')
+  .update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- ===================== debugger
-local dap_map = function(key, cmd)
-  nmap(leader..'d'..key, "<cmd>lua require'dap'."..cmd.."()<CR>")
-end
-dap_map('c', "continue")
-dap_map('i', "step_into")
-dap_map('o', "step_out")
-dap_map('v', "step_over")
-dap_map('b', "toggle_breakpoint")
-dap_map('r', "repl.open")
-dap_map('t', "run_to_cursor")
+map('n', leader..'dc', require'dap'.continue)
+map('n', leader..'di', require'dap'.step_into)
+map('n', leader..'do', require'dap'.step_out)
+map('n', leader..'dv', require'dap'.step_over)
+map('n', leader..'db', require'dap'.toggle_breakpoint)
+map('n', leader..'dr', require'dap'.repl.open)
+map('n', leader..'dt', require'dap'.run_to_cursor)
 
 local dapui = require('dapui')
 dapui.setup({
@@ -305,7 +295,7 @@ dapui.setup({
   }
 })
 
-nmap(leader..'du', "<cmd>lua require'dapui'.toggle()<CR>")
+map('n', leader..'du', require'dapui'.toggle)
 
 
 -- ===================== language server
