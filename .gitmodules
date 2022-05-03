@@ -1,75 +1,100 @@
 [submodule "nvim/pack/plugins/start/vim-commentary"]
-	path = nvim/pack/plugins/start/vim-commentary
-	url = https://github.com/tpope/vim-commentary.git
+  path = nvim/pack/plugins/start/vim-commentary
+  url = https://github.com/tpope/vim-commentary.git
+  branch = master
 [submodule "nvim/pack/plugins/start/vim-repeat"]
-	path = nvim/pack/plugins/start/vim-repeat
-	url = https://github.com/tpope/vim-repeat.git
+  path = nvim/pack/plugins/start/vim-repeat
+  url = https://github.com/tpope/vim-repeat.git
+  branch = master
 [submodule "nvim/pack/plugins/start/targets.vim"]
-	path = nvim/pack/plugins/start/targets.vim
-	url = https://github.com/wellle/targets.vim.git
+  path = nvim/pack/plugins/start/targets.vim
+  url = https://github.com/wellle/targets.vim.git
+  branch = master
 [submodule "nvim/pack/plugins/start/vim-exchange"]
-	path = nvim/pack/plugins/start/vim-exchange
-	url = https://github.com/tommcdo/vim-exchange.git
+  path = nvim/pack/plugins/start/vim-exchange
+  url = https://github.com/tommcdo/vim-exchange.git
+  branch = master
 [submodule "nvim/pack/plugins/start/vim-surround"]
-	path = nvim/pack/plugins/start/vim-surround
-	url = https://github.com/tpope/vim-surround.git
+  path = nvim/pack/plugins/start/vim-surround
+  url = https://github.com/tpope/vim-surround.git
+  branch = master
 [submodule "nvim/pack/plugins/start/auto-pairs"]
-	path = nvim/pack/plugins/start/auto-pairs
-	url = https://github.com/jiangmiao/auto-pairs.git
+  path = nvim/pack/plugins/start/auto-pairs
+  url = https://github.com/jiangmiao/auto-pairs.git
+  branch = master
 [submodule "nvim/pack/plugins/start/tagbar"]
-	path = nvim/pack/plugins/start/tagbar
-	url = https://github.com/majutsushi/tagbar.git
+  path = nvim/pack/plugins/start/tagbar
+  url = https://github.com/majutsushi/tagbar.git
+  branch = master
 [submodule "nvim/pack/plugins/start/vim-easy-align"]
-	path = nvim/pack/plugins/start/vim-easy-align
-	url = https://github.com/junegunn/vim-easy-align.git
+  path = nvim/pack/plugins/start/vim-easy-align
+  url = https://github.com/junegunn/vim-easy-align.git
+  branch = master
 [submodule "nvim/pack/plugins/start/vim-easymotion"]
-	path = nvim/pack/plugins/start/vim-easymotion
-	url = https://github.com/easymotion/vim-easymotion.git
+  path = nvim/pack/plugins/start/vim-easymotion
+  url = https://github.com/easymotion/vim-easymotion.git
+  branch = master
 [submodule "nvim/pack/plugins/start/incsearch.vim"]
-	path = nvim/pack/plugins/start/incsearch.vim
-	url = https://github.com/haya14busa/incsearch.vim.git
+  path = nvim/pack/plugins/start/incsearch.vim
+  url = https://github.com/haya14busa/incsearch.vim.git
+  branch = master
 [submodule "nvim/pack/plugins/start/nvim-lsp"]
-	path = nvim/pack/plugins/start/nvim-lsp
-	url = https://github.com/neovim/nvim-lsp.git
+  path = nvim/pack/plugins/start/nvim-lsp
+  url = https://github.com/neovim/nvim-lsp.git
+  branch = master
 [submodule "zsh/plugins/zsh-syntax-highlighting"]
-	path = zsh/plugins/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+  path = zsh/plugins/zsh-syntax-highlighting
+  url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+  branch = master
 [submodule "zsh/plugins/zsh-you-should-use"]
-	path = zsh/plugins/zsh-you-should-use
-	url = https://github.com/MichaelAquilina/zsh-you-should-use.git
+  path = zsh/plugins/zsh-you-should-use
+  url = https://github.com/MichaelAquilina/zsh-you-should-use.git
+  branch = master
 [submodule "nvim/pack/plugins/start/nvim-treesitter"]
-	path = nvim/pack/plugins/start/nvim-treesitter
-	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+  path = nvim/pack/plugins/start/nvim-treesitter
+  url = https://github.com/nvim-treesitter/nvim-treesitter.git
+  branch = master
 [submodule "nvim/pack/plugins/start/popup.nvim"]
-	path = nvim/pack/plugins/start/popup.nvim
-	url = https://github.com/nvim-lua/popup.nvim.git
+  path = nvim/pack/plugins/start/popup.nvim
+  url = https://github.com/nvim-lua/popup.nvim.git
+  branch = master
 [submodule "nvim/pack/plugins/start/plenary.nvim"]
-	path = nvim/pack/plugins/start/plenary.nvim
-	url = https://github.com/nvim-lua/plenary.nvim.git
+  path = nvim/pack/plugins/start/plenary.nvim
+  url = https://github.com/nvim-lua/plenary.nvim.git
+  branch = master
 [submodule "nvim/pack/plugins/start/telescope.nvim"]
-	path = nvim/pack/plugins/start/telescope.nvim
-	url = https://github.com/nvim-lua/telescope.nvim.git
+  path = nvim/pack/plugins/start/telescope.nvim
+  url = https://github.com/nvim-lua/telescope.nvim.git
+  branch = master
 [submodule "nvim/pack/plugins/start/nvim-jdtls"]
-	path = nvim/pack/plugins/start/nvim-jdtls
-	url = https://github.com/mfussenegger/nvim-jdtls.git
-[submodule "/home/kyle/.dotfiles/nvim/pack/plugins/start/nvim-dap"]
-	path = /home/kyle/.dotfiles/nvim/pack/plugins/start/nvim-dap
-	url = https://github.com/mfussenegger/nvim-dap.git
-[submodule "/home/kyle/.dotfiles/nvim/pack/plugins/start/nvim-dap-ui"]
-	path = /home/kyle/.dotfiles/nvim/pack/plugins/start/nvim-dap-ui
-	url = https://github.com/rcarriga/nvim-dap-ui.git
-[submodule "/home/kyle/.dotfiles/nvim/pack/plugins/start/nvim-cmp"]
-	path = /home/kyle/.dotfiles/nvim/pack/plugins/start/nvim-cmp
-	url = https://github.com/hrsh7th/nvim-cmp.git
-[submodule "/home/kyle/.dotfiles/nvim/pack/plugins/start/cmp-nvim-lsp"]
-	path = /home/kyle/.dotfiles/nvim/pack/plugins/start/cmp-nvim-lsp
-	url = https://github.com/hrsh7th/cmp-nvim-lsp.git
-[submodule "/home/kyle/.dotfiles/nvim/pack/plugins/start/cmp-buffer"]
-	path = /home/kyle/.dotfiles/nvim/pack/plugins/start/cmp-buffer
-	url = https://github.com/hrsh7th/cmp-buffer.git
-[submodule "/home/kyle/.dotfiles/nvim/pack/plugins/start/cmp-path"]
-	path = /home/kyle/.dotfiles/nvim/pack/plugins/start/cmp-path
-	url = https://github.com/hrsh7th/cmp-path.git
-[submodule "/home/kyle/.dotfiles/nvim/pack/plugins/start/LuaSnip"]
-	path = /home/kyle/.dotfiles/nvim/pack/plugins/start/LuaSnip
-	url = https://github.com/L3MON4D3/LuaSnip.git
+  path = nvim/pack/plugins/start/nvim-jdtls
+  url = https://github.com/mfussenegger/nvim-jdtls.git
+  branch = master
+[submodule "nvim/pack/plugins/start/nvim-dap"]
+  path = nvim/pack/plugins/start/nvim-dap
+  url = https://github.com/mfussenegger/nvim-dap.git
+  branch = master
+[submodule "nvim/pack/plugins/start/nvim-dap-ui"]
+  path = nvim/pack/plugins/start/nvim-dap-ui
+  url = https://github.com/rcarriga/nvim-dap-ui.git
+  branch = master
+[submodule "nvim/pack/plugins/start/nvim-cmp"]
+  path = nvim/pack/plugins/start/nvim-cmp
+  url = https://github.com/hrsh7th/nvim-cmp.git
+  branch = main
+[submodule "nvim/pack/plugins/start/cmp-nvim-lsp"]
+  path = nvim/pack/plugins/start/cmp-nvim-lsp
+  url = https://github.com/hrsh7th/cmp-nvim-lsp.git
+  branch = main
+[submodule "nvim/pack/plugins/start/cmp-buffer"]
+  path = nvim/pack/plugins/start/cmp-buffer
+  url = https://github.com/hrsh7th/cmp-buffer.git
+  branch = main
+[submodule "nvim/pack/plugins/start/cmp-path"]
+  path = nvim/pack/plugins/start/cmp-path
+  url = https://github.com/hrsh7th/cmp-path.git
+  branch = main
+[submodule "nvim/pack/plugins/start/LuaSnip"]
+  path = nvim/pack/plugins/start/LuaSnip
+  url = https://github.com/L3MON4D3/LuaSnip.git
+  branch = master
