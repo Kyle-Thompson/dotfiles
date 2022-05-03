@@ -191,7 +191,6 @@ cmp.setup({
     ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
     ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-    ['<C-y>'] = cmp.config.disable,
     ['<C-e>'] = cmp.mapping({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
@@ -200,6 +199,9 @@ cmp.setup({
 
     -- consistent up nav in cmp-pum menu and normal mode
     ["<C-j>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then cmp.select_next_item() else fallback() end
+    end, {"i", "s"}),
+    ["<C-n>"] = cmp.mapping(function(fallback)
       if cmp.visible() then cmp.select_next_item() else fallback() end
     end, {"i", "s"}),
 
@@ -231,12 +233,12 @@ cmp.setup({
   })
 })
 
--- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+-- Use buffer source for `/`
 cmp.setup.cmdline('/', {
   sources = { { name = 'buffer' } }
 })
 
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+-- Use cmdline & path source for ':'
 cmp.setup.cmdline(':', {
   sources = cmp.config.sources({
     { name = 'path' },
@@ -310,28 +312,35 @@ lsp.pylsp.setup{
 
 lsp.rust_analyzer.setup {
   settings = {
-    ["rust-analyzer"] = {
+    ['rust-analyzer'] = {
       assist = {
-        importGranularity = "module",
-        importPrefix = "by_self",
+        importGranularity = 'module',
+        importPrefix = 'self',
       },
       checkOnSave = {
-        allFeatures = true;
-        overrideCommand = { 'cargo', 'clippy', '--message-format=json',
-          '--all-targets', '--all-features', '--', '-Dclippy::all',
-          '-Dclippy::pedantic' };
-        enable = true;
-      };
+        enable = true,
+        overrideCommand = {
+          'cargo',
+          'clippy',
+          '--message-format=json',
+          '--all-targets',
+          '--all-features',
+          '--',
+          '-Dclippy::all',
+          '-Dclippy::pedantic'
+        },
+      },
       cargo = {
         loadOutDirsFromCheck = true,
         allFeatures = true,
       },
-      procMacro = {
-        enable = true
-      },
+      completion = {
+        addCallParanthesis = false,
+        snippets = nil,
+      }
     }
-  };
-  capabilities = capabilities;
+  },
+  capabilities = capabilities,
 }
 
 lsp.tsserver.setup{
