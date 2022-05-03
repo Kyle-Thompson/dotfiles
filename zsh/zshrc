@@ -63,6 +63,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # ==============================================================================
 
 export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.luarocks/bin
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.config/fzf/bin
