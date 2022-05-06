@@ -32,6 +32,8 @@ alias vim='nvim -u /dev/null'
 
 alias luamake=~/pkg/lua-language-server/3rd/luamake/luamake
 
+alias clippy='cargo clippy --workspace --all-targets --all-features -- -Dclippy::all -Dclippy::pedantic -Dclippy::cargo -Aclippy::multiple_crate_versions -Aclippy::module-name-repetitions'
+
 # ==============================================================================
 # ======================   Completion   ========================================
 # ==============================================================================
@@ -44,7 +46,9 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
-eval $(dircolors $HOME/.dotfiles/dir_colors)
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  eval $(dircolors $HOME/.dotfiles/dir_colors)
+fi
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -102,6 +106,10 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 export VIMRC="$HOME/.vimrc"
 export NEOVIMRC="$HOME/.config/nvim/init.vim"
 
+# rust flags
+export RUSTFLAGS="-W unreachable-pub -W rust-2021-compatibility"
+export RUST_BACKTRACE=1
+
 
 # ==============================================================================
 # ======================   Functions   =========================================
@@ -137,14 +145,9 @@ function transd() {
 # ======================   Fzf   ===============================================
 # ==============================================================================
 
-# auto completion
-# ---------------
-[[ $- == *i* ]] && source "$HOME/.config/fzf/shell/completion.zsh" 2> /dev/null
-
-# key bindings
-# ------------
-FZF_KEYBINDING_SCRIPT="$HOME/.config/fzf/shell/key-bindings.zsh"
-[ -f $FZF_KEYBINDING_SCRIPT ] && source $FZF_KEYBINDING_SCRIPT
+for f in ~/.config/fzf/shell/*.zsh; do
+  source $f
+done
 
 
 # ==============================================================================
