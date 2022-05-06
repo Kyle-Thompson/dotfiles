@@ -327,7 +327,8 @@ lsp.rust_analyzer.setup {
           '--all-features',
           '--',
           '-Dclippy::all',
-          '-Dclippy::pedantic'
+          '-Dclippy::pedantic',
+          '-Aclippy::module_name_repetitions'
         },
       },
       cargo = {
