@@ -1,6 +1,7 @@
 nvim/plugged/
 nvim/autoload/
 nvim/.init.vim-rplugin~
+nvim/local.lua
 **/*.o
 tags
 fonts/**/*.uuid
