@@ -98,7 +98,11 @@
   path = nvim/pack/plugins/start/LuaSnip
   url = https://github.com/L3MON4D3/LuaSnip.git
   branch = master
-[submodule "nvim/pack/plugins/start/crates.nvim"]
-  path = nvim/pack/plugins/start/crates.nvim
+[submodule "nvim/pack/plugins/opt/crates.nvim"]
+  path = nvim/pack/plugins/opt/crates.nvim
   url = https://github.com/Saecki/crates.nvim.git
   branch = main
+[submodule "nvim/pack/plugins/start/rust-tools.nvim"]
+  path = nvim/pack/plugins/start/rust-tools.nvim
+  url = https://github.com:/simrat39/rust-tools.nvim.git
+  branch = master
