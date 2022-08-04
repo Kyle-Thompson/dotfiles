@@ -146,6 +146,7 @@ lsp_map('f', vim.lsp.buf.formatting, noop)
 lsp_map('r', vim.lsp.buf.references, noop)
 lsp_map('a', vim.lsp.buf.codeAction, noop)
 lsp_map('h', vim.lsp.buf.hover, noop)
+lsp_map('n', vim.lsp.buf.rename, noop)
 
 -- tagbar
 map('n', leader..'t', ':TagbarToggle<CR><C-W>=')
@@ -339,13 +340,18 @@ lsp.rust_analyzer.setup {
       completion = {
         addCallParanthesis = false,
         snippets = nil,
-      }
+      },
+      -- TODO
+      -- diagnostics = {
+      --   disabled = {'inactive-code'},
+      -- }
     }
   },
   capabilities = capabilities,
 }
 
-require('crates').setup {
+viml "packadd crates.nvim"
+local crate_opts = {
   smart_insert = true,
   insert_closing_quote = true,
   avoid_prerelease = true,
@@ -357,11 +363,11 @@ require('crates').setup {
   disable_invalid_feature_diagnostic = false,
   text = {
     loading = "  ...loading",
-    version = "  v:%s",
+    version = "",
     prerelease = "  pre:%s",
-    yanked = "  yanked:%s",
+    yanked = "  y:%s",
     nomatch = "  No match",
-    upgrade = "  upgrade:%s",
+    upgrade = "  u:%s",
     error = "  Error fetching crate",
   },
   highlight = {
@@ -384,37 +390,24 @@ require('crates').setup {
     min_width = 20,
     padding = 1,
     text = {
-      title = " %s",
-      pill_left = "",
-      pill_right = "",
-      description = "%s",
-      created_label = " created        ",
-      created = "%s",
-      updated_label = " updated        ",
-      updated = "%s",
-      downloads_label = " downloads      ",
-      downloads = "%s",
-      homepage_label = " homepage       ",
-      homepage = "%s",
-      repository_label = " repository     ",
-      repository = "%s",
-      documentation_label = " documentation  ",
-      documentation = "%s",
-      crates_io_label = " crates.io      ",
-      crates_io = "%s",
-      categories_label = " categories     ",
-      keywords_label = " keywords       ",
-      version = "  %s",
-      prerelease = " %s",
-      yanked = " %s",
-      version_date = "  %s",
-      feature = "  %s",
-      enabled = " %s",
-      transitive = " %s",
-      dependency = "  %s",
-      optional = " %s",
-      dependency_version = "  %s",
-      loading = " ",
+      title = "# %s",
+      pill_left = "",
+      pill_right = "",
+      created_label = "created        ",
+      updated_label = "updated        ",
+      downloads_label = "downloads      ",
+      homepage_label = "homepage       ",
+      repository_label = "repository     ",
+      documentation_label = "documentation  ",
+      crates_io_label = "crates.io      ",
+      categories_label = "categories     ",
+      keywords_label = "keywords       ",
+      prerelease = "%s pre-release",
+      yanked = "%s yanked",
+      enabled = "* s",
+      transitive = "~ s",
+      optional = "? %s",
+      loading = " ...",
     },
     highlight = {
       title = "CratesNvimPopupTitle",
@@ -472,11 +465,98 @@ require('crates').setup {
       name = "Crates",
     },
   },
-  null_ls = {
-    enabled = false,
-    name = "Crates",
-  },
 }
+require('crates').setup(crate_opts)
+
+local opts = {
+  tools = { -- rust-tools options
+    autoSetHints = false,
+
+    -- whether to show hover actions inside the hover window
+    hover_with_actions = true,
+
+    -- how to execute terminal commands (termopen / quickfix)
+    executor = require("rust-tools/executors").termopen,
+
+    -- callback to execute once rust-analyzer is done initializing the workspace
+    -- The callback receives one parameter indicating the `health` of the server: "ok" | "warning" | "error"
+    on_initialized = nil,
+
+    -- These apply to the default RustSetInlayHints command
+    inlay_hints = {
+      only_current_line = true,
+
+      -- Event which triggers a refersh of the inlay hints
+      only_current_line_autocmd = "CursorHold",
+
+      -- whether to show parameter hints with the inlay hints or not
+      show_parameter_hints = true,
+
+      -- show variable name before inlay type hints
+      show_variable_name = false,
+
+      -- prefix for parameter hints
+      parameter_hints_prefix = "<- ",
+
+      -- prefix for all the other hints (type, chaining)
+      other_hints_prefix = "=> ",
+
+      -- whether to align to the lenght of the longest line in the file
+      max_len_align = false,
+
+      -- padding from the left if max_len_align is true
+      max_len_align_padding = 1,
+
+      -- whether to align to the extreme right or not
+      right_align = false,
+
+      -- padding from the right if right_align is true
+      right_align_padding = 7,
+
+      -- The color of the hints
+      highlight = "Comment",
+    },
+
+    -- options same as lsp hover / vim.lsp.util.open_floating_preview()
+    hover_actions = {
+      -- the border that is used for the hover window
+      -- see vim.api.nvim_open_win()
+      border = {
+        { "╭", "FloatBorder" },
+        { "─", "FloatBorder" },
+        { "╮", "FloatBorder" },
+        { "│", "FloatBorder" },
+        { "╯", "FloatBorder" },
+        { "─", "FloatBorder" },
+        { "╰", "FloatBorder" },
+        { "│", "FloatBorder" },
+      },
+
+      -- whether the hover action window gets automatically focused
+      auto_focus = false,
+    },
+  },
+
+  -- all the opts to send to nvim-lspconfig
+  -- these override the defaults set by rust-tools.nvim
+  -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
+  -- server = {
+  --   -- standalone file support
+  --   -- setting it to false may improve startup time
+  --   standalone = true,
+  -- }, -- rust-analyer options
+
+  -- debugging stuff
+  -- dap = {
+  --   adapter = {
+  --     type = "executable",
+  --     command = "lldb-vscode",
+  --     name = "rt_lldb",
+  --   },
+  -- },
+}
+
+require('rust-tools').setup(opts)
 
 lsp.tsserver.setup{
   cmd = { 'typescript-language-server', '--stdio' };
@@ -541,8 +621,8 @@ require('nvim-treesitter.configs').setup {
 -- =====================   Imports   ===========================================
 -- =============================================================================
 
-viml [[
-if !empty(glob('~/.nvim.local.vim'))
-  exe 'source' '~/.nvim.local.vim'
-endif
-]]
+local f = io.open('$HOME/.dotfiles/nvim/local.lua', 'r')
+if f ~= nil then
+  require('local')
+  io.close(f)
+end
