@@ -32,7 +32,14 @@ alias vim='nvim -u /dev/null'
 
 alias luamake=~/pkg/lua-language-server/3rd/luamake/luamake
 
-alias clippy='cargo clippy --workspace --all-targets --all-features -- -Dclippy::all -Dclippy::pedantic -Dclippy::cargo -Aclippy::multiple_crate_versions -Aclippy::module-name-repetitions'
+alias clippy="cargo clippy --workspace --all-targets --all-features -- \
+  -Dclippy::all \
+  -Dclippy::pedantic \
+  -Dclippy::cargo \
+  -Aclippy::multiple_crate_versions \
+  -Aclippy::module-name-repetitions \
+  -Aclippy::single-match-else \
+  -Aclippy::implicit-hasher"
 
 # ==============================================================================
 # ======================   Completion   ========================================
