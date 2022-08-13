@@ -142,7 +142,7 @@ end
 lsp_map('wd', vim.lsp.buf.declaration, new_window)
 lsp_map('i', vim.lsp.buf.definition, noop)
 lsp_map('wi', vim.lsp.buf.definition, new_window)
-lsp_map('f', vim.lsp.buf.formatting, noop)
+lsp_map('f', function() vim.lsp.buf.format { async = true } end, noop)
 lsp_map('r', vim.lsp.buf.references, noop)
 lsp_map('a', vim.lsp.buf.codeAction, noop)
 lsp_map('h', vim.lsp.buf.hover, noop)
@@ -263,6 +263,26 @@ map('n', leader..'dt', require'dap'.run_to_cursor)
 
 local dapui = require('dapui')
 dapui.setup({
+  layouts = {
+    {
+      elements = {
+        'scopes',
+        'breakpoints',
+        'stacks',
+        'watches',
+      },
+      size = 40,
+      position = 'left',
+    },
+    {
+      elements = {
+        'repl',
+        'console',
+      },
+      size = 10,
+      position = 'bottom',
+    },
+  },
   icons = {
     expanded = 'v',
     collapsed = '>'
@@ -274,24 +294,6 @@ dapui.setup({
     remove = "d",
     edit = "e",
     repl = "r",
-  },
-  sidebar = {
-    open_on_start = true,
-    elements = {
-      -- You can change the order of elements in the sidebar
-      "scopes",
-      "breakpoints",
-      "stacks",
-      "watches"
-    },
-    width = 40,
-    position = "left" -- Can be "left" or "right"
-  },
-  tray = {
-    open_on_start = true,
-    elements = { "repl" },
-    height = 10,
-    position = "bottom"
   },
   floating = {
     max_height = nil, -- These can be integers or a float between 0 and 1.
@@ -315,9 +317,10 @@ lsp.pylsp.setup{
 lsp.rust_analyzer.setup {
   settings = {
     ['rust-analyzer'] = {
-      assist = {
-        importGranularity = 'module',
-        importPrefix = 'self',
+      cargo = {
+        autoreload = true,
+        loadOutDirsFromCheck = true,
+        features = "all",
       },
       checkOnSave = {
         enable = true,
@@ -333,19 +336,17 @@ lsp.rust_analyzer.setup {
           '-Aclippy::module_name_repetitions'
         },
       },
-      cargo = {
-        loadOutDirsFromCheck = true,
-        allFeatures = true,
-      },
       completion = {
         addCallParanthesis = false,
-        snippets = nil,
+        privateEditable = { enable = true },
+        postfix = { enable = false },
       },
-      -- TODO
-      -- diagnostics = {
-      --   disabled = {'inactive-code'},
-      -- }
-    }
+      diagnostics = { disabled = { 'inactive-code' } },
+      imports = { merge = { glob = false } },
+      notifications = { cargoTomlNotFound = false },
+      procMacro = { enable = true },
+      typing = { autoClosingAngleBrackets = { enable = true } },
+    },
   },
   capabilities = capabilities,
 }
