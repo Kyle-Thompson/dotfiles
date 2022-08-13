@@ -10,7 +10,7 @@ function add_plugin() {
 }
 
 function update_plugins() {
-  git submodule update --remote --merge
+  git submodule update --remote --merge --init
 }
 
 function remove_plugin() {
