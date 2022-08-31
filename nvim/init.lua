@@ -474,7 +474,8 @@ local opts = {
     autoSetHints = false,
 
     -- whether to show hover actions inside the hover window
-    hover_with_actions = true,
+    -- TODO: replace this with the new style
+    -- hover_with_actions = true,
 
     -- how to execute terminal commands (termopen / quickfix)
     executor = require("rust-tools/executors").termopen,
