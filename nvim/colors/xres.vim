@@ -102,51 +102,52 @@ hi LspDiagnosticsError        ctermfg=01
 
 hi link @boolean           Boolean
 hi link @character         Character
-hi link @character.special SpecialChar  " TODO
+hi link @character.special SpecialChar   " TODO
+hi link @comment           Comment       " TODO
 hi link @conditional       Conditional
+hi link @conditional       Conditional   " TODO
 hi link @constant          Constant
 hi link @constant.builtin  Constant
 hi link @constant.macro    Constant
+hi link @constructor       Normal        " TODO
+hi link @debug             Debug         " TODO
+hi link @define            Define        " TODO
+hi link @exception         Normal        " TODO
 hi link @field             Field
 hi link @float             Float
 hi link @function          Function
-hi link @function.builtin  Special  " TODO
-hi link @function.macro    Macro  " TODO
-hi link @macro             Macro
+hi link @function.builtin  Special       " TODO
+hi link @function.macro    Macro         " TODO
 hi link @include           Include
 hi link @keyword           Keyword
-hi link @number            Keyword
+hi link @label             Normal        " TODO
+hi link @macro             Macro
+hi link @method            Normal        " TODO
+hi link @namespace         Function      " TODO: better link target
+hi link @number            Number
 hi link @operator          Operator
 hi link @parameter         Normal
-hi link @punctuation       Delimiter  " TODO
+hi link @preproc           PreProc       " TODO
+hi link @property          Field         " TODO: better link target
+hi link @punctuation       Delimiter     " TODO
+hi link @punctuation       Delimiter     " TODO
 hi link @repeat            Repeat
+hi link @storageclass      StorageClass  " TODO
 hi link @string            String
-hi link @string.escape     SpecialChar  " TODO
-hi link @string.special    SpecialChar  " TODO
+hi link @string.escape     SpecialChar   " TODO
+hi link @string.special    SpecialChar   " TODO
+hi link @structure         Normal        " TODO
+hi link @tag               Tag           " TODO
+hi link @text.literal      Comment       " TODO
+hi link @text.reference    Identifier    " TODO
+hi link @text.title        Title         " TODO
+hi link @text.todo         Todo          " TODO
+hi link @text.underline    Underlined    " TODO
+hi link @text.uri          Underlined    " TODO
 hi link @type              Type
-hi link @type.definition   Typedef " TODO
-hi link @method            Normal  " TODO
-hi link @property          Normal  " TODO
-hi link @constructor       Normal  " TODO
-hi link @label             Normal  " TODO
-hi link @exception         Normal  " TODO
-hi link @structure         Normal  " TODO
-hi link @comment           Comment " TODO
-hi link @conditional       Conditional " TODO
-hi link @debug             Debug " TODO
-hi link @define            Define " TODO
-hi link @namespace         Identifier " TODO
-hi link @preproc           PreProc " TODO
-hi link @punctuation       Delimiter " TODO
-hi link @storageclass      StorageClass " TODO
-hi link @tag               Tag " TODO
-hi link @text.literal      Comment " TODO
-hi link @text.reference    Identifier " TODO
-hi link @text.title        Title " TODO
-hi link @text.todo         Todo " TODO
-hi link @text.underline    Underlined " TODO
-hi link @text.uri          Underlined " TODO
-hi link @variable          Identifier " TODO
+hi link @type.qualifier    Keyword       " TODO: link to better than keyword
+hi link @type.definition   Typedef       " TODO
+hi link @variable          Normal
 
 " are these needed anymore?
 " hi link TSError          Normal
