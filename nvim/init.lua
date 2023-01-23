@@ -577,6 +577,7 @@ require'lspconfig'.sumneko_lua.setup {
       workspace = {
         -- make the server aware of neovim runtime files
         library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false,
       },
       telemetry = {
         enable = false,
