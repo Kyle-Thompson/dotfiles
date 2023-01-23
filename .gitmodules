@@ -102,3 +102,6 @@
   path = nvim/pack/plugins/start/rust-tools.nvim
   url = https://github.com:/simrat39/rust-tools.nvim.git
   branch = master
+[submodule "nvim/pack/plugins/start/playground"]
+	path = nvim/pack/plugins/start/playground
+	url = https://github.com/nvim-treesitter/playground.git
