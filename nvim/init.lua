@@ -127,11 +127,6 @@ map('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
 
 
 -- ===================== plugins
--- incsearch.vim
-map('n', '/', '<Plug>(incsearch-forward)')
-map('n', '?', '<Plug>(incsearch-backward)')
-map('n', 'g/', '<Plug>(incsearch-stay)')
-
 -- nvim lsp
 local new_window = function() viml ':sp' end
 local noop = function() end
@@ -615,7 +610,7 @@ viml 'autocmd CursorHold * lua vim.diagnostic.open_float()'
 
 -- ===================== tree sitter
 require('nvim-treesitter.configs').setup {
-  ensure_installed = { "c", "lua", "rust" },
+  ensure_installed = { "c", "cpp", "lua", "rust" },
   auto_install = true,
   highlight = { enable = true; };
 }
