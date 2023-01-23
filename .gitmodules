@@ -34,10 +34,6 @@
   path = nvim/pack/plugins/start/vim-easymotion
   url = https://github.com/easymotion/vim-easymotion.git
   branch = master
-[submodule "nvim/pack/plugins/start/incsearch.vim"]
-  path = nvim/pack/plugins/start/incsearch.vim
-  url = https://github.com/haya14busa/incsearch.vim.git
-  branch = master
 [submodule "nvim/pack/plugins/start/nvim-lsp"]
   path = nvim/pack/plugins/start/nvim-lsp
   url = https://github.com/neovim/nvim-lsp.git
