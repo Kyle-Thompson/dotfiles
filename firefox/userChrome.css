@@ -1,3 +1,7 @@
+/* NOTES:
+ * use 'browser toolbox' (ctrl + shift + alt + I) to find elements in firefox.
+ */
+
 /* ========== colorscheme =================================================== */
 :root {
   --background: #161b1d;
@@ -80,6 +84,7 @@ tab:hover {
 #home-button,                    /* home button */
 #library-button,                 /* library button */
 #sidebar-button,                 /* sidebar button */
+#unified-extensions-button,      /* extension button */
 #whats-new-menu-button,          /* gift button after update */
 .scrollbutton-up,                /* scroll overflow tabs up */
 .scrollbutton-down,              /* scroll overflow tabs down */
