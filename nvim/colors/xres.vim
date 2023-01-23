@@ -100,42 +100,63 @@ hi link LspDiagnosticsUnderline            LspDiagnosticsUnderline
 
 hi LspDiagnosticsError        ctermfg=01
 
+hi link @boolean           Boolean
+hi link @character         Character
+hi link @character.special SpecialChar  " TODO
+hi link @conditional       Conditional
+hi link @constant          Constant
+hi link @constant.builtin  Constant
+hi link @constant.macro    Constant
+hi link @field             Field
+hi link @float             Float
+hi link @function          Function
+hi link @function.builtin  Special  " TODO
+hi link @function.macro    Macro  " TODO
+hi link @macro             Macro
+hi link @include           Include
+hi link @keyword           Keyword
+hi link @number            Keyword
+hi link @operator          Operator
+hi link @parameter         Normal
+hi link @punctuation       Delimiter  " TODO
+hi link @repeat            Repeat
+hi link @string            String
+hi link @string.escape     SpecialChar  " TODO
+hi link @string.special    SpecialChar  " TODO
+hi link @type              Type
+hi link @type.definition   Typedef " TODO
+hi link @method            Normal  " TODO
+hi link @property          Normal  " TODO
+hi link @constructor       Normal  " TODO
+hi link @label             Normal  " TODO
+hi link @exception         Normal  " TODO
+hi link @structure         Normal  " TODO
+hi link @comment           Comment " TODO
+hi link @conditional       Conditional " TODO
+hi link @debug             Debug " TODO
+hi link @define            Define " TODO
+hi link @namespace         Identifier " TODO
+hi link @preproc           PreProc " TODO
+hi link @punctuation       Delimiter " TODO
+hi link @storageclass      StorageClass " TODO
+hi link @tag               Tag " TODO
+hi link @text.literal      Comment " TODO
+hi link @text.reference    Identifier " TODO
+hi link @text.title        Title " TODO
+hi link @text.todo         Todo " TODO
+hi link @text.underline    Underlined " TODO
+hi link @text.uri          Underlined " TODO
+hi link @variable          Identifier " TODO
 
-" TreeSitter highlighting
-hi link TSBoolean        Boolean
-hi link TSCharacter      Character
-hi link TSConditional    Conditional
-hi link TSConstant       Constant
-hi link TSConstBuiltin   Constant
-hi link TSConstMacro     Constant
-hi link TSError          Normal
-hi link TSField          Field
-hi link TSFloat          Float
-hi link TSFunction       Function
-hi link TSFuncMacro      Macro
-hi link TSInclude        Include
-hi link TSKeyword        Keyword
-hi link TSNumber         Number
-hi link TSOperator       Operator
-hi link TSParameter      Normal
-hi link TSPunctBracket   Normal
-hi link TSPunctDelimiter Delimiter
-hi link TSPunctSpecial   Normal
-hi link TSRepeat         Conditional
-hi link TSString         String
-hi link TSStringEscape   Character
-hi link TSStringRegex    String
-hi link TSType           Type
-hi link TSTypeBuiltin    Type
-
-" TODO
-hi link TSFuncBuiltin    Normal
-hi link TSMethod         Normal
-hi link TSProperty       Normal
-hi link TSConstructor    Normal
-hi link TSLabel          Normal
-hi link TSException      Normal
-hi link TSStructure      Normal
+" are these needed anymore?
+" hi link TSError          Normal
+" hi link TSTypeBuiltin    Type
+" hi link TSFuncBuiltin    Normal
+" hi link TSStringEscape   Character
+" hi link TSStringRegex    String
+" hi link TSPunctBracket   Normal
+" hi link TSPunctDelimiter Delimiter
+" hi link TSPunctSpecial   Normal
 
 
 " CPP highlighting
