@@ -112,7 +112,7 @@ hi link @constant.macro    Constant
 hi link @constructor       Normal        " TODO
 hi link @debug             Debug         " TODO
 hi link @define            Define        " TODO
-hi link @exception         Normal        " TODO
+hi link @exception         Identifier
 hi link @field             Field
 hi link @float             Float
 hi link @function          Function
@@ -148,16 +148,7 @@ hi link @type              Type
 hi link @type.qualifier    Keyword       " TODO: link to better than keyword
 hi link @type.definition   Typedef       " TODO
 hi link @variable          Normal
-
-" are these needed anymore?
-" hi link TSError          Normal
-" hi link TSTypeBuiltin    Type
-" hi link TSFuncBuiltin    Normal
-" hi link TSStringEscape   Character
-" hi link TSStringRegex    String
-" hi link TSPunctBracket   Normal
-" hi link TSPunctDelimiter Delimiter
-" hi link TSPunctSpecial   Normal
+hi link @variable.builtin  Field
 
 
 " CPP highlighting
