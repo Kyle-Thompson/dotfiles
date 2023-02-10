@@ -68,6 +68,7 @@ hi Identifier                 ctermfg=01            cterm=none
 hi Include                    ctermfg=04
 hi Keyword                    ctermfg=05
 hi Label                      ctermfg=03
+hi Namespace                  ctermfg=06
 hi Operator                   ctermfg=06            cterm=none
 hi PreProc                    ctermfg=03
 hi PreCondit                  ctermfg=05
@@ -122,8 +123,8 @@ hi link @include           Include
 hi link @keyword           Keyword
 hi link @label             Normal        " TODO
 hi link @macro             Macro
-hi link @method            Normal        " TODO
-hi link @namespace         Function      " TODO: better link target
+hi link @method            Function
+hi link @namespace         Namespace
 hi link @number            Number
 hi link @operator          Operator
 hi link @parameter         Normal
