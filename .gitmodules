@@ -18,10 +18,6 @@
   path = nvim/pack/plugins/start/vim-surround
   url = https://github.com/tpope/vim-surround.git
   branch = master
-[submodule "nvim/pack/plugins/start/auto-pairs"]
-  path = nvim/pack/plugins/start/auto-pairs
-  url = https://github.com/jiangmiao/auto-pairs.git
-  branch = master
 [submodule "nvim/pack/plugins/start/tagbar"]
   path = nvim/pack/plugins/start/tagbar
   url = https://github.com/majutsushi/tagbar.git
