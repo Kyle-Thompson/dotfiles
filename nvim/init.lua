@@ -116,8 +116,6 @@ map('n', '<C-H>', '<C-W><C-H>')
 -- save when file is readonly
 map('c', 'w!!', 'execute "silent! write !sudo tee % >/dev/null" <bar> edit!')
 
-map('c', 'W', 'w')
-
 -- clear highlights
 map('n', leader..'h', ':nohls<CR>')
 
@@ -303,6 +301,8 @@ lsp.clangd.setup {
   cmd = {'clangd', '--background-index', '--clang-tidy'};
   capabilities = capabilities;
 }
+
+lsp.cmake.setup {}
 
 lsp.pylsp.setup{
   capabilities = capabilities;
@@ -591,7 +591,7 @@ vim.diagnostic.config({
   virtual_text = false,  -- disable inline diagnostics
   signs = false,  -- disable signs
 })
--- viml 'autocmd CursorHold * lua vim.diagnostic.open_float()'
+viml 'autocmd CursorHold * lua vim.diagnostic.open_float()'
 
 -- ===================== tree sitter
 require('nvim-treesitter.configs').setup {
