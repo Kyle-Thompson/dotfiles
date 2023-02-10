@@ -99,5 +99,8 @@
   url = https://github.com:/simrat39/rust-tools.nvim.git
   branch = master
 [submodule "nvim/pack/plugins/start/playground"]
-	path = nvim/pack/plugins/start/playground
-	url = https://github.com/nvim-treesitter/playground.git
+  path = nvim/pack/plugins/start/playground
+  url = https://github.com/nvim-treesitter/playground.git
+[submodule "nvim/pack/plugins/start/nvim-autopairs"]
+  path = nvim/pack/plugins/start/nvim-autopairs
+  url = https://github.com/windwp/nvim-autopairs.git

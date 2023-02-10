@@ -144,6 +144,9 @@ lsp_map('n', vim.lsp.buf.rename, noop)
 -- tagbar
 map('n', leader..'t', ':TagbarToggle<CR><C-W>=')
 
+-- auto-pairs
+require("nvim-autopairs").setup {}
+
 -- telescope
 map('n', leader..'ff', require'telescope.builtin'.fd)
 map('n', leader..'fp',
