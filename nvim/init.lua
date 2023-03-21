@@ -301,7 +301,7 @@ map('n', leader..'du', require'dapui'.toggle)
 
 -- ===================== language server
 lsp.clangd.setup {
-  cmd = {'clangd', '--background-index', '--clang-tidy'};
+  cmd = {'clangd-16', '--background-index', '--clang-tidy'};
   capabilities = capabilities;
 }
 
