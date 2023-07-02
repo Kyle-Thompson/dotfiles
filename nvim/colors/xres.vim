@@ -57,6 +57,7 @@ hi link Character PodData
 hi link Number    PodData
 hi link Float     PodData
 
+hi Attribute                  ctermfg=09
 hi Comment                    ctermfg=15
 hi Conditional                ctermfg=05
 hi Constant                   ctermfg=09
@@ -101,6 +102,7 @@ hi link LspDiagnosticsUnderline            LspDiagnosticsUnderline
 
 hi LspDiagnosticsError        ctermfg=01
 
+hi link @attribute         Attribute
 hi link @boolean           Boolean
 hi link @character         Character
 hi link @character.special SpecialChar   " TODO
