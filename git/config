@@ -6,19 +6,24 @@
 [alias]
   aa = add --all
   ap = add --patch
+  apf = !git amend && git pf
   amend = !git add --all && git commit --amend --no-edit
   branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:short) %(color:green)%(authorname) %(color:magenta)%(refname:short)\" refs/remotes
   cam = commit -am
+  casync = !git aa && git csync
   cm = commit -m
   co = checkout
-  com = checkout master
-  lg = log -n 5
-  pf = push --force-with-lease
-  st = status
-  up = !git fetch origin && git rebase origin/master
-  done = !git up && git com && git merge @{-1} && git push
-  reset-master = !git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))
+  com = checkout main
   conflicts = diff --name-only --diff-filter=U
+  csync = !git cam updates && git sync
+  frb = !git fetch && git rb
+  lg = log -n 5
+  mb = merge-base HEAD origin/main
+  pf = push --force-with-lease
+  rb = rebase origin/main
+  squash = !git rebase -i $(git mb)
+  st = status
+  sync = !git squash && git frb
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
@@ -29,7 +34,6 @@
   pretty = format:%C(yellow)%h %Cblue%>(10)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s
 [merge]
   ff = only
-  conflictstyle = diff3
 [commit]
   template = ~/.gitmessage
 [fetch]
