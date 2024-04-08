@@ -301,8 +301,14 @@ map('n', leader..'du', require'dapui'.toggle)
 
 -- ===================== language server
 lsp.clangd.setup {
-  -- cmd = {'clangd-16', '--background-index', '--clang-tidy'};
-  cmd = {'clangd-16', '--background-index'};
+  cmd = {
+    'clangd-18',
+    '--background-index=false',
+    '--pch-storage=disk',
+    '--malloc-trim',
+    '--clang-tidy=false',
+    '-j=4'
+  };
   capabilities = capabilities;
 }
 
@@ -347,6 +353,14 @@ lsp.rust_analyzer.setup {
     },
   },
   capabilities = capabilities,
+}
+
+lsp.terraformls.setup {
+  capabilities = capabilities;
+}
+
+lsp.tflint.setup {
+  capabilities = capabilities;
 }
 
 viml "packadd crates.nvim"
