@@ -18,14 +18,6 @@
   path = nvim/pack/plugins/start/vim-surround
   url = https://github.com/tpope/vim-surround.git
   branch = master
-[submodule "nvim/pack/plugins/start/tagbar"]
-  path = nvim/pack/plugins/start/tagbar
-  url = https://github.com/majutsushi/tagbar.git
-  branch = master
-[submodule "nvim/pack/plugins/start/vim-easy-align"]
-  path = nvim/pack/plugins/start/vim-easy-align
-  url = https://github.com/junegunn/vim-easy-align.git
-  branch = master
 [submodule "nvim/pack/plugins/start/vim-easymotion"]
   path = nvim/pack/plugins/start/vim-easymotion
   url = https://github.com/easymotion/vim-easymotion.git
@@ -46,10 +38,6 @@
   path = nvim/pack/plugins/start/nvim-treesitter
   url = https://github.com/nvim-treesitter/nvim-treesitter.git
   branch = master
-[submodule "nvim/pack/plugins/start/popup.nvim"]
-  path = nvim/pack/plugins/start/popup.nvim
-  url = https://github.com/nvim-lua/popup.nvim.git
-  branch = master
 [submodule "nvim/pack/plugins/start/plenary.nvim"]
   path = nvim/pack/plugins/start/plenary.nvim
   url = https://github.com/nvim-lua/plenary.nvim.git
@@ -57,10 +45,6 @@
 [submodule "nvim/pack/plugins/start/telescope.nvim"]
   path = nvim/pack/plugins/start/telescope.nvim
   url = https://github.com/nvim-lua/telescope.nvim.git
-  branch = master
-[submodule "nvim/pack/plugins/start/nvim-jdtls"]
-  path = nvim/pack/plugins/start/nvim-jdtls
-  url = https://github.com/mfussenegger/nvim-jdtls.git
   branch = master
 [submodule "nvim/pack/plugins/start/nvim-dap"]
   path = nvim/pack/plugins/start/nvim-dap
@@ -98,9 +82,6 @@
   path = nvim/pack/plugins/start/rust-tools.nvim
   url = https://github.com:/simrat39/rust-tools.nvim.git
   branch = master
-[submodule "nvim/pack/plugins/start/playground"]
-  path = nvim/pack/plugins/start/playground
-  url = https://github.com/nvim-treesitter/playground.git
 [submodule "nvim/pack/plugins/start/nvim-autopairs"]
   path = nvim/pack/plugins/start/nvim-autopairs
   url = https://github.com/windwp/nvim-autopairs.git
