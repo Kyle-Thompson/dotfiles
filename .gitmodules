@@ -22,10 +22,6 @@
   path = nvim/pack/plugins/start/vim-easymotion
   url = https://github.com/easymotion/vim-easymotion.git
   branch = master
-[submodule "nvim/pack/plugins/start/nvim-lsp"]
-  path = nvim/pack/plugins/start/nvim-lsp
-  url = https://github.com/neovim/nvim-lsp.git
-  branch = master
 [submodule "zsh/plugins/zsh-syntax-highlighting"]
   path = zsh/plugins/zsh-syntax-highlighting
   url = https://github.com/zsh-users/zsh-syntax-highlighting.git
@@ -38,49 +34,13 @@
   path = nvim/pack/plugins/start/nvim-treesitter
   url = https://github.com/nvim-treesitter/nvim-treesitter.git
   branch = master
-[submodule "nvim/pack/plugins/start/plenary.nvim"]
-  path = nvim/pack/plugins/start/plenary.nvim
-  url = https://github.com/nvim-lua/plenary.nvim.git
-  branch = master
 [submodule "nvim/pack/plugins/start/telescope.nvim"]
   path = nvim/pack/plugins/start/telescope.nvim
   url = https://github.com/nvim-lua/telescope.nvim.git
   branch = master
-[submodule "nvim/pack/plugins/start/nvim-dap"]
-  path = nvim/pack/plugins/start/nvim-dap
-  url = https://github.com/mfussenegger/nvim-dap.git
-  branch = master
-[submodule "nvim/pack/plugins/start/nvim-dap-ui"]
-  path = nvim/pack/plugins/start/nvim-dap-ui
-  url = https://github.com/rcarriga/nvim-dap-ui.git
-  branch = master
-[submodule "nvim/pack/plugins/start/nvim-cmp"]
-  path = nvim/pack/plugins/start/nvim-cmp
-  url = https://github.com/hrsh7th/nvim-cmp.git
-  branch = main
-[submodule "nvim/pack/plugins/start/cmp-nvim-lsp"]
-  path = nvim/pack/plugins/start/cmp-nvim-lsp
-  url = https://github.com/hrsh7th/cmp-nvim-lsp.git
-  branch = main
-[submodule "nvim/pack/plugins/start/cmp-buffer"]
-  path = nvim/pack/plugins/start/cmp-buffer
-  url = https://github.com/hrsh7th/cmp-buffer.git
-  branch = main
-[submodule "nvim/pack/plugins/start/cmp-path"]
-  path = nvim/pack/plugins/start/cmp-path
-  url = https://github.com/hrsh7th/cmp-path.git
-  branch = main
 [submodule "nvim/pack/plugins/start/LuaSnip"]
   path = nvim/pack/plugins/start/LuaSnip
   url = https://github.com/L3MON4D3/LuaSnip.git
-  branch = master
-[submodule "nvim/pack/plugins/opt/crates.nvim"]
-  path = nvim/pack/plugins/opt/crates.nvim
-  url = https://github.com/Saecki/crates.nvim.git
-  branch = main
-[submodule "nvim/pack/plugins/start/rust-tools.nvim"]
-  path = nvim/pack/plugins/start/rust-tools.nvim
-  url = https://github.com:/simrat39/rust-tools.nvim.git
   branch = master
 [submodule "nvim/pack/plugins/start/nvim-autopairs"]
   path = nvim/pack/plugins/start/nvim-autopairs
