@@ -32,6 +32,5 @@ return {
       typing = { autoClosingAngleBrackets = { enable = true } },
     },
   },
-  capabilities = require('cmp_nvim_lsp').default_capabilities();
 }
 

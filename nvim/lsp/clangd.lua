@@ -7,6 +7,5 @@ return {
     '--clang-tidy=false',
     '-j=4'
   };
-  capabilities = require('cmp_nvim_lsp').default_capabilities();
 }
 

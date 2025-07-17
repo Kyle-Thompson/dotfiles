@@ -30,17 +30,9 @@
   path = zsh/plugins/zsh-you-should-use
   url = https://github.com/MichaelAquilina/zsh-you-should-use.git
   branch = master
-[submodule "nvim/pack/plugins/start/nvim-treesitter"]
-  path = nvim/pack/plugins/start/nvim-treesitter
-  url = https://github.com/nvim-treesitter/nvim-treesitter.git
-  branch = master
 [submodule "nvim/pack/plugins/start/telescope.nvim"]
   path = nvim/pack/plugins/start/telescope.nvim
   url = https://github.com/nvim-lua/telescope.nvim.git
-  branch = master
-[submodule "nvim/pack/plugins/start/LuaSnip"]
-  path = nvim/pack/plugins/start/LuaSnip
-  url = https://github.com/L3MON4D3/LuaSnip.git
   branch = master
 [submodule "nvim/pack/plugins/start/nvim-autopairs"]
   path = nvim/pack/plugins/start/nvim-autopairs
