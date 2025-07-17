@@ -37,7 +37,7 @@ hi LineNr                     ctermfg=08 ctermbg=10
 hi SignColumn                 ctermfg=08 ctermbg=00
 hi StatusLine                 ctermfg=04 ctermbg=08 cterm=none
 hi StatusLineNC               ctermfg=07 ctermbg=08 cterm=none
-hi VertSplit                  ctermfg=08            cterm=none
+hi VertSplit                  ctermfg=08 ctermbg=01 cterm=none
 hi ColorColumn                           ctermbg=10 cterm=none
 hi CursorColumn                          ctermbg=10 cterm=none
 hi CursorLine                            ctermbg=10 cterm=none
@@ -155,7 +155,12 @@ hi link @variable.builtin  Field
 
 
 " CPP highlighting
-hi cppCast                    ctermfg=06
+hi cppCast                        ctermfg=06
+hi link @keyword.import.cpp       Include
+hi link @module.cpp               Namespace
+hi link @lsp.type.namespace.cpp   Namespace
+hi link @type.builtin.cpp         Type
+hi link @keyword.directive.cpp    Macro
 
 
 " Diff highlighting

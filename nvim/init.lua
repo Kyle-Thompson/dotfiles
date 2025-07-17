@@ -69,7 +69,7 @@ opt.splitright = true     -- horizontal splits open right of current window
 opt.statusline = " %<%f %m %r %w %=%l/%L,%c "
 
 -- visual
-viml "colorscheme xres"
+require("colors.xres")
 opt.linebreak = true      -- do not break words on wrap
 opt.list = false          -- do not show characters at the end of lines
 opt.showcmd = false       -- don't display partial commands in bottom right
@@ -131,7 +131,7 @@ local noop = function() end
 local lsp_map = function(key, cmd, extra)
   map('n', leader..'l'..key, function() extra() cmd() end)
 end
- lsp_map('d', vim.lsp.buf.declaration, noop)
+lsp_map('d', vim.lsp.buf.declaration, noop)
 lsp_map('wd', vim.lsp.buf.declaration, new_window)
 lsp_map('i', vim.lsp.buf.definition, noop)
 lsp_map('wi', vim.lsp.buf.definition, new_window)
@@ -227,7 +227,7 @@ cmp.setup({
     { name = 'luasnip' },
     { name = 'buffer' },
     { name = 'path' },
-    { name = 'crates' },
+    -- { name = 'crates' },
   })
 })
 
@@ -247,62 +247,10 @@ cmp.setup.cmdline(':', {
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- ===================== debugger
-map('n', leader..'dc', require'dap'.continue)
-map('n', leader..'di', require'dap'.step_into)
-map('n', leader..'do', require'dap'.step_out)
-map('n', leader..'dv', require'dap'.step_over)
-map('n', leader..'db', require'dap'.toggle_breakpoint)
-map('n', leader..'dr', require'dap'.repl.open)
-map('n', leader..'dt', require'dap'.run_to_cursor)
-
-local dapui = require('dapui')
-dapui.setup({
-  layouts = {
-    {
-      elements = {
-        'scopes',
-        'breakpoints',
-        'stacks',
-        'watches',
-      },
-      size = 40,
-      position = 'left',
-    },
-    {
-      elements = {
-        'repl',
-        'console',
-      },
-      size = 10,
-      position = 'bottom',
-    },
-  },
-  icons = {
-    expanded = 'v',
-    collapsed = '>'
-  },
-  mappings = {
-    -- Use a table to apply multiple mappings
-    expand = {"<CR>"},
-    open = "o",
-    remove = "d",
-    edit = "e",
-    repl = "r",
-  },
-  floating = {
-    max_height = nil, -- These can be integers or a float between 0 and 1.
-    max_width = nil   -- Floats will be treated as percentage of your screen.
-  }
-})
-
-map('n', leader..'du', require'dapui'.toggle)
-
-
 -- ===================== language server
 lsp.clangd.setup {
   cmd = {
-    'clangd-18',
+    'clangd',
     '--background-index=false',
     '--pch-storage=disk',
     '--malloc-trim',
@@ -363,247 +311,6 @@ lsp.tflint.setup {
   capabilities = capabilities;
 }
 
-viml "packadd crates.nvim"
-local crate_opts = {
-  smart_insert = true,
-  insert_closing_quote = true,
-  avoid_prerelease = true,
-  autoload = true,
-  autoupdate = true,
-  loading_indicator = true,
-  date_format = "%Y-%m-%d",
-  notification_title = "Crates",
-  disable_invalid_feature_diagnostic = false,
-  text = {
-    loading = "  ...loading",
-    version = "",
-    prerelease = "  pre:%s",
-    yanked = "  y:%s",
-    nomatch = "  No match",
-    upgrade = "  u:%s",
-    error = "  Error fetching crate",
-  },
-  highlight = {
-    loading = "CratesNvimLoading",
-    version = "CratesNvimVersion",
-    prerelease = "CratesNvimPreRelease",
-    yanked = "CratesNvimYanked",
-    nomatch = "CratesNvimNoMatch",
-    upgrade = "CratesNvimUpgrade",
-    error = "CratesNvimError",
-  },
-  popup = {
-    autofocus = false,
-    copy_register = '"',
-    style = "minimal",
-    border = "none",
-    show_version_date = false,
-    show_dependency_version = true,
-    max_height = 30,
-    min_width = 20,
-    padding = 1,
-    text = {
-      title = "# %s",
-      pill_left = "",
-      pill_right = "",
-      created_label = "created        ",
-      updated_label = "updated        ",
-      downloads_label = "downloads      ",
-      homepage_label = "homepage       ",
-      repository_label = "repository     ",
-      documentation_label = "documentation  ",
-      crates_io_label = "crates.io      ",
-      categories_label = "categories     ",
-      keywords_label = "keywords       ",
-      prerelease = "%s pre-release",
-      yanked = "%s yanked",
-      enabled = "* s",
-      transitive = "~ s",
-      optional = "? %s",
-      loading = " ...",
-    },
-    highlight = {
-      title = "CratesNvimPopupTitle",
-      pill_text = "CratesNvimPopupPillText",
-      pill_border = "CratesNvimPopupPillBorder",
-      description = "CratesNvimPopupDescription",
-      created_label = "CratesNvimPopupLabel",
-      created = "CratesNvimPopupValue",
-      updated_label = "CratesNvimPopupLabel",
-      updated = "CratesNvimPopupValue",
-      downloads_label = "CratesNvimPopupLabel",
-      downloads = "CratesNvimPopupValue",
-      homepage_label = "CratesNvimPopupLabel",
-      homepage = "CratesNvimPopupUrl",
-      repository_label = "CratesNvimPopupLabel",
-      repository = "CratesNvimPopupUrl",
-      documentation_label = "CratesNvimPopupLabel",
-      documentation = "CratesNvimPopupUrl",
-      crates_io_label = "CratesNvimPopupLabel",
-      crates_io = "CratesNvimPopupUrl",
-      categories_label = "CratesNvimPopupLabel",
-      keywords_label = "CratesNvimPopupLabel",
-      version = "CratesNvimPopupVersion",
-      prerelease = "CratesNvimPopupPreRelease",
-      yanked = "CratesNvimPopupYanked",
-      version_date = "CratesNvimPopupVersionDate",
-      feature = "CratesNvimPopupFeature",
-      enabled = "CratesNvimPopupEnabled",
-      transitive = "CratesNvimPopupTransitive",
-      dependency = "CratesNvimPopupDependency",
-      optional = "CratesNvimPopupOptional",
-      dependency_version = "CratesNvimPopupDependencyVersion",
-      loading = "CratesNvimPopupLoading",
-    },
-    keys = {
-      hide = { "q", "<esc>" },
-      open_url = { "<cr>" },
-      select = { "<cr>" },
-      select_alt = { "s" },
-      toggle_feature = { "<cr>" },
-      copy_value = { "yy" },
-      goto_item = { "gd", "K", "<C-LeftMouse>" },
-      jump_forward = { "<c-i>" },
-      jump_back = { "<c-o>", "<C-RightMouse>" },
-    },
-  },
-  src = {
-    insert_closing_quote = true,
-    text = {
-      prerelease = "  pre-release ",
-      yanked = "  yanked ",
-    },
-    coq = {
-      enabled = false,
-      name = "Crates",
-    },
-  },
-}
-require('crates').setup(crate_opts)
-
-local opts = {
-  tools = { -- rust-tools options
-    autoSetHints = false,
-
-    -- whether to show hover actions inside the hover window
-    -- TODO: replace this with the new style
-    -- hover_with_actions = true,
-
-    -- how to execute terminal commands (termopen / quickfix)
-    executor = require("rust-tools/executors").termopen,
-
-    -- callback to execute once rust-analyzer is done initializing the workspace
-    -- The callback receives one parameter indicating the `health` of the server: "ok" | "warning" | "error"
-    on_initialized = nil,
-
-    -- These apply to the default RustSetInlayHints command
-    inlay_hints = {
-      only_current_line = true,
-
-      -- Event which triggers a refersh of the inlay hints
-      only_current_line_autocmd = "CursorHold",
-
-      -- whether to show parameter hints with the inlay hints or not
-      show_parameter_hints = true,
-
-      -- show variable name before inlay type hints
-      show_variable_name = false,
-
-      -- prefix for parameter hints
-      parameter_hints_prefix = "<- ",
-
-      -- prefix for all the other hints (type, chaining)
-      other_hints_prefix = "=> ",
-
-      -- whether to align to the lenght of the longest line in the file
-      max_len_align = false,
-
-      -- padding from the left if max_len_align is true
-      max_len_align_padding = 1,
-
-      -- whether to align to the extreme right or not
-      right_align = false,
-
-      -- padding from the right if right_align is true
-      right_align_padding = 7,
-
-      -- The color of the hints
-      highlight = "Comment",
-    },
-
-    -- options same as lsp hover / vim.lsp.util.open_floating_preview()
-    hover_actions = {
-      -- the border that is used for the hover window
-      -- see vim.api.nvim_open_win()
-      border = {
-        { "╭", "FloatBorder" },
-        { "─", "FloatBorder" },
-        { "╮", "FloatBorder" },
-        { "│", "FloatBorder" },
-        { "╯", "FloatBorder" },
-        { "─", "FloatBorder" },
-        { "╰", "FloatBorder" },
-        { "│", "FloatBorder" },
-      },
-
-      -- whether the hover action window gets automatically focused
-      auto_focus = false,
-    },
-  },
-
-  -- all the opts to send to nvim-lspconfig
-  -- these override the defaults set by rust-tools.nvim
-  -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
-  -- server = {
-  --   -- standalone file support
-  --   -- setting it to false may improve startup time
-  --   standalone = true,
-  -- }, -- rust-analyer options
-
-  -- debugging stuff
-  -- dap = {
-  --   adapter = {
-  --     type = "executable",
-  --     command = "lldb-vscode",
-  --     name = "rt_lldb",
-  --   },
-  -- },
-}
-
-require('rust-tools').setup(opts)
-
-lsp.tsserver.setup{
-  cmd = { 'typescript-language-server', '--stdio' };
-}
-
-local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-
-require'lspconfig'.sumneko_lua.setup {
-  cmd = {"lua-language-server"};
-  settings = {
-    Lua = {
-      runtime = {
-        version = 'LuaJIT',
-        path = runtime_path,
-      },
-      diagnostics = {
-        -- get the language server to recognize the 'vim' global
-        globals = {'vim'},
-      },
-      workspace = {
-        -- make the server aware of neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-        checkThirdParty = false,
-      },
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
-}
-
 -- diagnostics
 vim.diagnostic.config({
   virtual_text = false,  -- disable inline diagnostics
@@ -613,9 +320,11 @@ viml 'autocmd CursorHold * lua vim.diagnostic.open_float()'
 
 -- ===================== tree sitter
 require('nvim-treesitter.configs').setup {
-  ensure_installed = { "c", "cpp", "lua", "rust" },
   auto_install = true,
-  highlight = { enable = true; };
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  };
 }
 
 -- TODO: move this into ftplugin/cpp.lua
@@ -628,13 +337,35 @@ vim.api.nvim_create_autocmd("FileType", {
     group = comment_string_group,
 })
 
-
--- =============================================================================
--- =====================   Imports   ===========================================
--- =============================================================================
-
-local f = io.open('$HOME/.dotfiles/nvim/local.lua', 'r')
-if f ~= nil then
-  require('local')
-  io.close(f)
-end
+-- ===================== telescope
+require('telescope').setup{
+  defaults = {
+    -- Default configuration for telescope goes here:
+    -- config_key = value,
+    mappings = {
+      i = {
+        -- map actions.which_key to <C-h> (default: <C-/>)
+        -- actions.which_key shows the mappings for your picker,
+        -- e.g. git_{create, delete, ...}_branch for the git_branches picker
+        ["<C-h>"] = "which_key"
+      }
+    },
+    preview = false  -- TODO: revert
+  },
+  pickers = {
+    -- Default configuration for builtin pickers goes here:
+    -- picker_name = {
+    --   picker_config_key = value,
+    --   ...
+    -- }
+    -- Now the picker_config_key will be applied every time you call this
+    -- builtin picker
+  },
+  extensions = {
+    -- Your extension configuration goes here:
+    -- extension_name = {
+    --   extension_config_key = value,
+    -- }
+    -- please take a look at the readme of the extension you want to configure
+  }
+}
