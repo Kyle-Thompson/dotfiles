@@ -78,6 +78,7 @@ export PATH=$PATH:$HOME/.luarocks/bin
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.config/fzf/bin
+export PATH=$PATH:$HOME/.influxdb/
 
 # fix vlc visual bug. TODO: remove when no longer needed
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
@@ -152,7 +153,7 @@ function transd() {
 # ======================   Fzf   ===============================================
 # ==============================================================================
 
-for f in ~/.config/fzf/shell/*.zsh; do
+for f in ~/pkg/fzf/shell/*.zsh; do
   source $f
 done
 
