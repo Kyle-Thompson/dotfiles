@@ -37,10 +37,6 @@
 [submodule "nvim/pack/plugins/start/nvim-autopairs"]
   path = nvim/pack/plugins/start/nvim-autopairs
   url = https://github.com/windwp/nvim-autopairs.git
-[submodule "nvim/pack/plugins/start/nvim-treesitter"]
-  path = nvim/pack/plugins/start/nvim-treesitter
-  url = https://github.com/nvim-treesitter/nvim-treesitter
-  branch = main
 [submodule "nvim/pack/plugins/start/blink.cmp"]
 	path = nvim/pack/plugins/start/blink.cmp
 	url = https://github.com/Saghen/blink.cmp.git
