@@ -11,7 +11,6 @@ vim.opt.clipboard = 'unnamedplus'  -- enable system clipboard
 -- menuone   - pum even for a single match
 -- noinstert - no text insterted until selection
 -- noselect  - no auto selection
--- vim.o.completeopt = 'menuone,noinsert,noselect'
 vim.opt.completeopt = 'menuone,noselect'
 
 -- fill chars
@@ -110,15 +109,8 @@ map('n', '<C-K>', '<C-W><C-K>')
 map('n', '<C-L>', '<C-W><C-L>')
 map('n', '<C-H>', '<C-W><C-H>')
 
--- save when file is readonly
-map('c', 'w!!', 'execute "silent! write !sudo tee % >/dev/null" <bar> edit!')
-
 -- clear highlights
-map('n', leader..'h', ':nohls<CR>')
-
--- pop-up menu navigation
-map('i', '<Tab>', [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
-map('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
+map('n', leader..'h', ':nohls<CR>:<DEL>')
 
 
 -- ===================== plugins
@@ -138,19 +130,8 @@ lsp_map('a', vim.lsp.buf.codeAction, noop)
 lsp_map('h', vim.lsp.buf.hover, noop)
 lsp_map('n', vim.lsp.buf.rename, noop)
 
--- tagbar
-map('n', leader..'t', ':TagbarToggle<CR><C-W>=')
-
 -- auto-pairs
 require("nvim-autopairs").setup {}
-
--- telescope
-map('n', leader..'ff', require'telescope.builtin'.fd)
-map('n', leader..'fp',
-  function()
-    local folder = vim.lsp.buf.list_workspace_folders()[1]
-    require'telescope.builtin'.fd{ cwd = folder }
-  end)
 
 -- vim-easymotion
 map('n', leader..'w', '<Plug>(easymotion-bd-w)')
@@ -169,89 +150,19 @@ viml "autocmd BufNewFile,BufEnter * silent! lcd %:p:h"
 -- =====================   Plugins   ===========================================
 -- =============================================================================
 
--- ===================== completion
--- local luasnip = require('luasnip')
--- local cmp = require'cmp'
-
--- cmp.setup({
---   snippet = {
---     expand = function(args) luasnip.lsp_expand(args.body) end,
---   },
---   mapping = {
---     ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
---     ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
---     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
---     ['<C-e>'] = cmp.mapping({
---       i = cmp.mapping.abort(),
---       c = cmp.mapping.close(),
---     }),
---     ['<CR>'] = cmp.mapping.confirm({ select = false }),
-
---     -- consistent up nav in cmp-pum menu and normal mode
---     ["<C-j>"] = cmp.mapping(function(fallback)
---       if cmp.visible() then cmp.select_next_item() else fallback() end
---     end, {"i", "s"}),
---     ["<C-n>"] = cmp.mapping(function(fallback)
---       if cmp.visible() then cmp.select_next_item() else fallback() end
---     end, {"i", "s"}),
-
---     -- consistent down nav in cmp-pum menu and normal mode
---     ["<C-k>"] = cmp.mapping(function(fallback)
---       if cmp.visible() then cmp.select_prev_item() else fallback() end
---     end, {"i", "s"}),
-
---     -- tab through snippet targets
---     ["<Tab>"] = cmp.mapping(function(fallback)
---       if luasnip.expand_or_jumpable() then
---         luasnip.expand_or_jump()
---       else
---         fallback()
---       end
---     end, {"i", "s"}),
-
---     -- shift tab to reverse through snippet targets
---     ["<S-Tab>"] = cmp.mapping(function(fallback)
---       if luasnip.jumpable(-1) then luasnip.jump(-1) else fallback() end
---     end, {"i", "s"}),
---   },
---   sources = cmp.config.sources({
---     { name = 'nvim_lsp' },
---     { name = 'nvim_lua' },
---     { name = 'luasnip' },
---     { name = 'buffer' },
---     { name = 'path' },
---     -- { name = 'crates' },
---   })
--- })
-
--- -- Use buffer source for `/`
--- cmp.setup.cmdline('/', {
---   sources = { { name = 'buffer' } }
--- })
-
--- -- Use cmdline & path source for ':'
--- cmp.setup.cmdline(':', {
---   sources = cmp.config.sources({
---     { name = 'path' },
---     { name = 'cmdline' }
---   })
--- })
-
--- Setup lspconfig.
--- local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
--- vim.lsp.config['clangd'] = {
---   cmd = {
---     'clangd',
---     '--background-index=false',
---     '--pch-storage=disk',
---     '--malloc-trim',
---     '--clang-tidy=false',
---     '-j=4'
---   };
--- }
-
-vim.lsp.enable('clangd')
+-- vim.lsp.enable('clangd')
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'c', 'cpp' },
+  callback = function(args)
+    vim.lsp.start({
+      name = "clangd",
+      cmd = { "clangd" },
+      root_dir = vim.fs.dirname(
+        vim.fs.find({ ".clangd", ".git" }, { upward = true })[1]
+      ),
+    })
+  end
+})
 
 -- diagnostics
 vim.diagnostic.config({
@@ -259,55 +170,3 @@ vim.diagnostic.config({
   signs = false,  -- disable signs
 })
 viml 'autocmd CursorHold * lua vim.diagnostic.open_float()'
-
--- ===================== tree sitter
--- require('nvim-treesitter.configs').setup {
---   auto_install = true,
---   highlight = {
---     enable = true,
---     additional_vim_regex_highlighting = false,
---   };
--- }
-
--- TODO: move this into ftplugin/cpp.lua
-local comment_string_group = vim
-  .api
-  .nvim_create_augroup("comment_string", { clear = true })
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "c,cpp",
-    command = [[setlocal commentstring=//\ %s]],
-    group = comment_string_group,
-})
-
--- ===================== telescope
--- require('telescope').setup{
---   defaults = {
---     -- Default configuration for telescope goes here:
---     -- config_key = value,
---     mappings = {
---       i = {
---         -- map actions.which_key to <C-h> (default: <C-/>)
---         -- actions.which_key shows the mappings for your picker,
---         -- e.g. git_{create, delete, ...}_branch for the git_branches picker
---         ["<C-h>"] = "which_key"
---       }
---     },
---     preview = false  -- TODO: revert
---   },
---   pickers = {
---     -- Default configuration for builtin pickers goes here:
---     -- picker_name = {
---     --   picker_config_key = value,
---     --   ...
---     -- }
---     -- Now the picker_config_key will be applied every time you call this
---     -- builtin picker
---   },
---   extensions = {
---     -- Your extension configuration goes here:
---     -- extension_name = {
---     --   extension_config_key = value,
---     -- }
---     -- please take a look at the readme of the extension you want to configure
---   }
--- }
