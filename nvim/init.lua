@@ -72,7 +72,7 @@ vim.opt.showcmd   = false     -- don't display partial commands in bottom right
 vim.opt.showmode  = false     -- don't display mode (e.g. -- INSERT --)
 vim.opt.pumheight = 30        -- limits popup menu height
 vim.opt.scrolloff = 4         -- start scrolling 4 lines from the bottom
-vim.opt.textwidth = 80        -- length to break lines
+-- vim.opt.textwidth = 80        -- length to break lines
 vim.opt.wrap      = true      -- spread long lines across multiple lines
 
 -- wildmenu
@@ -83,42 +83,43 @@ vim.opt.wildignore = '*.o,*.pyc'
 -- =====================   Mappings   ==========================================
 -- =============================================================================
 
-local leader = ' '
-local map = vim.keymap.set
+vim.g.mapleader = ' '
 
 -- easy escape to normal
-map('i', 'jj', '<ESC>')
+vim.keymap.set('i', 'jj', '<ESC>')
 
 -- move along visual lines, not numbered ones
-map('n', 'j', 'gj')
-map('n', 'k', 'gk')
-map('n', '^', 'g^')
-map('n', '$', 'g$')
-map('v', 'j', 'gj')
-map('v', 'k', 'gk')
-map('v', '^', 'g^')
-map('v', '$', 'g$')
+vim.keymap.set('n', 'j', 'gj')
+vim.keymap.set('n', 'k', 'gk')
+vim.keymap.set('n', '^', 'g^')
+vim.keymap.set('n', '$', 'g$')
+vim.keymap.set('v', 'j', 'gj')
+vim.keymap.set('v', 'k', 'gk')
+vim.keymap.set('v', '^', 'g^')
+vim.keymap.set('v', '$', 'g$')
 
 -- keep visual selections when indenting
-map('v', '<', '<gv')
-map('v', '>', '>gv')
+vim.keymap.set('v', '<', '<gv')
+vim.keymap.set('v', '>', '>gv')
 
 -- simplify moving across splits
-map('n', '<C-J>', '<C-W><C-J>')
-map('n', '<C-K>', '<C-W><C-K>')
-map('n', '<C-L>', '<C-W><C-L>')
-map('n', '<C-H>', '<C-W><C-H>')
+vim.keymap.set('n', '<C-J>', '<C-W><C-J>')
+vim.keymap.set('n', '<C-K>', '<C-W><C-K>')
+vim.keymap.set('n', '<C-L>', '<C-W><C-L>')
+vim.keymap.set('n', '<C-H>', '<C-W><C-H>')
 
 -- clear highlights
-map('n', leader..'h', ':nohls<CR>:<DEL>')
+vim.keymap.set('n', '<leader>h', ':nohls<CR>:<DEL>')
 
 
--- ===================== plugins
--- nvim lsp
+-- =============================================================================
+-- =====================   Language Server   ===================================
+-- =============================================================================
+
 local new_window = function() viml ':sp' end
 local noop = function() end
 local lsp_map = function(key, cmd, extra)
-  map('n', leader..'l'..key, function() extra() cmd() end)
+  vim.keymap.set('n', '<leader>l'..key, function() extra() cmd() end)
 end
 lsp_map('d', vim.lsp.buf.declaration, noop)
 lsp_map('wd', vim.lsp.buf.declaration, new_window)
@@ -130,27 +131,6 @@ lsp_map('a', vim.lsp.buf.codeAction, noop)
 lsp_map('h', vim.lsp.buf.hover, noop)
 lsp_map('n', vim.lsp.buf.rename, noop)
 
--- auto-pairs
-require("nvim-autopairs").setup {}
-
--- vim-easymotion
-map('n', leader..'w', '<Plug>(easymotion-bd-w)')
-map('n', leader..'c', '<Plug>(easymotion-s)')
-
-
--- =============================================================================
--- =====================   Miscellaneous   =====================================
--- =============================================================================
-
--- automatically change the working path to the path of the current file
-viml "autocmd BufNewFile,BufEnter * silent! lcd %:p:h"
-
-
--- =============================================================================
--- =====================   Plugins   ===========================================
--- =============================================================================
-
--- vim.lsp.enable('clangd')
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'c', 'cpp' },
   callback = function(args)
@@ -164,9 +144,24 @@ vim.api.nvim_create_autocmd('FileType', {
   end
 })
 
+-- automatically change the working path to the path of the current file
+vim.api.nvim_create_autocmd({'BufNewFile', 'BufEnter'}, {
+  pattern = '*',
+  command = 'silent! lcd %:p:h'
+})
+
 -- diagnostics
 vim.diagnostic.config({
   virtual_text = false,  -- disable inline diagnostics
-  signs = false,  -- disable signs
+  signs        = false,  -- disable signs
 })
-viml 'autocmd CursorHold * lua vim.diagnostic.open_float()'
+
+local diag_float_group =
+    vim.api.nvim_create_augroup("DiagFloat", { clear = true })
+vim.api.nvim_create_autocmd('CursorHold', {
+  pattern  = '*',
+  group    = diag_float_group,
+  callback = function(args)
+    vim.diagnostic.open_float()
+  end
+})
