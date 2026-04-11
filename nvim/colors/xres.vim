@@ -37,7 +37,7 @@ hi LineNr                     ctermfg=08 ctermbg=10
 hi SignColumn                 ctermfg=08 ctermbg=00
 hi StatusLine                 ctermfg=04 ctermbg=08 cterm=none
 hi StatusLineNC               ctermfg=07 ctermbg=08 cterm=none
-hi VertSplit                  ctermfg=08 ctermbg=01 cterm=none
+hi WinSeparator               ctermfg=08 ctermbg=01 cterm=none
 hi ColorColumn                           ctermbg=10 cterm=none
 hi CursorColumn                          ctermbg=10 cterm=none
 hi CursorLine                            ctermbg=10 cterm=none
@@ -86,72 +86,64 @@ hi Type                       ctermfg=03            cterm=none
 hi Typedef                    ctermfg=03
 
 
-" LSP highlighting
-hi LspDiagnostic              ctermfg=15 ctermbg=08
-hi LspDiagnosticsUnderline               ctermbg=08
+" Diagnostic highlighting
+hi DiagnosticError            ctermfg=01
+hi DiagnosticWarn             ctermfg=15 ctermbg=08
+hi DiagnosticHint             ctermfg=15 ctermbg=08
+hi DiagnosticInfo             ctermfg=15 ctermbg=08
+hi DiagnosticUnderlineError              ctermbg=08
+hi DiagnosticUnderlineWarn               ctermbg=08
+hi DiagnosticUnderlineHint               ctermbg=08
+hi DiagnosticUnderlineInfo               ctermbg=08
 
-hi link LspDiagnosticsError                LspDiagnostic
-hi link LspDiagnosticsWarning              LspDiagnostic
-hi link LspDiagnosticsHint                 LspDiagnostic
-hi link LspDiagnosticsInformation          LspDiagnostic
-hi link LspDiagnosticsUnderlineError       LspDiagnosticsUnderline
-hi link LspDiagnosticsUnderlineWarning     LspDiagnosticsUnderline
-hi link LspDiagnosticsUnderlineHint        LspDiagnosticsUnderline
-hi link LspDiagnosticsUnderlineInformation LspDiagnosticsUnderline
-hi link LspDiagnosticsUnderline            LspDiagnosticsUnderline
-
-hi LspDiagnosticsError        ctermfg=01
-
-hi link @attribute         Attribute
-hi link @boolean           Boolean
-hi link @character         Character
-hi link @character.special SpecialChar   " TODO
-hi link @comment           Comment       " TODO
-hi link @conditional       Conditional
-hi link @conditional       Conditional   " TODO
-hi link @constant          Constant
-hi link @constant.builtin  Constant
-hi link @constant.macro    Constant
-hi link @constructor       Normal        " TODO
-hi link @debug             Debug         " TODO
-hi link @define            Define        " TODO
-hi link @exception         Identifier
-hi link @field             Field
-hi link @float             Float
-hi link @function          Function
-hi link @function.builtin  Special       " TODO
-hi link @function.macro    Macro         " TODO
-hi link @include           Include
-hi link @keyword           Keyword
-hi link @label             Normal        " TODO
-hi link @macro             Macro
-hi link @method            Function
-hi link @namespace         Namespace
-hi link @number            Number
-hi link @operator          Operator
-hi link @parameter         Normal
-hi link @preproc           PreProc       " TODO
-hi link @property          Field         " TODO: better link target
-hi link @punctuation       Delimiter     " TODO
-hi link @punctuation       Delimiter     " TODO
-hi link @repeat            Repeat
-hi link @storageclass      StorageClass  " TODO
-hi link @string            String
-hi link @string.escape     SpecialChar   " TODO
-hi link @string.special    SpecialChar   " TODO
-hi link @structure         Normal        " TODO
-hi link @tag               Tag           " TODO
-hi link @text.literal      Comment       " TODO
-hi link @text.reference    Identifier    " TODO
-hi link @text.title        Title         " TODO
-hi link @text.todo         Todo          " TODO
-hi link @text.underline    Underlined    " TODO
-hi link @text.uri          Underlined    " TODO
-hi link @type              Type
-hi link @type.qualifier    Keyword       " TODO: link to better than keyword
-hi link @type.definition   Typedef       " TODO
-hi link @variable          Normal
-hi link @variable.builtin  Field
+hi link @attribute                Attribute
+hi link @boolean                  Boolean
+hi link @character                Character
+hi link @character.special        SpecialChar
+hi link @comment                  Comment
+hi link @comment.todo             Todo
+hi link @constant                 Constant
+hi link @constant.builtin         Constant
+hi link @constant.macro           Constant
+hi link @constructor              Normal
+hi link @function                 Function
+hi link @function.builtin         Special
+hi link @function.macro           Macro
+hi link @function.method          Function
+hi link @keyword                  Keyword
+hi link @keyword.conditional      Conditional
+hi link @keyword.debug            Keyword
+hi link @keyword.directive        PreProc
+hi link @keyword.directive.define Define
+hi link @keyword.exception        Keyword
+hi link @keyword.import           Include
+hi link @keyword.repeat           Repeat
+hi link @keyword.storage          StorageClass
+hi link @label                    Normal
+hi link @macro                    Macro
+hi link @markup.heading           Title
+hi link @markup.link              Identifier
+hi link @markup.link.url          Underlined
+hi link @markup.raw               Comment
+hi link @markup.underline         Underlined
+hi link @module                   Namespace
+hi link @number                   Number
+hi link @number.float             Float
+hi link @operator                 Operator
+hi link @property                 Field
+hi link @punctuation              Normal
+hi link @string                   String
+hi link @string.escape            SpecialChar
+hi link @string.special           SpecialChar
+hi link @structure                Normal
+hi link @tag                      Tag
+hi link @type                     Type
+hi link @type.definition          Typedef
+hi link @type.qualifier           Keyword
+hi link @variable                 Normal
+hi link @variable.builtin         Field
+hi link @variable.member          Field
+hi link @variable.parameter       Normal
 
 
 " CPP highlighting
@@ -213,6 +205,3 @@ hi pythonRepeat               ctermfg=05
 hi pythonInclude              ctermfg=05
 hi pythonStatement            ctermfg=05
 
-
-" Compe
-hi link CompeDocumentation NormalFloat

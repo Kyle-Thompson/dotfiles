@@ -7,6 +7,7 @@ return {
     '--clang-tidy=false',
     '-j=4'
   },
-  root_markers = { '.git' },
+  filetypes = { 'c', 'cpp' },
+  root_markers = { '.clangd', '.git' },
   capabilities = require('blink.cmp').get_lsp_capabilities(),
 }

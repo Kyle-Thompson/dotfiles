@@ -37,7 +37,7 @@ hi(0, "LineNr",       { ctermfg=08, ctermbg=10 })
 hi(0, "SignColumn",   { ctermfg=08, ctermbg=00 })
 hi(0, "StatusLine",   { ctermfg=04, ctermbg=08 })
 hi(0, "StatusLineNC", { ctermfg=07, ctermbg=08 })
-hi(0, "VertSplit",    { ctermfg=08, ctermbg=01 })
+hi(0, "WinSeparator", { ctermfg=08, ctermbg=01 })
 hi(0, "ColorColumn",  { ctermbg=10 })
 hi(0, "CursorColumn", { ctermbg=10 })
 hi(0, "CursorLine",   { ctermbg=10 })
@@ -84,72 +84,64 @@ hi(0, "Todo",         { ctermfg=07, ctermbg=08 })
 hi(0, "Type",         { ctermfg=03 })
 hi(0, "Typedef",      { ctermfg=03 })
 
--- LSP highlighting
-hi(0, "LspDiagnostic",           { ctermfg=15, ctermbg=08 })
-hi(0, "LspDiagnosticsUnderline", {             ctermbg=08 })
+-- Diagnostic highlighting
+hi(0, "DiagnosticError",          { ctermfg=01 })
+hi(0, "DiagnosticWarn",           { ctermfg=15, ctermbg=08 })
+hi(0, "DiagnosticHint",           { ctermfg=15, ctermbg=08 })
+hi(0, "DiagnosticInfo",           { ctermfg=15, ctermbg=08 })
+hi(0, "DiagnosticUnderlineError", { ctermbg=08 })
+hi(0, "DiagnosticUnderlineWarn",  { ctermbg=08 })
+hi(0, "DiagnosticUnderlineHint",  { ctermbg=08 })
+hi(0, "DiagnosticUnderlineInfo",  { ctermbg=08 })
 
-hi(0, "LspDiagnosticsError",                { link = "LspDiagnostic" })
-hi(0, "LspDiagnosticsError",                { link = "LspDiagnostic" })
-hi(0, "LspDiagnosticsWarning",              { link = "LspDiagnostic" })
-hi(0, "LspDiagnosticsHint",                 { link = "LspDiagnostic" })
-hi(0, "LspDiagnosticsInformation",          { link = "LspDiagnostic" })
-hi(0, "LspDiagnosticsUnderlineError",       { link = "LspDiagnosticsUnderline" })
-hi(0, "LspDiagnosticsUnderlineWarning",     { link = "LspDiagnosticsUnderline" })
-hi(0, "LspDiagnosticsUnderlineHint",        { link = "LspDiagnosticsUnderline" })
-hi(0, "LspDiagnosticsUnderlineInformation", { link = "LspDiagnosticsUnderline" })
-hi(0, "LspDiagnosticsUnderline",            { link = "LspDiagnosticsUnderline" })
-
-hi(0, "LspDiagnosticsError", { ctermfg=01 })
-
-hi(0, "@attribute",         { link = "Attribute" })
-hi(0, "@boolean",           { link = "Boolean" })
-hi(0, "@character",         { link = "Character" })
-hi(0, "@character.special", { link = "SpecialChar" })   -- TODO
-hi(0, "@comment",           { link = "Comment" })       -- TODO
-hi(0, "@conditional",       { link = "Conditional" })
-hi(0, "@conditional",       { link = "Conditional" })   -- TODO
-hi(0, "@constant",          { link = "Constant" })
-hi(0, "@constant.builtin",  { link = "Constant" })
-hi(0, "@constant.macro",    { link = "Constant" })
-hi(0, "@constructor",       { link = "Normal" })        -- TODO
-hi(0, "@debug",             { link = "Debug" })         -- TODO
-hi(0, "@define",            { link = "Define" })        -- TODO
-hi(0, "@exception",         { link = "Identifier" })
-hi(0, "@field",             { link = "Field" })
-hi(0, "@float",             { link = "Float" })
-hi(0, "@function",          { link = "Function" })
-hi(0, "@function.builtin",  { link = "Special" })       -- TODO
-hi(0, "@function.macro",    { link = "Macro" })         -- TODO
-hi(0, "@include",           { link = "Include" })
-hi(0, "@keyword",           { link = "Keyword" })
-hi(0, "@label",             { link = "Normal" })        -- TODO
-hi(0, "@macro",             { link = "Macro" })
-hi(0, "@method",            { link = "Function" })
-hi(0, "@namespace",         { link = "Namespace" })
-hi(0, "@number",            { link = "Number" })
-hi(0, "@operator",          { link = "Operator" })
-hi(0, "@parameter",         { link = "Normal" })
-hi(0, "@preproc",           { link = "PreProc" })       -- TODO
-hi(0, "@property",          { link = "Field" })         -- TODO: better link target
-hi(0, "@punctuation",       { link = "Normal" })
-hi(0, "@repeat",            { link = "Repeat" })
-hi(0, "@storageclass",      { link = "StorageClass" })  -- TODO
-hi(0, "@string",            { link = "String" })
-hi(0, "@string.escape",     { link = "SpecialChar" })   -- TODO
-hi(0, "@string.special",    { link = "SpecialChar" })   -- TODO
-hi(0, "@structure",         { link = "Normal" })        -- TODO
-hi(0, "@tag",               { link = "Tag" })           -- TODO
-hi(0, "@text.literal",      { link = "Comment" })       -- TODO
-hi(0, "@text.reference",    { link = "Identifier" })    -- TODO
-hi(0, "@text.title",        { link = "Title" })         -- TODO
-hi(0, "@text.todo",         { link = "Todo" })          -- TODO
-hi(0, "@text.underline",    { link = "Underlined" })    -- TODO
-hi(0, "@text.uri",          { link = "Underlined" })    -- TODO
-hi(0, "@type",              { link = "Type" })
-hi(0, "@type.qualifier",    { link = "Keyword" })       -- TODO
-hi(0, "@type.definition",   { link = "Typedef" })       -- TODO
-hi(0, "@variable",          { link = "Normal" })
-hi(0, "@variable.builtin",  { link = "Field" })
+hi(0, "@attribute",                { link = "Attribute" })
+hi(0, "@boolean",                  { link = "Boolean" })
+hi(0, "@character",                { link = "Character" })
+hi(0, "@character.special",        { link = "SpecialChar" })
+hi(0, "@comment",                  { link = "Comment" })
+hi(0, "@comment.todo",             { link = "Todo" })
+hi(0, "@constant",                 { link = "Constant" })
+hi(0, "@constant.builtin",         { link = "Constant" })
+hi(0, "@constant.macro",           { link = "Constant" })
+hi(0, "@constructor",              { link = "Normal" })
+hi(0, "@function",                 { link = "Function" })
+hi(0, "@function.builtin",         { link = "Special" })
+hi(0, "@function.macro",           { link = "Macro" })
+hi(0, "@function.method",          { link = "Function" })
+hi(0, "@keyword",                  { link = "Keyword" })
+hi(0, "@keyword.conditional",      { link = "Conditional" })
+hi(0, "@keyword.debug",            { link = "Keyword" })
+hi(0, "@keyword.directive",        { link = "PreProc" })
+hi(0, "@keyword.directive.define", { link = "Define" })
+hi(0, "@keyword.exception",        { link = "Keyword" })
+hi(0, "@keyword.import",           { link = "Include" })
+hi(0, "@keyword.repeat",           { link = "Repeat" })
+hi(0, "@keyword.storage",          { link = "StorageClass" })
+hi(0, "@label",                    { link = "Normal" })
+hi(0, "@macro",                    { link = "Macro" })
+hi(0, "@markup.heading",           { link = "Title" })
+hi(0, "@markup.link",              { link = "Identifier" })
+hi(0, "@markup.link.url",          { link = "Underlined" })
+hi(0, "@markup.raw",               { link = "Comment" })
+hi(0, "@markup.underline",         { link = "Underlined" })
+hi(0, "@module",                   { link = "Namespace" })
+hi(0, "@number",                   { link = "Number" })
+hi(0, "@number.float",             { link = "Float" })
+hi(0, "@operator",                 { link = "Operator" })
+hi(0, "@property",                 { link = "Field" })
+hi(0, "@punctuation",              { link = "Normal" })
+hi(0, "@string",                   { link = "String" })
+hi(0, "@string.escape",            { link = "SpecialChar" })
+hi(0, "@string.special",           { link = "SpecialChar" })
+hi(0, "@structure",                { link = "Normal" })
+hi(0, "@tag",                      { link = "Tag" })
+hi(0, "@type",                     { link = "Type" })
+hi(0, "@type.definition",          { link = "Typedef" })
+hi(0, "@type.qualifier",           { link = "Keyword" })
+hi(0, "@variable",                 { link = "Normal" })
+hi(0, "@variable.builtin",         { link = "Field" })
+hi(0, "@variable.member",          { link = "Field" })
+hi(0, "@variable.parameter",       { link = "Normal" })
 
 
 -- CPP highlighting
@@ -184,11 +176,11 @@ hi(0, "gitcommitHeader",        { ctermfg=05 })
 hi(0, "gitcommitSelectedType",  { ctermfg=04 })
 hi(0, "gitcommitUnmergedType",  { ctermfg=04 })
 hi(0, "gitcommitDiscardedType", { ctermfg=04 })
-hi(0, "gitcommitBranch",        { ctermfg=09,            cterm=bold })
+hi(0, "gitcommitBranch",        { ctermfg=09,            cterm={ bold=true } })
 hi(0, "gitcommitUntrackedFile", { ctermfg=03 })
-hi(0, "gitcommitUnmergedFile",  { ctermfg=01,            cterm=bold })
-hi(0, "gitcommitDiscardedFile", { ctermfg=01,            cterm=bold })
-hi(0, "gitcommitSelectedFile",  { ctermfg=02,            cterm=bold })
+hi(0, "gitcommitUnmergedFile",  { ctermfg=01,            cterm={ bold=true } })
+hi(0, "gitcommitDiscardedFile", { ctermfg=01,            cterm={ bold=true } })
+hi(0, "gitcommitSelectedFile",  { ctermfg=02,            cterm={ bold=true } })
 
 
 -- GitGutter
@@ -212,5 +204,3 @@ hi(0, "pythonInclude",   { ctermfg=05 })
 hi(0, "pythonStatement", { ctermfg=05 })
 
 
--- Compe
-hi(0, "CompeDocumentation",  { link = "NormalFloat" })
