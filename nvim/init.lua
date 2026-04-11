@@ -1,5 +1,3 @@
-local viml = vim.api.nvim_command
-
 -- =============================================================================
 -- =====================   General   ===========================================
 -- =============================================================================
@@ -16,7 +14,7 @@ vim.opt.completeopt = 'menuone,noselect'
 -- fill chars
 -- use | for vertical split borders
 -- no ~ for end-of-buffer lines.
-vim.opt.fillchars = vim.o.fillchars..'vert:|,eob: '
+vim.opt.fillchars:append({ vert = '|', eob = ' ' })
 
 -- indentation
 vim.opt.softtabstop = 2       -- number of spaces to replace tabs by
@@ -24,8 +22,6 @@ vim.opt.shiftwidth  = 2       -- number of spaces for autoindent
 vim.opt.expandtab   = true    -- use spaces instead of tabs
 
 -- miscellaneous
-vim.opt.hidden     = true     -- hide file, don't close on file switch
-vim.opt.autoread   = true     -- update buffer when file changed externally
 vim.opt.updatetime = 300      -- CursorHold autocmd triggers after x milliseconds
 
 -- netrw
@@ -116,7 +112,7 @@ vim.keymap.set('n', '<leader>h', ':nohls<CR>:<DEL>')
 -- =====================   Language Server   ===================================
 -- =============================================================================
 
-local new_window = function() viml ':sp' end
+local new_window = function() vim.cmd('sp') end
 local noop = function() end
 local lsp_map = function(key, cmd, extra)
   vim.keymap.set('n', '<leader>l'..key, function() extra() cmd() end)
@@ -127,22 +123,11 @@ lsp_map('i', vim.lsp.buf.definition, noop)
 lsp_map('wi', vim.lsp.buf.definition, new_window)
 lsp_map('f', function() vim.lsp.buf.format { async = true } end, noop)
 lsp_map('r', vim.lsp.buf.references, noop)
-lsp_map('a', vim.lsp.buf.codeAction, noop)
+lsp_map('a', vim.lsp.buf.code_action, noop)
 lsp_map('h', vim.lsp.buf.hover, noop)
 lsp_map('n', vim.lsp.buf.rename, noop)
 
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'c', 'cpp' },
-  callback = function(args)
-    vim.lsp.start({
-      name = "clangd",
-      cmd = { "clangd" },
-      root_dir = vim.fs.dirname(
-        vim.fs.find({ ".clangd", ".git" }, { upward = true })[1]
-      ),
-    })
-  end
-})
+vim.lsp.enable({'clangd', 'rust_analyzer'})
 
 -- automatically change the working path to the path of the current file
 vim.api.nvim_create_autocmd({'BufNewFile', 'BufEnter'}, {
