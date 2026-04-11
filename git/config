@@ -1,4 +1,6 @@
 [init]
+[advice]
+  skippedCherryPicks = false
 [push]
   default = current
 [color]
@@ -27,7 +29,7 @@
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
-  editor = vim
+  editor = nvim
 [log]
   date = short
 [format]
@@ -49,3 +51,8 @@
   email = kyle@greenkeypartners.io
 [pull]
   rebase = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
