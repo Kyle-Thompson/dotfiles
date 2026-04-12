@@ -1,7 +1,3 @@
-[submodule "nvim/pack/plugins/start/vim-commentary"]
-  path = nvim/pack/plugins/start/vim-commentary
-  url = https://github.com/tpope/vim-commentary.git
-  branch = master
 [submodule "nvim/pack/plugins/start/vim-repeat"]
   path = nvim/pack/plugins/start/vim-repeat
   url = https://github.com/tpope/vim-repeat.git

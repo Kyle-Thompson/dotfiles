@@ -5,12 +5,6 @@
 -- clipboard
 vim.opt.clipboard = 'unnamedplus'  -- enable system clipboard
 
--- completeopt
--- menuone   - pum even for a single match
--- noinstert - no text insterted until selection
--- noselect  - no auto selection
-vim.opt.completeopt = 'menuone,noselect'
-
 -- fill chars
 -- use | for vertical split borders
 -- no ~ for end-of-buffer lines.
@@ -105,7 +99,7 @@ vim.keymap.set('n', '<C-L>', '<C-W><C-L>')
 vim.keymap.set('n', '<C-H>', '<C-W><C-H>')
 
 -- clear highlights
-vim.keymap.set('n', '<leader>h', ':nohls<CR>:<DEL>')
+vim.keymap.set('n', '<leader>h', vim.cmd.nohlsearch)
 
 
 -- =============================================================================
@@ -131,7 +125,6 @@ vim.lsp.enable({'clangd', 'rust_analyzer'})
 
 -- automatically change the working path to the path of the current file
 vim.api.nvim_create_autocmd({'BufNewFile', 'BufEnter'}, {
-  pattern = '*',
   command = 'silent! lcd %:p:h'
 })
 
@@ -141,12 +134,7 @@ vim.diagnostic.config({
   signs        = false,  -- disable signs
 })
 
-local diag_float_group =
-    vim.api.nvim_create_augroup("DiagFloat", { clear = true })
 vim.api.nvim_create_autocmd('CursorHold', {
-  pattern  = '*',
-  group    = diag_float_group,
-  callback = function(args)
-    vim.diagnostic.open_float()
-  end
+  group    = vim.api.nvim_create_augroup("DiagFloat", { clear = true }),
+  callback = vim.diagnostic.open_float,
 })
