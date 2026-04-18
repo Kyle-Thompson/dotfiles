@@ -37,7 +37,7 @@ hi LineNr                     ctermfg=08 ctermbg=10
 hi SignColumn                 ctermfg=08 ctermbg=00
 hi StatusLine                 ctermfg=04 ctermbg=08 cterm=none
 hi StatusLineNC               ctermfg=07 ctermbg=08 cterm=none
-hi WinSeparator               ctermfg=08 ctermbg=01 cterm=none
+hi WinSeparator               ctermfg=08            cterm=none
 hi ColorColumn                           ctermbg=10 cterm=none
 hi CursorColumn                          ctermbg=10 cterm=none
 hi CursorLine                            ctermbg=10 cterm=none
