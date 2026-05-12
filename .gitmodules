@@ -41,3 +41,6 @@
 [submodule "nvim/pack/plugins/start/nvim-treesitter"]
 	path = nvim/pack/plugins/start/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+[submodule "nvim/pack/plugins/start/blink.lib"]
+	path = nvim/pack/plugins/start/blink.lib
+	url = https://github.com/saghen/blink.lib.git
