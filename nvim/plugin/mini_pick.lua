@@ -28,7 +28,7 @@ pick.setup {
     delete_left       = '<C-u>',
     delete_word       = '<C-w>',
 
-    mark     = '<C-x>',
+    mark     = '<C-s>',
     mark_all = '<C-a>',
 
     move_down  = '<C-n>',
