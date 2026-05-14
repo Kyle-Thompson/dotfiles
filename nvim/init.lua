@@ -62,6 +62,7 @@ vim.opt.splitright = true     -- horizontal splits open right of current window
 vim.opt.statusline = " %<%f %m %r %w %=%l/%L,%c "
 
 -- visual
+vim.opt.termguicolors = false  -- xres colorscheme uses cterm colors only
 require("colors.xres")
 vim.opt.linebreak = true      -- do not break words on wrap
 vim.opt.list      = false     -- do not show characters at the end of lines
