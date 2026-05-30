@@ -133,6 +133,7 @@ vim.diagnostic.config({
   virtual_text = false,  -- disable inline diagnostics
   signs        = false,  -- disable signs
 })
+-- viml 'autocmd CursorHold * lua vim.diagnostic.open_float()'
 
 vim.api.nvim_create_autocmd('CursorHold', {
   group    = vim.api.nvim_create_augroup("DiagFloat", { clear = true }),
