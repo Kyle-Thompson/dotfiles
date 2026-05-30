@@ -30,6 +30,8 @@ alias nordd='killall transmission-daemon; nordvpn d'
 
 alias vim='nvim -u /dev/null'
 
+alias weather='curl wttr.in'
+
 alias luamake=~/pkg/lua-language-server/3rd/luamake/luamake
 
 alias clippy="cargo clippy --workspace --all-targets --all-features -- \
@@ -79,6 +81,8 @@ export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/pkg/fzf/bin
 export PATH=$PATH:$HOME/.influxdb/
+
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # fix vlc visual bug. TODO: remove when no longer needed
 export QT_AUTO_SCREEN_SCALE_FACTOR=0

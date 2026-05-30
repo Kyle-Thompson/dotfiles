@@ -123,6 +123,8 @@ toolbarseparator,                /* all separators */
 /* url-bar */
 #pageActionButton,               /* */
 #pocket-button-box,              /* */
+.toolbaritem-combined-buttons,
+#jid1-mnnxcxisbpnsxq_jetpack-browser-action,
 #reader-mode-button,             /* activate reader mode */
 .urlbar-history-dropmarker,      /* history dropdown arrow */
 #tracking-protection-icon-container,  /* tracking protection button */
@@ -154,12 +156,18 @@ toolbarseparator,                /* all separators */
 #customization-panelWrapper .panel-arrow { 
   -moz-box-ordinal-group: 0 !important;
   margin-right: -6px !important;
+  position: absolute;
+  left: 0px;
 }
 #appMenu-popup {
   margin-right: -258px !important;
 }
 #appMenu-popup .panel-arrow {
   margin-right: 248px !important;
+}
+#nav-bar-customization-target {
+  position: absolute;
+  left: 30px;
 }
 
 /* fix white bg when opening new tabs -- to fix*/

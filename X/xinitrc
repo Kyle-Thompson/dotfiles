@@ -2,12 +2,23 @@
 
 export WM_NAME=${2:-openbox}
 
+# Make DISPLAY/XAUTHORITY/XDG_CURRENT_DESKTOP visible to the systemd --user
+# instance and the dbus session bus, so xdg-desktop-portal-gtk can connect
+# to X. Without this the gtk portal crashes with "cannot open display:" and
+# Firefox's Save Image As file picker never opens. The "GNOME" suffix in
+# XDG_CURRENT_DESKTOP matches UseIn=gnome in /usr/share/xdg-desktop-portal/
+# portals/gtk.portal so the gtk backend is selected.
+export XDG_CURRENT_DESKTOP="${WM_NAME}:GNOME"
+systemctl --user import-environment DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
+dbus-update-activation-environment --systemd DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE
+systemctl --user reset-failed xdg-desktop-portal-gtk.service xdg-desktop-portal.service 2>/dev/null
+
 gen-xresources | xrdb -load -  # load Xresources
 
 gen-sxhkdrc
 sxhkd -c /tmp/sxhkdrc &
 
-picom --config /dev/null &  # compositor
+picom --config ~/.dotfiles/picom.conf &  # compositor
 screenlayout.sh &   # screenlayout
 wallpaper.sh &      # wallpaper
 xset r rate 200 70  # keyboard key repeat speed
@@ -17,12 +28,24 @@ xset s off          # disable screensaver
 (cd $HOME/.dotfiles && tmux new -d -s config)
 
 # create a tmux session for every project in ~/src
-for d in $(ls $HOME/src 2> /dev/null); do
-  init-workspace.sh $d
-done
+# for d in $(ls $HOME/src 2> /dev/null); do
+#   init-workspace.sh $d
+# done
 
 case $WM_NAME in
     i3)       exec i3 ;;
     openbox)  exec openbox-session ;;
     bspwm)    exec bspwm ;;
+    gnome)
+        export XDG_SESSION_TYPE=x11
+        export GDK_BACKEND=x11
+        exec gnome-session
+        ;;
 esac
+
+if [ -d /etc/X11/xinit/xinitrc.d ] ; then
+ for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
+  [ -x "$f" ] && . "$f"
+ done
+ unset f
+fi
