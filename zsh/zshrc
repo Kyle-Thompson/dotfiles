@@ -114,9 +114,8 @@ export EDITOR=nvim
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f'
 
-# {neo}vimrc
-export VIMRC="$HOME/.vimrc"
-export NEOVIMRC="$HOME/.config/nvim/init.vim"
+# neovimrc
+export NEOVIMRC="$HOME/.config/nvim/init.lua"
 
 # rust flags
 export RUSTFLAGS="-W unreachable-pub -W rust-2021-compatibility"
@@ -244,21 +243,5 @@ ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
 # ======================   Overrides   =========================================
 # ==============================================================================
 
-source ~/.zshrc.local
-
-# >>> conda initialize >>>
-# __conda_setup="$('/home/kthompson/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/home/kthompson/miniconda3/etc/profile.d/conda.sh" ]; then
-#         . "/home/kthompson/miniconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/home/kthompson/miniconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# <<< conda initialize <<<
-
-
-. "$HOME/.local/share/../bin/env"
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+[ -f "$HOME/.local/share/../bin/env" ] && . "$HOME/.local/share/../bin/env"
