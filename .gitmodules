@@ -44,3 +44,42 @@
 [submodule "nvim/pack/plugins/start/blink.lib"]
 	path = nvim/pack/plugins/start/blink.lib
 	url = https://github.com/saghen/blink.lib.git
+[submodule "nvim/pack/plugins/opt/crates.nvim"]
+	path = nvim/pack/plugins/opt/crates.nvim
+	url = https://github.com/Saecki/crates.nvim.git
+[submodule "nvim/pack/plugins/start/auto-pairs"]
+	path = nvim/pack/plugins/start/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs.git
+[submodule "nvim/pack/plugins/start/nvim-dap"]
+	path = nvim/pack/plugins/start/nvim-dap
+	url = https://github.com/mfussenegger/nvim-dap.git
+[submodule "nvim/pack/plugins/start/nvim-dap-ui"]
+	path = nvim/pack/plugins/start/nvim-dap-ui
+	url = https://github.com/rcarriga/nvim-dap-ui.git
+[submodule "nvim/pack/plugins/start/nvim-jdtls"]
+	path = nvim/pack/plugins/start/nvim-jdtls
+	url = https://github.com/mfussenegger/nvim-jdtls.git
+[submodule "nvim/pack/plugins/start/nvim-lsp"]
+	path = nvim/pack/plugins/start/nvim-lsp
+	url = https://github.com/neovim/nvim-lspconfig.git
+[submodule "nvim/pack/plugins/start/playground"]
+	path = nvim/pack/plugins/start/playground
+	url = https://github.com/nvim-treesitter/playground.git
+[submodule "nvim/pack/plugins/start/plenary.nvim"]
+	path = nvim/pack/plugins/start/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim.git
+[submodule "nvim/pack/plugins/start/popup.nvim"]
+	path = nvim/pack/plugins/start/popup.nvim
+	url = https://github.com/nvim-lua/popup.nvim.git
+[submodule "nvim/pack/plugins/start/rust-tools.nvim"]
+	path = nvim/pack/plugins/start/rust-tools.nvim
+	url = https://github.com/simrat39/rust-tools.nvim.git
+[submodule "nvim/pack/plugins/start/tagbar"]
+	path = nvim/pack/plugins/start/tagbar
+	url = https://github.com/preservim/tagbar.git
+[submodule "nvim/pack/plugins/start/vim-commentary"]
+	path = nvim/pack/plugins/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "nvim/pack/plugins/start/vim-easy-align"]
+	path = nvim/pack/plugins/start/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align.git
