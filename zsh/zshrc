@@ -1,11 +1,9 @@
-#/usr/bin/zsh
-
 # ==============================================================================
 # ======================   Aliases   ===========================================
 # ==============================================================================
 
 alias ls='ls --color=auto'
-alias ll='ls -lhG'
+alias ll='ls -lh'
 
 alias nif='nvim $(fzf --reverse -m --preview \
                       "bat --style=numbers --color=always {} | head -100" \
@@ -75,6 +73,8 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # ======================   Exports   ===========================================
 # ==============================================================================
 
+typeset -U path PATH          # keep PATH free of duplicate entries
+
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.luarocks/bin
 export PATH=$PATH:$HOME/bin
@@ -127,7 +127,7 @@ export RUST_BACKTRACE=1
 # ==============================================================================
 
 function mkcd() {
-  mkdir -p $1 && cd $1
+  mkdir -p "$1" && cd "$1"
 }
 
 function vlcf() {
@@ -167,6 +167,7 @@ done
 # ==============================================================================
 
 setopt histignorealldups
+setopt SHARE_HISTORY HIST_IGNORE_SPACE HIST_REDUCE_BLANKS EXTENDED_HISTORY
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=$XDG_DATA_HOME/zsh_history
