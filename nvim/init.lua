@@ -22,6 +22,13 @@ vim.opt.updatetime = 300      -- CursorHold autocmd triggers after x millisecond
 vim.g.netrw_dirhistmax = 0    -- no netrwhist file
 vim.g.netrw_banner     = 0    -- no top comments
 
+-- providers
+-- disable unused remote-plugin hosts (no remote plugins in use)
+vim.g.loaded_node_provider    = 0
+vim.g.loaded_perl_provider    = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider    = 0
+
 -- safety files
 vim.opt.swapfile = false      -- do not create swap files
 vim.opt.backup   = false      -- do not create backup files
