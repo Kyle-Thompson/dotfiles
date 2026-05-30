@@ -23,6 +23,7 @@
   mb = merge-base HEAD origin/main
   pf = push --force-with-lease
   rb = rebase origin/main
+  sn = show --name-only
   squash = !git rebase -i $(git mb)
   st = status
   sync = !git squash && git frb
